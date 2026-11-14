@@ -1285,25 +1285,59 @@ html{scroll-behavior:smooth}
 .pr .sh-not span{display:block;font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(22px,2.2vw,27px);line-height:1.3;color:var(--pink);margin-bottom:8px}
 @media(max-width:820px){.pr .sh-pain .pr-ph{min-height:300px}}
 
-/* ---- el proceso: 6 pasos con flechas ---- */
+/* ---- el proceso: carrusel de 6 pasos (sin JavaScript) ---- */
 .pr .sh-proc h2 b{color:var(--cherry)}
-.pr .sh-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:30px 44px}
-.pr .sh-steps li{position:relative;background:var(--cream);border-radius:26px;padding:28px 26px 30px;box-shadow:0 12px 26px rgba(155,31,58,.1);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
-.pr .sh-steps li:nth-child(odd){transform:rotate(-.8deg)}
-.pr .sh-steps li:nth-child(even){transform:rotate(.8deg);background:#fff}
-.pr .sh-steps li:hover{transform:rotate(0) translateY(-6px)}
-.pr .sh-n{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:var(--cherry);color:var(--cream);font-family:'Noto Serif',serif;font-weight:700;font-size:18px;margin-bottom:18px}
-.pr .sh-steps li:nth-child(even) .sh-n{background:var(--pink)}
-.pr .sh-steps h3{margin-bottom:10px}
-.pr .sh-steps p{font-size:15.5px;line-height:1.6}
-/* flechas solo dentro de cada fila: se lee 1-2-3 y abajo 4-5-6, como un texto */
-.pr .sh-steps li::after{content:"→";position:absolute;top:50%;right:-36px;transform:translateY(-50%);font-size:26px;line-height:1;color:var(--cherry)}
-.pr .sh-steps li:nth-child(3n)::after{content:none}
-@media(max-width:900px){
-  .pr .sh-steps{grid-template-columns:1fr;max-width:480px;margin:0 auto;gap:44px}
-  .pr .sh-steps li::after,.pr .sh-steps li:nth-child(3n)::after{content:"↓";top:auto;bottom:-38px;right:50%;transform:translateX(50%)}
-  .pr .sh-steps li:last-child::after{content:none}
+.pr .sh-car{--w:min(600px,84vw);--gap:22px;--i:0;overflow:hidden;padding:10px 0 18px}
+.pr .sh-track{display:flex;gap:var(--gap);padding-left:calc(50% - var(--w) / 2);transform:translateX(calc(var(--i) * -1 * (var(--w) + var(--gap))));transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.pr .sh-slide{position:relative;flex:0 0 var(--w);min-height:270px;display:flex;flex-direction:column;justify-content:center;background:var(--cream);border-radius:30px;padding:36px 40px 36px 190px;box-shadow:0 16px 34px rgba(155,31,58,.12);cursor:pointer;opacity:.45;transform:scale(.92);transition:opacity .4s,transform .55s cubic-bezier(.2,.7,.2,1)}
+.pr .sh-slide:nth-child(even){background:#fff}
+.pr .sh-big{position:absolute;left:34px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:126px;height:126px;border-radius:50%;background:var(--cherry);color:var(--cream);font-family:'Noto Serif',serif;font-weight:700;font-size:50px;line-height:1}
+.pr .sh-slide:nth-child(even) .sh-big{background:var(--pink)}
+.pr .sh-of{font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cherry);margin-bottom:8px}
+.pr .sh-slide h3{font-size:clamp(22px,2.3vw,28px);margin-bottom:12px}
+.pr .sh-slide p{font-size:16px;line-height:1.6}
+.pr .sh-ctrl{display:flex;justify-content:center;align-items:center;gap:22px}
+.pr .sh-arr label{display:none;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--cherry);color:var(--cream);cursor:pointer;box-shadow:0 8px 18px rgba(155,31,58,.22);transition:background .2s,transform .2s}
+.pr .sh-arr label:hover{background:var(--wine);transform:scale(1.06)}
+.pr .sh-arr svg{width:22px;height:22px;display:block}
+.pr .sh-dots{display:flex;gap:10px}
+.pr .sh-dots label{width:11px;height:11px;border-radius:999px;background:rgba(155,31,58,.25);cursor:pointer;transition:width .3s,background .3s}
+@media(max-width:700px){
+  .pr .sh-slide{padding:94px 24px 28px;min-height:0;justify-content:flex-start}
+  .pr .sh-big{left:24px;top:24px;transform:none;width:58px;height:58px;font-size:22px}
+  .pr .sh-of{position:absolute;left:96px;top:44px;margin:0}
 }
+@media(prefers-reduced-motion:reduce){.pr .sh-track,.pr .sh-slide{transition:none}}
+#sh-p0:checked~.sh-car{--i:0}
+#sh-p0:checked~.sh-car .sh-slide:nth-child(1){opacity:1;transform:none;cursor:default}
+#sh-p0:checked~.sh-ctrl .a0{display:grid}
+#sh-p0:checked~.sh-ctrl .sh-dots label:nth-child(1){width:30px;background:var(--cherry)}
+#sh-p0:focus-visible~.sh-car .sh-slide:nth-child(1){outline:3px solid var(--cherry);outline-offset:4px}
+#sh-p1:checked~.sh-car{--i:1}
+#sh-p1:checked~.sh-car .sh-slide:nth-child(2){opacity:1;transform:none;cursor:default}
+#sh-p1:checked~.sh-ctrl .a1{display:grid}
+#sh-p1:checked~.sh-ctrl .sh-dots label:nth-child(2){width:30px;background:var(--cherry)}
+#sh-p1:focus-visible~.sh-car .sh-slide:nth-child(2){outline:3px solid var(--cherry);outline-offset:4px}
+#sh-p2:checked~.sh-car{--i:2}
+#sh-p2:checked~.sh-car .sh-slide:nth-child(3){opacity:1;transform:none;cursor:default}
+#sh-p2:checked~.sh-ctrl .a2{display:grid}
+#sh-p2:checked~.sh-ctrl .sh-dots label:nth-child(3){width:30px;background:var(--cherry)}
+#sh-p2:focus-visible~.sh-car .sh-slide:nth-child(3){outline:3px solid var(--cherry);outline-offset:4px}
+#sh-p3:checked~.sh-car{--i:3}
+#sh-p3:checked~.sh-car .sh-slide:nth-child(4){opacity:1;transform:none;cursor:default}
+#sh-p3:checked~.sh-ctrl .a3{display:grid}
+#sh-p3:checked~.sh-ctrl .sh-dots label:nth-child(4){width:30px;background:var(--cherry)}
+#sh-p3:focus-visible~.sh-car .sh-slide:nth-child(4){outline:3px solid var(--cherry);outline-offset:4px}
+#sh-p4:checked~.sh-car{--i:4}
+#sh-p4:checked~.sh-car .sh-slide:nth-child(5){opacity:1;transform:none;cursor:default}
+#sh-p4:checked~.sh-ctrl .a4{display:grid}
+#sh-p4:checked~.sh-ctrl .sh-dots label:nth-child(5){width:30px;background:var(--cherry)}
+#sh-p4:focus-visible~.sh-car .sh-slide:nth-child(5){outline:3px solid var(--cherry);outline-offset:4px}
+#sh-p5:checked~.sh-car{--i:5}
+#sh-p5:checked~.sh-car .sh-slide:nth-child(6){opacity:1;transform:none;cursor:default}
+#sh-p5:checked~.sh-ctrl .a5{display:grid}
+#sh-p5:checked~.sh-ctrl .sh-dots label:nth-child(6){width:30px;background:var(--cherry)}
+#sh-p5:focus-visible~.sh-car .sh-slide:nth-child(6){outline:3px solid var(--cherry);outline-offset:4px}
 
 /* ---- qué incluye: tarjetas sobre cereza ---- */
 .pr .sh-inc .pr-gets{grid-template-columns:repeat(4,1fr);margin-bottom:0}
@@ -1367,9 +1401,13 @@ html{scroll-behavior:smooth}
 /* "Sumate hoy, te espero." se escribe sola al llegar (donde el navegador lo permite; si no, se ve fija) */
 .pr .sh-sign{font-family:'Yellowtail',cursive;font-size:clamp(36px,4.6vw,52px);line-height:1.2;color:var(--cherry);margin:22px 0 26px}
 .pr .sh-tw{display:inline-block;white-space:nowrap;position:relative;padding:140px 0;margin:-140px 0;pointer-events:none}
+/* el palito que titila, siempre al final de la frase */
+.pr .sh-tw::after{content:"";position:absolute;top:148px;bottom:146px;width:2px;left:calc(100% + 4px);background:var(--cherry);animation:pr-blk 1s steps(1,end) infinite}
+/* como pr-ty, pero deja ver el palito a la derecha de la última letra */
+@keyframes sh-ty{from{clip-path:inset(-15% 100% -15% 0)}to{clip-path:inset(-15% -12px -15% 0)}}
 @supports (animation-timeline:view()){
-  .pr .sh-tw{animation:pr-ty both;animation-timing-function:steps(22,end);animation-timeline:view();animation-range:entry 30% entry 90%}
-  .pr .sh-tw::after{content:"";position:absolute;top:148px;bottom:146px;width:2px;left:0;background:var(--cherry);
+  .pr .sh-tw{animation:sh-ty both;animation-timing-function:steps(22,end);animation-timeline:view();animation-range:entry 30% entry 90%}
+  .pr .sh-tw::after{left:0;
     animation:pr-cur both,pr-blk 1s steps(1,end) infinite;
     animation-timing-function:steps(22,end),steps(1,end);
     animation-timeline:view(),auto;animation-range:entry 30% entry 90%,normal}
@@ -1377,7 +1415,8 @@ html{scroll-behavior:smooth}
 
 @media(prefers-reduced-motion:reduce){
   .pr .sh-hero-ph img{animation:none}
-  .pr .sh-tw,.pr .sh-tw::after{animation:none}
+  .pr .sh-tw{animation:none}
+  .pr .sh-tw::after{left:calc(100% + 4px);animation:pr-blk 1s steps(1,end) infinite}
 }
 
 /* ---- testimonios en pila: estados generados por armar.py ---- */
@@ -1438,7 +1477,6 @@ html{scroll-behavior:smooth}
   <header class="sh-hero sh-yel-stripes">
     <div class="pr-wrap sh-hero-in">
       <div class="sh-hero-tx">
-        <p class="sh-pill"><b>Taller online</b> para emprender con sahumerios</p>
         <h1 class="sh-title"><span class="sh-t1">Taller</span><span class="sh-t2">de sahumerios</span></h1>
         <p class="sh-claim">Creá sahumerios desde cero y <b>convertilos en un producto que puedas vender.</b></p>
         <p class="lead">Clases grabadas + guía completa con las recetas y el proceso que uso en mi negocio todos los días. Toda la información en un solo lugar para que dejes de buscar, probar y dudar.</p>
@@ -1479,21 +1517,35 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
-  <!-- ¿QUÉ ES ESTE TALLER? seis pasos -->
+  <!-- ¿QUÉ ES ESTE TALLER? carrusel de 6 pasos SIN JavaScript: cada botón de radio es un paso;
+       las flechas, los puntitos y las tarjetas de los costados son etiquetas que eligen otro. -->
   <section class="pr-sec pr-bg-yellow sh-proc" id="incluye">
     <div class="pr-wrap">
-      <div class="pr-head" style="margin-bottom:52px">
+      <div class="pr-head" style="margin-bottom:40px">
         <span class="lbl">¿Qué es este taller?</span>
         <h2>Más que aprender a hacer sahumerios, <b>es un proceso para crear un producto desde cero.</b></h2>
       </div>
-      <ol class="sh-steps">
-        <li><span class="sh-n">01</span><h3>Entendés lo que hacés</h3><p>No copiás recetas. Entendés a los ingredientes, las proporciones y por qué usamos tal ingrediente y no el otro.</p></li>
-        <li><span class="sh-n">02</span><h3>Tenés un paso a paso claro</h3><p>Sabés qué hacer desde la mezcla hasta el secado, sin tener que adivinar cuál es el próximo paso.</p></li>
-        <li><span class="sh-n">03</span><h3>Aprendés a lograr un buen resultado</h3><p>Sahumerios que prendan, duren y tengan buen aroma para que puedas ofrecer un producto de calidad.</p></li>
-        <li><span class="sh-n">04</span><h3>Sumás valor visual al producto</h3><p>Color, terminaciones y detalles que hacen que tu producto se vea más cuidado, más atractivo y más vendible.</p></li>
-        <li><span class="sh-n">05</span><h3>Aplicás mientras aprendés</h3><p>No es teoría para acumular. Vas creando mientras avanzás y entendiendo el proceso en la práctica.</p></li>
-        <li><span class="sh-n">06</span><h3>Podés repetir el proceso</h3><p>No hacés “una vez bien”. Tenés un sistema para sostenerlo y volver a crear con más seguridad.</p></li>
-      </ol>
+    </div>
+    <input type="radio" name="sh-p" id="sh-p0" class="pr-tr" checked aria-label="Paso 1 de 6">
+    <input type="radio" name="sh-p" id="sh-p1" class="pr-tr" aria-label="Paso 2 de 6">
+    <input type="radio" name="sh-p" id="sh-p2" class="pr-tr" aria-label="Paso 3 de 6">
+    <input type="radio" name="sh-p" id="sh-p3" class="pr-tr" aria-label="Paso 4 de 6">
+    <input type="radio" name="sh-p" id="sh-p4" class="pr-tr" aria-label="Paso 5 de 6">
+    <input type="radio" name="sh-p" id="sh-p5" class="pr-tr" aria-label="Paso 6 de 6">
+    <div class="sh-car">
+      <div class="sh-track">
+        <label for="sh-p0" class="sh-slide"><span class="sh-big">01</span><span class="sh-of">Paso 1 de 6</span><h3>Entendés lo que hacés</h3><p>No copiás recetas. Entendés a los ingredientes, las proporciones y por qué usamos tal ingrediente y no el otro.</p></label>
+        <label for="sh-p1" class="sh-slide"><span class="sh-big">02</span><span class="sh-of">Paso 2 de 6</span><h3>Tenés un paso a paso claro</h3><p>Sabés qué hacer desde la mezcla hasta el secado, sin tener que adivinar cuál es el próximo paso.</p></label>
+        <label for="sh-p2" class="sh-slide"><span class="sh-big">03</span><span class="sh-of">Paso 3 de 6</span><h3>Aprendés a lograr un buen resultado</h3><p>Sahumerios que prendan, duren y tengan buen aroma para que puedas ofrecer un producto de calidad.</p></label>
+        <label for="sh-p3" class="sh-slide"><span class="sh-big">04</span><span class="sh-of">Paso 4 de 6</span><h3>Sumás valor visual al producto</h3><p>Color, terminaciones y detalles que hacen que tu producto se vea más cuidado, más atractivo y más vendible.</p></label>
+        <label for="sh-p4" class="sh-slide"><span class="sh-big">05</span><span class="sh-of">Paso 5 de 6</span><h3>Aplicás mientras aprendés</h3><p>No es teoría para acumular. Vas creando mientras avanzás y entendiendo el proceso en la práctica.</p></label>
+        <label for="sh-p5" class="sh-slide"><span class="sh-big">06</span><span class="sh-of">Paso 6 de 6</span><h3>Podés repetir el proceso</h3><p>No hacés “una vez bien”. Tenés un sistema para sostenerlo y volver a crear con más seguridad.</p></label>
+      </div>
+    </div>
+    <div class="sh-ctrl">
+      <div class="sh-arr"><label for="sh-p5" class="sh-prev a0" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p0" class="sh-prev a1" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p1" class="sh-prev a2" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p2" class="sh-prev a3" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p3" class="sh-prev a4" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p4" class="sh-prev a5" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label></div>
+      <div class="sh-dots"><label for="sh-p0" aria-label="Ir al paso 1"></label><label for="sh-p1" aria-label="Ir al paso 2"></label><label for="sh-p2" aria-label="Ir al paso 3"></label><label for="sh-p3" aria-label="Ir al paso 4"></label><label for="sh-p4" aria-label="Ir al paso 5"></label><label for="sh-p5" aria-label="Ir al paso 6"></label></div>
+      <div class="sh-arr"><label for="sh-p1" class="sh-next a0" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p2" class="sh-next a1" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p3" class="sh-next a2" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p4" class="sh-next a3" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p5" class="sh-next a4" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p0" class="sh-next a5" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label></div>
     </div>
   </section>
 
@@ -1537,14 +1589,6 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
-
-  <!-- CINTA GRANDE antes del precio -->
-  <div class="pr-mq big wn"><div class="pr-mq-track">
-    <div class="pr-mq-grp"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-    <div class="pr-mq-grp" aria-hidden="true"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-    <div class="pr-mq-grp" aria-hidden="true"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-    <div class="pr-mq-grp" aria-hidden="true"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-  </div></div>
 
   <!-- PRECIO -->
   <section class="pr-sec sh-price sh-pink-stripes" id="comprar">

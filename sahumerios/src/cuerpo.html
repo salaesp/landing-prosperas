@@ -6,7 +6,6 @@
   <header class="sh-hero sh-yel-stripes">
     <div class="pr-wrap sh-hero-in">
       <div class="sh-hero-tx">
-        <p class="sh-pill"><b>Taller online</b> para emprender con sahumerios</p>
         <h1 class="sh-title"><span class="sh-t1">Taller</span><span class="sh-t2">de sahumerios</span></h1>
         <p class="sh-claim">Creá sahumerios desde cero y <b>convertilos en un producto que puedas vender.</b></p>
         <p class="lead">Clases grabadas + guía completa con las recetas y el proceso que uso en mi negocio todos los días. Toda la información en un solo lugar para que dejes de buscar, probar y dudar.</p>
@@ -47,21 +46,35 @@
     </div>
   </section>
 
-  <!-- ¿QUÉ ES ESTE TALLER? seis pasos -->
+  <!-- ¿QUÉ ES ESTE TALLER? carrusel de 6 pasos SIN JavaScript: cada botón de radio es un paso;
+       las flechas, los puntitos y las tarjetas de los costados son etiquetas que eligen otro. -->
   <section class="pr-sec pr-bg-yellow sh-proc" id="incluye">
     <div class="pr-wrap">
-      <div class="pr-head" style="margin-bottom:52px">
+      <div class="pr-head" style="margin-bottom:40px">
         <span class="lbl">¿Qué es este taller?</span>
         <h2>Más que aprender a hacer sahumerios, <b>es un proceso para crear un producto desde cero.</b></h2>
       </div>
-      <ol class="sh-steps">
-        <li><span class="sh-n">01</span><h3>Entendés lo que hacés</h3><p>No copiás recetas. Entendés a los ingredientes, las proporciones y por qué usamos tal ingrediente y no el otro.</p></li>
-        <li><span class="sh-n">02</span><h3>Tenés un paso a paso claro</h3><p>Sabés qué hacer desde la mezcla hasta el secado, sin tener que adivinar cuál es el próximo paso.</p></li>
-        <li><span class="sh-n">03</span><h3>Aprendés a lograr un buen resultado</h3><p>Sahumerios que prendan, duren y tengan buen aroma para que puedas ofrecer un producto de calidad.</p></li>
-        <li><span class="sh-n">04</span><h3>Sumás valor visual al producto</h3><p>Color, terminaciones y detalles que hacen que tu producto se vea más cuidado, más atractivo y más vendible.</p></li>
-        <li><span class="sh-n">05</span><h3>Aplicás mientras aprendés</h3><p>No es teoría para acumular. Vas creando mientras avanzás y entendiendo el proceso en la práctica.</p></li>
-        <li><span class="sh-n">06</span><h3>Podés repetir el proceso</h3><p>No hacés “una vez bien”. Tenés un sistema para sostenerlo y volver a crear con más seguridad.</p></li>
-      </ol>
+    </div>
+    <input type="radio" name="sh-p" id="sh-p0" class="pr-tr" checked aria-label="Paso 1 de 6">
+    <input type="radio" name="sh-p" id="sh-p1" class="pr-tr" aria-label="Paso 2 de 6">
+    <input type="radio" name="sh-p" id="sh-p2" class="pr-tr" aria-label="Paso 3 de 6">
+    <input type="radio" name="sh-p" id="sh-p3" class="pr-tr" aria-label="Paso 4 de 6">
+    <input type="radio" name="sh-p" id="sh-p4" class="pr-tr" aria-label="Paso 5 de 6">
+    <input type="radio" name="sh-p" id="sh-p5" class="pr-tr" aria-label="Paso 6 de 6">
+    <div class="sh-car">
+      <div class="sh-track">
+        <label for="sh-p0" class="sh-slide"><span class="sh-big">01</span><span class="sh-of">Paso 1 de 6</span><h3>Entendés lo que hacés</h3><p>No copiás recetas. Entendés a los ingredientes, las proporciones y por qué usamos tal ingrediente y no el otro.</p></label>
+        <label for="sh-p1" class="sh-slide"><span class="sh-big">02</span><span class="sh-of">Paso 2 de 6</span><h3>Tenés un paso a paso claro</h3><p>Sabés qué hacer desde la mezcla hasta el secado, sin tener que adivinar cuál es el próximo paso.</p></label>
+        <label for="sh-p2" class="sh-slide"><span class="sh-big">03</span><span class="sh-of">Paso 3 de 6</span><h3>Aprendés a lograr un buen resultado</h3><p>Sahumerios que prendan, duren y tengan buen aroma para que puedas ofrecer un producto de calidad.</p></label>
+        <label for="sh-p3" class="sh-slide"><span class="sh-big">04</span><span class="sh-of">Paso 4 de 6</span><h3>Sumás valor visual al producto</h3><p>Color, terminaciones y detalles que hacen que tu producto se vea más cuidado, más atractivo y más vendible.</p></label>
+        <label for="sh-p4" class="sh-slide"><span class="sh-big">05</span><span class="sh-of">Paso 5 de 6</span><h3>Aplicás mientras aprendés</h3><p>No es teoría para acumular. Vas creando mientras avanzás y entendiendo el proceso en la práctica.</p></label>
+        <label for="sh-p5" class="sh-slide"><span class="sh-big">06</span><span class="sh-of">Paso 6 de 6</span><h3>Podés repetir el proceso</h3><p>No hacés “una vez bien”. Tenés un sistema para sostenerlo y volver a crear con más seguridad.</p></label>
+      </div>
+    </div>
+    <div class="sh-ctrl">
+      <div class="sh-arr"><label for="sh-p5" class="sh-prev a0" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p0" class="sh-prev a1" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p1" class="sh-prev a2" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p2" class="sh-prev a3" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p3" class="sh-prev a4" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p4" class="sh-prev a5" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label></div>
+      <div class="sh-dots"><label for="sh-p0" aria-label="Ir al paso 1"></label><label for="sh-p1" aria-label="Ir al paso 2"></label><label for="sh-p2" aria-label="Ir al paso 3"></label><label for="sh-p3" aria-label="Ir al paso 4"></label><label for="sh-p4" aria-label="Ir al paso 5"></label><label for="sh-p5" aria-label="Ir al paso 6"></label></div>
+      <div class="sh-arr"><label for="sh-p1" class="sh-next a0" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p2" class="sh-next a1" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p3" class="sh-next a2" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p4" class="sh-next a3" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p5" class="sh-next a4" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="sh-p0" class="sh-next a5" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></label></div>
     </div>
   </section>
 
@@ -105,14 +118,6 @@
       </div>
     </div>
   </section>
-
-  <!-- CINTA GRANDE antes del precio -->
-  <div class="pr-mq big wn"><div class="pr-mq-track">
-    <div class="pr-mq-grp"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-    <div class="pr-mq-grp" aria-hidden="true"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-    <div class="pr-mq-grp" aria-hidden="true"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-    <div class="pr-mq-grp" aria-hidden="true"><span>Dejá de buscar, probar y dudar</span><span>Toda la información en un solo lugar</span></div>
-  </div></div>
 
   <!-- PRECIO -->
   <section class="pr-sec sh-price sh-pink-stripes" id="comprar">
