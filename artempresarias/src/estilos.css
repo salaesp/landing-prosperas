@@ -231,3 +231,21 @@ html{scroll-behavior:smooth}
 .pr .ae-hero .lead{margin-bottom:26px}
 .pr .ae-pay .pr-lede{margin-top:14px}
 .pr .ae-pay .pr-plans3{max-width:840px}
+
+/* ============================================================
+   COLOR DE LA PORTADA: bordó dominante + celeste de la letra
+   (solo esta página: las demás también usan la clase .ae)
+   El bordó toma el lugar del cereza y el celeste el del amarillo.
+============================================================ */
+#artempresarias{--cherry:#9b1f3a;--yellow:#b5d8f1;--blue-lt:#e3f0fa}
+#artempresarias .ae-stripes{background:repeating-linear-gradient(90deg,#9b1f3a 0 30px,#8a1a33 30px 60px)}
+#artempresarias .ae-hero{border-bottom:1px solid #8a1a33}
+#artempresarias .ae-logo span{color:var(--yellow)}
+#artempresarias .pr-btn:not(.cream):hover{background:#7a1730;border-color:#7a1730}
+/* los rosas claros pasan a celeste claro */
+#artempresarias .ae-path,#artempresarias .pr-tx.ae-pink,#artempresarias .ae-yv>div,#artempresarias .ae-alt{background:var(--blue-lt)}
+#artempresarias .ae-yv>div:nth-child(2){background:var(--yellow)}
+/* cita sobre celeste */
+#artempresarias .ae-quote{color:var(--wine)}
+#artempresarias .ae-quote h2{color:var(--wine)}
+#artempresarias .ae-quote h2 b{color:var(--wine)}
