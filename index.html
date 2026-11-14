@@ -609,6 +609,19 @@ html{scroll-behavior:smooth}
 .pr .pr-gi .pr-mascot{width:.9em;margin-left:.15em;vertical-align:-.1em}
 .pr .pr-gi.qa strong .pr-mascot{width:.7em;vertical-align:.35em}
 
+/* estrellas de fondo esfumadas (imagen SVG + blur: el blur se aplica a la imagen, no se recorta) */
+.pr .pr-gi{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50,0 61,39 100,50 61,61 50,100 39,61 0,50 39,39' fill='%23ee6da6' fill-opacity='0.55'/%3E%3C/svg%3E")}
+.pr .pr-gi.wine{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50,0 61,39 100,50 61,61 50,100 39,61 0,50 39,39' fill='%23ee6da6' fill-opacity='0.6'/%3E%3C/svg%3E")}
+.pr .pr-gi.pink{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50,0 61,39 100,50 61,61 50,100 39,61 0,50 39,39' fill='%239b1f3a' fill-opacity='0.45'/%3E%3C/svg%3E")}
+.pr .pr-gi.cream{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50,0 61,39 100,50 61,61 50,100 39,61 0,50 39,39' fill='%23f48fb7' fill-opacity='0.55'/%3E%3C/svg%3E")}
+.pr .pr-gi::before,.pr .pr-gi::after{width:46%;background:var(--starimg) center/contain no-repeat;filter:blur(13px);clip-path:none}
+.pr .pr-gi::before{top:-24%;right:-14%}
+.pr .pr-gi::after{bottom:-30%;left:-15%}
+.pr .pr-gi::before,.pr .pr-gi::after{width:72%;filter:blur(6px)}
+.pr .pr-gi::before{top:-38%;right:-22%}
+.pr .pr-gi::after{bottom:-44%;left:-24%}
+.pr .pr-gi{--sa:.8}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
