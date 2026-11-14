@@ -1,6 +1,6 @@
 # Feedback para la landing de Prósperas (juntando datos)
 
-> **No arrancar hasta que diga "ahora hacelo".**
+> **Versión 2 armada en `index.html`** (se genera con `python3 src/armar.py` a partir de `index-original.html`, `src/nuevo.css` y `src/cuerpo.html`).
 
 Referencia: https://www.andreabadillo.com/the-c-network (landing de Andrea / "Andy").
 Todo respetando la imagen y la marca de Cherry Glow.
