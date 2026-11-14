@@ -425,3 +425,21 @@ html{scroll-behavior:smooth}
   .pr .pr-tnav svg{width:18px;height:36px}
   .pr .pr-tnav.prev{left:2px}.pr .pr-tnav.next{right:2px}
 }
+
+/* ---- testimonios en pila con foco ---- */
+.pr .pr-tstack{position:relative;height:580px;touch-action:pan-y;user-select:none}
+.pr .pr-tstack .pr-tc{position:absolute;left:50%;top:50%;width:300px;cursor:pointer;
+  transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .55s,opacity .55s;box-shadow:0 18px 38px rgba(155,31,58,.18)}
+.pr .pr-tstack .pr-tc.on{cursor:default;box-shadow:0 24px 50px rgba(155,31,58,.28)}
+.pr .pr-tstack .pr-tc img{max-height:540px;pointer-events:none}
+.pr .pr-tnav.prev{left:calc(50% - 220px)}
+.pr .pr-tnav.next{right:calc(50% - 220px)}
+.pr .pr-tnav{z-index:30;transform:translateY(-50%)}
+@keyframes pr-flL{0%,100%{transform:translate(0,-50%)}50%{transform:translate(-6px,-50%)}}
+@keyframes pr-flR{0%,100%{transform:translate(0,-50%)}50%{transform:translate(6px,-50%)}}
+@media(max-width:820px){
+  .pr .pr-tstack{height:500px}
+  .pr .pr-tstack .pr-tc{width:min(270px,70vw)}
+  .pr .pr-tstack .pr-tc img{max-height:460px}
+  .pr .pr-tnav.prev{left:4px}.pr .pr-tnav.next{right:4px}
+}
