@@ -1331,19 +1331,23 @@ html{scroll-behavior:smooth}
 .pr .vy-mods .ae-grid{grid-template-columns:1fr 1fr;align-items:start}
 .pr .vy-mods .ae-area,.pr .vy-mods .ae-area:nth-child(4){grid-column:auto}
 .pr .vy-mods .ae-area:nth-child(odd) .ae-num{background:var(--blue)}
-/* el desplegable como botón: pastilla cereza con el + en un círculo que late */
-.pr .vy-mods .ae-area details{border-top:0;margin-top:14px}
-.pr .vy-mods .ae-area summary{display:inline-flex;align-items:center;gap:12px;padding:10px 10px 10px 20px;border-radius:999px;background:var(--cherry);color:var(--cream);font-size:12.5px;letter-spacing:.12em;box-shadow:0 8px 18px rgba(207,33,108,.25);transition:background .2s,transform .2s,box-shadow .2s}
-.pr .vy-mods .ae-area summary:hover{background:var(--wine);transform:translateY(-2px);box-shadow:0 12px 22px rgba(155,31,58,.28)}
-.pr .vy-mods .ae-area summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.pr .vy-mods .ae-area summary::after{content:"+";display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--cream);color:var(--cherry);font-size:20px;font-weight:500;line-height:1;animation:vy-pulse 2.2s ease-in-out infinite}
-.pr .vy-mods .ae-area details[open] summary{background:transparent;color:var(--cherry);box-shadow:none;border:1.5px solid var(--cherry);padding:8.5px 8.5px 8.5px 18.5px}
-.pr .vy-mods .ae-area details[open] summary::after{content:"–";background:var(--cherry);color:var(--cream);animation:none}
-@keyframes vy-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,248,252,.7)}50%{box-shadow:0 0 0 6px rgba(255,248,252,0)}}
-@media(prefers-reduced-motion:reduce){.pr .vy-mods .ae-area summary::after{animation:none}}
-.pr .vy-mods .ae-area .ae-list{padding:12px 0 6px}
+/* el contenido de cada módulo siempre a la vista: los ítems entran de a uno cuando la tarjeta llega a la pantalla
+   (donde el navegador no soporta animaciones por scroll, se ven fijos) */
+.pr .vy-learn{margin-top:16px;padding-top:4px;border-top:1px solid var(--line)}
+.pr .vy-learn .ae-kicker2{margin:14px 0 4px}
+@supports (animation-timeline:view()){
+  .pr .vy-learn li,.pr .vy-learn .vy-note{animation:vy-in linear both;animation-timeline:view();animation-range:entry 10% entry 70%}
+  .pr .vy-learn li:nth-child(2){animation-range:entry 14% entry 74%}
+  .pr .vy-learn li:nth-child(3){animation-range:entry 18% entry 78%}
+  .pr .vy-learn li:nth-child(4){animation-range:entry 22% entry 82%}
+  .pr .vy-learn li:nth-child(5){animation-range:entry 26% entry 86%}
+  .pr .vy-learn li:nth-child(n+6){animation-range:entry 30% entry 90%}
+}
+@keyframes vy-in{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pr .vy-learn li,.pr .vy-learn .vy-note{animation:none}}
+.pr .vy-mods .ae-area .ae-list{padding:6px 0 0}
 .pr .vy-mods .ae-area .ae-list li{font-size:15.5px}
-.pr .vy-note{margin:4px 0 6px;padding:12px 16px;background:var(--cream);border-left:3px solid var(--blue);border-radius:12px;font-size:15px!important}
+.pr .vy-note{margin:16px 0 0;padding:12px 16px;background:var(--cream);border-left:3px solid var(--blue);border-radius:12px;font-size:15px!important}
 .pr .vy-inc h2 b{color:var(--cherry)}
 .pr .vy-extras{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .pr .vy-extras>div{background:var(--cream);box-shadow:0 12px 26px rgba(155,31,58,.1);border-radius:24px;padding:26px 22px}
@@ -1465,7 +1469,7 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
-  <!-- TODO LO QUE VAS A APRENDER: 4 módulos con desplegable + lo que incluye -->
+  <!-- TODO LO QUE VAS A APRENDER: 4 módulos, el contenido siempre visible; los ítems aparecen de a uno al llegar (solo CSS) -->
   <section class="pr-sec ae-areas vy-mods" id="aprendes">
     <div class="pr-wrap">
       <div class="pr-head" style="margin-bottom:48px">
@@ -1474,7 +1478,7 @@ html{scroll-behavior:smooth}
         <p class="pr-lede">Cuatro módulos para aprender a crear tus productos desde cero, entender la técnica y empezar a darle forma a tu propio proyecto.</p>
       </div>
       <div class="ae-grid">
-        <article class="ae-area"><span class="ae-num">1</span><h3>Velas en recipientes</h3><p class="q">Todo lo necesario para formular, preparar y evaluar tus velas.</p><details><summary>Ver qué aprendés</summary><ul class="ae-list">
+        <article class="ae-area"><span class="ae-num">1</span><h3>Velas en recipientes</h3><p class="q">Todo lo necesario para formular, preparar y evaluar tus velas.</p><div class="vy-learn"><p class="ae-kicker2">Qué aprendés</p><ul class="ae-list">
           <li>Tipos de ceras.</li>
           <li>Pabilos y cómo elegir el correcto.</li>
           <li>Plantilla para medir tu recipiente.</li>
@@ -1484,26 +1488,26 @@ html{scroll-behavior:smooth}
           <li>Pruebas de quemado.</li>
           <li>Elaboración con y sin termómetro.</li>
           <li>Problemas frecuentes y cómo corregirlos.</li>
-        </ul></details></article>
-        <article class="ae-area"><span class="ae-num">2</span><h3>Yeso cerámico</h3><p class="q">La técnica para crear tus propias piezas desde cero.</p><details><summary>Ver qué aprendés</summary><ul class="ae-list">
+        </ul></div></article>
+        <article class="ae-area"><span class="ae-num">2</span><h3>Yeso cerámico</h3><p class="q">La técnica para crear tus propias piezas desde cero.</p><div class="vy-learn"><p class="ae-kicker2">Qué aprendés</p><ul class="ae-list">
           <li>Recipientes para velas.</li>
           <li>Porta sahumerios.</li>
           <li>Difusores.</li>
           <li>Piezas decorativas.</li>
-        </ul><p class="vy-note">Además vemos preparación, pintura, decoración y barnizado para que puedas terminar correctamente cada pieza.</p></details></article>
-        <article class="ae-area"><span class="ae-num">3</span><h3>Productos aromáticos</h3><p class="q">Un ebook con formulaciones para ampliar tu línea de productos.</p><details><summary>Ver qué aprendés</summary><ul class="ae-list">
+        </ul><p class="vy-note">Además vemos preparación, pintura, decoración y barnizado para que puedas terminar correctamente cada pieza.</p></div></article>
+        <article class="ae-area"><span class="ae-num">3</span><h3>Productos aromáticos</h3><p class="q">Un ebook con formulaciones para ampliar tu línea de productos.</p><div class="vy-learn"><p class="ae-kicker2">Qué aprendés</p><ul class="ae-list">
           <li>Home spray.</li>
           <li>Difusores de varillas.</li>
           <li>Difusores para auto.</li>
           <li>Blends aromáticos.</li>
           <li>Otras formulaciones.</li>
-        </ul></details></article>
-        <article class="ae-area"><span class="ae-num">4</span><h3>Negocio</h3><p class="q">Porque si tu idea es vender, también necesitás llevar lo que aprendiste a un emprendimiento.</p><details><summary>Ver qué aprendés</summary><ul class="ae-list">
+        </ul></div></article>
+        <article class="ae-area"><span class="ae-num">4</span><h3>Negocio</h3><p class="q">Porque si tu idea es vender, también necesitás llevar lo que aprendiste a un emprendimiento.</p><div class="vy-learn"><p class="ae-kicker2">Qué aprendés</p><ul class="ae-list">
           <li>Cómo calcular costos.</li>
           <li>Cómo organizar pedidos.</li>
           <li>Cómo pensar tus productos.</li>
           <li>Cómo empezar a mostrarlos y convertir lo que aprendiste en un emprendimiento.</li>
-        </ul></details></article>
+        </ul></div></article>
       </div>
     </div>
   </section>
