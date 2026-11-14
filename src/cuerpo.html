@@ -270,13 +270,13 @@
     var c=document.getElementById('pr-tcar');if(!c)return;
     var cards=[].slice.call(c.querySelectorAll('.pr-tc')),n=cards.length,cur=0;if(!n)return;
     function layout(){
-      var mob=window.innerWidth<820,gap=mob?Math.min(96,window.innerWidth*.24):215;
+      var mob=window.innerWidth<820,gap=mob?Math.min(96,window.innerWidth*0.24):215;
       cards.forEach(function(el,i){
         var d=((i-cur)%n+n)%n;if(d>n/2)d-=n;var a=Math.abs(d);
-        var sc=a===0?1:a===1?.84:.7;
+        var sc=a===0?1:a===1?0.84:0.7;
         el.style.transform='translate(-50%,-50%) translateX('+(d*gap)+'px) scale('+sc+') rotate('+(d*3)+'deg)';
         el.style.zIndex=String(20-a);
-        el.style.filter=a?'blur('+(a*2.5)+'px) saturate(.4)':'none';
+        el.style.filter=a?'blur('+(a*2.5)+'px) saturate(0.4)':'none';
         el.style.opacity=a===0?'1':a===1?'.85':a===2?'.5':'0';
         el.style.pointerEvents=a>2?'none':'auto';
         el.classList.toggle('on',a===0);
