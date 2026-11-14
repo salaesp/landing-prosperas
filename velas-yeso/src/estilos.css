@@ -47,10 +47,6 @@
 .pr .vy-pain .pr-ph{min-height:640px}
 @media(max-width:860px){.pr .vy-pain .pr-ph{min-height:420px}}
 
-/* ---- lo que te llevás ---- */
-.pr .vy-get .pr-lede{color:var(--cream);opacity:.92}
-.pr .vy-get .pr-g p{font-size:15.5px;line-height:1.6}
-
 /* ---- módulos: 4 tarjetas de a dos + lo que incluye ---- */
 .pr .vy-mods h2 b{color:var(--cherry)}
 .pr .vy-mods .ae-grid{grid-template-columns:1fr 1fr;align-items:start}
