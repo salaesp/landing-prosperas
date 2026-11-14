@@ -7,7 +7,8 @@
     <div class="pr-tx cream">
       <div class="pr-logo"><svg viewBox="0 0 428.27 130.46" role="img" aria-label="Prósperas by Juli de Franco"><use href="#pr-l-full"/></svg></div>
       <h1>Crear productos fue el <b>comienzo</b>. Ahora construí un <em>emprendimiento que puedas <b>sostener.</b></em></h1>
-      <p class="lead">Prósperas es una membresía de formación y comunidad para emprendedoras artesanales que quieren aprender a tomar mejores decisiones, hacer crecer sus negocios y dejar de resolver todo solas.</p>
+      <p class="lead">Un espacio para aprender todo eso que nadie te enseñó cuando empezaste a emprender: cómo mostrar tus productos, ponerles precio, organizarte y tomar decisiones para tu negocio.</p>
+      <p class="lead lead2">Acá no venís a acumular clases para mirar algún día. Venís a poner en práctica, desafiarte, probar, equivocarte, hacer preguntas y compartir el camino con una comunidad de mujeres que están en la misma que vos.</p>
       <div><a class="pr-btn" href="#unite">Quiero ser parte</a></div>
       <p class="pr-from">Desde <s>$35.000</s> <b>$29.000/mes</b> · valor fundador hasta el 1/1/2027</p>
     </div>
@@ -82,18 +83,25 @@
   </section>
 
   <!-- QUÉ VAS A ENCONTRAR ADENTRO (aulas con foto) -->
-  <!-- PENDIENTE: fotos y descripción final de cada aula. Para poner la foto, reemplazar el <span> de .pr-au-img por:
-       <img src="URL" alt="..." loading="lazy"><span>01</span>  -->
+  <!-- Las imágenes están en assets/aulas/ y armar.py las incrusta en index.html. Para usar las de Tiendup, reemplazar el src por la URL. -->
   <section class="pr-sec pr-in">
     <div class="pr-wrap">
       <div class="pr-head" style="margin-bottom:48px"><span class="lbl">Las aulas</span><h2>¿Qué vas a encontrar <b>adentro</b>?</h2></div>
       <div class="pr-aulas">
-        <article class="pr-au"><div class="pr-au-img"><span>01</span></div><div class="pr-au-tx"><h3>De producto a negocio</h3><p>Decidí qué vender, ordená tu catálogo y encontrá tus productos protagonistas.</p></div></article>
-        <article class="pr-au"><div class="pr-au-img"><span>02</span></div><div class="pr-au-tx"><h3>Construí y comunicá tu marca</h3><p>Creá tu universo de marca y aprendé a mostrar por qué deberían elegirte.</p></div></article>
-        <article class="pr-au"><div class="pr-au-img"><span>03</span></div><div class="pr-au-tx"><h3>Mindset Próspero</h3><p>Perfeccionismo, comparación, miedo a mostrarte y constancia: todo lo que aparece cuando creás algo propio.</p></div></article>
-        <article class="pr-au"><div class="pr-au-img"><span>04</span></div><div class="pr-au-tx"><h3>Un negocio que puedas sostener</h3><p>Organizá pedidos, producción, tiempos y prioridades sin correr a último momento.</p></div></article>
-        <article class="pr-au"><div class="pr-au-img"><span>05</span></div><div class="pr-au-tx"><h3>Desafíos Prósperos</h3><p>Ejercicios mensuales para llevar lo aprendido a tu emprendimiento y compartir tus avances.</p></div></article>
-        <article class="pr-au"><div class="pr-au-img"><span>06</span></div><div class="pr-au-tx"><h3>Editá y elevá tus contenidos</h3><p>Técnicas simples de grabación y edición para mostrar mejor tus productos, sin equipos profesionales.</p></div></article>
+        <article class="pr-au"><div class="pr-au-img"><img src="assets/aulas/aula-producto.jpg" alt="Aula: De producto a negocio" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Decidí qué vender, ordená tu catálogo y encontrá tus productos protagonistas.</p></div></article>
+        <article class="pr-au"><div class="pr-au-img"><img src="assets/aulas/aula-marca.jpg" alt="Aula: Construí y comunicá tu marca" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Creá tu universo de marca y aprendé a mostrar por qué deberían elegirte.</p></div></article>
+        <article class="pr-au"><div class="pr-au-img"><img src="assets/aulas/aula-mindset.jpg" alt="Aula: Mindset próspero" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Perfeccionismo, comparación, miedo a mostrarte y constancia: todo lo que aparece cuando creás algo propio.</p></div></article>
+        <!-- AULA 04 PROVISORIA: texto armado con CSS imitando la imagen "Construimos un negocio que puedas sostener".
+             Cuando esté el archivo de la imagen: guardarlo en assets/aulas/aula-sostener.jpg y reemplazar el <div class="pr-au-fake"> por
+             una etiqueta img con esa ruta y alt "Aula: Construimos un negocio que puedas sostener", igual que las otras aulas. -->
+        <article class="pr-au"><div class="pr-au-img"><div class="pr-au-fake" role="img" aria-label="Aula: Construimos un negocio que puedas sostener"><span>Aula:</span><b>Construimos</b> un negocio que puedas <em>sostener</em></div></div><div class="pr-au-tx"><p>Organizá pedidos, producción, tiempos y prioridades sin correr a último momento.</p></div></article>
+        <article class="pr-au"><div class="pr-au-img"><img src="assets/aulas/aula-desafios.jpg" alt="Desafíos Prósperos" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Ejercicios mensuales para llevar lo aprendido a tu emprendimiento y compartir tus avances.</p></div></article>
+        <!-- AULA 06: grisada con cartel "Próximamente". Cuando esté lista, cambiar la clase "soon" por nada, sacar el cartel y poner su imagen. -->
+        <article class="pr-au soon">
+          <div class="pr-au-img"><div class="pr-au-ghost"><span>Aula:</span>Editá y elevá tus <em>contenidos</em></div></div>
+          <div class="pr-au-tx"><p>Técnicas simples de grabación y edición para mostrar mejor tus productos, sin equipos profesionales.</p></div>
+          <span class="pr-soon-tag" role="note">Próximamente</span>
+        </article>
       </div>
     </div>
   </section>
@@ -104,7 +112,7 @@
       <div class="pr-head" style="margin-bottom:48px"><span class="lbl">Como miembro</span><h2>Lo que recibís <b>cada mes</b></h2></div>
       <div class="pr-gets">
         <div class="pr-g"><span class="n">01</span><h3>Un foco concreto</h3><p>Cada mes, una necesidad real de tu emprendimiento para aplicar en tu propio negocio.</p></div>
-        <div class="pr-g"><span class="n">02</span><h3>Un encuentro en vivo</h3><p>Asesoría grupal para traer tus dudas, recibir orientación y aprender de las consultas de otras.</p></div>
+        <div class="pr-g"><img class="pr-g-img" src="assets/aulas/aula-qa.jpg" alt="Q&amp;A con Juli" loading="lazy" width="1280" height="659"><span class="n">02</span><h3>Un encuentro en vivo</h3><p>Asesoría grupal para traer tus dudas, recibir orientación y aprender de las consultas de otras.</p></div>
         <div class="pr-g"><span class="n">03</span><h3>La comunidad</h3><p>Un lugar para mostrar lo que hacés, pedir opinión, hacer red y generar colaboraciones.</p></div>
       </div>
     </div>

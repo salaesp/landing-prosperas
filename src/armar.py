@@ -52,5 +52,10 @@ out = "\n".join([
     "</div>",
     "",
 ])
+import base64
+def inline(m):
+    f = root / m.group(1)
+    return 'src="data:image/jpeg;base64,' + base64.b64encode(f.read_bytes()).decode() + '"'
+out = re.sub(r'src="(assets/[^"]+\.jpg)"', inline, out)
 (root / "index.html").write_text(out, encoding="utf-8")
 print("index.html", len(out), "bytes")
