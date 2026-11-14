@@ -1070,6 +1070,22 @@ html{scroll-behavior:smooth}
 .pr .ae-nos li::before{content:"×";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cherry);color:var(--cherry);display:grid;place-items:center;font-size:14px;line-height:1}
 .pr .ae-alt{background:#fbd0e2;border-radius:14px;padding:12px 16px;font-size:15px}
 
+/* ---- precio ---- */
+html{scroll-behavior:smooth}
+.pr #precio{scroll-margin-top:70px}
+.pr .ae-price h2 b{color:var(--yellow)}
+.pr .ae-pcard{display:grid;grid-template-columns:.9fr 1.1fr;max-width:940px;margin:0 auto;background:var(--cream);color:var(--wine);border-radius:30px;overflow:hidden;box-shadow:0 22px 44px rgba(90,14,34,.28)}
+.pr .ae-pmain{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 30px;background:var(--yellow)}
+.pr .ae-pname{font-weight:600;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.pr .ae-pdur{font-size:14px;margin-top:6px;opacity:.85}
+.pr .ae-pval{font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(34px,4vw,46px);line-height:1.1;color:var(--cherry);margin:22px 0 6px}
+.pr .ae-pnote{display:inline-block;background:var(--cherry);color:var(--cream);font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:26px}
+.pr .ae-pmain .pr-btn{width:100%;text-align:center}
+.pr .ae-pinc{padding:36px 34px}
+.pr .ae-pinc .ae-kicker2{margin-top:0}
+@media(max-width:820px){.pr .ae-pcard{grid-template-columns:1fr}}
+.pr .ae-price .ae-pinc .ae-kicker2{color:var(--cherry)}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1087,7 +1103,7 @@ html{scroll-behavior:smooth}
       <div class="ae-logo"><span>ARTEMPRESARIAS</span><div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div></div>
       <h1>Ya construiste un emprendimiento. Ahora quiero ayudarte a descubrir <em>todo lo que podés hacer con él.</em></h1>
       <p class="lead">Programa de acompañamiento 1:1 de 90 días para profesionalizar tu emprendimiento artesanal.</p>
-      <div><a class="pr-btn cream" href="#sumate">Quiero ser una ARTEMPRESARIA</a></div>
+      <div><a class="pr-btn cream" href="#precio">Quiero ser una ARTEMPRESARIA</a></div>
     </div>
     <div class="pr-stripes ae-stripes">
       <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><text x="60" y="64" text-anchor="middle" style="fill:#fff8fc;font-size:15px;letter-spacing:0">✱</text><defs><path id="ae-sealp" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#ae-sealp" startOffset="0" textLength="252" lengthAdjust="spacing">Acompañamiento 1:1 ✦ 90 días ✦</textPath></text></svg></div>
@@ -1341,7 +1357,38 @@ html{scroll-behavior:smooth}
       <div class="ae-ready">
         <h2>No necesitás tener <b>todo resuelto</b> para empezar.</h2>
         <p>Necesitás tener un negocio en el que quieras trabajar, objetivos que te importen y la disposición de construir conmigo tu próxima etapa.</p>
-        <a class="pr-btn" href="#sumate">Quiero ser una ARTEMPRESARIA</a>
+        <a class="pr-btn" href="#precio">Quiero ser una ARTEMPRESARIA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIO (PROVISORIO: valor "a confirmar") -->
+  <section class="pr-sec pr-bg-cherry ae-price" id="precio">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:44px"><span class="lbl">Inversión</span><h2>Sumate a <b>ARTEMPRESARIAS</b></h2></div>
+      <div class="ae-pcard">
+        <div class="ae-pmain">
+          <span class="ae-pname">Acompañamiento 1:1</span>
+          <span class="ae-pdur">90 días · 4 encuentros individuales</span>
+          <!-- PENDIENTE: precio real. Reemplazar "A confirmar" por el valor (ej: <small>$</small>000.000) y la nota de abajo. -->
+          <div class="ae-pval">A confirmar</div>
+          <span class="ae-pnote">Valor y formas de pago a confirmar</span>
+          <!-- PENDIENTE: link de pago, formulario o WhatsApp -->
+          <a class="pr-btn" href="#">Quiero ser una ARTEMPRESARIA</a>
+        </div>
+        <div class="ae-pinc">
+          <p class="ae-kicker2">Incluye</p>
+          <ul class="ae-checks">
+            <li>Cuatro encuentros individuales durante 90 días.</li>
+            <li>Formulario inicial para conocer tu emprendimiento.</li>
+            <li>La Rueda de Sostén Emprendedor.</li>
+            <li>Plan de Acción personalizado, actualizado durante todo el proceso.</li>
+            <li>Resúmenes después de cada encuentro.</li>
+            <!-- PENDIENTE DE DEFINIR: cantidad de check-ins (el texto dice dos en un lugar y tres en otro) -->
+            <li>Check-ins breves entre sesiones para revisar tus avances.</li>
+            <li>Consulta previa a cada encuentro para preparar la sesión.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -1382,8 +1429,7 @@ html{scroll-behavior:smooth}
     <div class="pr-tx yellow" style="position:relative">
       <h2>¿Lista para empezar a dirigir tu negocio <b>de otra manera?</b></h2>
       <p>Conocé cómo sumarte a ARTEMPRESARIAS y empecemos a trabajar en la próxima etapa de tu emprendimiento.</p>
-      <!-- PENDIENTE: link del botón (pago, formulario de aplicación o WhatsApp). Reemplazar el # por la URL. -->
-      <div style="margin-top:12px"><a class="pr-btn" href="#">Quiero ser una ARTEMPRESARIA</a></div>
+      <div style="margin-top:12px"><a class="pr-btn" href="#precio">Quiero ser una ARTEMPRESARIA</a></div>
       <div class="pr-sig ae-endsig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
     </div>
   </section>

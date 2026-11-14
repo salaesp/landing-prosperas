@@ -188,3 +188,19 @@
 .pr .ae-nos li{position:relative;padding-left:28px;font-size:15.5px;line-height:1.4}
 .pr .ae-nos li::before{content:"×";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cherry);color:var(--cherry);display:grid;place-items:center;font-size:14px;line-height:1}
 .pr .ae-alt{background:#fbd0e2;border-radius:14px;padding:12px 16px;font-size:15px}
+
+/* ---- precio ---- */
+html{scroll-behavior:smooth}
+.pr #precio{scroll-margin-top:70px}
+.pr .ae-price h2 b{color:var(--yellow)}
+.pr .ae-pcard{display:grid;grid-template-columns:.9fr 1.1fr;max-width:940px;margin:0 auto;background:var(--cream);color:var(--wine);border-radius:30px;overflow:hidden;box-shadow:0 22px 44px rgba(90,14,34,.28)}
+.pr .ae-pmain{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 30px;background:var(--yellow)}
+.pr .ae-pname{font-weight:600;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.pr .ae-pdur{font-size:14px;margin-top:6px;opacity:.85}
+.pr .ae-pval{font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(34px,4vw,46px);line-height:1.1;color:var(--cherry);margin:22px 0 6px}
+.pr .ae-pnote{display:inline-block;background:var(--cherry);color:var(--cream);font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:26px}
+.pr .ae-pmain .pr-btn{width:100%;text-align:center}
+.pr .ae-pinc{padding:36px 34px}
+.pr .ae-pinc .ae-kicker2{margin-top:0}
+@media(max-width:820px){.pr .ae-pcard{grid-template-columns:1fr}}
+.pr .ae-price .ae-pinc .ae-kicker2{color:var(--cherry)}
