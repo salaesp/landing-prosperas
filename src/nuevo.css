@@ -279,3 +279,32 @@ html{scroll-behavior:smooth}
 .pr .pr-gi::before{transform:rotate(18deg)}
 .pr .pr-gi::after{transform:rotate(-14deg)}
 .pr .pr-gi.qa strong{letter-spacing:0}
+
+/* estrellas de las esquinas: centro en la punta del recuadro, brazos muy finos que se afinan y entran en diagonal */
+.pr .pr-gi{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 54.7,43.5 97.6,34.5 57.6,52.5 79.4,90.5 50.0,58.0 20.6,90.5 42.4,52.5 2.4,34.5 45.3,43.5' fill='%23ee6da6' fill-opacity='0.7'/%3E%3C/svg%3E")}
+.pr .pr-gi.wine{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 54.7,43.5 97.6,34.5 57.6,52.5 79.4,90.5 50.0,58.0 20.6,90.5 42.4,52.5 2.4,34.5 45.3,43.5' fill='%23ee6da6' fill-opacity='0.7'/%3E%3C/svg%3E")}
+.pr .pr-gi.pink{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 54.7,43.5 97.6,34.5 57.6,52.5 79.4,90.5 50.0,58.0 20.6,90.5 42.4,52.5 2.4,34.5 45.3,43.5' fill='%239b1f3a' fill-opacity='0.55'/%3E%3C/svg%3E")}
+.pr .pr-gi.cream{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 54.7,43.5 97.6,34.5 57.6,52.5 79.4,90.5 50.0,58.0 20.6,90.5 42.4,52.5 2.4,34.5 45.3,43.5' fill='%23f48fb7' fill-opacity='0.65'/%3E%3C/svg%3E")}
+.pr .pr-gi::before,.pr .pr-gi::after{width:128%;filter:blur(7px)}
+.pr .pr-gi::before{top:0;right:0;bottom:auto;left:auto;transform:translate(50%,-50%) rotate(28deg)}
+.pr .pr-gi::after{bottom:0;left:0;top:auto;right:auto;transform:translate(-50%,50%) rotate(-24deg)}
+
+/* bajadas bajo los títulos */
+.pr .pr-head .pr-lede{margin:18px auto 0;max-width:620px;font-size:clamp(16.5px,1.5vw,18.5px)}
+.pr .pr-lede em{font-style:italic}
+.pr-in .pr-lede em{color:var(--cherry)}
+
+/* estrellas de las esquinas: más cortas, para que se lean como estrellas y no como rayas */
+.pr .pr-gi::before,.pr .pr-gi::after{width:84%;filter:blur(6px)}
+
+/* estrellas de las esquinas, versión final: centro apenas adentro del recuadro, brazos finos que se afinan */
+.pr .pr-gi{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 57.1,40.3 97.6,34.5 61.4,53.7 79.4,90.5 50.0,62.0 20.6,90.5 38.6,53.7 2.4,34.5 42.9,40.3' fill='%23ee6da6' fill-opacity='0.6'/%3E%3C/svg%3E")}
+.pr .pr-gi.wine{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 57.1,40.3 97.6,34.5 61.4,53.7 79.4,90.5 50.0,62.0 20.6,90.5 38.6,53.7 2.4,34.5 42.9,40.3' fill='%23ee6da6' fill-opacity='0.6'/%3E%3C/svg%3E")}
+.pr .pr-gi.pink{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 57.1,40.3 97.6,34.5 61.4,53.7 79.4,90.5 50.0,62.0 20.6,90.5 38.6,53.7 2.4,34.5 42.9,40.3' fill='%239b1f3a' fill-opacity='0.5'/%3E%3C/svg%3E")}
+.pr .pr-gi.cream{--starimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 160 160'%3E%3Cpolygon points='50.0,0.0 57.1,40.3 97.6,34.5 61.4,53.7 79.4,90.5 50.0,62.0 20.6,90.5 38.6,53.7 2.4,34.5 42.9,40.3' fill='%23f48fb7' fill-opacity='0.55'/%3E%3C/svg%3E")}
+.pr .pr-gi::before,.pr .pr-gi::after{width:112%;filter:blur(6px)}
+.pr .pr-gi::before{transform:translate(32%,-32%) rotate(24deg)}
+.pr .pr-gi::after{transform:translate(-32%,32%) rotate(-20deg)}
+.pr .pr-gi::before,.pr .pr-gi::after{width:88%}
+.pr .pr-gi::before{transform:translate(38%,-38%) rotate(24deg)}
+.pr .pr-gi::after{transform:translate(-38%,38%) rotate(-20deg)}
