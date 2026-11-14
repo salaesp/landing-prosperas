@@ -1,0 +1,111 @@
+/* ============================================================
+   MAQUILLAJE NATURAL · estilos propios
+   Color que predomina: el rosa de la portada (--pink, #ee6da6)
+   con el amarillo manteca del título (--yellow) como acento.
+============================================================ */
+.mn{--pink2:#f28bb8;--pinkbg:#f6a0c5}
+/* Tiendup mete el bloque HTML dentro de una sección de UIkit con padding arriba y abajo: lo sacamos (sin el selector "has"). */
+.single-page .page-section.uk-section{padding-top:0!important;padding-bottom:0!important}
+.pr .mn-stripes{background:repeating-linear-gradient(90deg,var(--pink) 0 30px,var(--pink2) 30px 60px)}
+.pr .mn-pink{background:var(--pinkbg)}
+.pr .mn-center{display:flex;justify-content:center}
+
+/* ---- hero: el título de la portada en letra viva ---- */
+.pr .mn-hero{position:relative;overflow:hidden;padding:clamp(52px,6.5vw,90px) 0 clamp(60px,7.5vw,100px);color:var(--wine)}
+.pr .mn-hero-in{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,4vw,56px);align-items:center}
+.pr .mn-pill{display:inline-block;background:var(--cream);color:var(--cherry);border-radius:12px;padding:8px 16px;font-size:clamp(14px,1.4vw,17px);line-height:1.3;margin-bottom:22px;box-shadow:0 8px 18px rgba(155,31,58,.12)}
+.pr .mn-pill b{font-weight:700}
+.pr .mn-title{margin:0 0 26px;line-height:1;color:var(--yellow);text-shadow:0 3px 0 rgba(155,31,58,.16)}
+.pr .mn-t1,.pr .mn-t2{display:block;font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(50px,6.6vw,96px);line-height:1;letter-spacing:-.035em;white-space:nowrap}
+.pr .mn-t2 i{font-family:'Yellowtail',cursive;font-style:normal;font-weight:400;font-size:.58em;letter-spacing:0;margin-right:.12em;vertical-align:.08em}
+.pr .mn-claim{font-family:'Noto Serif',serif;font-size:clamp(20px,2vw,25px);line-height:1.3;color:var(--wine);margin:0 0 14px;max-width:540px}
+.pr .mn-claim b{font-weight:700}
+.pr .mn-hero .lead{font-size:clamp(16px,1.4vw,17.5px);line-height:1.6;max-width:540px;margin:0 0 22px;color:var(--wine)}
+.pr .mn-hl{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px}
+.pr .mn-hl li{position:relative;background:var(--cream);color:var(--wine);border-radius:16px;padding:11px 14px 11px 38px;font-size:14.5px;line-height:1.35;text-align:left}
+.pr .mn-hl li::before{content:"";position:absolute;left:14px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:var(--cherry);box-shadow:inset 0 0 0 4px var(--yellow)}
+.pr .mn-btns{display:flex;flex-wrap:wrap;gap:12px}
+.pr .mn-btns .pr-btn.line{border-color:var(--wine);color:var(--wine)!important}
+.pr .mn-btns .pr-btn.line:hover{background:var(--wine);color:var(--cream)!important}
+/* el ebook flotando, con chatcitos */
+.pr .mn-hero-ph{position:relative;width:min(460px,100%);justify-self:center}
+.pr .mn-hero-ph img{display:block;width:100%;height:auto;filter:drop-shadow(0 24px 34px rgba(90,14,34,.25));animation:mn-float 5.4s ease-in-out infinite}
+@keyframes mn-float{0%,100%{transform:translateY(0) rotate(1deg)}50%{transform:translateY(-12px) rotate(-1deg)}}
+.mn-hero-ph .pr-chat.c1{top:6%;left:-8%}
+.mn-hero-ph .pr-chat.c2{top:46%;right:-8%}
+.mn-hero-ph .pr-chat.c3{bottom:6%;left:-2%}
+@media(max-width:820px){.pr .mn-hero{padding-top:72px}}
+@media(max-width:900px){
+  .pr .mn-hero-in{grid-template-columns:1fr;text-align:center}
+  .pr .mn-hero-tx{display:flex;flex-direction:column;align-items:center}
+  .pr .mn-btns{justify-content:center}
+  .pr .mn-hero-ph{width:min(380px,84%)}
+  .mn-hero-ph .pr-chat.c1{left:-4%}.mn-hero-ph .pr-chat.c2{right:-4%}.mn-hero-ph .pr-chat.c3{left:0}
+}
+@media(max-width:520px){.pr .mn-hl{grid-template-columns:1fr}}
+@media(max-width:420px){.pr .mn-t1,.pr .mn-t2{font-size:clamp(40px,12.5vw,52px)}}
+
+/* ---- qué tiene este ebook: tarjetas para deslizar (siempre deslizables: son 6) ---- */
+.pr .mn-inc h2 b{color:var(--cherry)}
+.pr .mn-inc .ci-swipe{display:flex}
+.pr .mn-inc .ci-track{justify-content:flex-start}
+.pr .mn-inc .ci-scroll{scroll-padding-inline:max(20px,calc((100vw - 1180px)/2))}
+.pr .mn-card{padding:28px 0 30px;min-height:300px;scroll-snap-align:start}
+.pr .mn-card h3{margin-top:18px}
+.pr .mn-card p:last-of-type{margin-bottom:0}
+.pr .mn-n{display:inline-block;align-self:flex-start;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:6px 13px;border-radius:999px;background:var(--cherry);color:var(--cream)}
+.pr .ci-card2.wine .mn-n{background:var(--yellow);color:var(--wine)}
+.pr .ci-card2.pink{background:var(--pinkbg)}
+
+/* ---- bonus: 4 tarjetas crema sobre bordó ---- */
+.pr .mn-bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pr .mn-bgrid>div{background:var(--cream);color:var(--wine);border-radius:24px;padding:26px 22px;box-shadow:0 14px 30px rgba(40,6,16,.25)}
+.pr .mn-bgrid>div.star{background:var(--yellow)}
+.pr .mn-bgrid h3{font-size:clamp(19px,1.7vw,22px);margin:16px 0 8px;color:var(--wine)}
+.pr .mn-bgrid p{font-size:15px;line-height:1.55;margin:0}
+.pr .mn-bnote{text-align:center;margin:30px auto 24px;font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(17px,1.6vw,20px);color:var(--yellow)}
+@media(max-width:1000px){.pr .mn-bgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pr .mn-bgrid{grid-template-columns:1fr}}
+
+/* ---- ¿te pasa esto? captura + chatcitos sobre rosa ---- */
+.pr .mn-pain{color:var(--wine)}
+.pr .mn-pain-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,64px);align-items:center}
+.pr .mn-shot{position:relative;margin:0;justify-self:center;width:min(420px,100%)}
+.pr .mn-shot img{display:block;width:100%;height:auto;border-radius:28px;border:10px solid var(--cream);transform:rotate(-1.5deg);box-shadow:0 22px 44px rgba(90,14,34,.22)}
+.pr .mn-shot figcaption{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%) rotate(1deg);white-space:nowrap;background:var(--cherry);color:var(--cream);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px;border-radius:999px;box-shadow:0 10px 22px rgba(90,14,34,.2)}
+.pr .mn-pain .lbl{color:var(--wine)}
+.pr .mn-pain h2{margin:0 0 16px}
+.pr .mn-pain h2 b{color:var(--cream)}
+.pr .mn-pain-lede{font-size:16.5px;line-height:1.6;margin:0 0 28px;max-width:600px}
+.pr .mn-pain .ae-chats{margin:0;padding:0;list-style:none;max-width:none;gap:14px}
+.pr .mn-pain .ae-chats li{font-size:15.5px;padding:13px 20px}
+.pr .mn-pain .ae-chats li:nth-child(even){background:var(--wine)}
+@media(max-width:860px){
+  .pr .mn-pain-in{grid-template-columns:1fr}
+  .pr .mn-pain-tx{text-align:left}
+  .pr .mn-shot{width:min(360px,90%);margin-bottom:20px}
+  .pr .mn-shot figcaption{white-space:normal;text-align:center;max-width:calc(100% - 20px)}
+}
+
+/* ---- frase de foco ---- */
+.pr .mn-focus{text-align:center}
+
+/* ---- el método: línea de tiempo con el cambio de cada módulo ---- */
+.pr .mn-path h2 b{color:var(--cherry)}
+.pr .mn-path .ae-tl p{margin:0}
+.pr .mn-path .ae-tl p.mn-shift{display:inline-block;margin-top:12px;background:var(--yellow);color:var(--wine);font-family:'Noto Serif',serif;font-style:italic;font-size:15.5px;line-height:1.4;padding:9px 16px;border-radius:14px}
+.pr .mn-path .ae-tl li:nth-child(even) .ae-dot{background:var(--pink)}
+
+/* ---- precio ---- */
+.pr .mn-price .pr-head h2 b{color:var(--wine);font-style:italic}
+.pr .mn-price .pr-head,.pr .mn-price .pr-head .lbl,.pr .mn-price .pr-lede{color:var(--wine)}
+.pr .mn-price .ae-pcard{grid-template-columns:.95fr 1.05fr}
+.pr .mn-price .ae-pname{line-height:1.35}
+.pr .mn-old{display:block;margin-top:20px;font-size:17px;font-weight:600;color:var(--wine);opacity:.55}
+.pr .mn-price .ae-pval{margin-top:4px}
+.pr .mn-price .ae-pval small{font-size:.42em;letter-spacing:.06em}
+@media(max-width:760px){.pr .mn-price .ae-pcard{grid-template-columns:1fr}}
+.pr .mn-sig{width:min(170px,50%);margin:40px auto 0;color:var(--wine)}
+.pr .mn-sig svg{width:100%;height:auto;display:block;fill:currentColor}
+
+@media(prefers-reduced-motion:reduce){.pr .mn-hero-ph img{animation:none}}
