@@ -39,20 +39,29 @@
 @keyframes ci-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 .pr .ci-scroll{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:22px 0 26px}
 .pr .ci-scroll::-webkit-scrollbar{display:none}
-.pr .ci-track{display:flex;gap:22px;width:max-content;min-width:100%;padding:0 max(20px,calc((100vw - 1080px)/2))}
-.pr .ci-card2{position:relative;overflow:hidden;flex:0 0 min(84vw,340px);display:flex;flex-direction:column;border-radius:26px;padding:30px 28px 28px;scroll-snap-align:center;background:var(--cream);color:var(--wine);border:1.5px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
-.pr .ci-card2:hover{transform:translateY(-7px);box-shadow:0 18px 34px rgba(155,31,58,.14)}
-/* portada: la imagen hecha con CSS, sin estrellas */
-.pr .ci-card2 .pr-gi{border-radius:24px 24px 0 0;margin-bottom:24px;font-size:clamp(25px,2.5vw,31px)}
-.pr .ci-card2 .pr-gi::before,.pr .ci-card2 .pr-gi::after{display:none}
-.pr .pr-gi.ci-yl{--bg:var(--yellow);--t1:var(--wine);--t2:var(--cherry)}
-.pr .pr-gi.ci-ch{--bg:var(--cherry);--t1:var(--cream);--t2:var(--yellow)}
+.pr .ci-track{display:flex;gap:22px;width:max-content;min-width:100%;padding:0 max(20px,calc((100vw - 1180px)/2))}
+.pr .ci-card2{position:relative;overflow:hidden;flex:0 0 min(86vw,372px);display:flex;flex-direction:column;border-radius:26px;padding:0 0 28px;scroll-snap-align:center;color:var(--wine);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;box-shadow:0 10px 24px rgba(155,31,58,.08)}
+.pr .ci-card2>*:not(.ci-cover){margin-left:28px;margin-right:28px}
+.pr .ci-card2:hover{transform:translateY(-7px);box-shadow:0 18px 34px rgba(155,31,58,.16)}
+/* portada: la imagen de cada producto, sobre su mismo color de fondo */
+.pr .ci-cover{display:block;width:100%;height:auto;aspect-ratio:1084/576;margin-bottom:6px}
+.pr .ci-card2.yellow{background:var(--yellow)}
+.pr .ci-card2.blue{background:var(--blue)}
+.pr .ci-card2.pink{background:var(--pink)}
+.pr .ci-card2.cream{background:var(--cream);border:1.5px solid var(--line)}
+.pr .ci-card2.wine{background:var(--wine);color:var(--cream)}
 .pr .ci-tag{font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;color:var(--cherry);margin-bottom:8px}
-.pr .ci-card2 h3{margin:0 0 12px;font-size:clamp(22px,2.2vw,26px)}
-.pr .ci-card2 p{margin:0 0 12px;font-size:15px;line-height:1.6}
-.pr .ci-card2 p.ci-for{font-weight:600;color:var(--wine);font-size:15.5px;line-height:1.5}
+.pr .ci-card2 h3{margin-top:0;margin-bottom:12px;color:inherit;font-size:clamp(22px,2.2vw,26px)}
+.pr .ci-card2 p{margin-top:0;margin-bottom:12px;font-size:15px;line-height:1.6}
+.pr .ci-card2 p.ci-for{font-weight:600;font-size:15.5px;line-height:1.5}
 .pr .ci-card2 p:last-of-type{flex:1;margin-bottom:24px}
 .pr .ci-card2 .pr-btn{align-self:stretch;text-align:center;justify-content:center;position:relative;overflow:hidden;isolation:isolate}
+/* rosa y bordó: textos y botones que se lean bien */
+.pr .ci-card2.pink{color:#5a0e22}
+.pr .ci-card2.pink .ci-tag{color:var(--yellow)}
+.pr .ci-card2.pink .pr-btn{background:var(--wine)}
+.pr .ci-card2.wine .ci-tag{color:var(--yellow)}
+.pr .ci-card2.wine .pr-btn{background:var(--cream);color:var(--cherry)!important}
 /* brillos: uno lento sobre la tarjeta y otro sobre el botón */
 .pr .ci-card2::before,.pr .ci-card2 .pr-btn::before{content:"";position:absolute;inset:-45%;pointer-events:none;z-index:2;
   background:linear-gradient(115deg,transparent 0 38%,rgba(255,255,255,.3) 49%,rgba(255,255,255,.12) 54%,transparent 66%);
@@ -62,8 +71,8 @@
 .pr .ci-card2:nth-child(3)::before{animation-delay:1.6s}
 @keyframes ci-shine{0%,50%{transform:translateX(-90%) rotate(8deg);opacity:0}60%{opacity:1}80%,100%{transform:translateX(90%) rotate(8deg);opacity:0}}
 /* en compu entran todas: sin deslizar */
-@media(min-width:1100px){.pr .ci-swipe{display:none}.pr .ci-track{justify-content:center}}
-@media(min-width:760px){.pr .ci-swipe2{display:none}.pr .ci-two .ci-track{justify-content:center}.pr .ci-two .ci-card2{flex-basis:min(44vw,420px)}}
+@media(min-width:1220px){.pr .ci-swipe{display:none}.pr .ci-track{justify-content:center}}
+@media(min-width:760px){.pr .ci-swipe2{display:none}.pr .ci-two .ci-track{justify-content:center}.pr .ci-two .ci-card2{flex-basis:min(44vw,560px)}}
 @media(prefers-reduced-motion:reduce){.pr .ci-card2::before,.pr .ci-card2 .pr-btn::before,.pr .ci-swipe span{animation:none}}
 
 /* ---- capaz estás en este punto ---- */

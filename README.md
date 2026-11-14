@@ -23,6 +23,7 @@ python3 inicio/src/armar.py
 - `*/src/cuerpo.html`: el contenido de cada página.
 - `artempresarias/src/estilos.css`: estilos propios de ARTEMPRESARIAS. El inicio también los usa.
 - `inicio/src/estilos.css`: estilos propios del inicio.
+- `inicio/assets/`: portadas de cada producto (se incrustan dentro del `index.html`).
 - `inicio/original/`: las secciones del inicio como estaban en Tiendup antes de pasarlo a git (solo de referencia).
 - `prosperas/assets/`: imágenes de las aulas y estrellitas; se incrustan dentro del `index.html`.
 
