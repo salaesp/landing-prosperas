@@ -1124,40 +1124,43 @@ html{scroll-behavior:smooth}
   .ci-card .pr-chat.c3{display:none}
 }
 
-/* ---- talleres: tarjetas en fila para deslizar, con brillo ---- */
+/* ---- talleres y programas: tarjetas con portada, en fila para deslizar ---- */
 .ci-talleres{background:#fff}
 .pr .ci-talleres h2 b{color:var(--cherry)}
-.pr .ci-head2{margin:64px auto 30px}
-.pr .ci-swipe{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 auto 18px;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cherry)}
+.pr .ci-group{text-align:center;margin:0 auto 6px}
+.pr .ci-group2{margin-top:64px}
+.pr .ci-group2 p{max-width:560px;margin:16px auto 0;font-size:16.5px}
+.pr .ci-swipe{display:flex;justify-content:center;align-items:center;gap:10px;margin:14px auto 0;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cherry)}
 .pr .ci-swipe span{font-size:17px;letter-spacing:0;animation:ci-nudge 1.4s ease-in-out infinite}
 .pr .ci-swipe span:first-child{animation-direction:reverse}
 @keyframes ci-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-.pr .ci-scroll{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:14px 0 26px}
+.pr .ci-scroll{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:22px 0 26px}
 .pr .ci-scroll::-webkit-scrollbar{display:none}
 .pr .ci-track{display:flex;gap:22px;width:max-content;min-width:100%;padding:0 max(20px,calc((100vw - 1080px)/2))}
-.pr .ci-card2{position:relative;overflow:hidden;flex:0 0 min(82vw,340px);min-height:400px;display:flex;flex-direction:column;border-radius:30px;padding:30px 28px 28px;scroll-snap-align:center;background:var(--cream);color:var(--wine);border:1.5px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
-.pr .ci-card2:hover{transform:translateY(-7px) rotate(-.5deg);box-shadow:0 18px 34px rgba(155,31,58,.14)}
-.pr .ci-card2.wine{background:var(--wine);color:var(--cream);border-color:var(--wine)}
-.pr .ci-card2.yellow{background:var(--yellow);border-color:var(--yellow)}
-.pr .ci-card2.pink{background:#fbd0e2;border-color:#fbd0e2}
-.pr .ci-card2.cherry{background:var(--cherry);color:var(--cream);border-color:var(--cherry)}
-.pr .ci-card2 h3{margin:0 0 12px;color:inherit;font-size:clamp(23px,2.3vw,28px)}
-.pr .ci-card2 p{flex:1;margin:0 0 26px;font-size:15.5px;line-height:1.6}
-.pr .ci-tag{align-self:flex-start;background:var(--cherry);color:var(--cream);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.35;padding:7px 13px;border-radius:999px;margin-bottom:20px}
-.pr .ci-card2.wine .ci-tag,.pr .ci-card2.cherry .ci-tag{background:var(--yellow);color:var(--wine)}
+.pr .ci-card2{position:relative;overflow:hidden;flex:0 0 min(84vw,340px);display:flex;flex-direction:column;border-radius:26px;padding:30px 28px 28px;scroll-snap-align:center;background:var(--cream);color:var(--wine);border:1.5px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.pr .ci-card2:hover{transform:translateY(-7px);box-shadow:0 18px 34px rgba(155,31,58,.14)}
+/* portada: la imagen hecha con CSS, sin estrellas */
+.pr .ci-card2 .pr-gi{border-radius:24px 24px 0 0;margin-bottom:24px;font-size:clamp(25px,2.5vw,31px)}
+.pr .ci-card2 .pr-gi::before,.pr .ci-card2 .pr-gi::after{display:none}
+.pr .pr-gi.ci-yl{--bg:var(--yellow);--t1:var(--wine);--t2:var(--cherry)}
+.pr .pr-gi.ci-ch{--bg:var(--cherry);--t1:var(--cream);--t2:var(--yellow)}
+.pr .ci-tag{font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;color:var(--cherry);margin-bottom:8px}
+.pr .ci-card2 h3{margin:0 0 12px;font-size:clamp(22px,2.2vw,26px)}
+.pr .ci-card2 p{margin:0 0 12px;font-size:15px;line-height:1.6}
+.pr .ci-card2 p.ci-for{font-weight:600;color:var(--wine);font-size:15.5px;line-height:1.5}
+.pr .ci-card2 p:last-of-type{flex:1;margin-bottom:24px}
 .pr .ci-card2 .pr-btn{align-self:stretch;text-align:center;justify-content:center;position:relative;overflow:hidden;isolation:isolate}
-.pr .ci-card2.wine .pr-btn,.pr .ci-card2.cherry .pr-btn{background:var(--cream);color:var(--cherry)!important}
 /* brillos: uno lento sobre la tarjeta y otro sobre el botón */
-.pr .ci-card2::before,.pr .ci-card2 .pr-btn::before{content:"";position:absolute;inset:-45%;pointer-events:none;
-  background:linear-gradient(115deg,transparent 0 38%,rgba(255,255,255,.28) 49%,rgba(255,255,255,.12) 54%,transparent 66%);
+.pr .ci-card2::before,.pr .ci-card2 .pr-btn::before{content:"";position:absolute;inset:-45%;pointer-events:none;z-index:2;
+  background:linear-gradient(115deg,transparent 0 38%,rgba(255,255,255,.3) 49%,rgba(255,255,255,.12) 54%,transparent 66%);
   transform:translateX(-90%) rotate(8deg);animation:ci-shine 6.2s ease-in-out infinite}
 .pr .ci-card2 .pr-btn::before{z-index:-1;background:linear-gradient(115deg,transparent 0 37%,rgba(255,255,255,.6) 48%,rgba(255,255,255,.3) 52%,transparent 64%);animation-duration:4s}
 .pr .ci-card2:nth-child(2)::before{animation-delay:.8s}
 .pr .ci-card2:nth-child(3)::before{animation-delay:1.6s}
 @keyframes ci-shine{0%,50%{transform:translateX(-90%) rotate(8deg);opacity:0}60%{opacity:1}80%,100%{transform:translateX(90%) rotate(8deg);opacity:0}}
-/* en compu las tarjetas entran todas: sin deslizar */
+/* en compu entran todas: sin deslizar */
 @media(min-width:1100px){.pr .ci-swipe{display:none}.pr .ci-track{justify-content:center}}
-@media(min-width:760px){.pr .ci-swipe2{display:none}.pr .ci-two .ci-track{justify-content:center}.pr .ci-two .ci-card2{flex-basis:min(44vw,460px);min-height:340px}}
+@media(min-width:760px){.pr .ci-swipe2{display:none}.pr .ci-two .ci-track{justify-content:center}.pr .ci-two .ci-card2{flex-basis:min(44vw,420px)}}
 @media(prefers-reduced-motion:reduce){.pr .ci-card2::before,.pr .ci-card2 .pr-btn::before,.pr .ci-swipe span{animation:none}}
 
 /* ---- capaz estás en este punto ---- */
@@ -1241,63 +1244,72 @@ html{scroll-behavior:smooth}
     </div>
   </header>
 
-  <!-- TALLERES: tarjetas en fila para deslizar, en dos grupos -->
+  <!-- TALLERES Y PROGRAMAS: tarjetas en fila para deslizar, en dos grupos -->
+  <!-- REVISAR: las frases en negrita de cada tarjeta ("para quién es") y los títulos de los grupos los escribí yo -->
   <section class="pr-sec ci-talleres" id="talleres">
     <div class="pr-wrap">
-      <div class="pr-head" style="margin-bottom:34px">
-        <span class="lbl">Si querés aprender un oficio</span>
+      <div class="pr-head" style="margin-bottom:40px">
         <h2>Elegí por dónde <b>empezar</b></h2>
         <p class="pr-lede">Empezá con el taller que mejor se adapte a tu momento. Aprendé un oficio artesanal con método, fórmulas claras y enfoque emprendedor para crear productos que puedas vender.</p>
       </div>
+      <div class="ci-group"><span class="lbl">Si querés aprender un oficio</span></div>
     </div>
     <p class="ci-swipe" aria-hidden="true"><span>←</span> Deslizá <span>→</span></p>
     <div class="ci-scroll" aria-label="Talleres">
       <div class="ci-track">
-        <article class="ci-card2 wine">
-          <span class="ci-tag">Sahumerios artesanales de Cherry Glow</span>
+        <article class="ci-card2">
+          <div class="pr-gi wine" role="img" aria-label="Taller de sahumerios"><span>Taller de</span><b><em>sahumerios</em></b></div>
+          <span class="ci-tag">Taller</span>
           <h3>Taller de sahumerios para emprender</h3>
+          <p class="ci-for">Querés empezar con un producto artesanal que tus clientes vuelvan a comprar.</p>
           <p>Creá sahumerios artesanales que realmente duren, aromaticen el ambiente y tus clientes vuelvan una y otra vez a comprarte.</p>
           <a class="pr-btn" href="https://academiacherryglow.com/page/landing-sahumerios">Ver taller</a>
         </article>
-        <article class="ci-card2 yellow">
-          <span class="ci-tag">Velas en recipientes, yeso y souvenirs</span>
+        <article class="ci-card2">
+          <div class="pr-gi ci-yl" role="img" aria-label="Velas, yeso y souvenirs"><span>Velas, yeso</span><b><em>y souvenirs</em></b></div>
+          <span class="ci-tag">Curso intensivo</span>
           <h3>Curso intensivo para crear tu negocio</h3>
+          <p class="ci-for">Querés armar tu emprendimiento desde cero, con varios productos para vender.</p>
           <p>Todo lo que necesitás para empezar tu emprendimiento: yeso cerámico, velas en recipiente, souvenirs, costos, organización y ventas.</p>
           <a class="pr-btn" href="https://academiacherryglow.com/page/landing-yesos">Ver curso</a>
         </article>
-        <article class="ci-card2 pink">
-          <span class="ci-tag">Ebook · Maquillaje natural</span>
+        <article class="ci-card2">
+          <div class="pr-gi pink" role="img" aria-label="Maquillaje natural"><span>Maquillaje</span><b><em>natural</em></b></div>
+          <span class="ci-tag">Ebook</span>
           <h3>Creá tu marca de maquillaje natural</h3>
+          <p class="ci-for">Te atrae la cosmética natural y querés crear tu propia marca.</p>
           <p>Aprendé a formular lip balms, lip oils, iluminadores, rubores y mucho más utilizando ingredientes naturales, sin improvisar recetas y aunque hoy no tengas conocimientos de cosmética.</p>
           <a class="pr-btn" href="https://academiacherryglow.com/page/crea-tu-marca-de-maquillaje-natural">Ver ebook</a>
         </article>
       </div>
     </div>
 
-    <!-- REVISAR: los textos de este grupo los armé con los de cada página -->
     <div class="pr-wrap">
-      <div class="pr-head ci-head2">
-        <span class="lbl">¿Ya tenés un emprendimiento?</span>
-        <h2>Seguí creciendo <b>con compañía</b></h2>
-        <p class="pr-lede">Para cuando ya creás y vendés, y querés ordenar, profesionalizar y sostener tu negocio.</p>
+      <div class="ci-group ci-group2">
+        <span class="lbl">Y si querés crecer como emprendedora</span>
+        <p>Para cuando ya creás y vendés, y querés ordenar, profesionalizar y sostener tu negocio.</p>
       </div>
     </div>
     <p class="ci-swipe ci-swipe2" aria-hidden="true"><span>←</span> Deslizá <span>→</span></p>
-    <div class="ci-scroll ci-two" aria-label="Para emprendimientos en marcha">
+    <div class="ci-scroll ci-two" aria-label="Programas para emprendedoras">
       <div class="ci-track">
-        <article class="ci-card2 cherry">
+        <article class="ci-card2">
           <!-- REVISAR: falta el link de la página de Prósperas en Tiendup -->
+          <div class="pr-gi ci-ch" role="img" aria-label="Prósperas la membresía"><span>Prósperas</span><b><em>la membresía</em></b></div>
           <span class="ci-tag">Membresía · Formación + comunidad</span>
           <h3>Prósperas</h3>
-          <p>Un espacio para aprender todo eso que nadie te enseñó cuando empezaste a emprender: cómo mostrar tus productos, ponerles precio, organizarte y tomar decisiones para tu negocio.</p>
-          <a class="pr-btn" href="#">Ver membresía</a>
+          <p class="ci-for">Ya empezaste a vender y querés aprender todo lo que nadie te enseñó al emprender.</p>
+          <p>Un espacio para aprender cómo mostrar tus productos, ponerles precio, organizarte y tomar decisiones para tu negocio, junto a una comunidad de mujeres que están en la misma que vos.</p>
+          <a class="pr-btn" href="#">Quiero conocer Prósperas</a>
         </article>
-        <article class="ci-card2 cream">
+        <article class="ci-card2">
           <!-- REVISAR: falta el link de la página de ARTEMPRESARIAS en Tiendup -->
-          <span class="ci-tag">Mentoría 1:1 · 90 días</span>
+          <div class="pr-gi blue" role="img" aria-label="ARTEMPRESARIAS mentoría 1:1"><span>ARTEMPRESARIAS</span><b><em>mentoría 1:1</em></b></div>
+          <span class="ci-tag">Mentoría personalizada · 90 días</span>
           <h3>ARTEMPRESARIAS</h3>
-          <p>Programa de acompañamiento 1:1 de 90 días para profesionalizar tu emprendimiento artesanal y empezar a dirigirlo como la empresaria que está detrás.</p>
-          <a class="pr-btn" href="#">Ver mentoría</a>
+          <p class="ci-for">Tenés un emprendimiento funcionando y querés profesionalizarlo con una mirada externa.</p>
+          <p>Programa de acompañamiento 1:1 de 90 días para mirar tu negocio en profundidad, tomar decisiones y empezar a dirigirlo como la empresaria que está detrás.</p>
+          <a class="pr-btn" href="#">Conocer ARTEMPRESARIAS</a>
         </article>
       </div>
     </div>
