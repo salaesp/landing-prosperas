@@ -410,3 +410,18 @@ html{scroll-behavior:smooth}
 .pr .pr-au.soon .pr-au-img .pr-gi{opacity:.75}
 .pr .pr-au-img .pr-gi.cream span:not(.k){color:var(--wine);font-size:1em}
 .pr .pr-au.soon .pr-au-img .pr-gi{justify-content:flex-start;padding-top:14px}
+
+/* flechas flotantes del carrusel de testimonios */
+.pr .pr-tnav{width:44px;height:64px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--cherry);display:grid;place-items:center;
+  filter:drop-shadow(0 4px 8px rgba(155,31,58,.25));transition:color .2s,transform .2s}
+.pr .pr-tnav svg{width:22px;height:44px;display:block}
+.pr .pr-tnav:hover{background:none;color:var(--wine)}
+.pr .pr-tnav.prev{animation:pr-flL 2.4s ease-in-out infinite}
+.pr .pr-tnav.next{animation:pr-flR 2.4s ease-in-out infinite}
+@keyframes pr-flL{0%,100%{transform:translate(0,-60%)}50%{transform:translate(-6px,-60%)}}
+@keyframes pr-flR{0%,100%{transform:translate(0,-60%)}50%{transform:translate(6px,-60%)}}
+@media(max-width:820px){
+  .pr .pr-tnav{display:grid;width:36px;height:56px}
+  .pr .pr-tnav svg{width:18px;height:36px}
+  .pr .pr-tnav.prev{left:2px}.pr .pr-tnav.next{right:2px}
+}

@@ -762,6 +762,21 @@ html{scroll-behavior:smooth}
 .pr .pr-au-img .pr-gi.cream span:not(.k){color:var(--wine);font-size:1em}
 .pr .pr-au.soon .pr-au-img .pr-gi{justify-content:flex-start;padding-top:14px}
 
+/* flechas flotantes del carrusel de testimonios */
+.pr .pr-tnav{width:44px;height:64px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--cherry);display:grid;place-items:center;
+  filter:drop-shadow(0 4px 8px rgba(155,31,58,.25));transition:color .2s,transform .2s}
+.pr .pr-tnav svg{width:22px;height:44px;display:block}
+.pr .pr-tnav:hover{background:none;color:var(--wine)}
+.pr .pr-tnav.prev{animation:pr-flL 2.4s ease-in-out infinite}
+.pr .pr-tnav.next{animation:pr-flR 2.4s ease-in-out infinite}
+@keyframes pr-flL{0%,100%{transform:translate(0,-60%)}50%{transform:translate(-6px,-60%)}}
+@keyframes pr-flR{0%,100%{transform:translate(0,-60%)}50%{transform:translate(6px,-60%)}}
+@media(max-width:820px){
+  .pr .pr-tnav{display:grid;width:36px;height:56px}
+  .pr .pr-tnav svg{width:18px;height:36px}
+  .pr .pr-tnav.prev{left:2px}.pr .pr-tnav.next{right:2px}
+}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -913,7 +928,7 @@ html{scroll-behavior:smooth}
   <section class="pr-sec pr-bg-yellow pr-tsec">
     <div class="pr-wrap"><div class="pr-head" style="margin-bottom:40px"><span class="lbl">Testimonios</span><h2>Lo que cuentan <b>ellas</b></h2></div></div>
     <div class="pr-tcar-wrap">
-      <button class="pr-tnav prev" type="button" aria-label="Ver testimonios anteriores">←</button>
+      <button class="pr-tnav prev" type="button" aria-label="Ver testimonios anteriores"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="pr-tcar" id="pr-tcar">
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
@@ -926,9 +941,8 @@ html{scroll-behavior:smooth}
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf99m5id8991lc4f711tq3cg.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf44gau6ikakfa198m1nacc0.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
       </div>
-      <button class="pr-tnav next" type="button" aria-label="Ver más testimonios">→</button>
+      <button class="pr-tnav next" type="button" aria-label="Ver más testimonios"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
-    <p class="pr-thint">Deslizá para ver más <span aria-hidden="true">→</span></p>
   </section>
 
   <!-- CINTA antes de precios (mismo estilo que las otras cintas) -->
@@ -1037,12 +1051,28 @@ html{scroll-behavior:smooth}
     new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd()}).observe(hero);
     new IntersectionObserver(function(e){payVis=e[0].isIntersecting;upd()},{threshold:0.15}).observe(pay);
   })();
-  /* flechas del carrusel de testimonios */
+  /* carrusel de testimonios infinito: se clona el grupo a cada lado y, al pasar un grupo entero, se reacomoda sin que se note */
   (function(){
     var c=document.getElementById('pr-tcar');if(!c)return;
-    var w=c.parentNode;
-    w.querySelector('.prev').addEventListener('click',function(){c.scrollBy({left:-c.clientWidth*0.8,behavior:'smooth'})});
-    w.querySelector('.next').addEventListener('click',function(){c.scrollBy({left:c.clientWidth*0.8,behavior:'smooth'})});
+    var orig=[].slice.call(c.children);if(!orig.length)return;
+    function clone(el){var k=el.cloneNode(true);k.setAttribute('aria-hidden','true');var i=k.querySelector('img');if(i)i.loading='lazy';return k}
+    orig.forEach(function(el){c.appendChild(clone(el))});
+    orig.slice().reverse().forEach(function(el){c.insertBefore(clone(el),c.firstChild)});
+    var n=orig.length,setW=0;
+    function measure(){var k=c.children;setW=k[n*2].offsetLeft-k[n].offsetLeft}
+    function center(){measure();c.style.scrollSnapType='none';c.scrollLeft=c.children[n].offsetLeft-c.children[0].offsetLeft;c.style.scrollSnapType=''}
+    function wrap(){
+      if(!setW)return;
+      var start=c.children[n].offsetLeft-c.children[0].offsetLeft;
+      if(c.scrollLeft<start-setW*0.5){c.style.scrollSnapType='none';c.scrollLeft+=setW;c.style.scrollSnapType=''}
+      else if(c.scrollLeft>start+setW*0.5){c.style.scrollSnapType='none';c.scrollLeft-=setW;c.style.scrollSnapType=''}
+    }
+    var t;c.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(wrap,140)},{passive:true});
+    window.addEventListener('resize',function(){var off=c.scrollLeft-(c.children[n].offsetLeft-c.children[0].offsetLeft);measure();c.scrollLeft=c.children[n].offsetLeft-c.children[0].offsetLeft+off});
+    center();
+    var w=c.parentNode,step=function(){return c.children[1].offsetLeft-c.children[0].offsetLeft};
+    w.querySelector('.prev').addEventListener('click',function(){c.scrollBy({left:-step(),behavior:'smooth'})});
+    w.querySelector('.next').addEventListener('click',function(){c.scrollBy({left:step(),behavior:'smooth'})});
   })();
   /* lleva a los precios aunque las fotos de más arriba terminen de cargar mientras baja */
   (function(){
