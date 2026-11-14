@@ -90,7 +90,7 @@
         <article class="pr-au"><div class="pr-au-img"><img src="assets/aulas/aula-desafios.jpg" alt="Desafíos Prósperos" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Ejercicios mensuales para llevar lo aprendido a tu emprendimiento y compartir tus avances.</p></div></article>
         <!-- AULA 06: grisada con cartel "Próximamente". Cuando esté lista, cambiar la clase "soon" por nada, sacar el cartel y poner su imagen. -->
         <article class="pr-au soon">
-          <div class="pr-au-img"><div class="pr-au-ghost"><span>Aula:</span>Editá y elevá tus <em>contenidos</em></div></div>
+          <div class="pr-au-img"><div class="pr-gi cream" role="img" aria-label="Aula: Editá y elevá tus contenidos"><span class="k">Aula:</span><span>Editá y elevá tus</span><b><em>contenidos</em><i class="pr-mascot" aria-hidden="true"></i></b></div></div>
           <div class="pr-au-tx"><p>Técnicas simples de grabación y edición para mostrar mejor tus productos, sin equipos profesionales.</p></div>
           <span class="pr-soon-tag" role="note">Próximamente</span>
         </article>
@@ -257,8 +257,9 @@
   (function(){
     var fab=document.getElementById('pr-fab'),hero=document.querySelector('#prosperas .pr-hero'),pay=document.getElementById('unite');
     if(!fab||!hero||!pay||!('IntersectionObserver' in window))return;
-    var heroVis=true,payVis=false;
-    function upd(){fab.classList.toggle('on',!heroVis&&!payVis)}
+    var heroVis=true,payVis=false,endVis=false,end=document.querySelector('#prosperas .pr-end');
+    function upd(){fab.classList.toggle('on',!heroVis&&!payVis&&!endVis)}
+    if(end)new IntersectionObserver(function(e){endVis=e[0].isIntersecting;upd()},{threshold:0.1}).observe(end);
     new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd()}).observe(hero);
     new IntersectionObserver(function(e){payVis=e[0].isIntersecting;upd()},{threshold:0.15}).observe(pay);
   })();

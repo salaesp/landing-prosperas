@@ -401,3 +401,12 @@ html{scroll-behavior:smooth}
 .pr .pr-tc img{width:100%;height:auto;max-height:520px;object-fit:contain}
 @media(max-width:820px){.pr .pr-tc{width:min(300px,78vw);height:auto}.pr .pr-tc img{max-height:460px}}
 .pr .pr-faqsec{padding-top:clamp(64px,8vw,116px)}
+
+/* la frase animada del cierre no debe tapar el botón */
+.pr .tw,.pr .pr-end .script{pointer-events:none}
+
+/* aula 06 con título armado (grisada) */
+.pr .pr-au.soon .pr-au-img{container-type:inline-size}
+.pr .pr-au.soon .pr-au-img .pr-gi{opacity:.75}
+.pr .pr-au-img .pr-gi.cream span:not(.k){color:var(--wine);font-size:1em}
+.pr .pr-au.soon .pr-au-img .pr-gi{justify-content:flex-start;padding-top:14px}
