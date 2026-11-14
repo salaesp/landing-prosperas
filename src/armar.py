@@ -34,6 +34,10 @@ header = """<!-- ============================================================
   Las líneas marcadas con PENDIENTE están comentadas para revisar.
 ============================================================ -->"""
 
+script = "\n".join(lines[script_open:script_close + 1])
+assert "2026-11-29T23:59:59-03:00" in script
+script = script.replace("2026-11-29T23:59:59-03:00", "2027-01-01T23:59:59-03:00")
+
 out = "\n".join([
     header,
     "<style>",
@@ -44,7 +48,7 @@ out = "\n".join([
     "\n".join(lines[svg_open:svg_close + 1]),
     "",
     (root / "src/cuerpo.html").read_text(encoding="utf-8"),
-    "\n".join(lines[script_open:script_close + 1]),
+    script,
     "</div>",
     "",
 ])
