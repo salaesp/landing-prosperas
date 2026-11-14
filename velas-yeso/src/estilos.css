@@ -4,6 +4,9 @@
    con el fucsia del título (--cherry) como acento.
 ============================================================ */
 .vy{--blue2:#a6cfec}
+/* Tiendup mete el bloque HTML dentro de una sección de UIkit (.page-section.uk-section) que tiene padding arriba y abajo:
+   lo sacamos sin usar el selector "has" (el editor de Tiendup no lo acepta). Esta página tiene una sola sección, así que no toca nada más. */
+.single-page .page-section.uk-section{padding-top:0!important;padding-bottom:0!important}
 .pr .vy-stripes{background:repeating-linear-gradient(90deg,var(--blue) 0 30px,var(--blue2) 30px 60px)}
 .pr .vy-blue{background:var(--blue)}
 
