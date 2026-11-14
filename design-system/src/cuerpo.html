@@ -1,0 +1,1472 @@
+<div class="pr ae ci ds" id="ds">
+
+  <!-- ============================================================
+       ENCABEZADO
+  ============================================================ -->
+  <header class="ds-head">
+    <div class="pr-wrap">
+      <span class="lbl">Guía interna</span>
+      <h1>Design system de las landings <em>Cherry Glow</em></h1>
+      <p class="pr-lede">Cómo armamos cada sección según qué queremos mostrar, cómo se usan los colores y qué componente va para cada cosa. Todo lo que ves acá está hecho con el mismo CSS de Prósperas, ARTEMPRESARIAS y el inicio: si se ve bien acá, se ve igual en Tiendup.</p>
+      <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+      <nav class="ds-nav" aria-label="Índice">
+        <a href="#armado"><b>01</b> Cómo se arma</a>
+        <a href="#colores"><b>02</b> Colores</a>
+        <a href="#tipografia"><b>03</b> Tipografía</a>
+        <a href="#base"><b>04</b> Piezas base</a>
+        <a href="#mostrar"><b>05</b> Qué querés mostrar</a>
+        <a href="#recetas"><b>06</b> Recetas de página</a>
+        <a href="#reglas"><b>07</b> Reglas y checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       01 · CÓMO SE ARMA UNA PÁGINA
+  ============================================================ -->
+  <section class="ds-ch wh" id="armado">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">01 · Cómo se arma</span>
+        <h2>Una página es una pila de <b>secciones de ancho completo.</b></h2>
+        <p>Cada landing vive en su carpeta, se escribe en <code>src/cuerpo.html</code> y se arma con <code>python3 carpeta/src/armar.py</code>. El resultado es un único <code>index.html</code> que se pega en un bloque HTML de Tiendup.</p>
+      </div>
+      <div class="ds-cards">
+        <div class="ds-card"><span class="n">ENVOLTORIO</span><h3>Todo va dentro de <code>.pr</code></h3><p>La página entera va en <code>&lt;div class="pr" id="nombre"&gt;</code>. Ese div trae los colores, las fuentes y ocupa todo el ancho aunque Tiendup lo meta en una columna. Sumá <code>ae</code> y <code>ci</code> si usás piezas de ARTEMPRESARIAS o del inicio.</p></div>
+        <div class="ds-card"><span class="n">SECCIÓN</span><h3><code>section.pr-sec</code> + fondo</h3><p>Cada bloque es una <code>&lt;section class="pr-sec pr-bg-…"&gt;</code> con un <code>.pr-wrap</code> adentro (ancho máximo 1080&nbsp;px y márgenes). La excepción son las pantallas partidas <code>.pr-split</code>, que van de borde a borde.</p></div>
+        <div class="ds-card"><span class="n">CSS EN CAPAS</span><h3>Base → compartido → propio</h3><p>1) CSS original de Prósperas (tokens, botones, FAQ). 2) <code>prosperas/src/nuevo.css</code> (chatcitos, cintas, tarjetas). 3) <code>artempresarias/src/estilos.css</code>. 4) El CSS propio de la página, con un prefijo nuevo (<code>ae-</code>, <code>ci-</code>…).</p></div>
+        <div class="ds-card"><span class="n">SIN JAVASCRIPT</span><h3>Todo funciona con HTML y CSS</h3><p>Tiendup no ejecuta scripts dentro del bloque. Carruseles, desplegables y estados se hacen con <code>&lt;details&gt;</code>, botones de radio o scroll horizontal. Si sumás JS, es solo un extra (como el botón fijo de Prósperas).</p></div>
+        <div class="ds-card"><span class="n">IMÁGENES</span><h3>CDN de Tiendup o <code>assets/</code></h3><p>Las fotos de Juli se usan desde el CDN de Tiendup. Las imágenes nuevas se guardan en <code>carpeta/assets/</code> y <code>armar.py</code> las incrusta dentro del <code>index.html</code>. Siempre con <code>alt</code>, <code>width</code>, <code>height</code> y <code>loading="lazy"</code> (menos la del hero).</p></div>
+        <div class="ds-card"><span class="n">COMENTARIOS</span><h3><code>REVISAR</code> y <code>PENDIENTE</code></h3><p>Todo lo que haya que confirmar con Juli queda marcado en un comentario HTML: <code>REVISAR</code> para textos escritos por nosotros, <code>PENDIENTE</code> para datos que faltan (precios, links, imágenes).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 · COLORES
+  ============================================================ -->
+  <section class="ds-ch cr" id="colores">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">02 · Colores</span>
+        <h2>Seis colores de marca y <b>reglas claras de qué va sobre qué.</b></h2>
+        <p>Los colores están definidos como variables dentro de <code>.pr</code>. En el CSS siempre se usa la variable (<code>var(--cherry)</code>), nunca el código suelto, salvo los complementarios de abajo que no tienen variable.</p>
+      </div>
+
+      <h3 class="ds-h3">Paleta de marca</h3>
+      <div class="ds-sws">
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--cream);color:var(--wine)">Aa</div><div class="ds-sw-t"><b>Crema · <code>--cream</code></b><span class="hex">#FFF8FC</span><p>El fondo base de todo. También es el color del texto sobre cereza y bordó.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--wine);color:var(--cream)">Aa</div><div class="ds-sw-t"><b>Bordó · <code>--wine</code></b><span class="hex">#9B1F3A</span><p>El color de todo el texto sobre fondos claros. Como fondo: momentos personales (Juli) y cierres.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--cherry);color:var(--cream)">Aa</div><div class="ds-sw-t"><b>Cereza · <code>--cherry</code></b><span class="hex">#CF216C</span><p>El acento principal: botones, etiquetas, palabras destacadas, números. Como fondo: “qué es”, “qué recibís”, precio.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--yellow);color:var(--wine)">Aa</div><div class="ds-sw-t"><b>Amarillo · <code>--yellow</code></b><span class="hex">#F8F0B5</span><p>Fondo claro de sección (dolores, para quién, testimonios). Sobre cereza y bordó es el color de acento.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--blue);color:var(--wine)">Aa</div><div class="ds-sw-t"><b>Celeste · <code>--blue</code></b><span class="hex">#B5D8F1</span><p>Fondo claro para cortar el rosa. Se usa poco: una sección por página o una tarjeta.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--pink);color:#5a0e22">Aa</div><div class="ds-sw-t"><b>Rosa · <code>--pink</code></b><span class="hex">#EE6DA6</span><p>Solo detalles: bordes de fotos en arco, líneas punteadas, tarjetas de producto. Nunca fondo de sección ni texto.</p></div></div>
+      </div>
+
+      <h3 class="ds-h3">Complementarios (sin variable)</h3>
+      <div class="ds-sws sm">
+        <div class="ds-sw"><div class="ds-sw-c" style="background:#fff"></div><div class="ds-sw-t"><b>Blanco</b><span class="hex">#FFFFFF</span><p>Fondo de sección y de tarjetas sobre crema.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:#fbd0e2"></div><div class="ds-sw-t"><b>Rosa suave</b><span class="hex">#FBD0E2</span><p>Fondo de pasos, línea de tiempo, cajitas.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:repeating-linear-gradient(90deg,#9b1f3a 0 12px,#8a1a33 12px 24px)"></div><div class="ds-sw-t"><b>Rayas bordó</b><span class="hex">#9B1F3A / #8A1A33</span><p>Fondo del hero con foto.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:repeating-linear-gradient(90deg,#cf216c 0 12px,#bd1c61 12px 24px)"></div><div class="ds-sw-t"><b>Rayas cereza</b><span class="hex">#CF216C / #BD1C61</span><p>Hero con texto bordó o con tarjeta.</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:#5a0e22"></div><div class="ds-sw-t"><b>Bordó oscuro</b><span class="hex">#5A0E22</span><p>Texto sobre rosa y sombras (con transparencia).</p></div></div>
+        <div class="ds-sw"><div class="ds-sw-c" style="background:var(--cream);box-shadow:inset 0 -3px 0 rgba(155,31,58,.22)"></div><div class="ds-sw-t"><b>Línea · <code>--line</code></b><span class="hex">bordó al 22&nbsp;%</span><p>Bordes finos y separadores.</p></div></div>
+      </div>
+
+      <h3 class="ds-h3">Qué va sobre cada fondo</h3>
+      <p class="ds-p" style="margin-bottom:22px">Cada tarjeta es un fondo de sección permitido, con su texto, su palabra destacada, su etiqueta y su botón. Si una sección nueva no entra en ninguna de estas combinaciones, probablemente esté mal.</p>
+      <div class="ds-pairs">
+        <div class="ds-pair cr"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto bordó. Es el fondo por defecto.</p><a class="pr-btn" href="#colores">Botón</a><span class="ds-use">Crema · FAQ, aulas, Juli centrada, áreas.</span></div>
+        <div class="ds-pair pr-bg-white"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto bordó, igual que crema.</p><a class="pr-btn" href="#colores">Botón</a><span class="ds-use">Blanco · catálogo, pasos, columnas con foto.</span></div>
+        <div class="ds-pair pr-bg-yellow"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto bordó, tarjetas en crema.</p><a class="pr-btn" href="#colores">Botón</a><span class="ds-use">Amarillo · dolores, para quién, testimonios, cierre partido.</span></div>
+        <div class="ds-pair pr-bg-blue"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto bordó. Una vez por página.</p><a class="pr-btn" href="#colores">Botón</a><span class="ds-use">Celeste · mitos y realidades.</span></div>
+        <div class="ds-pair pk"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto bordó, tarjetas en crema.</p><a class="pr-btn" href="#colores">Botón</a><span class="ds-use">Rosa suave · pasos, línea de tiempo, columna de texto.</span></div>
+        <div class="ds-pair pr-bg-cherry"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto crema, énfasis amarillo.</p><a class="pr-btn cream" href="#colores">Botón</a><span class="ds-use">Cereza · qué es, qué recibís, precio.</span></div>
+        <div class="ds-pair pr-bg-wine"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Texto crema, énfasis amarillo.</p><a class="pr-btn cream" href="#colores">Botón</a><span class="ds-use">Bordó · Juli, frase de foco, cierre centrado.</span></div>
+        <div class="ds-pair st"><span class="lbl">Etiqueta</span><h3>Título con <b>énfasis</b></h3><p>Solo de fondo detrás de una foto o tarjeta.</p><a class="pr-btn cream" href="#colores">Botón</a><span class="ds-use">Rayas · únicamente en el hero.</span></div>
+      </div>
+
+      <h3 class="ds-h3">Reglas de color</h3>
+      <ol class="ds-rules">
+        <li><b>Texto bordó sobre claros, crema sobre oscuros.</b> Nunca negro, nunca gris. Para bajar el tono se usa <code>opacity:.85</code>, no otro color.</li>
+        <li><b>Una palabra destacada por título:</b> en cereza sobre claros y en amarillo sobre cereza o bordó. Ese amarillo hay que agregarlo en el CSS de la sección (<code>.pr .mi-sec h2 b{color:var(--yellow)}</code>).</li>
+        <li><b>Nunca dos secciones seguidas con el mismo fondo.</b> Alternar claro y oscuro marca el ritmo; si hace falta separar dos claros, va una cinta en el medio.</li>
+        <li><b>Cereza o bordó de fondo, máximo uno cada dos o tres secciones.</b> Son los momentos fuertes: no pueden ser todos.</li>
+        <li><b>Botón cereza sobre claros, botón crema (<code>.pr-btn.cream</code>) sobre oscuros.</b> El botón con borde (<code>.line</code>) es solo para acciones secundarias.</li>
+        <li><b>La etiqueta cambia sola:</b> cereza sobre claros y amarilla sobre <code>.pr-bg-cherry</code>, <code>.pr-bg-wine</code>, <code>.pr-tx.wine</code> y <code>.pr-tx.cherry</code>. En una sección cereza nueva, sumarla a esa regla.</li>
+        <li><b>Las rayas son solo para el hero</b>, siempre con algo encima (foto en marco o tarjeta crema).</li>
+        <li><b>Las tarjetas alternan</b> cereza y amarillo (o crema y cereza) para que una lista larga no se vea plana: chatcitos, etiquetas, números y preguntas ya lo hacen solos con <code>:nth-child(even)</code>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 · TIPOGRAFÍA
+  ============================================================ -->
+  <section class="ds-ch wh" id="tipografia">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">03 · Tipografía</span>
+        <h2>Una serif para hablar, una sans para explicar y una <b>firma para emocionar.</b></h2>
+        <p>Las tres se cargan desde Google Fonts en el CSS base. Los tamaños ya están definidos con <code>clamp()</code>: no hace falta ponerlos a mano en cada sección.</p>
+      </div>
+      <div class="ds-fonts">
+        <div class="ds-font"><span class="big" style="font-family:'Noto Serif',serif">Aa <em>Aa</em></span><b>Noto Serif</b><p>Títulos, citas, preguntas, números grandes y precios. La itálica es para frases que se “dicen”.</p></div>
+        <div class="ds-font"><span class="big" style="font-family:'Outfit',sans-serif">Aa</span><b>Outfit</b><p>Todo el texto corrido, etiquetas, botones y chatcitos. Las mayúsculas espaciadas son para etiquetas y botones.</p></div>
+        <div class="ds-font"><span class="big" style="font-family:'Yellowtail',cursive">Aa</span><b>Yellowtail</b><p>Solo para una frase manuscrita en el cierre (“Somos creativas, únicas y prósperas”). Una vez por página como mucho.</p></div>
+      </div>
+      <dl class="ds-type">
+        <div><dt><b>Título principal</b><code>h1</code> · 1 por página</dt><dd><h1 style="font-size:clamp(30px,3.7vw,46px)">Crear productos fue el <b>comienzo</b>. Ahora <em>construí tu negocio.</em></h1></dd></div>
+        <div><dt><b>Título de sección</b><code>h2</code> + <code>&lt;b&gt;</code> al final</dt><dd><h2>Lo que recibís <b>cada mes</b></h2></dd></div>
+        <div><dt><b>Título de tarjeta</b><code>h3</code></dt><dd><h3>Ordenás las bases</h3></dd></div>
+        <div><dt><b>Bajada del título</b><code>.pr-lede</code> dentro de <code>.pr-head</code></dt><dd><p style="font-size:clamp(16.5px,1.5vw,18.5px)">Un espacio para probar, resolver dudas y avanzar acompañada por mujeres que están en la misma que vos.</p></dd></div>
+        <div><dt><b>Texto destacado</b><code>.pr-sub</code></dt><dd><p class="pr-sub">Cada mes trabajamos sobre situaciones reales de un negocio creativo para que te lleves decisiones concretas.</p></dd></div>
+        <div><dt><b>Texto corrido</b>16–16,5&nbsp;px · interlineado 1,7</dt><dd><p>Soy la creadora de Cherry Glow y de Academia Cherry Glow. Empecé vendiendo productos artesanales mientras tenía otro trabajo, y construí todo probando, equivocándome y ajustando.</p></dd></div>
+        <div><dt><b>Cita</b><code>.pr-quote</code></dt><dd><p class="pr-quote" style="margin-top:0">Crecer no siempre es hacer más. A veces es elegir mejor qué hacer con lo que ya tenés.</p></dd></div>
+        <div><dt><b>Frase con línea</b><code>.ae-hl</code></dt><dd><p class="ae-hl" style="margin-top:0">Lo importante es que elijas tu camino, en lugar de hacer lo que ves que hacen las demás.</p></dd></div>
+        <div><dt><b>Frase de entrada</b><code>.ci-script</code></dt><dd><p class="ci-script" style="margin:0">Capaz estás en este punto…</p></dd></div>
+        <div><dt><b>Subtítulo chico</b><code>.ae-kicker2</code></dt><dd><p class="ae-kicker2" style="margin:0">Es empezar a preguntarte:</p></dd></div>
+        <div><dt><b>Dato de tarjeta</b><code>.ae-meta</code> / <code>.n</code></dt><dd><span class="ae-meta" style="margin:0">Encuentro 1 · 45 – 50 minutos</span></dd></div>
+        <div><dt><b>Firma manuscrita</b><code>.script</code> (solo en <code>.pr-end</code>)</dt><dd><span style="font-family:'Yellowtail',cursive;font-size:clamp(34px,4.4vw,50px);color:var(--cherry);line-height:1.15">Somos creativas, únicas y prósperas.</span></dd></div>
+      </dl>
+      <h3 class="ds-h3">Cómo destacar dentro de un título</h3>
+      <div class="ds-duo">
+        <div class="ds-stage"><h2>Elegí por dónde <b>empezar</b></h2><span class="ds-cap"><code>&lt;b&gt;</code> = negrita (y en cereza si la sección lo pide con <code>b.pk</code> o su CSS). Es lo más usado: la idea clave al final del título.</span></div>
+        <div class="ds-stage"><h2>Aprendé un oficio. <em>Construí tu negocio.</em></h2><span class="ds-cap"><code>&lt;em&gt;</code> = itálica cereza. Para la segunda mitad de un título de dos partes, sobre todo en héroes y cierres.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 · PIEZAS BASE
+  ============================================================ -->
+  <section class="ds-ch cr" id="base">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">04 · Piezas base</span>
+        <h2>Las piezas chicas que se repiten <b>en todas las secciones.</b></h2>
+        <p>Antes de inventar algo, fijate si se puede resolver con estas. Cada una tiene su código abajo para copiar.</p>
+      </div>
+
+      <h3 class="ds-h3">Botones · <code>.pr-btn</code></h3>
+      <div class="ds-duo">
+        <div class="ds-stage">
+          <!--demo-in-->
+          <div class="ds-row">
+            <a class="pr-btn" href="#base">Quiero ser parte</a>
+            <a class="pr-btn line" href="#base">Ver más</a>
+          </div>
+          <!--/demo-in-->
+          <span class="ds-cap">Sobre claros: el principal es cereza; <code>.line</code> solo para una acción secundaria al lado.</span>
+        </div>
+        <div class="ds-stage dk">
+          <!--demo-in-->
+          <a class="pr-btn cream" href="#base">Me quiero unir</a>
+          <!--/demo-in-->
+          <span class="ds-cap">Sobre cereza o bordó: <code>.pr-btn.cream</code>. Texto del botón: acción en primera persona (“Quiero…”, “Me quiero unir”).</span>
+        </div>
+      </div>
+
+      <h3 class="ds-h3">Etiqueta · <code>.lbl</code></h3>
+      <div class="ds-duo">
+        <div class="ds-stage"><!--demo-in--><span class="lbl">¿Qué es Prósperas?</span><!--/demo-in--><span class="ds-cap">Va arriba del <code>h2</code>. Dice de qué trata la sección en 2–5 palabras (“Testimonios”, “Inversión”, “Las aulas”). Tiene una colita como un chat.</span></div>
+        <div class="ds-stage wn"><span class="lbl" style="background:var(--yellow);color:var(--wine)!important">Como miembro</span><span class="ds-cap">Sobre fondos oscuros es amarilla con texto bordó (sale sola en <code>.pr-bg-cherry</code> y <code>.pr-bg-wine</code>).</span></div>
+      </div>
+
+      <h3 class="ds-h3">Encabezado de sección · <code>.pr-head</code></h3>
+      <div class="ds-stage">
+        <!--demo-in-->
+        <div class="pr-head" style="margin-bottom:0">
+          <span class="lbl">Como miembro</span>
+          <h2>Lo que recibís <b>cada mes</b></h2>
+          <p class="pr-lede">Un espacio para probar, resolver dudas y avanzar acompañada por mujeres que están en la misma que vos.</p>
+        </div>
+        <!--/demo-in-->
+        <span class="ds-cap">Etiqueta + título + bajada, centrados. Es el arranque de casi todas las secciones con tarjetas. Separación con lo de abajo: 40–56&nbsp;px (<code>style="margin-bottom:48px"</code>).</span>
+      </div>
+
+      <h3 class="ds-h3">Chatcitos flotantes · <code>.pr-chat</code></h3>
+      <div class="ds-stage">
+        <!--demo-in-->
+        <div class="ds-chatdemo">
+          <span class="pr-chat" style="left:2%;top:18px">La membresía</span>
+          <span class="pr-chat pk r d2" style="left:36%;top:44px">Para artesanas</span>
+          <span class="pr-chat yl d3" style="right:2%;top:10px">Formación + comunidad</span>
+        </div>
+        <!--/demo-in-->
+        <span class="ds-cap">Globitos que flotan alrededor de una foto (hero, Juli, fotos que cambian). Crema por defecto, <code>.pk</code> cereza, <code>.yl</code> amarillo; <code>.r</code> pone la colita a la derecha; <code>.d2</code>/<code>.d3</code> desfasan la animación. Máximo 3 por foto, de 2 a 4 palabras, con <code>aria-hidden="true"</code>. Su posición se define en el CSS de la sección (<code>.c1</code>, <code>.c2</code>, <code>.c3</code>).</span>
+      </div>
+
+      <h3 class="ds-h3">Sello giratorio y firma</h3>
+      <div class="ds-duo">
+        <div class="ds-stage flush">
+          <div class="ds-seal">
+            <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><text x="60" y="64" text-anchor="middle" style="fill:#fff8fc;font-size:15px;letter-spacing:0">✱</text><defs><path id="ds-sealp" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#ds-sealp" startOffset="0" textLength="252" lengthAdjust="spacing">Grupo fundador ✦ Cupos limitados ✦</textPath></text></svg></div>
+          </div>
+          <div style="padding:16px 22px 20px"><span class="ds-cap" style="margin:0"><code>.pr-seal</code>: solo en el hero, arriba a la derecha. Dos ideas cortas separadas por ✦. El <code>id</code> del <code>path</code> tiene que ser único en cada página (<code>pr-sealp</code>, <code>ae-sealp</code>…). Es el único lugar donde quedan estrellitas.</span></div>
+        </div>
+        <div class="ds-stage">
+          <div class="pr-sig" style="color:var(--cherry);width:min(220px,70%);margin:6px 0 18px"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+          <div class="pr-logo" style="width:min(200px,60%);margin:0"><svg viewBox="0 0 428.27 130.46" role="img" aria-label="Prósperas by Juli de Franco"><use href="#pr-l-full"/></svg></div>
+          <span class="ds-cap"><code>.pr-sig</code> (“By Juli de Franco”) cierra los bloques en primera persona de Juli y la tarjeta del hero. <code>.pr-logo</code> es el logo de Prósperas. Los dos salen de los símbolos SVG <code>#pr-l-sig</code> y <code>#pr-l-full</code> y toman el color de <code>color</code>.</span>
+        </div>
+      </div>
+
+      <h3 class="ds-h3">Cintas</h3>
+      <div class="ds-stage flush">
+        <!--demo-in-->
+        <div class="pr-top">Programa de acompañamiento 1:1 · 90 días · Para artesanas emprendedoras</div>
+        <!--/demo-in-->
+      </div>
+      <span class="ds-cap"><code>.pr-top</code>: la cinta de arriba de todo. Una sola línea con el dato clave (producto · duración · para quién, o el precio de lanzamiento). Si lleva a algún lado, es un <code>&lt;a class="pr-top"&gt;</code>.</span>
+      <div class="ds-stage flush" style="margin-top:22px">
+        <!--demo-in-->
+        <div class="pr-mq"><div class="pr-mq-track">
+          <div class="pr-mq-grp"><span>Método</span><span>Fórmulas probadas</span><span>Enfoque emprendedor</span><span>Crear para vender</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Método</span><span>Fórmulas probadas</span><span>Enfoque emprendedor</span><span>Crear para vender</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Método</span><span>Fórmulas probadas</span><span>Enfoque emprendedor</span><span>Crear para vender</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Método</span><span>Fórmulas probadas</span><span>Enfoque emprendedor</span><span>Crear para vender</span></div>
+        </div></div>
+        <!--/demo-in-->
+        <div class="pr-mq yl"><div class="pr-mq-track">
+          <div class="pr-mq-grp"><span>Formación mensual</span><span>Encuentros en vivo</span><span>Comunidad de artesanas</span><span>Desafíos prácticos</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Formación mensual</span><span>Encuentros en vivo</span><span>Comunidad de artesanas</span><span>Desafíos prácticos</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Formación mensual</span><span>Encuentros en vivo</span><span>Comunidad de artesanas</span><span>Desafíos prácticos</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Formación mensual</span><span>Encuentros en vivo</span><span>Comunidad de artesanas</span><span>Desafíos prácticos</span></div>
+        </div></div>
+        <div class="pr-mq rev"><div class="pr-mq-track">
+          <div class="pr-mq-grp"><span>Las puertas están abiertas</span><span>Grupo fundador</span><span>Cupos limitados</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Las puertas están abiertas</span><span>Grupo fundador</span><span>Cupos limitados</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Las puertas están abiertas</span><span>Grupo fundador</span><span>Cupos limitados</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Las puertas están abiertas</span><span>Grupo fundador</span><span>Cupos limitados</span></div>
+        </div></div>
+        <div class="pr-mq big"><div class="pr-mq-track">
+          <div class="pr-mq-grp"><span>Preguntas frecuentes</span><span>Preguntas frecuentes</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Preguntas frecuentes</span><span>Preguntas frecuentes</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Preguntas frecuentes</span><span>Preguntas frecuentes</span></div>
+          <div class="pr-mq-grp" aria-hidden="true"><span>Preguntas frecuentes</span><span>Preguntas frecuentes</span></div>
+        </div></div>
+      </div>
+      <span class="ds-cap"><code>.pr-mq</code>: cinta que corre entre secciones. Blanca (por defecto) después del hero; <code>.yl</code> amarilla después de una sección cereza; <code>.rev</code> bordó, corre al revés, antes del precio; <code>.big</code> en serif grande para anunciar un bloque. 3 a 5 frases cortas, y el grupo se repite <b>4 veces</b> (las copias con <code>aria-hidden="true"</code>) para que no se corte.</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05 · QUÉ QUERÉS MOSTRAR → QUÉ COMPONENTE
+  ============================================================ -->
+  <section class="ds-ch wh" id="mostrar">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">05 · Qué querés mostrar</span>
+        <h2>Fijate qué tenés para mostrar y <b>elegí una de las opciones.</b></h2>
+        <p>Cada tipo de contenido tiene 2 o 3 alternativas (A, B, C) y una guía para elegir. La A es la opción por defecto. Debajo de cada una está la sección funcionando, con su ficha y su código para copiar.</p>
+      </div>
+      <table class="ds-table">
+        <thead><tr><th>Tengo…</th><th>Opciones</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#t-presentacion">Presentación del producto</a></td><td><a href="#c-hero"><b>A</b> Hero partido — texto + foto sobre rayas</a> · <a href="#c-hero2"><b>B</b> Hero en tarjeta — centrado sobre rayas</a></td></tr>
+          <tr><td><a href="#t-quees">Explicar qué es y cómo funciona</a></td><td><a href="#c-que"><b>A</b> Qué es — texto corto + fotos que cambian</a> · <a href="#c-split"><b>B</b> Pantalla partida — foto de un lado, texto del otro</a></td></tr>
+          <tr><td><a href="#t-dolores">Lo que le pasa (dolores y creencias)</a></td><td><a href="#c-chats"><b>A</b> Dolores como chatcitos</a> · <a href="#c-pains"><b>B</b> Dolores en tarjetas cortas</a> · <a href="#c-mitos"><b>C</b> Mito tachado y la realidad encima</a></td></tr>
+          <tr><td><a href="#t-listados">Listados</a></td><td><a href="#c-gets"><b>A</b> Lo que recibe — 3 tarjetas sobre cereza</a> · <a href="#c-areas"><b>B</b> Áreas — tarjetas con pregunta y desplegable</a> · <a href="#c-incl"><b>C</b> Lista con tildes en una caja</a></td></tr>
+          <tr><td><a href="#t-pasos">Pasos y recorridos</a></td><td><a href="#c-pasos"><b>A</b> Pasos numerados — el cambio en 3 etapas</a> · <a href="#c-tl"><b>B</b> Línea de tiempo — un recorrido con etapas</a></td></tr>
+          <tr><td><a href="#t-contenidos">Contenidos y productos</a></td><td><a href="#c-aulas"><b>A</b> Contenidos — tarjetas con imagen</a> · <a href="#c-catalogo"><b>B</b> Catálogo — tarjetas con portada en fila</a></td></tr>
+          <tr><td><a href="#t-testimonios">Testimonios</a></td><td><a href="#c-test"><b>A</b> Pila de capturas</a> · <a href="#c-test2"><b>B</b> Testimonios en texto, con nombre</a> · <a href="#c-test3"><b>C</b> Capturas en fila para deslizar</a></td></tr>
+          <tr><td><a href="#t-paraquien">Para quién es</a></td><td><a href="#c-fit"><b>A</b> Para quién es — tarjeta sí + cajas al costado</a> · <a href="#c-fit2"><b>B</b> Dos tarjetas — es para vos / no es para vos</a></td></tr>
+          <tr><td><a href="#t-juli">Quién está detrás</a></td><td><a href="#c-juli"><b>A</b> Juli — foto en arco sobre bordó</a> · <a href="#c-juli2"><b>B</b> Juli — foto redonda al centro</a></td></tr>
+          <tr><td><a href="#t-pausa">Una pausa o frase fuerte</a></td><td><a href="#c-foco"><b>A</b> Frase de foco — una idea, nada más</a> · <a href="#c-cinta"><b>B</b> Cinta grande — una frase que corre</a></td></tr>
+          <tr><td><a href="#t-precio">Precio</a></td><td><a href="#c-precio"><b>A</b> Precio con varios planes</a> · <a href="#c-precio2"><b>B</b> Precio único con lo que incluye</a></td></tr>
+          <tr><td><a href="#t-faq">Preguntas frecuentes</a></td><td><a href="#c-faq"><b>A</b> Preguntas frecuentes</a> · <a href="#c-faq2"><b>B</b> Preguntas con el título fijo al costado</a></td></tr>
+          <tr><td><a href="#t-cierre">Cierre</a></td><td><a href="#c-end"><b>A</b> Cierre partido — foto + último empujón</a> · <a href="#c-end2"><b>B</b> Cierre centrado — con accesos directos</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== TENGO: PRESENTACIÓN DEL PRODUCTO ==================== -->
+  <div class="ds-cat" id="t-presentacion"><div class="pr-wrap">
+    <span class="ds-k">05.01 · Tengo…</span>
+    <h2>Presentación del producto</h2>
+    <p>Lo primero que ve: qué es, para quién y el botón.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-hero">Hero partido — texto + foto sobre rayas</a></b> Para una landing de producto con foto de Juli (o del producto). Es la opción por defecto.</li><li><b>B · <a href="#c-hero2">Hero en tarjeta — centrado sobre rayas</a></b> Para páginas que no venden un solo producto: inicio, “sobre mí”, un índice de talleres.</li></ul>
+  </div></div>
+  <!-- ---------- HERO PARTIDO ---------- -->
+  <div class="ds-ficha" id="c-hero"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">01 · OPCIÓN A</span><h3>Hero partido: <em>texto + foto sobre rayas</em></h3><p class="ds-why">La apertura de una landing de producto. A la izquierda la promesa y el botón; a la derecha Juli en marco, con el sello y hasta 3 chatcitos.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Qué es el producto, para quién y la acción principal. Un precio de lanzamiento puede ir debajo del botón (<code>.pr-from</code>).</dd>
+      <dt>Fondo</dt><dd>Columna <code>.pr-tx.cream</code> + rayas bordó (Prósperas) o columna <code>.pr-tx.wine</code> + rayas cereza <code>.ae-stripes</code> (ARTEMPRESARIAS).</dd>
+      <dt>Clases</dt><dd><code>header.pr-split.pr-hero</code> › <code>.pr-tx</code> + <code>.pr-stripes</code> › <code>.pr-seal</code>, <code>.pr-frame</code>, <code>.pr-chat.c1/.c2/.c3</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas, ARTEMPRESARIAS</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <header class="pr-split pr-hero">
+    <div class="pr-tx cream">
+      <div class="pr-logo"><svg viewBox="0 0 428.27 130.46" role="img" aria-label="Prósperas by Juli de Franco"><use href="#pr-l-full"/></svg></div>
+      <h1>Crear productos fue el <b>comienzo</b>. Ahora construí un <em>emprendimiento que puedas <b>sostener.</b></em></h1>
+      <p class="lead">Un espacio para aprender todo eso que nadie te enseñó cuando empezaste a emprender: cómo mostrar tus productos, ponerles precio, organizarte y tomar decisiones para tu negocio.</p>
+      <div><a class="pr-btn" href="#c-precio">Quiero ser parte</a></div>
+      <p class="pr-from">Desde <s>$35.000</s> <b>$29.000/mes</b> · valor fundador hasta el 1/1/2027</p>
+    </div>
+    <div class="pr-stripes">
+      <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><text x="60" y="64" text-anchor="middle" style="fill:#fff8fc;font-size:15px;letter-spacing:0">✱</text><defs><path id="ds-sealp2" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#ds-sealp2" startOffset="0" textLength="252" lengthAdjust="spacing">Grupo fundador ✦ Cupos limitados ✦</textPath></text></svg></div>
+      <div class="pr-frame">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu66i817mqneq1qnp4p1c9sa2.png" alt="Juli de Franco, creadora de Cherry Glow y de Prósperas" width="1134" height="1532">
+        <span class="pr-chat c1" aria-hidden="true">La membresía</span>
+        <span class="pr-chat pk r c2 d2" aria-hidden="true">Para artesanas</span>
+        <span class="pr-chat yl c3 d3" aria-hidden="true">Formación + comunidad</span>
+      </div>
+    </div>
+  </header>
+  <!--/demo-->
+
+  <!-- ---------- HERO EN TARJETA ---------- -->
+  <div class="ds-ficha" id="c-hero2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">01 · OPCIÓN B</span><h3>Hero en tarjeta: <em>centrado sobre rayas</em></h3><p class="ds-why">Para páginas que no venden un solo producto (inicio, “sobre mí”, un índice de talleres). Más institucional, sin foto.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Qué es la academia o la página, en un título de dos partes, y un botón que baja a lo importante.</dd>
+      <dt>Fondo</dt><dd>Rayas cereza con tarjeta crema encima.</dd>
+      <dt>Clases</dt><dd><code>header.ci-hero</code> › <code>.pr-seal</code> + <code>.ci-card</code> › <code>.lbl</code>, <code>h1 em</code>, <code>.lead</code>, <code>.pr-btn</code>, <code>.pr-sig</code></dd>
+      <dt>Se usa en</dt><dd>Inicio</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <header class="ci-hero">
+    <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><text x="60" y="64" text-anchor="middle" style="fill:#fff8fc;font-size:15px;letter-spacing:0">✱</text><defs><path id="ds-sealp3" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#ds-sealp3" startOffset="0" textLength="252" lengthAdjust="spacing">Aprendé ✦ Creá ✦ Emprendé ✦</textPath></text></svg></div>
+    <div class="ci-card">
+      <span class="lbl">Academia Cherry Glow</span>
+      <h1>Aprendé un oficio. <em>Construí tu negocio.</em></h1>
+      <p class="lead">Una escuela para emprendedores artesanales donde aprenderás a crear sahumerios, piezas de yeso cerámico y velas aromáticas con un método, fórmulas probadas y enfoque emprendedor.</p>
+      <a class="pr-btn" href="#c-catalogo">Ver talleres y programas</a>
+      <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+    </div>
+  </header>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: EXPLICAR QUÉ ES Y CÓMO FUNCIONA ==================== -->
+  <div class="ds-cat" id="t-quees"><div class="pr-wrap">
+    <span class="ds-k">05.02 · Tengo…</span>
+    <h2>Explicar qué es y cómo funciona</h2>
+    <p>Justo después del hero: la definición en pocas líneas.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-que">Qué es — texto corto + fotos que cambian</a></b> Si se explica en 3 líneas y tenemos 3 fotos lindas. Es la más liviana.</li><li><b>B · <a href="#c-split">Pantalla partida — foto de un lado, texto del otro</a></b> Si hay un método con varias partes (ingredientes, pasos, preguntas) y una foto que acompañe.</li></ul>
+  </div></div>
+  <!-- ---------- QUÉ ES ---------- -->
+  <div class="ds-ficha" id="c-que"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">02 · OPCIÓN A</span><h3>Qué es: <em>texto corto + fotos que cambian</em></h3><p class="ds-why">Reemplaza los bloques largos de explicación. Una frase de qué es, una de cómo funciona y una cita. Las fotos rotan solas con CSS.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>La definición del producto en 3 líneas. Los 2 chatcitos dicen qué <b>no</b> es y qué <b>sí</b> es.</dd>
+      <dt>Fondo</dt><dd>Cereza. Etiqueta amarilla, énfasis y cita en amarillo. Después va una cinta <code>.pr-mq.yl</code>.</dd>
+      <dt>Clases</dt><dd><code>section.pr-qe2</code> › <code>.pr-qe2-in</code> › <code>.pr-qe2-tx</code> + <code>.pr-swap</code> › <code>.pr-swap-ph</code> (3 fotos)</dd>
+      <dt>Se usa en</dt><dd>Prósperas</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-qe2">
+    <div class="pr-wrap pr-qe2-in">
+      <div class="pr-qe2-tx">
+        <span class="lbl">¿Qué es Prósperas?</span>
+        <h2>Una membresía mensual de <b>formación y comunidad</b> para artesanas.</h2>
+        <p class="pr-sub">Cada mes trabajamos sobre situaciones reales de un negocio creativo para que te lleves decisiones, herramientas y acciones concretas.</p>
+        <p class="pr-quote">Crecer no siempre es hacer más. A veces es elegir mejor qué hacer con lo que ya tenés.</p>
+      </div>
+      <div class="pr-swap">
+        <div class="pr-swap-ph">
+          <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu8adet22194r78mqb1dtdai.png" alt="Juli con una taza, sentada en el piso de su estudio" loading="lazy" width="1140" height="1530">
+          <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu5q5h1gqp1qtmm4gfmr10oo9g.png" alt="Juli con su tablet, en su espacio de trabajo" loading="lazy" width="1600" height="1196" style="object-position:42% 30%">
+          <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu805v1g3j1f5n6a5e0r116ea2.png" alt="Juli de Franco con campera roja, sonriendo" loading="lazy" width="1140" height="1528">
+        </div>
+        <span class="pr-chat yl c1" aria-hidden="true">No es una biblioteca de clases</span>
+        <span class="pr-chat r c2 d2" aria-hidden="true">Es práctica sobre tu negocio</span>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- PANTALLA PARTIDA ---------- -->
+  <div class="ds-ficha" id="c-split"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">02 · OPCIÓN B</span><h3>Pantalla partida: <em>foto de un lado, texto del otro</em></h3><p class="ds-why">Para explicar un método o un cambio de mirada con varias piezas chicas apiladas (fórmula, pasos, preguntas, frase con línea).</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Etiqueta + título + 2 o 3 formatos chicos (ver arriba) + frase final <code>.ae-hl</code>. <code>.rev</code> pone la foto a la derecha: alternar si hay dos seguidas.</dd>
+      <dt>Fondo</dt><dd>Foto a sangre + columna <code>.pr-tx.ae-pink</code> (rosa suave), <code>.white</code>, <code>.cream</code> o <code>.yellow</code>.</dd>
+      <dt>Clases</dt><dd><code>section.pr-split(.rev)</code> › <code>.pr-ph</code> (img) + <code>.pr-tx.color</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS · “Cómo vamos a trabajar”, “De emprendedora a empresaria”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-split ae-how">
+    <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu8jnll6u1eud7c5t4pnu9b2.png" alt="Juli sonriendo, sentada con su notebook y una taza" loading="lazy" width="1142" height="1526"></div>
+    <div class="pr-tx ae-pink">
+      <span class="lbl">Cómo vamos a trabajar</span>
+      <h2>Combino tres cosas <b class="pk">para acompañarte</b></h2>
+      <ul class="ae-formula">
+        <li>Mi experiencia construyendo <b>Cherry Glow</b></li>
+        <li>Mi <b>mirada estratégica</b></li>
+        <li>Herramientas de <b>Health Coaching</b></li>
+      </ul>
+      <p class="ae-kicker2">Para ayudarte a:</p>
+      <ol class="ae-flow">
+        <li>Reconocer todo lo que ya lograste</li>
+        <li>Descubrir qué querés construir</li>
+        <li>Transformar las ideas en acciones concretas</li>
+      </ol>
+      <p class="ae-hl">Quiero que termines este proceso reconociéndote como <b>la empresaria que está detrás de tu emprendimiento.</b></p>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: LO QUE LE PASA (DOLORES Y CREENCIAS) ==================== -->
+  <div class="ds-cat" id="t-dolores"><div class="pr-wrap">
+    <span class="ds-k">05.03 · Tengo…</span>
+    <h2>Lo que le pasa (dolores y creencias)</h2>
+    <p>Para que ella se reconozca antes de ver la solución.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-chats">Dolores como chatcitos</a></b> Si son frases como ella las diría, de uno o dos renglones.</li><li><b>B · <a href="#c-pains">Dolores en tarjetas cortas</a></b> Si cada dolor se puede resumir en un título de 3–4 palabras.</li><li><b>C · <a href="#c-mitos">Mito tachado y la realidad encima</a></b> Si lo que la frena es una creencia (“primero tengo que saberlo todo”).</li></ul>
+  </div></div>
+  <!-- ---------- CHATCITOS ---------- -->
+  <div class="ds-ficha" id="c-chats"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">03 · OPCIÓN A</span><h3>Dolores como <em>chatcitos</em></h3><p class="ds-why">Las cosas que le pasan, escritas como ella las diría. Se leen como una conversación, una por una, en vez de una lista de viñetas.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>4 a 6 frases en primera o segunda persona (“Postergás empezar porque…”). Una idea por burbuja, máximo dos renglones.</dd>
+      <dt>Fondo</dt><dd>Amarillo. Las burbujas alternan crema y cereza solas.</dd>
+      <dt>Clases</dt><dd><code>.ci-point-in</code> (título fijo a la izquierda) + <code>ul.ae-chats</code>. Solas y centradas: <code>ul.ae-chats</code> dentro de <code>.pr-wrap</code>.</dd>
+      <dt>Se usa en</dt><dd>Inicio · “Capaz estás en este punto”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-yellow ci-point">
+    <div class="pr-wrap ci-point-in">
+      <div class="ci-point-head">
+        <p class="ci-script">Capaz estás en este punto…</p>
+        <h2>Querés emprender pero sentís que todavía te falta aprender <b>“un poco más”.</b></h2>
+        <span class="lbl">Lo que suele pasar</span>
+      </div>
+      <ul class="ae-chats">
+        <li>Consumís cursos, tutoriales e información suelta pero eso te deja más confundida que segura.</li>
+        <li>Postergás empezar porque creés que todavía no estás lista.</li>
+        <li>Te encontrás acumulando información en vez de accionar.</li>
+        <li>Sentís que necesitás saberlo todo antes de vender o lanzar algo.</li>
+      </ul>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- DOLORES EN TARJETAS ---------- -->
+  <div class="ds-ficha" id="c-pains"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">03 · OPCIÓN B</span><h3>Dolores en <em>tarjetas cortas</em></h3><p class="ds-why">Cuando los dolores tienen un título que se puede resumir en 3–4 palabras. Se escanea de un vistazo.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>5 tarjetas (número + título corto + una línea). Cierra con una frase en itálica (<code>.ae-close</code>) que abre la solución.</dd>
+      <dt>Fondo</dt><dd>Amarillo, tarjetas crema con borde superior cereza / rosa alternado.</dd>
+      <dt>Clases</dt><dd><code>.pr-head</code> + <code>.ae-pains</code> › <code>div</code> › <code>.ae-pn</code>, <code>b</code>, <code>span</code> + <code>p.ae-close</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS · “Ya construiste algo que funciona”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-yellow ae-pain">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:44px">
+        <h2>Ya construiste algo que funciona. Pero sabés que todavía hay <b>mucho más por hacer.</b></h2>
+      </div>
+      <div class="ae-pains">
+        <div><span class="ae-pn">01</span><b>Todo parece urgente</b><span>Te cuesta decidir qué es realmente importante.</span></div>
+        <div><span class="ae-pn">02</span><b>¿Por dónde crecer?</b><span>¿Más productos, ferias, publicidad o mejorar lo que ya tenés?</span></div>
+        <div><span class="ae-pn">03</span><b>Decís que sí a todo</b><span>Aceptás pedidos sin evaluar cuánto tiempo y trabajo implican.</span></div>
+        <div><span class="ae-pn">04</span><b>Tu marca no se luce</b><span>Tiene algo especial, pero no encontrás cómo mostrarlo.</span></div>
+        <div><span class="ae-pn">05</span><b>No frenás a mirar lo logrado</b><span>Trabajás muchísimo y pocas veces reconocés lo que construiste.</span></div>
+      </div>
+      <p class="ae-close">Quizás llegó el momento de mirar tu negocio desde otra perspectiva.</p>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- MITOS ---------- -->
+  <div class="ds-ficha" id="c-mitos"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">03 · OPCIÓN C</span><h3>Mito tachado y <em>la realidad encima</em></h3><p class="ds-why">Para desarmar creencias que la frenan. El mito queda apagado y tachado; la realidad lo tapa como una tarjeta firme.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>3 pares “lo que creés / lo que es”. El mito entre comillas, la realidad con título + una línea.</dd>
+      <dt>Fondo</dt><dd>Celeste. Realidades cereza, la del medio amarilla (<code>li.y</code>).</dd>
+      <dt>Clases</dt><dd><code>ol.ci-myths</code> › <code>li</code> › <code>.ci-m</code> (<code>.ci-mk</code> + <code>s</code>) + <code>.ci-r</code></dd>
+      <dt>Se usa en</dt><dd>Inicio · “Te falta un camino claro”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-blue ci-path">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:56px">
+        <h2>Muchas veces no te falta más información. <b>Te falta un camino claro.</b></h2>
+      </div>
+      <ol class="ci-myths">
+        <li>
+          <div class="ci-m"><span class="ci-mk">Mito</span><p><s>“Primero tengo que saberlo todo.”</s></p></div>
+          <div class="ci-r"><span class="ci-mk">Realidad</span><h3>No necesitás saber todo para arrancar</h3><p>Se trata de empezar con claridad.</p></div>
+        </li>
+        <li class="y">
+          <div class="ci-m"><span class="ci-mk">Mito</span><p><s>“Me falta un poco más de información.”</s></p></div>
+          <div class="ci-r"><span class="ci-mk">Realidad</span><h3>Necesitás un buen método para accionar</h3><p>Un proceso simple para ordenar ideas y pasar a la práctica.</p></div>
+        </li>
+        <li>
+          <div class="ci-m"><span class="ci-mk">Mito</span><p><s>“Con un curso más ya voy a estar lista.”</s></p></div>
+          <div class="ci-r"><span class="ci-mk">Realidad</span><h3>Acá no te llevás más información</h3><p>Te llevás un método para crear, aplicar y empezar.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: LISTADOS ==================== -->
+  <div class="ds-cat" id="t-listados"><div class="pr-wrap">
+    <span class="ds-k">05.04 · Tengo…</span>
+    <h2>Listados</h2>
+    <p>Beneficios, lo que incluye, temas, módulos sueltos.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-gets">Lo que recibe — 3 tarjetas sobre cereza</a></b> Si son exactamente 3 cosas importantes que merecen título e imagen.</li><li><b>B · <a href="#c-areas">Áreas — tarjetas con pregunta y desplegable</a></b> Si son 4–5 temas con mucho detalle cada uno (el detalle queda en un desplegable).</li><li><b>C · <a href="#c-incl">Lista con tildes en una caja</a></b> Si son muchos ítems cortos del mismo tipo (lo que incluye, materiales). La más simple.</li></ul>
+  </div></div>
+  <!-- ---------- LO QUE RECIBÍS ---------- -->
+  <div class="ds-ficha" id="c-gets"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">04 · OPCIÓN A</span><h3>Lo que recibe: <em>3 tarjetas sobre cereza</em></h3><p class="ds-why">Los beneficios, de a tres. Cada tarjeta lleva una “imagen” hecha con CSS: dos palabras en serif con la estrellita de Juli.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Exactamente 3 beneficios (número + título + una o dos líneas). Si son más, pasar a <code>.ae-checks</code> o a las áreas (4 B).</dd>
+      <dt>Fondo</dt><dd>Cereza. Imágenes CSS alternadas: <code>.pr-gi.wine</code>, <code>.cream</code>, <code>.pink</code> (también <code>.blue</code>). Estrellita cereza o amarilla (<code>.pr-mascot.yl</code>).</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.pr-get</code> › <code>.pr-gets</code> › <code>.pr-g</code> › <code>.pr-gi</code>, <code>.n</code>, <code>h3</code>, <code>p</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas · “Lo que recibís”, ARTEMPRESARIAS · “Conocé”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-get">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:48px"><span class="lbl">Como miembro</span><h2>Lo que recibís <b>cada mes</b></h2></div>
+      <div class="pr-gets" style="margin-bottom:0">
+        <div class="pr-g"><div class="pr-gi wine" role="img" aria-label="Un foco concreto"><span>Un foco</span><b><em>concreto</em><i class="pr-mascot yl" aria-hidden="true"></i></b></div><span class="n">01</span><h3>Un foco concreto</h3><p>Cada mes, una necesidad real de tu emprendimiento para aplicar en tu propio negocio.</p></div>
+        <div class="pr-g"><div class="pr-gi cream qa" role="img" aria-label="Q&amp;A con Juli"><strong>Q&amp;A<i class="pr-mascot" aria-hidden="true"></i></strong><span><em>con</em> <u>Juli</u></span></div><span class="n">02</span><h3>Un encuentro en vivo</h3><p>Asesoría grupal para traer tus dudas y aprender de las consultas de otras.</p></div>
+        <div class="pr-g"><div class="pr-gi pink" role="img" aria-label="Una comunidad de artesanas"><span>Una comunidad</span><b><em>de artesanas</em><i class="pr-mascot yl" aria-hidden="true"></i></b></div><span class="n">03</span><h3>La comunidad</h3><p>Un lugar para mostrar lo que hacés, pedir opinión y hacer red.</p></div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- ÁREAS ---------- -->
+  <div class="ds-ficha" id="c-areas"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">04 · OPCIÓN B</span><h3>Áreas: <em>tarjetas con pregunta y desplegable</em></h3><p class="ds-why">Para temas con mucho detalle. Se ve la pregunta que la engancha y el detalle queda escondido en “Qué vamos a trabajar”.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>5 temas: número, título, pregunta en itálica (<code>.q</code>) y un <code>&lt;details&gt;</code> con el detalle. La grilla pone 3 arriba y 2 abajo.</dd>
+      <dt>Fondo</dt><dd>Crema, tarjetas blancas, números amarillo / cereza alternados.</dd>
+      <dt>Clases</dt><dd><code>.ae-grid</code> › <code>article.ae-area</code> › <code>.ae-num</code>, <code>h3</code>, <code>p.q</code>, <code>details</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS · “Un proceso hecho a tu medida”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec ae-areas">
+    <div class="pr-wrap">
+      <div class="ae-grid">
+        <article class="ae-area"><span class="ae-num">1</span><h3>Tu universo de marca y comunicación</h3><p class="q">¿Qué hace diferente a tu emprendimiento? ¿Por qué tus clientas te eligen?</p><details><summary>Qué vamos a trabajar</summary><p>Qué te hace única, qué querés representar y cómo construir una comunicación que tenga sentido.</p></details></article>
+        <article class="ae-area"><span class="ae-num">2</span><h3>Tu oferta y tus productos</h3><p class="q">¿Todo lo que vendés tiene sentido para el negocio que querés construir?</p><details><summary>Qué vamos a trabajar</summary><p>Revisar tu propuesta y evaluar qué productos querés desarrollar, mantener o dejar en pausa.</p></details></article>
+        <article class="ae-area"><span class="ae-num">3</span><h3>Tu organización y forma de trabajar</h3><p class="q">¿Cómo es realmente una semana en tu emprendimiento?</p><details><summary>Qué vamos a trabajar</summary><p>Ordenar tiempos, prioridades y una forma de trabajar que puedas sostener.</p></details></article>
+        <article class="ae-area"><span class="ae-num">4</span><h3>Tu estrategia y próximas decisiones</h3><p class="q">¿Ferias, lanzamientos, publicidad o una nueva forma de vender?</p><details><summary>Qué vamos a trabajar</summary><p>Evaluar opciones y decidir los próximos pasos con criterio.</p></details></article>
+        <article class="ae-area"><span class="ae-num">5</span><h3>Vos, como la empresaria detrás del negocio</h3><p class="q">¿Reconocés todo lo que construiste?</p><details><summary>Qué vamos a trabajar</summary><p>Límites, confianza y cómo tomar decisiones cuando algo no sale como esperabas.</p></details></article>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- LISTA CON TILDES ---------- -->
+  <div class="ds-ficha" id="c-incl"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">04 · OPCIÓN C</span><h3>Lista con tildes <em>en una caja</em></h3><p class="ds-why">El listado más simple y el que más aguanta: todo lo que incluye, de un vistazo, en dos columnas.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>6 a 12 ítems cortos, de una línea cada uno, del mismo tipo (lo que incluye, materiales, bonos). Puede cerrar con una frase en itálica (<code>.cg-incl-foot</code>).</dd>
+      <dt>Fondo</dt><dd>Blanco o amarillo, caja crema. Sobre cereza, la lista va dentro de una tarjeta crema (ver el precio único).</dd>
+      <dt>Clases</dt><dd><code>.pr-head</code> + <code>.cg-incl</code> › <code>ul.ae-checks</code></dd>
+      <dt>Se usa en</dt><dd><b>Nuevo</b> (la lista <code>.ae-checks</code> ya está en ARTEMPRESARIAS)</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-white">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:40px"><span class="lbl">Qué incluye</span><h2>Todo lo que te llevás <b>con el taller</b></h2></div>
+      <div class="cg-incl">
+        <ul class="ae-checks">
+          <li>Clases grabadas para ver a tu ritmo.</li>
+          <li>Fórmulas probadas paso a paso.</li>
+          <li>Lista de materiales y proveedores.</li>
+          <li>Planilla de costos para ponerle precio.</li>
+          <li>Ideas para presentar tus productos.</li>
+          <li>Espacio para hacer tus consultas.</li>
+        </ul>
+        <p class="cg-incl-foot">Ejemplo: reemplazar por lo que incluye el producto real.</p>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <section class="ds-ch cr ds-mini"><div class="pr-wrap">
+      <h3 class="ds-h3">Y para listas cortas dentro de otra sección</h3>
+      <div class="ds-duo">
+        <div class="ds-stage">
+          <!--demo-in-->
+          <ul class="ae-qs">
+            <li>¿Qué quiero construir?</li>
+            <li>¿Qué productos tienen sentido para mí?</li>
+            <li>¿Cómo quiero diferenciarme?</li>
+          </ul>
+          <!--/demo-in-->
+          <span class="ds-cap"><code>.ae-qs</code> · preguntas que ella se hace, como burbujas en serif itálica.</span>
+        </div>
+        <div class="ds-stage">
+          <!--demo-in-->
+          <ul class="ae-chips">
+            <li>Ferias</li><li>Tener stock</li><li>Local propio</li><li>Algo completamente diferente</li>
+          </ul>
+          <!--/demo-in-->
+          <span class="ds-cap"><code>.ae-chips</code> · opciones o caminos posibles. <code>.sm</code> más chicas y alineadas a la izquierda; <code>.x</code> tachadas (“no necesitás”).</span>
+        </div>
+        <div class="ds-stage">
+          <!--demo-in-->
+          <ul class="ae-checks">
+            <li>Cuatro encuentros individuales durante 90 días.</li>
+            <li>Plan de Acción personalizado.</li>
+            <li>Resúmenes después de cada encuentro.</li>
+          </ul>
+          <!--/demo-in-->
+          <span class="ds-cap"><code>.ae-checks</code> · lo que incluye, con tilde cereza.</span>
+        </div>
+        <div class="ds-stage">
+          <!--demo-in-->
+          <ol class="ae-flow">
+            <li>Reconocer todo lo que ya lograste</li>
+            <li>Descubrir qué querés construir</li>
+            <li>Transformar las ideas en acciones concretas</li>
+          </ol>
+          <!--/demo-in-->
+          <span class="ds-cap"><code>.ae-flow</code> · 3 pasos cortos dentro de una columna de texto.</span>
+        </div>
+        <div class="ds-stage">
+          <!--demo-in-->
+          <ul class="ae-formula">
+            <li>Mi experiencia construyendo <b>Cherry Glow</b></li>
+            <li>Mi <b>mirada estratégica</b></li>
+            <li>Herramientas de <b>Health Coaching</b></li>
+          </ul>
+          <!--/demo-in-->
+          <span class="ds-cap"><code>.ae-formula</code> · ingredientes que se suman (“combino tres cosas”).</span>
+        </div>
+        <div class="ds-stage">
+          <!--demo-in-->
+          <ul class="ae-nos">
+            <li>Querés aprender una técnica artesanal.</li>
+            <li>Querés un resultado económico garantizado.</li>
+          </ul>
+          <p class="ae-alt">En esos casos, quizás te convenga empezar por <strong>PRÓSPERAS</strong>.</p>
+          <!--/demo-in-->
+          <span class="ds-cap"><code>.ae-nos</code> + <code>.ae-alt</code> · para quién no es, y a dónde mandarla.</span>
+        </div>
+      </div>
+    </div></section>
+
+  <!-- ==================== TENGO: PASOS Y RECORRIDOS ==================== -->
+  <div class="ds-cat" id="t-pasos"><div class="pr-wrap">
+    <span class="ds-k">05.05 · Tengo…</span>
+    <h2>Pasos y recorridos</h2>
+    <p>Cuando importa el orden.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-pasos">Pasos numerados — el cambio en 3 etapas</a></b> 3 etapas de un cambio, sin tiempos.</li><li><b>B · <a href="#c-tl">Línea de tiempo — un recorrido con etapas</a></b> 4 o más etapas con duración o fecha (encuentros, semanas).</li></ul>
+  </div></div>
+  <!-- ---------- PASOS ---------- -->
+  <div class="ds-ficha" id="c-pasos"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">05 · OPCIÓN A</span><h3>Pasos numerados: <em>el cambio en 3 etapas</em></h3><p class="ds-why">Para contar una transformación sin bloque de texto. En celular se vuelve vertical solo.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>3 pasos (verbo en presente + una línea). Si son 4 o más con duración, usar la línea de tiempo.</dd>
+      <dt>Fondo</dt><dd>Rosa suave, círculos cereza unidos por línea punteada.</dd>
+      <dt>Clases</dt><dd><code>section.pr-3m</code> › <code>.pr-head</code> + <code>.pr-steps</code> › <code>.pr-step</code> › <code>.n</code>, <code>h3</code>, <code>p</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas · “Primeros tres meses”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-3m">
+    <div class="pr-wrap">
+      <div class="pr-head">
+        <h2>¿Qué puede cambiar en tus <b class="pk">primeros tres meses</b>?</h2>
+        <p>No se trata de resolver todo de golpe: cada clase, ejercicio y desafío suma sobre lo que ya hiciste.</p>
+      </div>
+      <div class="pr-steps">
+        <div class="pr-step"><span class="n">1</span><h3>Ordenás las bases</h3><p>Entendés qué necesita hoy tu emprendimiento y ordenás mejor lo que vendés.</p></div>
+        <div class="pr-step"><span class="n">2</span><h3>Decidís con seguridad</h3><p>Dejás de cambiar de dirección cada semana y comunicás el valor de lo que hacés.</p></div>
+        <div class="pr-step"><span class="n">3</span><h3>Tenés un plan</h3><p>Armás un plan de acción para los próximos meses, sin resolver todo sola.</p></div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- LÍNEA DE TIEMPO ---------- -->
+  <div class="ds-ficha" id="c-tl"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">05 · OPCIÓN B</span><h3>Línea de tiempo: <em>un recorrido con etapas</em></h3><p class="ds-why">Cuando importa el orden y cuánto dura cada etapa (encuentros, semanas, módulos que se liberan).</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Un primer punto “Inicio” (amarillo, con ✱) y luego cada etapa con dato (<code>.ae-meta</code>), título y una o dos líneas.</dd>
+      <dt>Fondo</dt><dd>Rosa suave. Abajo puede ir un par de cajas (<code>.ae-between</code> › <code>.ae-box</code> y <code>.ae-box.pk</code>).</dd>
+      <dt>Clases</dt><dd><code>ol.ae-tl</code> › <code>li(.start)</code> › <code>.ae-dot</code>, <code>.ae-meta</code>, <code>h3</code>, <code>p</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS · “90 días”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec ae-path">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:48px">
+        <span class="lbl">Tu recorrido</span>
+        <h2>90 días para trabajar en <b class="pk">el negocio que querés construir.</b></h2>
+      </div>
+      <ol class="ae-tl">
+        <li class="start"><span class="ae-dot">✱</span><span class="ae-meta">Inicio</span><h3>Antes de nuestro primer encuentro</h3><p>Vas a completar un formulario sobre tu emprendimiento y la Rueda del Sostén Emprendedor.</p></li>
+        <li><span class="ae-dot">01</span><span class="ae-meta">Encuentro 1 · 45 – 50 minutos</span><h3>Entender dónde estás y hacia dónde querés ir</h3><p>Miramos tu negocio en profundidad e identificamos qué necesita atención.</p></li>
+        <li><span class="ae-dot">02</span><span class="ae-meta">Encuentro 2 · 45 – 50 minutos</span><h3>Revisar lo que pasó y ajustar</h3><p>Volvemos sobre las decisiones que implementaste y lo que funcionó.</p></li>
+      </ol>
+      <div class="ae-between">
+        <div class="ae-box">
+          <h3>¿Y entre encuentros? <b class="pk">¡Seguimos trabajando!</b></h3>
+          <ul class="ae-checks">
+            <li>Implementás las acciones que definimos.</li>
+            <li>Check-ins breves para revisar avances.</li>
+          </ul>
+        </div>
+        <div class="ae-box pk">
+          <span class="ae-big48">48 h</span>
+          <h3>Cada encuentro empieza antes de que nos veamos.</h3>
+          <div class="ae-msgs" aria-hidden="true"><span>¿Cómo estás llegando?</span><span>¿Qué necesitás trabajar?</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: CONTENIDOS Y PRODUCTOS ==================== -->
+  <div class="ds-cat" id="t-contenidos"><div class="pr-wrap">
+    <span class="ds-k">05.06 · Tengo…</span>
+    <h2>Contenidos y productos</h2>
+    <p>Qué hay adentro, o entre qué puede elegir.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-aulas">Contenidos — tarjetas con imagen</a></b> Los módulos o aulas de un producto, con imagen y una línea.</li><li><b>B · <a href="#c-catalogo">Catálogo — tarjetas con portada en fila</a></b> Varios productos distintos para elegir, cada uno con su portada y su botón.</li></ul>
+  </div></div>
+  <!-- ---------- AULAS ---------- -->
+  <div class="ds-ficha" id="c-aulas"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">06 · OPCIÓN A</span><h3>Contenidos: <em>tarjetas con imagen</em></h3><p class="ds-why">Para mostrar qué hay adentro (aulas, módulos, clases). La imagen trae el título y abajo va una línea de qué se trabaja.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Hasta 6 contenidos en grilla de 3. Uno que todavía no está: <code>.soon</code> + cartel <code>.pr-soon-tag</code>. Uno nuevo y destacado: <code>.wide</code> + <code>.pr-new</code>.</dd>
+      <dt>Fondo</dt><dd>Crema, tarjetas blancas. Si falta la imagen, se arma con CSS (<code>.pr-gi</code>, ver 4 A).</dd>
+      <dt>Clases</dt><dd><code>.pr-aulas</code> › <code>article.pr-au</code> › <code>.pr-au-img</code> + <code>.pr-au-tx</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas · “¿Qué vas a encontrar adentro?”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-in">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:48px"><span class="lbl">Las aulas</span><h2>¿Qué vas a encontrar <b>adentro</b>?</h2></div>
+      <div class="pr-aulas">
+        <article class="pr-au"><div class="pr-au-img"><img src="../prosperas/assets/aulas/aula-producto.jpg" alt="Aula: De producto a negocio" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Decidí qué vender, ordená tu catálogo y encontrá tus productos protagonistas.</p></div></article>
+        <article class="pr-au"><div class="pr-au-img"><img src="../prosperas/assets/aulas/aula-marca.jpg" alt="Aula: Construí y comunicá tu marca" loading="lazy" width="1280" height="659"></div><div class="pr-au-tx"><p>Creá tu universo de marca y aprendé a mostrar por qué deberían elegirte.</p></div></article>
+        <article class="pr-au soon">
+          <div class="pr-au-img"><div class="pr-gi cream" role="img" aria-label="Aula: Editá y elevá tus contenidos"><span class="k">Aula:</span><span>Editá y elevá tus</span><b><em>contenidos</em><i class="pr-mascot" aria-hidden="true"></i></b></div></div>
+          <div class="pr-au-tx"><p>Técnicas simples de grabación y edición para mostrar mejor tus productos.</p></div>
+          <span class="pr-soon-tag" role="note">Próximamente</span>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- CATÁLOGO ---------- -->
+  <div class="ds-ficha" id="c-catalogo"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">06 · OPCIÓN B</span><h3>Catálogo: <em>tarjetas con portada en fila</em></h3><p class="ds-why">Para elegir entre varios productos. Cada tarjeta toma el color de fondo de su portada; en celular se desliza de costado.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Portada (1084×576), tipo de producto (<code>.ci-tag</code>), nombre, para quién es en negrita (<code>.ci-for</code>), una descripción y botón “Ver …”. Si todavía no hay página: <code>.ci-soon</code> en lugar del botón.</dd>
+      <dt>Fondo</dt><dd>Blanco. Tarjetas <code>.yellow</code>, <code>.blue</code>, <code>.pink</code>, <code>.cream</code>, <code>.wine</code> según la portada.</dd>
+      <dt>Clases</dt><dd><code>.ci-swipe</code> + <code>.ci-scroll</code> › <code>.ci-track</code> › <code>article.ci-card2.color</code> (de a 2: <code>.ci-scroll.ci-two</code>)</dd>
+      <dt>Se usa en</dt><dd>Inicio · “Elegí por dónde empezar”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec ci-talleres">
+    <div class="pr-wrap">
+      <div class="ci-group"><span class="lbl">Si querés aprender un oficio</span></div>
+    </div>
+    <p class="ci-swipe" aria-hidden="true"><span>←</span> Deslizá <span>→</span></p>
+    <div class="ci-scroll" aria-label="Talleres">
+      <div class="ci-track">
+        <article class="ci-card2 yellow">
+          <img class="ci-cover" src="../inicio/assets/sahumerios.png" alt="Taller de sahumerios" width="1084" height="576" loading="lazy">
+          <span class="ci-tag">Taller</span>
+          <h3>Taller de sahumerios para emprender</h3>
+          <p class="ci-for">Querés empezar con un producto artesanal que tus clientes vuelvan a comprar.</p>
+          <p>Creá sahumerios artesanales que realmente duren y aromaticen el ambiente.</p>
+          <a class="pr-btn" href="https://academiacherryglow.com/page/landing-sahumerios">Ver taller</a>
+        </article>
+        <article class="ci-card2 blue">
+          <img class="ci-cover" src="../inicio/assets/velas-yeso.png" alt="Velas, yeso y souvenirs: creá tu negocio" width="1084" height="576" loading="lazy">
+          <span class="ci-tag">Curso intensivo</span>
+          <h3>Curso intensivo para crear tu negocio</h3>
+          <p class="ci-for">Querés armar tu emprendimiento desde cero, con varios productos para vender.</p>
+          <p>Yeso cerámico, velas en recipiente, souvenirs, costos, organización y ventas.</p>
+          <a class="pr-btn" href="https://academiacherryglow.com/page/landing-yesos">Ver curso</a>
+        </article>
+        <article class="ci-card2 wine">
+          <img class="ci-cover" src="../inicio/assets/artempresarias.jpg" alt="Programa 1:1 ARTEMPRESARIAS" width="1084" height="576" loading="lazy">
+          <span class="ci-tag">Mentoría personalizada · 90 días</span>
+          <h3>ARTEMPRESARIAS</h3>
+          <p class="ci-for">Tenés un emprendimiento funcionando y querés profesionalizarlo.</p>
+          <p>Acompañamiento 1:1 de 90 días para mirar tu negocio en profundidad.</p>
+          <span class="ci-soon">Próximamente</span>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: TESTIMONIOS ==================== -->
+  <div class="ds-cat" id="t-testimonios"><div class="pr-wrap">
+    <span class="ds-k">05.07 · Tengo…</span>
+    <h2>Testimonios</h2>
+    <p>Lo que dicen las alumnas. Siempre reales, nunca reescritos.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-test">Pila de capturas</a></b> Si tenemos 10 capturas y es la landing principal. La más llamativa.</li><li><b>B · <a href="#c-test2">Testimonios en texto, con nombre</a></b> Si los testimonios están por escrito (no en captura).</li><li><b>C · <a href="#c-test3">Capturas en fila para deslizar</a></b> Si tenemos cualquier cantidad de capturas o la pila ya se usó.</li></ul>
+  </div></div>
+  <!-- ---------- TESTIMONIOS PILA ---------- -->
+  <div class="ds-ficha" id="c-test"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">07 · OPCIÓN A</span><h3>Pila de <em>capturas</em></h3><p class="ds-why">Capturas reales de mensajes apiladas: la del centro en foco y las de los costados borrosas. Se pasa con las flechas o tocando las de los costados. Funciona sin JavaScript (con botones de radio).</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Exactamente 10 capturas (no textos reescritos). Es la opción más llamativa: para la landing principal de un producto.</dd>
+      <dt>Fondo</dt><dd>Amarillo.</dd>
+      <dt>Clases</dt><dd><code>section.pr-tsec</code> › <code>.pr-tcar-wrap</code> › <code>input.pr-tr</code> × 10 + <code>.pr-tstack</code> + <code>.pr-tnavs</code></dd>
+      <dt>Ojo</dt><dd>Los estados del CSS están generados para 10 capturas (<code>#pr-t0</code>…<code>#pr-t9</code>, al final de <code>prosperas/src/nuevo.css</code>) y los <code>id</code> no se pueden repetir: una sola pila por página. Con otra cantidad, hay que regenerar esos estados.</dd>
+      <dt>Se usa en</dt><dd>Prósperas</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-yellow pr-tsec">
+    <div class="pr-wrap"><div class="pr-head" style="margin-bottom:40px"><span class="lbl">Testimonios</span><h2>Lo que cuentan <b>ellas</b></h2></div></div>
+    <div class="pr-tcar-wrap">
+      <input type="radio" name="pr-t" id="pr-t0" class="pr-tr" checked aria-label="Testimonio 1 de 10">
+      <input type="radio" name="pr-t" id="pr-t1" class="pr-tr" aria-label="Testimonio 2 de 10">
+      <input type="radio" name="pr-t" id="pr-t2" class="pr-tr" aria-label="Testimonio 3 de 10">
+      <input type="radio" name="pr-t" id="pr-t3" class="pr-tr" aria-label="Testimonio 4 de 10">
+      <input type="radio" name="pr-t" id="pr-t4" class="pr-tr" aria-label="Testimonio 5 de 10">
+      <input type="radio" name="pr-t" id="pr-t5" class="pr-tr" aria-label="Testimonio 6 de 10">
+      <input type="radio" name="pr-t" id="pr-t6" class="pr-tr" aria-label="Testimonio 7 de 10">
+      <input type="radio" name="pr-t" id="pr-t7" class="pr-tr" aria-label="Testimonio 8 de 10">
+      <input type="radio" name="pr-t" id="pr-t8" class="pr-tr" aria-label="Testimonio 9 de 10">
+      <input type="radio" name="pr-t" id="pr-t9" class="pr-tr" aria-label="Testimonio 10 de 10">
+      <div class="pr-tstack" id="pr-tcar">
+        <label for="pr-t0" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t1" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t2" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308lfedt341midloi4s51jhr74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t3" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3088gbipeh1sm31meqg6oglb5k.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t4" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308uiugela1nmaah7ttt2v7s.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t5" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jqrm5hc115pl1rmg1u3grn1ja03q.JPG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t6" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuga671be91bce1e741c661pp6ci.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t7" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuff2l1rbso0uj50img1csvd2.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t8" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf99m5id8991lc4f711tq3cg.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t9" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf44gau6ikakfa198m1nacc0.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+      </div>
+      <div class="pr-tnavs">
+        <label for="pr-t9" class="pr-tnav prev pk0" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t1" class="pr-tnav next pk0" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t0" class="pr-tnav prev pk1" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t2" class="pr-tnav next pk1" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t1" class="pr-tnav prev pk2" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t3" class="pr-tnav next pk2" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t2" class="pr-tnav prev pk3" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t4" class="pr-tnav next pk3" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t3" class="pr-tnav prev pk4" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t5" class="pr-tnav next pk4" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t4" class="pr-tnav prev pk5" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t6" class="pr-tnav next pk5" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t5" class="pr-tnav prev pk6" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t7" class="pr-tnav next pk6" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t6" class="pr-tnav prev pk7" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t8" class="pr-tnav next pk7" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t7" class="pr-tnav prev pk8" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t9" class="pr-tnav next pk8" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t8" class="pr-tnav prev pk9" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t0" class="pr-tnav next pk9" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- TESTIMONIOS TEXTO ---------- -->
+  <div class="ds-ficha" id="c-test2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">07 · OPCIÓN B</span><h3>Testimonios <em>en texto, con nombre</em></h3><p class="ds-why">Cuando tenemos lo que dijeron por escrito (formulario, mail, comentario) y no una captura. Se leen como mensajes.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>3 (o 6) testimonios copiados tal cual, de 2 a 5 renglones, con nombre e inicial y qué hizo (“Alumna del taller de sahumerios”). Nunca inventados ni reescritos.</dd>
+      <dt>Fondo</dt><dd>Amarillo (o crema). Burbujas crema y cereza alternadas, la del medio un poco más abajo.</dd>
+      <dt>Clases</dt><dd><code>.cg-quotes</code> › <code>figure.cg-q</code> › <code>blockquote</code> + <code>figcaption[data-i]</code></dd>
+      <dt>Se usa en</dt><dd><b>Nuevo</b></dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-yellow">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:44px"><span class="lbl">Testimonios</span><h2>Lo que cuentan <b>ellas</b></h2></div>
+      <div class="cg-quotes">
+        <figure class="cg-q"><blockquote>Texto de ejemplo: acá va lo que escribió la alumna, copiado tal cual, en dos a cinco renglones.</blockquote><figcaption data-i="A"><span><b>Nombre de la alumna</b><span>Alumna del taller de sahumerios</span></span></figcaption></figure>
+        <figure class="cg-q"><blockquote>Texto de ejemplo: la burbuja del medio va en cereza y un poco más abajo, para que se lea como una conversación.</blockquote><figcaption data-i="B"><span><b>Nombre de la alumna</b><span>Miembro de Prósperas</span></span></figcaption></figure>
+        <figure class="cg-q"><blockquote>Texto de ejemplo: mejor un testimonio concreto (qué cambió, qué logró) que uno general.</blockquote><figcaption data-i="C"><span><b>Nombre de la alumna</b><span>Curso intensivo de velas y yeso</span></span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- TESTIMONIOS FILA ---------- -->
+  <div class="ds-ficha" id="c-test3"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">07 · OPCIÓN C</span><h3>Capturas <em>en fila para deslizar</em></h3><p class="ds-why">Más simple que la pila: cualquier cantidad de capturas, una al lado de la otra. En celular se deslizan con el dedo.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>De 3 a 12 capturas de cualquier alto. Ideal para páginas secundarias o cuando la pila ya se usó.</dd>
+      <dt>Fondo</dt><dd>Crema o blanco (si la sección anterior es amarilla).</dd>
+      <dt>Clases</dt><dd><code>.ci-swipe</code> + <code>.ci-scroll.cg-shots</code> › <code>.ci-track</code> › <code>figure.cg-shot</code></dd>
+      <dt>Se usa en</dt><dd><b>Nuevo</b> (usa el deslizador del catálogo del inicio)</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-white">
+    <div class="pr-wrap"><div class="pr-head" style="margin-bottom:10px"><span class="lbl">Testimonios</span><h2>Lo que cuentan <b>ellas</b></h2></div></div>
+    <p class="ci-swipe" aria-hidden="true"><span>←</span> Deslizá <span>→</span></p>
+    <div class="ci-scroll cg-shots" aria-label="Testimonios">
+      <div class="ci-track">
+        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
+        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
+        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308lfedt341midloi4s51jhr74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
+        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuff2l1rbso0uj50img1csvd2.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: PARA QUIÉN ES ==================== -->
+  <div class="ds-cat" id="t-paraquien"><div class="pr-wrap">
+    <span class="ds-k">05.08 · Tengo…</span>
+    <h2>Para quién es</h2>
+    <p>Para que se reconozca la que sí y se vaya la que no.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-fit">Para quién es — tarjeta sí + cajas al costado</a></b> Si hay que explicar qué necesita, qué no y derivarla a otro producto.</li><li><b>B · <a href="#c-fit2">Dos tarjetas — es para vos / no es para vos</a></b> Si alcanzan dos listas cortas del mismo peso.</li></ul>
+  </div></div>
+  <!-- ---------- PARA QUIÉN ---------- -->
+  <div class="ds-ficha" id="c-fit"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">08 · OPCIÓN A</span><h3>Para quién es: <em>tarjeta sí + cajas al costado</em></h3><p class="ds-why">Ayuda a que ella se reconozca y a que se vaya quien no corresponde (y a dónde mandarla).</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>“Es para vos si…” en la tarjeta cereza; al costado “no necesitás” (<code>.ae-chips.x</code>) y “no es para vos si…” en caja punteada, con alternativa (<code>.ae-alt</code>).</dd>
+      <dt>Fondo</dt><dd>Amarillo. <code>.pr-card.yes</code> cereza, <code>.ae-box</code> crema, <code>.ae-box.no</code> blanca con borde punteado.</dd>
+      <dt>Clases</dt><dd><code>.ae-fitgrid</code> › <code>.pr-card.yes</code> + <code>.ae-side</code> › <code>.ae-box</code>, <code>.ae-box.no</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS · “Es para vos si…”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-yellow ae-fit">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:44px"><span class="lbl">¿Estamos en el mismo momento?</span><h2>ARTEMPRESARIAS <b>es para vos si…</b></h2></div>
+      <div class="ae-fitgrid">
+        <div class="pr-card yes">
+          <ul>
+            <li>Ya tenés un emprendimiento artesanal en marcha y sentís que llegó el momento de trabajar en él de otra manera.</li>
+            <li>Querés profesionalizar tu emprendimiento, aunque todavía no tengas claro por dónde empezar.</li>
+            <li>Estás dispuesta a dedicarle tiempo a tu negocio, implementar cambios y revisar lo que sucede.</li>
+          </ul>
+        </div>
+        <div class="ae-side">
+          <div class="ae-box">
+            <h3>Hay algo importante que quiero que sepas.</h3>
+            <p class="ae-kicker2">No necesitás:</p>
+            <ul class="ae-chips x"><li>Una marca enorme</li><li>Miles de seguidores</li><li>Un negocio perfecto</li></ul>
+          </div>
+          <div class="ae-box no">
+            <h3>¿Cuándo no es la mejor opción?</h3>
+            <ul class="ae-nos">
+              <li>Querés aprender una técnica artesanal.</li>
+              <li>Querés un resultado económico garantizado.</li>
+            </ul>
+            <p class="ae-alt">En esos casos, quizás te convenga empezar por <strong>PRÓSPERAS</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- PARA QUIÉN DOS TARJETAS ---------- -->
+  <div class="ds-ficha" id="c-fit2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">08 · OPCIÓN B</span><h3>Dos tarjetas: <em>es para vos / no es para vos</em></h3><p class="ds-why">La versión corta y simétrica, cuando las dos listas tienen el mismo peso y no hace falta explicar más.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>3 a 6 frases de cada lado. Si hay que sumar “qué necesitás / qué no” o derivarla a otro producto, usar la opción A.</dd>
+      <dt>Fondo</dt><dd>Blanco o crema. Tarjeta “sí” cereza, tarjeta “no” amarilla.</dd>
+      <dt>Clases</dt><dd><code>section.cg-fit</code> › <code>.pr-cards</code> › <code>.pr-card.yes</code> + <code>.pr-card.no</code></dd>
+      <dt>Se usa en</dt><dd><b>Nuevo</b> (las tarjetas venían de la Prósperas original)</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-white cg-fit">
+    <div class="pr-wrap">
+      <div class="pr-cards">
+        <div class="pr-card yes">
+          <h2>Es para vos <b>si…</b></h2>
+          <ul>
+            <li>Ya creás y vendés tus productos.</li>
+            <li>Querés ordenar tu emprendimiento sin hacerlo sola.</li>
+            <li>Tenés ganas de probar, preguntar y poner en práctica.</li>
+          </ul>
+        </div>
+        <div class="pr-card no">
+          <h2>No es para vos si…</h2>
+          <ul>
+            <li>Buscás aprender una técnica artesanal.</li>
+            <li>Querés que alguien haga el trabajo por vos.</li>
+            <li>Esperás resultados sin implementar cambios.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: QUIÉN ESTÁ DETRÁS ==================== -->
+  <div class="ds-cat" id="t-juli"><div class="pr-wrap">
+    <span class="ds-k">05.09 · Tengo…</span>
+    <h2>Quién está detrás</h2>
+    <p>Juli, en primera persona.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-juli">Juli — foto en arco sobre bordó</a></b> En una landing de producto: “quién te acompaña”, corto y cercano.</li><li><b>B · <a href="#c-juli2">Juli — foto redonda al centro</a></b> En una página institucional, con botón a su historia.</li></ul>
+  </div></div>
+  <!-- ---------- JULI EN ARCO ---------- -->
+  <div class="ds-ficha" id="c-juli"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">09 · OPCIÓN A</span><h3>Juli: <em>foto en arco sobre bordó</em></h3><p class="ds-why">El momento personal de una landing de producto: quién te acompaña, en primera persona, corto.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Etiqueta (“¿Quién te acompaña?”), título corto, un párrafo y una frase en itálica (<code>p.it</code>). Cierra con la firma. Un solo chatcito: “Hola, soy Juli”.</dd>
+      <dt>Fondo</dt><dd>Bordó. Foto con borde rosa en forma de arco, etiqueta amarilla, énfasis amarillo.</dd>
+      <dt>Clases</dt><dd><code>section.pr-mine2</code> + clase propia (<code>.pr-who2</code>) › <code>.pr-mine2-in</code> › <code>.pr-arch</code> + <code>.pr-mine2-tx</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas · “De mí para vos”, ARTEMPRESARIAS</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-mine2 pr-who2">
+    <div class="pr-wrap pr-mine2-in">
+      <div class="pr-arch">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu9bbm1t831vb21kg81gmd1tjkb0.png" alt="Juli de Franco trabajando con su tablet" loading="lazy" width="1144" height="1530" style="object-position:50% 20%">
+        <span class="pr-chat pk r c1" aria-hidden="true">Hola, soy Juli</span>
+      </div>
+      <div class="pr-mine2-tx">
+        <span class="lbl">¿Quién te acompaña?</span>
+        <h2>De mí <b>para vos</b></h2>
+        <p class="pr-who2-p">Soy la creadora de Cherry Glow y de Academia Cherry Glow. Empecé vendiendo productos artesanales mientras tenía otro trabajo.</p>
+        <p class="it">Creé Prósperas pensando en el espacio que a mí me hubiese gustado encontrar.</p>
+        <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- JULI REDONDA ---------- -->
+  <div class="ds-ficha" id="c-juli2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">09 · OPCIÓN B</span><h3>Juli: <em>foto redonda al centro</em></h3><p class="ds-why">La versión institucional: presenta a Juli como creadora de la academia, con un botón a su historia.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Título, 2 párrafos, cita (<code>.pr-quote</code>), firma y botón. Dos chatcitos: saludo y usuario de Instagram.</dd>
+      <dt>Fondo</dt><dd>Crema, foto con borde blanco y sombra.</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.ci-juli</code> › <code>.ci-face</code> + <code>.pr-narrow.ci-juli-tx</code></dd>
+      <dt>Se usa en</dt><dd>Inicio · “Quién está detrás”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec ci-juli">
+    <div class="pr-wrap">
+      <div class="ci-face">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jnqqadfm1re6gfh1ca2qnm1h0f24.png" alt="Juli de Franco sonriendo con una vela de Cherry Glow" loading="lazy" width="1080" height="1080">
+        <span class="pr-chat pk c1" aria-hidden="true">Hola, soy Juli</span>
+        <span class="pr-chat yl r c2 d2" aria-hidden="true">@cherryglow.ar</span>
+      </div>
+      <div class="pr-narrow ci-juli-tx">
+        <h2>Soy creadora de Cherry Glow y de <b>esta academia.</b></h2>
+        <p>Después de años creando productos artesanales entendí que muchas personas no necesitan más tutoriales sueltos: necesitan aprender un proceso completo.</p>
+        <p class="pr-quote">No enseño solo a hacer productos. Te enseño a crear para vender.</p>
+        <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+        <a class="pr-btn" href="https://academiacherryglow.com/page/sobre-mi">Conocé mi historia</a>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: UNA PAUSA O FRASE FUERTE ==================== -->
+  <div class="ds-cat" id="t-pausa"><div class="pr-wrap">
+    <span class="ds-k">05.10 · Tengo…</span>
+    <h2>Una pausa o frase fuerte</h2>
+    <p>Para frenar entre dos secciones cargadas.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-foco">Frase de foco — una idea, nada más</a></b> Una idea que resume lo anterior, con título y bajada.</li><li><b>B · <a href="#c-cinta">Cinta grande — una frase que corre</a></b> Una frase corta que anuncia lo que viene (puertas abiertas, preguntas).</li></ul>
+  </div></div>
+  <!-- ---------- FRASE DE FOCO ---------- -->
+  <div class="ds-ficha" id="c-foco"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">10 · OPCIÓN A</span><h3>Frase de foco: <em>una idea, nada más</em></h3><p class="ds-why">Una pausa entre dos secciones cargadas. Sirve para remarcar la idea que resume lo anterior.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Etiqueta + título + una bajada corta. Sin botón ni imagen.</dd>
+      <dt>Fondo</dt><dd>Bordó (o cereza), centrado y angosto (<code>.pr-narrow</code>).</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.pr-bg-wine</code> + clase propia › <code>.pr-narrow</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS · “Lo importante no es hacer todo”</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-wine ae-focus">
+    <div class="pr-wrap"><div class="pr-narrow">
+      <span class="lbl">Lo importante no es hacer todo</span>
+      <h2>Es descubrir qué necesita tu negocio <b>en este momento.</b></h2>
+      <p class="pr-sub" style="margin-top:22px">Puede que trabajemos una sola de estas áreas en profundidad o que necesitemos conectar varias.</p>
+    </div></div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- CINTA GRANDE ---------- -->
+  <div class="ds-ficha" id="c-cinta"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">10 · OPCIÓN B</span><h3>Cinta grande: <em>una frase que corre</em></h3><p class="ds-why">Una pausa más liviana que una sección: anuncia lo que viene (“Las puertas están abiertas”, “Preguntas frecuentes”).</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Una sola frase de 2 a 5 palabras, repetida.</dd>
+      <dt>Fondo</dt><dd>Amarilla con letra cereza (<code>.pr-mq.big</code>) o bordó con letra crema (<code>.pr-mq.big.wn</code>, corre al revés).</dd>
+      <dt>Clases</dt><dd><code>.pr-mq.big</code> › <code>.pr-mq-track</code> › <code>.pr-mq-grp</code> × 4</dd>
+      <dt>Se usa en</dt><dd>Prósperas (versión anterior)</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <div class="pr-mq big wn"><div class="pr-mq-track">
+    <div class="pr-mq-grp"><span>Las puertas están abiertas</span><span>Las puertas están abiertas</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Las puertas están abiertas</span><span>Las puertas están abiertas</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Las puertas están abiertas</span><span>Las puertas están abiertas</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Las puertas están abiertas</span><span>Las puertas están abiertas</span></div>
+  </div></div>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: PRECIO ==================== -->
+  <div class="ds-cat" id="t-precio"><div class="pr-wrap">
+    <span class="ds-k">05.11 · Tengo…</span>
+    <h2>Precio</h2>
+    <p>Siempre después de la confianza, con una cinta antes.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-precio">Precio con varios planes</a></b> Si hay 2 o 3 planes (mensual, trimestral…) o precio de lanzamiento.</li><li><b>B · <a href="#c-precio2">Precio único con lo que incluye</a></b> Si hay un solo precio y conviene mostrar todo lo que incluye al lado.</li></ul>
+  </div></div>
+  <!-- ---------- PRECIO: PLANES ---------- -->
+  <div class="ds-ficha" id="c-precio"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">11 · OPCIÓN A</span><h3>Precio con <em>varios planes</em></h3><p class="ds-why">Tres planes lado a lado. El valor normal tachado arriba, el precio grande y el ahorro en una pastilla.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Nombre del plan, precio anterior tachado (<code>.pr-pc-old</code>), precio (<code>.pr-pc-p</code>), unidad, ahorro (<code>li.l</code>) o condición (<code>li.m</code>) y botón “Me quiero unir”. Arriba, la cuenta regresiva <code>.pr-cd</code> (el reloj solo corre con JS; el texto queda siempre). Abajo, la nota del valor futuro.</dd>
+      <dt>Fondo</dt><dd>Cereza. Planes en rosa suave, crema con borde amarillo y amarillo (<code>.a</code>, <code>.b</code>, <code>.c</code>). Antes va una cinta <code>.pr-mq.rev</code>.</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.pr-bg-cherry.pr-pay#unite</code> › <code>.pr-pay-head</code> + <code>.pr-plans3</code> › <code>.pr-pc.a/.b/.c</code> + <code>.pr-pay-note</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-cherry pr-pay">
+    <div class="pr-wrap">
+      <div class="pr-pay-head">
+        <h2>Sumate a ser <b>Próspera</b>, a la comunidad de artesanas más unida y educativa que existe.</h2>
+        <div class="pr-cd">
+          <p class="pr-cd-t">Valor fundador: <s>$35.000</s> $29.000 por mes</p>
+          <p class="pr-cd-s">Hasta el 1/1/2027 a las 23:59</p>
+        </div>
+      </div>
+      <div class="pr-plans3">
+        <div class="pr-pc a">
+          <span class="pr-pc-n">Plan mensual</span>
+          <s class="pr-pc-old">$35.000</s>
+          <div class="pr-pc-p"><small>$</small>29.000</div>
+          <span class="pr-pc-u">ARS cada mes</span>
+          <ul class="pr-pc-d"><li class="m"><span>Mes a mes, sin permanencia</span></li></ul>
+          <a class="pr-btn" href="#c-precio">Me quiero unir</a>
+        </div>
+        <div class="pr-pc b">
+          <span class="pr-pc-n">Plan 3 meses</span>
+          <s class="pr-pc-old">$105.000</s>
+          <div class="pr-pc-p"><small>$</small>84.000</div>
+          <span class="pr-pc-u">ARS pagando los 3 juntos · $28.000/mes</span>
+          <ul class="pr-pc-d"><li class="l"><span>Ahorrás <b>$1.000 por mes</b></span></li></ul>
+          <a class="pr-btn" href="#c-precio">Me quiero unir</a>
+        </div>
+        <div class="pr-pc c">
+          <span class="pr-pc-n">Plan 6 meses</span>
+          <s class="pr-pc-old">$210.000</s>
+          <div class="pr-pc-p"><small>$</small>162.000</div>
+          <span class="pr-pc-u">ARS pagando los 6 juntos · $27.000/mes</span>
+          <ul class="pr-pc-d"><li class="l"><span>Ahorrás <b>$2.000 por mes</b></span></li></ul>
+          <a class="pr-btn" href="#c-precio">Me quiero unir</a>
+        </div>
+      </div>
+      <p class="pr-pay-note">El valor futuro será de <strong>$35.000 ARS mensuales</strong>. Si ingresás como fundadora y mantenés activa tu membresía, conservás el valor promocional.</p>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- PRECIO ÚNICO ---------- -->
+  <div class="ds-ficha" id="c-precio2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">11 · OPCIÓN B</span><h3>Precio <em>único con lo que incluye</em></h3><p class="ds-why">Un solo producto: a la izquierda el precio y el botón, a la derecha todo lo que incluye.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Nombre, duración/formato, precio (<code>.ae-pval</code>), nota de pago en pastilla y lista <code>.ae-checks</code>.</dd>
+      <dt>Fondo</dt><dd>Cereza; tarjeta crema con la columna del precio en amarillo.</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.pr-bg-cherry.ae-price</code> › <code>.ae-pcard</code> › <code>.ae-pmain</code> + <code>.ae-pinc</code></dd>
+      <dt>Se usa en</dt><dd>ARTEMPRESARIAS</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-cherry ae-price">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:44px"><span class="lbl">Inversión</span><h2>Sumate a <b>ARTEMPRESARIAS</b></h2></div>
+      <div class="ae-pcard">
+        <div class="ae-pmain">
+          <span class="ae-pname">Acompañamiento 1:1</span>
+          <span class="ae-pdur">90 días · 4 encuentros individuales</span>
+          <div class="ae-pval">A confirmar</div>
+          <span class="ae-pnote">Valor y formas de pago a confirmar</span>
+          <a class="pr-btn" href="#c-precio2">Quiero ser una ARTEMPRESARIA</a>
+        </div>
+        <div class="ae-pinc">
+          <p class="ae-kicker2">Incluye</p>
+          <ul class="ae-checks">
+            <li>Cuatro encuentros individuales durante 90 días.</li>
+            <li>Plan de Acción personalizado, actualizado durante todo el proceso.</li>
+            <li>Resúmenes después de cada encuentro.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: PREGUNTAS FRECUENTES ==================== -->
+  <div class="ds-cat" id="t-faq"><div class="pr-wrap">
+    <span class="ds-k">05.12 · Tengo…</span>
+    <h2>Preguntas frecuentes</h2>
+    <p>Las dudas que frenan la compra.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-faq">Preguntas frecuentes</a></b> Hasta 7–8 preguntas. Es la opción por defecto.</li><li><b>B · <a href="#c-faq2">Preguntas con el título fijo al costado</a></b> Si son muchas preguntas o queremos ofrecer “escribime si tu duda no está”.</li></ul>
+  </div></div>
+  <!-- ---------- FAQ ---------- -->
+  <div class="ds-ficha" id="c-faq"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">12 · OPCIÓN A</span><h3>Preguntas <em>frecuentes</em></h3><p class="ds-why">Las dudas que frenan la compra. Desplegables con <code>&lt;details&gt;</code>: funcionan sin JavaScript.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>5 a 11 preguntas, como las haría ella (“¿Puedo cancelar cuando quiera?”). Respuesta empezando por sí o no. Si la respuesta tiene lista: <code>ul.ae-list</code>.</dd>
+      <dt>Fondo</dt><dd>Crema. Puede anunciarse con una cinta <code>.pr-mq.big</code>.</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.pr-faqsec</code> › <code>.pr-head</code> + <code>.pr-faq</code> › <code>details</code> › <code>summary</code> + <code>p</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas, ARTEMPRESARIAS</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-faqsec">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:40px"><span class="lbl">Dudas</span><h2>Preguntas <b>frecuentes</b></h2></div>
+      <div class="pr-faq">
+        <details><summary>¿Es solamente para alumnas de Cherry Glow?</summary><p>No. Prósperas está abierta a artesanas que hayan aprendido conmigo, con otras formadoras o por su cuenta.</p></details>
+        <details><summary>¿Es una asesoría individual?</summary><p>No. Es una experiencia grupal con encuentros en vivo, comunidad, formación y espacios de asesoría.</p></details>
+        <details><summary>¿Puedo cancelar cuando quiera?</summary><p>Sí. Es una membresía mensual y podés cancelar antes de la siguiente renovación.</p></details>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- FAQ AL COSTADO ---------- -->
+  <div class="ds-ficha" id="c-faq2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">12 · OPCIÓN B</span><h3>Preguntas <em>con el título fijo al costado</em></h3><p class="ds-why">Para listas largas (8 o más): el título queda quieto a la izquierda mientras bajás, con un botón para escribir si la duda no está.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Muchas preguntas, más una salida: “¿Tenés otra duda?” con botón a WhatsApp o mail (<code>.pr-btn.line</code>).</dd>
+      <dt>Fondo</dt><dd>Blanco o crema.</dd>
+      <dt>Clases</dt><dd><code>section.cg-faq2</code> › <code>.ci-point-in</code> › <code>.ci-point-head</code> + <code>.pr-faq</code></dd>
+      <dt>Se usa en</dt><dd><b>Nuevo</b> (mismo armado que “Capaz estás en este punto” del inicio)</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-white cg-faq2">
+    <div class="pr-wrap ci-point-in">
+      <div class="ci-point-head">
+        <span class="lbl">Dudas</span>
+        <h2>Preguntas <b>frecuentes</b></h2>
+        <p>Quiero que tengas toda la información antes de decidir. Si tu duda no está acá, escribime.</p>
+        <a class="pr-btn line" href="#c-faq2">Tengo otra duda</a>
+      </div>
+      <div class="pr-faq">
+        <details><summary>¿Necesito experiencia previa?</summary><p>Respuesta de ejemplo: empezar por sí o por no, y después explicar en una o dos líneas.</p></details>
+        <details><summary>¿Cuánto tiempo tengo acceso?</summary><p>Respuesta de ejemplo.</p></details>
+        <details><summary>¿Qué materiales necesito?</summary><p>Respuesta de ejemplo.</p></details>
+        <details><summary>¿Puedo pagar en cuotas?</summary><p>Respuesta de ejemplo.</p></details>
+        <details><summary>¿Hay certificado?</summary><p>Respuesta de ejemplo.</p></details>
+      </div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ==================== TENGO: CIERRE ==================== -->
+  <div class="ds-cat" id="t-cierre"><div class="pr-wrap">
+    <span class="ds-k">05.13 · Tengo…</span>
+    <h2>Cierre</h2>
+    <p>El último empujón.</p>
+    <ul class="ds-pick"><li><b>A · <a href="#c-end">Cierre partido — foto + último empujón</a></b> En una landing de producto: foto, frase y el último botón al precio.</li><li><b>B · <a href="#c-end2">Cierre centrado — con accesos directos</a></b> En una página institucional: accesos directos a cada producto.</li></ul>
+  </div></div>
+  <!-- ---------- CIERRE PARTIDO ---------- -->
+  <div class="ds-ficha" id="c-end"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">13 · OPCIÓN A</span><h3>Cierre partido: <em>foto + último empujón</em></h3><p class="ds-why">El final de una landing de producto. Retoma la promesa, una frase manuscrita o una cita, el botón y la firma.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Título emocional, 1–2 párrafos, frase <code>.script</code> (Yellowtail) o cita con línea (<code>.ae-endq</code>), botón al precio y firma / logo al pie.</dd>
+      <dt>Fondo</dt><dd>Foto + columna amarilla. Siempre <code>.rev</code> (foto a la izquierda).</dd>
+      <dt>Clases</dt><dd><code>section.pr-split.pr-end.rev</code> › <code>.pr-ph</code> + <code>.pr-tx.yellow</code></dd>
+      <dt>Se usa en</dt><dd>Prósperas, ARTEMPRESARIAS</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-split pr-end rev">
+    <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu805v1g3j1f5n6a5e0r116ea2.png" alt="Juli de Franco con campera roja, sonriendo" loading="lazy" width="1140" height="1528"></div>
+    <div class="pr-tx yellow" style="position:relative">
+      <h2>Lo que creás puede ser mucho más que un <b>producto</b></h2>
+      <p>Puede convertirse en un negocio propio. En una fuente de ingresos. En un proyecto que crece con vos.</p>
+      <span class="script">Somos creativas,<br>únicas y prósperas.</span>
+      <div><a class="pr-btn" href="#c-precio">Quiero ser parte de Próspera</a></div>
+      <div class="pr-foot"><svg viewBox="0 0 428.27 130.46" role="img" aria-label="Prósperas by Juli de Franco"><use href="#pr-l-full"/></svg></div>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ---------- CIERRE CENTRADO ---------- -->
+  <div class="ds-ficha" id="c-end2"><div class="pr-wrap ds-ficha-in">
+    <div><span class="ds-n">13 · OPCIÓN B</span><h3>Cierre centrado: <em>con accesos directos</em></h3><p class="ds-why">El final de una página institucional: una frase de cierre y pastillas que llevan a cada producto.</p></div>
+    <dl>
+      <dt>Para mostrar</dt><dd>Título de dos partes (la segunda en amarillo, <code>em</code>), una línea, accesos (<code>.ci-quick</code>) y botón crema.</dd>
+      <dt>Fondo</dt><dd>Bordó.</dd>
+      <dt>Clases</dt><dd><code>section.pr-sec.pr-bg-wine.ci-end</code> › <code>.pr-wrap</code> › <code>h2</code>, <code>p</code>, <code>ul.ci-quick</code>, <code>.pr-btn.cream</code></dd>
+      <dt>Se usa en</dt><dd>Inicio</dd>
+    </dl>
+  </div></div>
+  <!--demo-->
+  <section class="pr-sec pr-bg-wine ci-end">
+    <div class="pr-wrap">
+      <h2>Tu emprendimiento no empieza cuando sabés todo. <em>Empieza cuando accionás.</em></h2>
+      <p>Elegí un taller y empezá a construir algo propio.</p>
+      <ul class="ci-quick">
+        <li><a href="https://academiacherryglow.com/page/landing-sahumerios">Sahumerios</a></li>
+        <li><a href="https://academiacherryglow.com/page/landing-yesos">Velas, yeso y souvenirs</a></li>
+        <li><a href="https://academiacherryglow.com/page/prosperas">Prósperas</a></li>
+        <li><span class="ci-soon-q">ARTEMPRESARIAS · próximamente</span></li>
+      </ul>
+      <a class="pr-btn cream" href="#c-catalogo">Quiero empezar</a>
+    </div>
+  </section>
+  <!--/demo-->
+
+  <!-- ============================================================
+       06 · RECETAS DE PÁGINA
+  ============================================================ -->
+  <section class="ds-ch cr" id="recetas">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">06 · Recetas de página</span>
+        <h2>Así están armadas las páginas que ya tenemos, <b>y así arrancaríamos la próxima.</b></h2>
+        <p>Cada columna es una página de arriba a abajo, con el color de fondo real de cada sección y la opción que usa (por ejemplo <b>7A</b> = testimonios, opción A). Fijate cómo se alternan claros y oscuros y cómo las cintas cosen las secciones.</p>
+      </div>
+      <div class="ds-maps">
+        <div class="ds-map">
+          <h3>Prósperas</h3>
+          <p>Landing de venta de una membresía, con precio de lanzamiento.</p>
+          <ol>
+            <li class="mq wn">Cinta superior con precio</li>
+            <li class="stw">Hero partido <span>1A</span></li>
+            <li class="mq wh">Cinta</li>
+            <li class="ch">Qué es <span>2A</span></li>
+            <li class="mq yl">Cinta amarilla</li>
+            <li class="pk">Primeros tres meses <span>5A</span></li>
+            <li class="cr">Aulas <span>6A</span></li>
+            <li class="ch">Lo que recibís <span>4A</span></li>
+            <li class="wn">De mí para vos <span>9A</span></li>
+            <li class="yl">Testimonios <span>7A</span></li>
+            <li class="mq wn">Cinta bordó</li>
+            <li class="ch">Planes <span>11A</span></li>
+            <li class="cr">Preguntas <span>12A</span></li>
+            <li class="phy">Cierre partido <span>13A</span></li>
+          </ol>
+        </div>
+        <div class="ds-map">
+          <h3>ARTEMPRESARIAS</h3>
+          <p>Landing de venta de un acompañamiento 1:1 con más explicación.</p>
+          <ol>
+            <li class="mq wn">Cinta superior</li>
+            <li class="stc">Hero partido <span>1A</span></li>
+            <li class="mq wh">Cinta</li>
+            <li class="yl">Dolores <span>3B</span></li>
+            <li class="cr">Intro con cita</li>
+            <li class="php">Cómo trabajamos <span>2B</span></li>
+            <li class="phw">Emprendedora → empresaria <span>2B</span></li>
+            <li class="wn">Juli <span>9A</span></li>
+            <li class="ch">Conocé <span>4A</span></li>
+            <li class="pk">Recorrido 90 días <span>5B</span></li>
+            <li class="cr">Áreas <span>4B</span></li>
+            <li class="wn">Frase de foco <span>10A</span></li>
+            <li class="yl">Para quién <span>8A</span></li>
+            <li class="ch">Precio único <span>11B</span></li>
+            <li class="cr">Preguntas <span>12A</span></li>
+            <li class="phy">Cierre partido <span>13A</span></li>
+          </ol>
+        </div>
+        <div class="ds-map">
+          <h3>Inicio</h3>
+          <p>Página institucional: presenta la academia y reparte a cada producto.</p>
+          <ol>
+            <li class="mq wn">Cinta superior</li>
+            <li class="st">Hero en tarjeta <span>1B</span></li>
+            <li class="wh">Catálogo <span>6B</span></li>
+            <li class="yl">Capaz estás en este punto <span>3A</span></li>
+            <li class="bl">Mito y realidad <span>3C</span></li>
+            <li class="cr">Juli <span>9B</span></li>
+            <li class="mq wh">Cinta</li>
+            <li class="wn">Cierre centrado <span>13B</span></li>
+          </ol>
+        </div>
+        <div class="ds-map new">
+          <h3>Landing de taller <b>Propuesta</b></h3>
+          <p>Para las próximas (sahumerios, yeso, maquillaje): producto que se compra una vez.</p>
+          <ol>
+            <li class="mq wn">Cinta superior: taller · formato · precio</li>
+            <li class="stw">Hero partido con foto del producto <span>1A</span></li>
+            <li class="mq wh">Cinta</li>
+            <li class="yl">Capaz estás en este punto <span>3A</span></li>
+            <li class="ch">Qué vas a aprender <span>4A</span></li>
+            <li class="cr">Módulos del taller <span>6A</span></li>
+            <li class="pk">Cómo es el taller, paso a paso <span>5A</span></li>
+            <li class="wn">Juli <span>9A</span></li>
+            <li class="yl">Testimonios <span>7A</span></li>
+            <li class="mq wn">Cinta bordó</li>
+            <li class="ch">Precio único <span>11B</span></li>
+            <li class="cr">Preguntas <span>12A</span></li>
+            <li class="phy">Cierre partido <span>13A</span></li>
+          </ol>
+        </div>
+      </div>
+      <h3 class="ds-h3">El orden que siempre funciona en una landing de venta</h3>
+      <ol class="ds-rules">
+        <li><b>Promesa</b> (hero): qué es, para quién, botón. Ella tiene que entenderlo sin bajar.</li>
+        <li><b>Identificación</b>: lo que le pasa hoy (dolores, mitos, “capaz estás en este punto”).</li>
+        <li><b>Qué es</b> y <b>cómo funciona</b>: definición corta, pasos o recorrido.</li>
+        <li><b>Qué hay adentro</b> y <b>qué recibe</b>: contenidos, beneficios, áreas.</li>
+        <li><b>Confianza</b>: quién está detrás (Juli) y lo que dicen las alumnas.</li>
+        <li><b>Para quién es</b> (y para quién no), si el producto lo necesita.</li>
+        <li><b>Precio</b>, siempre después de la confianza y con una cinta antes.</li>
+        <li><b>Dudas</b> (FAQ) y <b>cierre</b> con el último botón.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07 · REGLAS Y CHECKLIST
+  ============================================================ -->
+  <section class="ds-ch wh" id="reglas">
+    <div class="pr-wrap">
+      <div class="ds-ch-h">
+        <span class="ds-k">07 · Reglas y checklist</span>
+        <h2>Lo que pidió Juli y <b>lo que ya aprendimos.</b></h2>
+      </div>
+      <h3 class="ds-h3">Siempre</h3>
+      <ol class="ds-rules">
+        <li><b>Todo en castellano, con voseo</b> (“querés”, “sumate”). Nunca títulos ni etiquetas en inglés.</li>
+        <li><b>Poco texto por sección.</b> Si un bloque tiene más de dos párrafos, se pasa a tarjetas, pasos, chatcitos o desplegables.</li>
+        <li><b>Hablarle a ella en segunda persona</b>; Juli habla en primera persona solo en sus bloques (Juli, cierre).</li>
+        <li><b>Un botón por sección como máximo</b>, con la acción en primera persona y siempre al mismo destino (el precio).</li>
+        <li><b>Fotos reales de Juli</b> y del producto. Toda imagen con texto alternativo que describa lo que se ve.</li>
+        <li><b>Mobile primero:</b> revisar cada sección a 375&nbsp;px de ancho. Todo lo de esta guía ya se adapta solo.</li>
+      </ol>
+      <h3 class="ds-h3">Nunca</h3>
+      <ol class="ds-rules no">
+        <li><b>Estrellas decorativas.</b> Las únicas permitidas son las del sello del hero y las estrellitas PNG de Juli (<code>.pr-mascot</code>).</li>
+        <li><b>Nada caricaturesco:</b> sin íconos de dibujito, emojis en títulos ni ilustraciones genéricas.</li>
+        <li><b>Colores fuera de la paleta</b>, negro o gris para texto.</li>
+        <li><b>Depender de JavaScript</b> para que algo se vea o funcione.</li>
+        <li><b>Editar el <code>index.html</code> a mano:</b> siempre se cambia <code>src/</code> y se vuelve a armar.</li>
+        <li><b>Inventar datos</b> (precios, cantidades, fechas). Si falta, va un comentario <code>PENDIENTE</code>.</li>
+      </ol>
+      <h3 class="ds-h3">Checklist para una página nueva</h3>
+      <ol class="ds-check">
+        <li>Crear la carpeta <code>nueva/</code> con <code>src/cuerpo.html</code>, <code>src/estilos.css</code>, <code>src/armar.py</code> y <code>assets/</code>. Copiar <b><code>inicio/src/armar.py</code></b> como base (ya incluye todas las capas de CSS).</li>
+        <li>Elegir la receta (sección 06) y escribir el mapa de secciones con sus fondos antes de escribir HTML. Revisar que <b>no se repitan dos fondos seguidos</b>.</li>
+        <li>Envolver todo en <code>&lt;div class="pr ae ci" id="nueva"&gt;</code> y armar cada sección copiando el código de esta guía.</li>
+        <li>Las clases nuevas llevan un <b>prefijo propio</b> de la página (como <code>ae-</code> o <code>ci-</code>) y van en <code>src/estilos.css</code>, siempre con <code>.pr</code> delante para ganarle al CSS base.</li>
+        <li>Marcar con <code>REVISAR</code> los textos que escribimos nosotros y con <code>PENDIENTE</code> lo que falta.</li>
+        <li>Correr <code>python3 nueva/src/armar.py</code>, abrir el <code>index.html</code> y revisarlo en compu y en celular.</li>
+        <li>Sumar la página a la tabla del <code>README.md</code> y, si suma un componente nuevo, agregarlo a esta guía.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="ds-foot">
+    <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+    Design system de las landings · se arma con <code>python3 design-system/src/armar.py</code>
+  </footer>
+
+</div>

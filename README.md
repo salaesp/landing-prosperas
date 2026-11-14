@@ -8,6 +8,10 @@ Cada landing tiene su carpeta. El archivo para pegar en el bloque HTML de Tiendu
 | `artempresarias/` | ARTEMPRESARIAS (acompañamiento 1:1 de 90 días) | `artempresarias/index.html` |
 | `inicio/` | Página de inicio de la Academia | `inicio/index.html` |
 
+## Design system
+
+Antes de armar una página nueva, mirar `design-system/index.html` (abrir en el navegador): colores, tipografía, piezas base y, para cada tipo de contenido (presentación, listados, testimonios, FAQ, precio, cierre…), 2 o 3 opciones con su código para copiar. Resumen en texto: `design-system/README.md`. Se arma con `python3 design-system/src/armar.py`.
+
 ## Cómo se arma cada página
 
 Los `index.html` se generan, no se editan a mano:
