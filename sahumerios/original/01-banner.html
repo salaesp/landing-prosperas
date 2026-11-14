@@ -1,0 +1,113 @@
+<section class="cg-sahumerios-banner" aria-label="Banner del taller de sahumerios">
+  <style>
+    .cg-sahumerios-banner,
+    .cg-sahumerios-banner * {
+      box-sizing: border-box;
+    }
+
+    .cg-sahumerios-banner {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: 0 0 42px;
+      overflow: visible;
+      background: transparent;
+    }
+
+    .cg-sahumerios-banner__image-wrap {
+      position: relative;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .cg-sahumerios-banner__image {
+      display: block;
+      width: 100%;
+      height: clamp(190px, 25vw, 310px);
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .cg-sahumerios-banner__sticker {
+      position: absolute;
+      left: 50%;
+      bottom: -30px;
+      transform: translateX(-50%) rotate(-1deg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 64px;
+      padding: 18px 34px;
+      max-width: calc(100% - 28px);
+      border-radius: 999px;
+      background: #f9a2c6;
+      color: #740404;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 16px 34px rgba(116, 4, 4, 0.18);
+      z-index: 3;
+      animation: cgStickerFloat 4.4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes cgStickerFloat {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(10px) rotate(1deg);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cg-sahumerios-banner {
+        padding-bottom: 38px;
+      }
+
+      .cg-sahumerios-banner__image {
+        height: 175px;
+        object-position: center center;
+      }
+
+      .cg-sahumerios-banner__sticker {
+        bottom: -26px;
+        min-height: 56px;
+        padding: 15px 22px;
+        max-width: calc(100% - 20px);
+        font-size: 12px;
+        white-space: normal;
+      }
+
+      @keyframes cgStickerFloat {
+        0%, 100% {
+          transform: translateX(-50%) translateY(0) rotate(-1deg);
+        }
+
+        50% {
+          transform: translateX(-50%) translateY(7px) rotate(1deg);
+        }
+      }
+    }
+  </style>
+
+  <div class="cg-sahumerios-banner__image-wrap">
+    <img
+      class="cg-sahumerios-banner__image"
+      src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1johca87mjop110scjp1cnatv73i.png"
+      alt="Taller de sahumerios para emprender"
+    >
+
+    <div class="cg-sahumerios-banner__sticker">
+      Taller de sahumerios para emprender
+    </div>
+  </div>
+</section>
