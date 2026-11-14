@@ -45,7 +45,6 @@
 
 /* ---- qué tiene este ebook: tarjetas para deslizar (siempre deslizables: son 6) ---- */
 .pr .mn-inc h2 b{color:var(--cherry)}
-.pr .mn-inc .ci-swipe{display:flex}
 .pr .mn-inc .ci-track{justify-content:flex-start}
 .pr .mn-inc .ci-scroll{scroll-padding-inline:max(20px,calc((100vw - 1180px)/2))}
 .pr .mn-card{padding:28px 0 30px;min-height:300px;scroll-snap-align:start}
@@ -54,6 +53,24 @@
 .pr .mn-n{display:inline-block;align-self:flex-start;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:6px 13px;border-radius:999px;background:var(--cherry);color:var(--cream)}
 .pr .ci-card2.wine .mn-n{background:var(--yellow);color:var(--wine)}
 .pr .ci-card2.pink{background:var(--pinkbg)}
+/* se deslizan solas: una tarjeta por vez, con una pausa en cada una (solo CSS).
+   Las 6 están dos veces: al llegar a la copia vuelve al principio sin que se note. Con el mouse encima se frenan. */
+.pr .mn-inc .ci-track{--cw:min(86vw,372px);--step:calc(var(--cw) + 22px);animation:mn-slide 24s ease-in-out infinite}
+.pr .mn-inc .mn-card{flex-basis:var(--cw)}
+.pr .mn-inc .ci-scroll:hover .ci-track,.pr .mn-inc .ci-scroll:focus-within .ci-track{animation-play-state:paused}
+@keyframes mn-slide{
+  0%,13%{transform:translateX(0)}
+  16.67%,29.67%{transform:translateX(calc(var(--step) * -1))}
+  33.33%,46.33%{transform:translateX(calc(var(--step) * -2))}
+  50%,63%{transform:translateX(calc(var(--step) * -3))}
+  66.67%,79.67%{transform:translateX(calc(var(--step) * -4))}
+  83.33%,96.33%{transform:translateX(calc(var(--step) * -5))}
+  100%{transform:translateX(calc(var(--step) * -6))}
+}
+.pr .mn-hint{text-align:center;margin:14px auto 0;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cherry);opacity:.7}
+.pr .mn-inc .ci-swipe{display:none}
+@media(hover:none){.pr .mn-hint{display:none}.pr .mn-inc .ci-swipe{display:flex}}
+@media(prefers-reduced-motion:reduce){.pr .mn-inc .ci-track{animation:none}.pr .mn-hint{display:none}.pr .mn-inc .ci-swipe{display:flex}}
 
 /* ---- bonus: 4 tarjetas crema sobre bordó ---- */
 .pr .mn-bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
