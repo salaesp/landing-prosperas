@@ -11,7 +11,7 @@ Todo respetando la imagen y la marca de Cherry Glow.
 
 - **Chatcitos flotantes:** le gustan (los de "la membresía", "para creadores").
 - **Elementos flotantes:** sí, pero **nada caricaturesco**, porque su marca no es así.
-- **Estrellas:** todas las estrellas que tiene la landing de Andrea, **afuera**.
+- **Estrellas:** todas las estrellas que tiene la landing de Andrea, **afuera**. Excepción: el sello giratorio del hero conserva su asterisco y sus estrellitas.
   (En nuestra página: los stickers de estrellas `--st-pink/yellow/blue`, `.pr-star`, los íconos de las píldoras y de la cinta.)
 - **"¿QUÉ ES TC*N?":** toda la sección está buena: el banner de abajo que va rotando y las fotos que van cambiando.
 - **"What's inside":** también está bueno, pero **todo en castellano, nunca en inglés**.

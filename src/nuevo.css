@@ -29,8 +29,7 @@
   .pr-frame .pr-chat.c3{left:-6%}
 }
 
-/* sello sin estrella */
-.pr-seal circle+circle{display:none}
+/* el sello del hero conserva su asterisco y estrellitas (pedido de Juli) */
 
 /* ---- ¿qué es? fotos que cambian + cinta ---- */
 .pr-qe2{background:var(--cherry);color:var(--cream)}
