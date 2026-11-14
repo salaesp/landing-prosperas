@@ -97,8 +97,8 @@ Para frenar entre dos secciones cargadas.
 
 - **A · Frase de foco — una idea, nada más**: Una idea que resume lo anterior, con título y bajada.  
   Clases: section.pr-sec.pr-bg-wine + clase propia › .pr-narrow
-- **B · Cinta grande — una frase que corre**: Una frase corta que anuncia lo que viene (puertas abiertas, preguntas).  
-  Clases: .pr-mq.big › .pr-mq-track › .pr-mq-grp × 4
+- **B · Cita centrada — una frase para leer despacio**: Una idea suelta entre dos secciones, sin fondo oscuro.  
+  Clases: section.pr-sec + clase propia › .pr-narrow › p.pr-sub + p.pr-quote
 
 ## Precio
 
