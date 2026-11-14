@@ -10,8 +10,6 @@
 /* ---- hero: el título de la portada en letra viva ---- */
 .pr .vy-hero{position:relative;overflow:hidden;padding:clamp(56px,7vw,96px) 0 clamp(64px,8vw,104px)}
 .pr .vy-hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,56px);align-items:center}
-.pr .vy-pill{display:inline-block;background:var(--cream);color:var(--cherry);font-size:15px;line-height:1.35;padding:9px 18px;border-radius:14px;margin:0 0 20px;box-shadow:0 8px 20px rgba(155,31,58,.08)}
-.pr .vy-pill b{font-weight:600}
 .pr .vy-title{margin:0 0 26px;line-height:1;color:var(--cherry)}
 .pr .vy-t1,.pr .vy-t2{display:block;font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(50px,6.6vw,92px);line-height:.98;letter-spacing:-.035em;white-space:nowrap}
 .pr .vy-t2 i{font-family:'Noto Serif',serif;font-style:italic;font-weight:400;font-size:1.02em;letter-spacing:0;margin-right:.06em}
