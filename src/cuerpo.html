@@ -143,7 +143,7 @@
     <div class="pr-wrap"><div class="pr-head" style="margin-bottom:40px"><span class="lbl">Testimonios</span><h2>Lo que cuentan <b>ellas</b></h2></div></div>
     <div class="pr-tcar-wrap">
       <button class="pr-tnav prev" type="button" aria-label="Ver testimonios anteriores"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="pr-tstack" id="pr-tcar">
+      <div class="pr-tcar" id="pr-tcar">
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
         <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308lfedt341midloi4s51jhr74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
@@ -269,6 +269,8 @@
   (function(){
     var c=document.getElementById('pr-tcar');if(!c)return;
     var cards=[].slice.call(c.querySelectorAll('.pr-tc')),n=cards.length,cur=0;if(!n)return;
+    /* sin JavaScript se ve como carrusel deslizable; con JavaScript pasa a la pila con foco */
+    c.className='pr-tstack';c.parentNode.className+=' js';
     function layout(){
       var mob=window.innerWidth<820,gap=mob?Math.min(96,window.innerWidth*0.24):215;
       cards.forEach(function(el,i){
