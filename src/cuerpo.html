@@ -1,6 +1,6 @@
 <div class="pr" id="prosperas">
 
-  <div class="pr-top">Grupo fundador · $29.000 ARS por mes · inscripciones hasta el domingo 29 de noviembre</div>
+  <a class="pr-top" href="#unite">Grupo fundador · $29.000 ARS por mes · inscripciones hasta el domingo 29 de noviembre <span aria-hidden="true">→</span></a>
 
   <!-- HERO -->
   <header class="pr-split pr-hero">
@@ -9,6 +9,7 @@
       <h1>Crear productos fue el <b>comienzo</b>. Ahora construí un <em>emprendimiento que puedas <b>sostener.</b></em></h1>
       <p class="lead">Prósperas es una membresía de formación y comunidad para emprendedoras artesanales que quieren aprender a tomar mejores decisiones, hacer crecer sus negocios y dejar de resolver todo solas.</p>
       <div><a class="pr-btn" href="#unite">Quiero ser parte</a></div>
+      <p class="pr-from">Desde <b>$29.000/mes</b> · valor fundador hasta el 29/11</p>
     </div>
     <div class="pr-stripes">
       <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><defs><path id="pr-sealp" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#pr-sealp" startOffset="0" textLength="252" lengthAdjust="spacing">Grupo fundador · Cupos limitados ·</textPath></text></svg></div>
@@ -248,3 +249,29 @@
     </div>
   </section>
 
+  <!-- BOTÓN FIJO "VER PLANES": aparece después del hero y se esconde en la sección de precios -->
+  <a class="pr-fab" href="#unite" id="pr-fab" aria-label="Ver planes de Prósperas"><span class="pr-fab-t">Grupo fundador · <b>$29.000/mes</b></span><span class="pr-fab-b">Ver planes →</span></a>
+  <script>
+  (function(){
+    var fab=document.getElementById('pr-fab'),hero=document.querySelector('#prosperas .pr-hero'),pay=document.getElementById('unite');
+    if(!fab||!hero||!pay||!('IntersectionObserver' in window))return;
+    var heroVis=true,payVis=false;
+    function upd(){fab.classList.toggle('on',!heroVis&&!payVis)}
+    new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd()}).observe(hero);
+    new IntersectionObserver(function(e){payVis=e[0].isIntersecting;upd()},{threshold:0.15}).observe(pay);
+  })();
+  /* lleva a los precios aunque las fotos de más arriba terminen de cargar mientras baja */
+  (function(){
+    var pay=document.getElementById('unite');if(!pay)return;
+    function go(ev){
+      ev.preventDefault();
+      var tries=0;
+      (function step(){
+        pay.scrollIntoView({behavior:tries?'auto':'smooth',block:'start'});
+        if(++tries<4)setTimeout(function(){if(Math.abs(pay.getBoundingClientRect().top-70)>40)step()},900);
+      })();
+      if(history.replaceState)history.replaceState(null,'','#unite');
+    }
+    document.querySelectorAll('#prosperas a[href="#unite"]').forEach(function(a){a.addEventListener('click',go)});
+  })();
+  </script>

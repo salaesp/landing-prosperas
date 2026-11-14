@@ -129,3 +129,28 @@
 .pr .pr-qe2 .lbl,.pr .pr-get .lbl{background:var(--yellow);color:var(--wine)!important}
 .pr-qe2 .lbl::after,.pr-get .lbl::after{border-top-color:var(--yellow)!important}
 .pr .pr-tx>.lbl{width:auto;align-self:flex-start}
+
+/* ---- acceso rápido al precio ---- */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.pr #unite{scroll-margin-top:70px}
+.pr a.pr-top{display:block;color:var(--cream)!important;transition:background .2s}
+.pr a.pr-top:hover{background:var(--cherry)}
+.pr-top span{display:inline-block;margin-left:6px;transition:transform .25s}
+.pr-top:hover span{transform:translateX(4px)}
+.pr .pr-hero .pr-from{margin:14px 0 0;font-size:14px;opacity:.9}
+.pr-from b{color:var(--cherry);font-weight:600}
+
+.pr .pr-fab{position:fixed;z-index:999;right:max(22px,env(safe-area-inset-right,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));
+  display:flex;align-items:center;gap:14px;background:var(--cherry);color:var(--cream)!important;border-radius:999px;padding:10px 10px 10px 22px;
+  font-family:'Outfit',sans-serif;font-size:14px;line-height:1.2;box-shadow:0 14px 34px rgba(90,14,34,.32);
+  opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .3s,transform .35s cubic-bezier(.2,.7,.2,1),visibility .3s}
+.pr .pr-fab.on{opacity:1;visibility:visible;transform:none}
+.pr-fab-t b{color:var(--yellow);font-weight:600}
+.pr .pr-fab-b{background:var(--cream);color:var(--cherry);font-weight:600;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;border-radius:999px;white-space:nowrap;transition:background .2s}
+.pr-fab:hover .pr-fab-b{background:var(--yellow);color:var(--wine)}
+.pr-fab:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:620px){
+  .pr .pr-fab{left:0;right:0;bottom:0;border-radius:18px 18px 0 0;justify-content:space-between;
+    padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));font-size:13.5px}
+}

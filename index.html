@@ -481,6 +481,31 @@
 .pr-qe2 .lbl::after,.pr-get .lbl::after{border-top-color:var(--yellow)!important}
 .pr .pr-tx>.lbl{width:auto;align-self:flex-start}
 
+/* ---- acceso rápido al precio ---- */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.pr #unite{scroll-margin-top:70px}
+.pr a.pr-top{display:block;color:var(--cream)!important;transition:background .2s}
+.pr a.pr-top:hover{background:var(--cherry)}
+.pr-top span{display:inline-block;margin-left:6px;transition:transform .25s}
+.pr-top:hover span{transform:translateX(4px)}
+.pr .pr-hero .pr-from{margin:14px 0 0;font-size:14px;opacity:.9}
+.pr-from b{color:var(--cherry);font-weight:600}
+
+.pr .pr-fab{position:fixed;z-index:999;right:max(22px,env(safe-area-inset-right,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));
+  display:flex;align-items:center;gap:14px;background:var(--cherry);color:var(--cream)!important;border-radius:999px;padding:10px 10px 10px 22px;
+  font-family:'Outfit',sans-serif;font-size:14px;line-height:1.2;box-shadow:0 14px 34px rgba(90,14,34,.32);
+  opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .3s,transform .35s cubic-bezier(.2,.7,.2,1),visibility .3s}
+.pr .pr-fab.on{opacity:1;visibility:visible;transform:none}
+.pr-fab-t b{color:var(--yellow);font-weight:600}
+.pr .pr-fab-b{background:var(--cream);color:var(--cherry);font-weight:600;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;border-radius:999px;white-space:nowrap;transition:background .2s}
+.pr-fab:hover .pr-fab-b{background:var(--yellow);color:var(--wine)}
+.pr-fab:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:620px){
+  .pr .pr-fab{left:0;right:0;bottom:0;border-radius:18px 18px 0 0;justify-content:space-between;
+    padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));font-size:13.5px}
+}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -490,7 +515,7 @@
 
 <div class="pr" id="prosperas">
 
-  <div class="pr-top">Grupo fundador · $29.000 ARS por mes · inscripciones hasta el domingo 29 de noviembre</div>
+  <a class="pr-top" href="#unite">Grupo fundador · $29.000 ARS por mes · inscripciones hasta el domingo 29 de noviembre <span aria-hidden="true">→</span></a>
 
   <!-- HERO -->
   <header class="pr-split pr-hero">
@@ -499,6 +524,7 @@
       <h1>Crear productos fue el <b>comienzo</b>. Ahora construí un <em>emprendimiento que puedas <b>sostener.</b></em></h1>
       <p class="lead">Prósperas es una membresía de formación y comunidad para emprendedoras artesanales que quieren aprender a tomar mejores decisiones, hacer crecer sus negocios y dejar de resolver todo solas.</p>
       <div><a class="pr-btn" href="#unite">Quiero ser parte</a></div>
+      <p class="pr-from">Desde <b>$29.000/mes</b> · valor fundador hasta el 29/11</p>
     </div>
     <div class="pr-stripes">
       <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><defs><path id="pr-sealp" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#pr-sealp" startOffset="0" textLength="252" lengthAdjust="spacing">Grupo fundador · Cupos limitados ·</textPath></text></svg></div>
@@ -738,6 +764,32 @@
     </div>
   </section>
 
+  <!-- BOTÓN FIJO "VER PLANES": aparece después del hero y se esconde en la sección de precios -->
+  <a class="pr-fab" href="#unite" id="pr-fab" aria-label="Ver planes de Prósperas"><span class="pr-fab-t">Grupo fundador · <b>$29.000/mes</b></span><span class="pr-fab-b">Ver planes →</span></a>
+  <script>
+  (function(){
+    var fab=document.getElementById('pr-fab'),hero=document.querySelector('#prosperas .pr-hero'),pay=document.getElementById('unite');
+    if(!fab||!hero||!pay||!('IntersectionObserver' in window))return;
+    var heroVis=true,payVis=false;
+    function upd(){fab.classList.toggle('on',!heroVis&&!payVis)}
+    new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd()}).observe(hero);
+    new IntersectionObserver(function(e){payVis=e[0].isIntersecting;upd()},{threshold:0.15}).observe(pay);
+  })();
+  /* lleva a los precios aunque las fotos de más arriba terminen de cargar mientras baja */
+  (function(){
+    var pay=document.getElementById('unite');if(!pay)return;
+    function go(ev){
+      ev.preventDefault();
+      var tries=0;
+      (function step(){
+        pay.scrollIntoView({behavior:tries?'auto':'smooth',block:'start'});
+        if(++tries<4)setTimeout(function(){if(Math.abs(pay.getBoundingClientRect().top-70)>40)step()},900);
+      })();
+      if(history.replaceState)history.replaceState(null,'','#unite');
+    }
+    document.querySelectorAll('#prosperas a[href="#unite"]').forEach(function(a){a.addEventListener('click',go)});
+  })();
+  </script>
 
 <script>
 (function(){
