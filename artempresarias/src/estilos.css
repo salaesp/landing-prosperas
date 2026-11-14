@@ -217,3 +217,6 @@ html{scroll-behavior:smooth}
 .pr .ae-pains>div>span:last-child{font-size:14.5px;line-height:1.45;opacity:.9}
 @media(max-width:1000px){.pr .ae-pains{grid-template-columns:repeat(2,1fr)}.pr .ae-pains>div:last-child{grid-column:1/-1}}
 @media(max-width:560px){.pr .ae-pains{grid-template-columns:1fr}.pr .ae-pains>div:last-child{grid-column:auto}}
+.pr .ae-answer{margin-top:26px;font-size:clamp(17px,1.6vw,19px);line-height:1.6}
+.pr .ae-answer b{color:var(--cherry);font-weight:600}
+.pr .ae-intro .pr-quote{margin-top:34px}
