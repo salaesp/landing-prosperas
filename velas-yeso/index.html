@@ -1367,11 +1367,28 @@ html{scroll-behavior:smooth}
 
 /* ---- precio: tarjeta sobre rayas celestes ---- */
 .pr .vy-price h2 b{color:var(--cherry)}
-.pr .vy-price .ae-pval{margin-bottom:2px}
-.pr .vy-usd{font-weight:600;font-size:16px;letter-spacing:.06em;margin-bottom:16px}
-.pr .vy-price .ae-pnote{text-transform:none;letter-spacing:.02em;font-size:13.5px;line-height:1.35;padding:8px 16px}
-.pr .vy-now{margin:16px 0 0;font-size:15px;line-height:1.4}
+.pr .vy-cur{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto}
+.pr .vy-cc{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--cream);border-radius:30px;padding:34px 28px 32px;box-shadow:0 22px 44px rgba(90,14,34,.18);border-top:8px solid var(--cherry)}
+.pr .vy-cc.usd{border-top-color:var(--wine)}
+.pr .vy-cc-k{font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--cherry)}
+.pr .vy-cc.usd .vy-cc-k{color:var(--wine)}
+.pr .vy-cc-w{font-size:14px;opacity:.8;margin-top:4px}
+.pr .vy-cc-p{font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(46px,5vw,60px);line-height:1;color:var(--cherry);margin:22px 0 6px}
+.pr .vy-cc.usd .vy-cc-p{color:var(--wine)}
+.pr .vy-cc-p small{font-size:.5em;vertical-align:.6em;margin-right:.08em}
+.pr .vy-cc-u{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.pr .vy-cc-off{display:inline-block;margin-top:16px;background:var(--yellow);color:var(--wine);font-size:14px;line-height:1.35;padding:8px 16px;border-radius:999px}
+.pr .vy-cc-off b{color:var(--cherry)}
+.pr .vy-cc .pr-btn{margin-top:auto;width:100%;text-align:center}
+.pr .vy-cc-u{margin-bottom:24px}
+.pr .vy-cc .vy-cc-off{margin:-6px 0 24px}
+.pr .vy-cc.usd .pr-btn{background:var(--wine);border-color:var(--wine)}
+.pr .vy-cc.usd .pr-btn:hover{background:var(--cherry);border-color:var(--cherry)}
+.pr .vy-now{text-align:center;margin:26px auto 0;font-size:15.5px;line-height:1.45}
 .pr .vy-now em{font-family:'Noto Serif',serif;font-style:italic;font-size:1.15em;color:var(--cherry)}
+.pr .vy-incl{margin-top:34px;box-shadow:0 18px 36px rgba(90,14,34,.12)}
+.pr .vy-incl .ae-kicker2{margin:0 0 18px;text-align:center}
+@media(max-width:700px){.pr .vy-cur{grid-template-columns:1fr;max-width:440px}}
 .pr .vy-sig{width:min(170px,50%);margin:40px auto 0;color:var(--cherry)}
 .pr .vy-sig svg{width:100%;height:auto;display:block;fill:currentColor}
 
@@ -1578,37 +1595,45 @@ html{scroll-behavior:smooth}
     <div class="pr-mq-grp" aria-hidden="true"><span>Velas en recipiente</span><span>Yeso cerámico</span><span>Productos aromáticos</span><span>Negocio</span></div>
   </div></div>
 
-  <!-- PRECIO: precio único con lo que incluye, sobre rayas celestes -->
+  <!-- PRECIO: un bloque en pesos y otro en dólares + lo que incluye, sobre rayas celestes -->
   <section class="pr-sec vy-price vy-stripes" id="comprar">
     <div class="pr-wrap">
       <div class="pr-head" style="margin-bottom:44px">
         <span class="lbl">Sumate al curso</span>
         <h2>Empezar es mucho más simple cuando <b>sabés qué hacer.</b></h2>
       </div>
-      <div class="ae-pcard">
-        <div class="ae-pmain">
-          <span class="ae-pname">Velas, yeso y souvenirs</span>
-          <span class="ae-pdur">Curso online para crear tu negocio</span>
-          <span class="ae-pval">$67.000</span>
-          <span class="vy-usd">67 USD</span>
-          <span class="ae-pnote">15% OFF por transferencia: $56.950</span>
-          <a class="pr-btn" href="https://academiacherryglow.com/curso/workshop-yeso-ceramico-para-crear-tu-negocio">Quiero el curso</a>
-          <p class="vy-now">Acceso inmediato a clases <em>+ manuales.</em></p>
+      <!-- Un bloque por moneda (el link es el mismo). REVISAR: "Desde Argentina" / "Desde otro país" lo escribimos nosotros -->
+      <div class="vy-cur">
+        <div class="vy-cc">
+          <span class="vy-cc-k">Pagás en pesos</span>
+          <span class="vy-cc-w">Desde Argentina</span>
+          <div class="vy-cc-p"><small>$</small>67.000</div>
+          <span class="vy-cc-u">ARS · un solo pago</span>
+          <span class="vy-cc-off">15% OFF por transferencia: <b>$56.950</b></span>
+          <a class="pr-btn" href="https://academiacherryglow.com/curso/workshop-yeso-ceramico-para-crear-tu-negocio">Pagar en pesos</a>
         </div>
-        <div class="ae-pinc">
-          <!-- REVISAR: lista armada por nosotros a partir de los módulos y los extras -->
-          <p class="ae-kicker2">Qué incluye</p>
-          <ul class="ae-checks">
-            <li>Módulo de velas en recipientes</li>
-            <li>Módulo de yeso cerámico</li>
-            <li>Módulo de productos aromáticos, con ebook de formulaciones</li>
-            <li>Módulo de negocio: costos, pedidos y ventas</li>
-            <li>Material descargable</li>
-            <li>Mis proveedores de materiales</li>
-            <li>Acompañamiento conmigo si te surgen dudas</li>
-            <li>Acceso para siempre: lo pagás una sola vez</li>
-          </ul>
+        <div class="vy-cc usd">
+          <span class="vy-cc-k">Pagás en dólares</span>
+          <span class="vy-cc-w">Desde otro país</span>
+          <div class="vy-cc-p"><small>US$</small>67</div>
+          <span class="vy-cc-u">USD · un solo pago</span>
+          <a class="pr-btn" href="https://academiacherryglow.com/curso/workshop-yeso-ceramico-para-crear-tu-negocio">Pagar en dólares</a>
         </div>
+      </div>
+      <p class="vy-now">Cualquiera de las dos opciones te da acceso inmediato a clases <em>+ manuales.</em></p>
+      <div class="cg-incl vy-incl">
+        <!-- REVISAR: lista armada por nosotros a partir de los módulos y los extras -->
+        <p class="ae-kicker2">Qué incluye</p>
+        <ul class="ae-checks">
+          <li>Módulo de velas en recipientes</li>
+          <li>Módulo de yeso cerámico</li>
+          <li>Módulo de productos aromáticos, con ebook de formulaciones</li>
+          <li>Módulo de negocio: costos, pedidos y ventas</li>
+          <li>Material descargable</li>
+          <li>Mis proveedores de materiales</li>
+          <li>Acompañamiento conmigo si te surgen dudas</li>
+          <li>Acceso para siempre: lo pagás una sola vez</li>
+        </ul>
       </div>
       <div class="pr-sig vy-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
     </div>
