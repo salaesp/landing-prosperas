@@ -141,21 +141,43 @@
   <!-- TESTIMONIOS (carrusel) -->
   <section class="pr-sec pr-bg-yellow pr-tsec">
     <div class="pr-wrap"><div class="pr-head" style="margin-bottom:40px"><span class="lbl">Testimonios</span><h2>Lo que cuentan <b>ellas</b></h2></div></div>
+    <!-- Carrusel en pila SIN JavaScript (Tiendup no ejecuta scripts): cada botón de radio es un testimonio;
+         las flechas y las tarjetas de los costados son etiquetas que eligen otro. El CSS de cada estado se genera en src/nuevo.css. -->
     <div class="pr-tcar-wrap">
-      <button class="pr-tnav prev" type="button" aria-label="Ver testimonios anteriores"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="pr-tcar" id="pr-tcar">
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308lfedt341midloi4s51jhr74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3088gbipeh1sm31meqg6oglb5k.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308uiugela1nmaah7ttt2v7s.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jqrm5hc115pl1rmg1u3grn1ja03q.JPG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuga671be91bce1e741c661pp6ci.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuff2l1rbso0uj50img1csvd2.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf99m5id8991lc4f711tq3cg.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
-        <figure class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf44gau6ikakfa198m1nacc0.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></figure>
+      <input type="radio" name="pr-t" id="pr-t0" class="pr-tr" checked aria-label="Testimonio 1 de 10">
+      <input type="radio" name="pr-t" id="pr-t1" class="pr-tr" aria-label="Testimonio 2 de 10">
+      <input type="radio" name="pr-t" id="pr-t2" class="pr-tr" aria-label="Testimonio 3 de 10">
+      <input type="radio" name="pr-t" id="pr-t3" class="pr-tr" aria-label="Testimonio 4 de 10">
+      <input type="radio" name="pr-t" id="pr-t4" class="pr-tr" aria-label="Testimonio 5 de 10">
+      <input type="radio" name="pr-t" id="pr-t5" class="pr-tr" aria-label="Testimonio 6 de 10">
+      <input type="radio" name="pr-t" id="pr-t6" class="pr-tr" aria-label="Testimonio 7 de 10">
+      <input type="radio" name="pr-t" id="pr-t7" class="pr-tr" aria-label="Testimonio 8 de 10">
+      <input type="radio" name="pr-t" id="pr-t8" class="pr-tr" aria-label="Testimonio 9 de 10">
+      <input type="radio" name="pr-t" id="pr-t9" class="pr-tr" aria-label="Testimonio 10 de 10">
+      <div class="pr-tstack" id="pr-tcar">
+        <label for="pr-t0" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t1" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t2" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308lfedt341midloi4s51jhr74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t3" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3088gbipeh1sm31meqg6oglb5k.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t4" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308uiugela1nmaah7ttt2v7s.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t5" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jqrm5hc115pl1rmg1u3grn1ja03q.JPG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t6" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuga671be91bce1e741c661pp6ci.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t7" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuff2l1rbso0uj50img1csvd2.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t8" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf99m5id8991lc4f711tq3cg.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
+        <label for="pr-t9" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf44gau6ikakfa198m1nacc0.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy"></label>
       </div>
-      <button class="pr-tnav next" type="button" aria-label="Ver más testimonios"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="pr-tnavs">
+        <label for="pr-t9" class="pr-tnav prev pk0" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t1" class="pr-tnav next pk0" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t0" class="pr-tnav prev pk1" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t2" class="pr-tnav next pk1" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t1" class="pr-tnav prev pk2" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t3" class="pr-tnav next pk2" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t2" class="pr-tnav prev pk3" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t4" class="pr-tnav next pk3" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t3" class="pr-tnav prev pk4" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t5" class="pr-tnav next pk4" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t4" class="pr-tnav prev pk5" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t6" class="pr-tnav next pk5" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t5" class="pr-tnav prev pk6" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t7" class="pr-tnav next pk6" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t6" class="pr-tnav prev pk7" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t8" class="pr-tnav next pk7" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t7" class="pr-tnav prev pk8" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t9" class="pr-tnav next pk8" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="pr-t8" class="pr-tnav prev pk9" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="pr-t0" class="pr-tnav next pk9" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+      </div>
     </div>
   </section>
 
@@ -265,37 +287,14 @@
     new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd()}).observe(hero);
     new IntersectionObserver(function(e){payVis=e[0].isIntersecting;upd()},{threshold:0.15}).observe(pay);
   })();
-  /* testimonios en pila: uno adelante en foco, el resto detrás desenfocado; infinito */
+  /* testimonios: si el JavaScript corre, se suma deslizar con el dedo (sin JavaScript funcionan flechas y clics) */
   (function(){
     var c=document.getElementById('pr-tcar');if(!c)return;
-    var cards=[].slice.call(c.querySelectorAll('.pr-tc')),n=cards.length,cur=0;if(!n)return;
-    /* sin JavaScript se ve como carrusel deslizable; con JavaScript pasa a la pila con foco */
-    c.className='pr-tstack';c.parentNode.className+=' js';
-    function layout(){
-      var mob=window.innerWidth<820,gap=mob?Math.min(96,window.innerWidth*0.24):215;
-      cards.forEach(function(el,i){
-        var d=((i-cur)%n+n)%n;if(d>n/2)d-=n;var a=Math.abs(d);
-        var sc=a===0?1:a===1?0.84:0.7;
-        el.style.transform='translate(-50%,-50%) translateX('+(d*gap)+'px) scale('+sc+') rotate('+(d*3)+'deg)';
-        el.style.zIndex=String(20-a);
-        el.style.filter=a?'blur('+(a*2.5)+'px) saturate(0.4)':'none';
-        el.style.opacity=a===0?'1':a===1?'.85':a===2?'.5':'0';
-        el.style.pointerEvents=a>2?'none':'auto';
-        el.classList.toggle('on',a===0);
-        el.setAttribute('aria-hidden',a?'true':'false');
-      });
-    }
-    function go(k){cur=((cur+k)%n+n)%n;layout()}
-    cards.forEach(function(el,i){el.addEventListener('click',function(){if(i!==cur){cur=i;layout()}})});
-    var w=c.parentNode;
-    w.querySelector('.prev').addEventListener('click',function(){go(-1)});
-    w.querySelector('.next').addEventListener('click',function(){go(1)});
-    var x0=null;
+    var r=[].slice.call(document.querySelectorAll('#prosperas .pr-tr')),n=r.length,x0=null;
+    function cur(){for(var i=0;i<n;i++)if(r[i].checked)return i;return 0}
     c.addEventListener('pointerdown',function(e){x0=e.clientX});
-    c.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40)go(dx<0?1:-1)});
+    c.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){var k=(cur()+(dx<0?1:-1)+n)%n;r[k].checked=true}});
     c.addEventListener('dragstart',function(e){e.preventDefault()});
-    window.addEventListener('resize',layout);
-    layout();
   })();
   /* lleva a los precios aunque las fotos de más arriba terminen de cargar mientras baja */
   (function(){
