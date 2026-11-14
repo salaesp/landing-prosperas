@@ -46,7 +46,7 @@ Todo respetando la imagen y la marca de Cherry Glow.
 
 ## 3. Pendientes de recibir
 
-- [ ] Código actual de la página como **archivo** (.html/.txt). El que pasaron por chat está en la conversación, pero copiarlo a mano mete errores en las imágenes base64 y en los logos SVG. Con el archivo queda idéntico.
+- [x] Código actual de la página: guardado tal cual en `index-original.html` (base intacta para modificar).
 - [ ] Contenido de la página de Andrea: el sitio bloquea la lectura automática (devuelve 403). Mandar capturas de las secciones que gustan, o el código fuente guardado desde el navegador.
 - [ ] Fotos y descripción de cada aula para "¿Qué vas a encontrar adentro?".
 - [ ] Imágenes para el carrusel de "lo que recibes".

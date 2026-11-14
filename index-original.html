@@ -1,0 +1,702 @@
+<!-- ============================================================
+  LANDING PRÓSPERAS · Cherry Glow by Juli de Franco
+  Pegar completo en un bloque HTML de Tiendup.
+  Todo el CSS está adentro y no usa JavaScript.
+  Las líneas marcadas con PENDIENTE DE DEFINIR están comentadas para revisar.
+============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Outfit:wght@400;500;600&family=Yellowtail&display=swap');
+
+.pr{
+  --cream:#fff8fc;--blue:#b5d8f1;--yellow:#f8f0b5;--cherry:#cf216c;--pink:#ee6da6;--wine:#9b1f3a;
+  --line:rgba(155,31,58,.22);
+  --st-blue:url("data:image/png;base64,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");
+  --st-pink:url("data:image/png;base64,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");
+  --st-yellow:url("data:image/png;base64,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");
+  font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16.5px;line-height:1.7;color:var(--wine);background:var(--cream);
+  width:100vw;position:relative;left:50%;margin-left:-50vw;overflow-x:clip;text-align:left;
+}
+.pr *,.pr *::before,.pr *::after{box-sizing:border-box}
+.pr img{max-width:100%;height:auto;display:block}
+.pr h1,.pr h2,.pr h3,.pr p,.pr ul,.pr li{margin:0;padding:0}
+.pr ul{list-style:none}
+.pr a{text-decoration:none}
+.pr h1,.pr h2,.pr h3{font-family:'Noto Serif',Georgia,serif;font-weight:400;text-transform:none;letter-spacing:-.012em;line-height:1.18;color:inherit}
+.pr h1{font-size:clamp(32px,4.3vw,54px)}
+.pr h2{font-size:clamp(27px,3.3vw,40px)}
+.pr h3{font-size:clamp(19px,1.8vw,22px)}
+.pr h1 em,.pr h2 em{font-style:italic;color:var(--cherry)}
+.pr h1 b,.pr h2 b,.pr .pr-big b{font-weight:700}
+.pr p{margin-bottom:1em}
+.pr p:last-child{margin-bottom:0}
+.pr strong{font-weight:600}
+.pr .lbl{display:block;font-family:'Outfit',sans-serif;font-weight:600;font-size:12px;line-height:1.4;letter-spacing:.2em;text-transform:uppercase;color:var(--cherry);margin-bottom:20px}
+
+.pr .pr-wrap{max-width:1080px;margin:0 auto;padding:0 28px;position:relative}
+.pr .pr-sec{padding:clamp(64px,8vw,116px) 0}
+.pr .pr-narrow{max-width:700px;margin:0 auto;text-align:center}
+.pr-bg-white{background:#fff}.pr-bg-blue{background:var(--blue)}.pr-bg-yellow{background:var(--yellow)}
+.pr-bg-cherry{background:var(--cherry);color:var(--cream)}.pr-bg-wine{background:var(--wine);color:var(--cream)}
+.pr-bg-cherry .lbl,.pr-bg-wine .lbl{color:var(--yellow)}
+
+/* botón */
+.pr .pr-btn{display:inline-block;background:var(--cherry);color:var(--cream)!important;font-family:'Outfit',sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  padding:16px 32px;border-radius:999px;border:1.5px solid var(--cherry);transition:background .2s,color .2s}
+.pr-btn:hover{background:var(--wine);border-color:var(--wine)}
+.pr-btn.line{background:transparent;color:var(--wine)!important;border-color:var(--wine)}
+.pr-btn.line:hover{background:var(--wine);color:var(--cream)!important}
+.pr-btn.cream{background:var(--cream);color:var(--cherry)!important;border-color:var(--cream)}
+.pr-btn.cream:hover{background:var(--yellow);border-color:var(--yellow);color:var(--wine)!important}
+
+/* estrellita (sticker, se usa muy poco) */
+.pr-star{position:absolute;aspect-ratio:1/1;background-size:contain;background-repeat:no-repeat;background-position:center;pointer-events:none;z-index:3;animation:pr-fl 7s ease-in-out infinite}
+.pr-star.p{background-image:var(--st-pink)}.pr-star.y{background-image:var(--st-yellow)}.pr-star.b{background-image:var(--st-blue)}
+@keyframes pr-fl{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(calc(var(--r,0deg) + 5deg))}}
+
+/* cintas */
+.pr .pr-top{background:var(--wine);color:var(--cream);text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:11px 20px;line-height:1.5}
+.pr .pr-mq{overflow:hidden;white-space:nowrap;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;font-weight:500;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase}
+.pr-mq-track{display:inline-flex;animation:pr-mq 38s linear infinite}
+.pr-mq-grp{display:inline-flex;flex:none}
+.pr .pr-mq-grp span{display:inline-flex;align-items:center;gap:44px;padding-right:44px}
+.pr-mq-grp span::after{content:"✦";color:var(--cherry);font-size:11px}
+@keyframes pr-mq{to{transform:translateX(-50%)}}
+
+/* pantallas partidas */
+.pr-split{display:grid;grid-template-columns:1fr 1fr}
+.pr-ph{position:relative;min-height:600px;overflow:hidden;background:var(--blue)}
+.pr-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pr .pr-tx{padding:clamp(48px,7vw,104px) clamp(26px,6vw,92px);display:flex;flex-direction:column;justify-content:center}
+.pr-tx>*{max-width:500px;width:100%}
+.pr-tx.cream{background:var(--cream)}.pr-tx.white{background:#fff}.pr-tx.wine{background:var(--wine);color:var(--cream)}
+.pr-tx.cherry{background:var(--cherry);color:var(--cream)}.pr-tx.yellow{background:var(--yellow)}
+.pr-tx.wine .lbl,.pr-tx.cherry .lbl{color:var(--yellow)}
+
+/* hero */
+.pr-hero{min-height:620px}
+.pr .pr-hero h1{font-size:clamp(30px,3.7vw,46px)}
+.pr .pr-hero .pr-tx{padding-top:76px;padding-bottom:76px}
+.pr .pr-logo{width:min(210px,56%);color:var(--cherry);margin-bottom:26px}
+.pr-logo svg{width:100%;height:auto;display:block;fill:currentColor}
+.pr .pr-hero .lead{font-size:clamp(16px,1.4vw,18px);line-height:1.6;margin:18px 0 24px}
+.pr .pr-note{font-size:13px;margin-top:16px;opacity:.85;max-width:400px}
+.pr .pr-stripes{position:relative;display:grid;place-items:center;padding:68px 28px;background:repeating-linear-gradient(90deg,#9b1f3a 0 30px,#8a1a33 30px 60px)}
+.pr-frame{position:relative;width:min(300px,70%)}
+.pr-frame img{aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;width:100%}
+.pr-frame .pr-star{width:96px;left:-48px;bottom:-34px;--r:-10deg}
+
+/* texto con líneas finas */
+.pr .pr-rows{margin:26px 0 0}
+.pr .pr-rows li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);line-height:1.5}
+.pr-rows li:first-child{border-top:1px solid var(--line)}
+.pr-rows li::before{content:"✦";flex:none;color:var(--cherry);font-size:10px;transform:translateY(-2px)}
+.pr-rows.q li{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(17px,1.6vw,19px)}
+.pr-rows.q li::before{content:none}
+.pr-rows.no li::before{content:"—";font-size:14px;color:var(--wine);opacity:.6}
+.pr-big{font-family:'Noto Serif',serif;font-size:clamp(25px,3.2vw,40px);line-height:1.25;font-weight:400}
+.pr-big em{color:var(--cherry);font-style:italic}
+.pr .pr-quote{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(22px,2.6vw,32px);line-height:1.35;color:var(--cherry);margin-top:34px}
+.pr-sub{font-size:clamp(17px,1.6vw,19px)}
+.pr .pr-trio{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(20px,2.2vw,26px);color:var(--cherry);margin-top:34px;line-height:1.4}
+
+/* tres columnas con líneas */
+.pr .pr-head{text-align:center;max-width:700px;margin:0 auto 60px}
+.pr-cols{display:grid;grid-template-columns:repeat(3,1fr)}
+.pr .pr-col{padding:6px 34px 10px;border-left:1px solid var(--line)}
+.pr .pr-col:first-child{border-left:0;padding-left:0}.pr .pr-col:last-child{padding-right:0}
+.pr .pr-col .n,.pr .pr-aula .n{display:block;font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--cherry);margin-bottom:18px}
+.pr .pr-col h3{margin-bottom:16px}
+.pr-col p{font-size:16px}
+
+/* aulas */
+
+/* es / no es */
+.pr-yn .pr-tx{justify-content:flex-start}
+.pr-yn .pr-tx>*{max-width:470px}
+.pr .pr-yn h2{margin-bottom:6px}
+.pr-yn .pr-rows li{font-size:16px}
+.pr .pr-yn .pr-rows{margin-top:24px}
+
+/* alumna */
+.pr .pr-open h2{margin-bottom:24px}
+
+/* quién */
+.pr-who .pr-tx p{font-size:16.5px}
+.pr .pr-who h2{margin-bottom:26px}
+.pr-mine p.it{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(18px,1.9vw,22px);line-height:1.5}
+.pr .pr-sig{width:min(230px,70%);color:var(--yellow);margin-top:26px}
+.pr-sig svg{width:100%;height:auto;display:block;fill:currentColor}
+
+/* testimonios */
+
+/* precio */
+.pr-price{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.pr .pr-price h2{margin-bottom:26px}
+.pr-price p{font-size:clamp(16.5px,1.5vw,18px)}
+.pr .pr-dl{margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,248,252,.35);font-size:15px;letter-spacing:.02em}
+.pr-dl b{font-weight:600;color:var(--yellow)}
+.pr .pr-box{position:relative;background:var(--cream);color:var(--wine);padding:clamp(30px,3.6vw,48px);text-align:center}
+.pr-box .pr-star{width:78px;top:-38px;right:-26px;--r:12deg}
+.pr .pr-box .lbl{margin-bottom:10px;color:var(--cherry)}
+.pr .pr-amount{font-family:'Noto Serif',serif;font-size:clamp(46px,6vw,66px);line-height:1;color:var(--cherry);margin:8px 0 6px}
+.pr .pr-amount small{display:block;font-family:'Outfit',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin-top:12px;font-weight:500}
+.pr .pr-after{font-size:15px;line-height:1.6;margin:30px 0 26px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pr-box .pr-btn{width:100%;text-align:center}
+.pr .pr-plans{margin-top:20px;text-align:left}
+.pr .pr-plan{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);color:var(--wine)!important;font-weight:500;font-size:15px}
+.pr-plan:first-child{border-top:1px solid var(--line)}
+.pr-plan:hover{color:var(--cherry)!important}
+.pr-plan span:last-child{font-family:'Noto Serif',serif;font-size:17px;color:var(--cherry);white-space:nowrap}
+.pr-plan em{display:block;font-style:normal;font-weight:400;font-size:13px;opacity:.8}
+
+/* faq */
+.pr .pr-faq{max-width:780px;margin:0 auto}
+.pr-faq details{border-bottom:1px solid var(--line)}
+.pr-faq details:first-child{border-top:1px solid var(--line)}
+.pr .pr-faq summary{list-style:none;cursor:pointer;padding:24px 0;font-family:'Noto Serif',serif;font-size:clamp(17px,1.7vw,20px);display:flex;justify-content:space-between;gap:20px;align-items:center}
+.pr-faq summary::-webkit-details-marker{display:none}
+.pr-faq summary::after{content:"+";flex:none;font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;line-height:1;color:var(--cherry)}
+.pr-faq details[open] summary::after{content:"–"}
+.pr .pr-faq details p{padding:0 0 26px;max-width:640px;font-size:16px}
+
+/* cierre */
+.pr-end .pr-tx>*{max-width:480px}
+.pr .pr-end h2{margin-bottom:26px}
+.pr .pr-end .script{font-family:'Yellowtail',cursive;font-size:clamp(34px,4.4vw,50px);color:var(--cherry);line-height:1.15;margin:26px 0 32px;display:block}
+.pr .pr-foot{width:min(190px,50%);margin-top:56px;color:var(--cherry)}
+.pr-foot svg{width:100%;height:auto;display:block;fill:currentColor}
+.pr-end .pr-star{width:80px;right:34px;bottom:34px;--r:10deg}
+
+
+
+/* ---- bloque bordó (inicio) ---- */
+.pk{color:var(--cherry)}
+
+/* ---- rayas + píldoras ---- */
+.pr-stripebg{background:repeating-linear-gradient(90deg,#9b1f3a 0 30px,#8a1a33 30px 60px);animation:pr-str 8s linear infinite;color:var(--cream)}
+.pr-stripebg .lbl{color:var(--yellow)}
+.pr-pills .pr-narrow{max-width:900px}
+.pr .pr-pillist{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:26px 0 0}
+.pr .pr-pillist li{display:inline-flex;align-items:center;gap:12px;background:var(--cream);color:var(--wine);padding:9px 22px 9px 12px;border-radius:999px;font-weight:500;font-size:16px;line-height:1.35;text-align:left}
+.pr-pillist li i{flex:none;width:30px;height:30px;background:var(--st-pink) center/contain no-repeat;animation:pr-wig 6s ease-in-out infinite}
+.pr-pillist li:nth-child(3n+2) i{background-image:var(--st-yellow);animation-delay:-2s}
+.pr-pillist li:nth-child(3n) i{background-image:var(--st-blue);animation-delay:-4s}
+@keyframes pr-wig{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(10deg) scale(1.08)}}
+.pr-pills .pr-big{color:var(--cream)}
+.pr .pr-pills .pr-big{margin-top:52px;font-style:italic}
+
+/* ---- carrusel de aulas ---- */
+.pr .pr-car{--cpad:max(28px,calc((100vw - 1080px)/2));display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px var(--cpad) 28px;scroll-padding:0 var(--cpad);scrollbar-width:thin;-webkit-overflow-scrolling:touch;cursor:grab}
+.pr-car:active{cursor:grabbing}
+.pr-car{scrollbar-color:var(--cream) rgba(255,248,252,.25)}
+.pr .pr-acard{flex:0 0 min(360px,82vw);scroll-snap-align:start;border-radius:22px;padding:36px 32px 34px;color:var(--wine);background:#fbd0e2;min-height:410px}
+.pr .pr-acard .n{display:block;font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--cherry);margin-bottom:22px}
+.pr .pr-acard h3{margin-bottom:16px}
+.pr-acard p{font-size:15.5px}
+.pr-acard:nth-child(2n){background:#f6a9c8}
+.pr-acard:nth-child(3){background:#f48fb7}
+.pr-acard:nth-child(4){background:#fde0ec}
+.pr .pr-hint{text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin-top:4px}
+.pr-hint span{display:inline-block;animation:pr-nudge 1.6s ease-in-out infinite}
+@keyframes pr-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+
+/* ---- testimonios en grilla ---- */
+.pr-tm{column-count:3;column-gap:18px}
+.pr .pr-tm img{display:block;width:100%;height:auto;margin:0 0 18px;break-inside:avoid;border:2px solid var(--pink);border-radius:14px;background:#fff}
+@media(max-width:900px){.pr-tm{column-count:2;column-gap:12px}.pr .pr-tm img{margin-bottom:12px}}
+
+/* ---- frase que se escribe sola ---- */
+.pr-end .script{line-height:1.2}
+.tw{display:inline-block;white-space:nowrap;position:relative;padding:140px 0;margin:-140px 0}
+@keyframes pr-ty{from{clip-path:inset(-15% 100% -15% 0)}to{clip-path:inset(-15% 0 -15% 0)}}
+@keyframes pr-cur{from{left:0}to{left:100%}}
+@keyframes pr-blk{0%,49%{background-color:var(--cherry)}50%,100%{background-color:transparent}}
+@supports (animation-timeline:view()){
+  .tw1{animation:pr-ty both;animation-timing-function:steps(16,end);animation-timeline:view();animation-range:entry 22% entry 62%}
+  .tw2{animation:pr-ty both;animation-timing-function:steps(19,end);animation-timeline:view();animation-range:entry 58% entry 100%}
+  .tw2::after{content:"";position:absolute;top:148px;bottom:146px;width:2px;left:0;background:var(--cherry);
+    animation:pr-cur both,pr-blk 1s steps(1,end) infinite;
+    animation-timing-function:steps(19,end),steps(1,end);
+    animation-timeline:view(),auto;animation-range:entry 58% entry 100%,normal}
+}
+
+.pr-qe h2 b{color:var(--cream)}
+.pr-qe .pr-quote{color:var(--yellow)}
+
+.pr .pr-cd{background:var(--yellow);border-radius:14px;padding:16px 14px 14px;margin:0 0 22px}
+.pr .pr-cd-t{font-weight:600;font-size:14px;line-height:1.35;margin:0 0 10px;color:var(--wine)}
+.pr .pr-cd-b{grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 10px}
+.pr .pr-cd-b div{background:var(--cream);border-radius:10px;padding:8px 0}
+.pr-cd-b b{display:block;font-family:'Noto Serif',serif;font-weight:700;font-size:26px;line-height:1.1;color:var(--cherry)}
+.pr-cd-b span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.pr .pr-cd-s{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0;color:var(--wine)}
+
+
+/* ---- detalles tipo sticker ---- */
+.pr .lbl{display:inline-block;position:relative;background:var(--cherry);color:var(--cream)!important;padding:7px 16px 6px;border-radius:10px;letter-spacing:.16em;margin-bottom:26px}
+.pr .lbl::after{content:"";position:absolute;left:18px;bottom:-7px;border:7px solid transparent;border-top-color:var(--cherry);border-bottom:0;border-left-width:2px}
+.pr-bg-cherry .lbl,.pr-bg-wine .lbl,.pr-stripebg .lbl,.pr-tx.wine .lbl,.pr-tx.cherry .lbl,.pr-box .lbl{background:var(--yellow);color:var(--wine)!important}
+.pr-bg-cherry .lbl::after,.pr-bg-wine .lbl::after,.pr-stripebg .lbl::after,.pr-tx.wine .lbl::after,.pr-tx.cherry .lbl::after,.pr-box .lbl::after{border-top-color:var(--yellow)}
+.pr .pr-box .lbl{background:var(--cherry);color:var(--cream)!important;margin-bottom:22px}
+.pr-box .lbl::after{border-top-color:var(--cherry)}
+.pr .pr-narrow .lbl::after,.pr .pr-head .lbl::after,.pr .pr-box .lbl::after{left:50%;margin-left:-4px}
+.pr-mq-grp span::after{content:"";flex:none;width:36px;height:36px;background:var(--st-pink) center/contain no-repeat}
+.pr-mq-grp span:nth-child(3n+2)::after{background-image:var(--st-yellow)}
+.pr-mq-grp span:nth-child(3n)::after{background-image:var(--st-blue)}
+.pr-seal{position:absolute;top:26px;right:26px;width:118px;height:118px;z-index:3;pointer-events:none}
+.pr-seal svg{width:100%;height:100%;overflow:visible;animation:pr-spin 18s linear infinite}
+.pr-seal text{font-family:'Outfit',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0;fill:var(--wine);text-transform:uppercase}
+@keyframes pr-spin{to{transform:rotate(360deg)}}
+@media(max-width:820px){.pr-seal{width:86px;height:86px;top:14px;right:14px}.pr-seal text{font-size:13.2px}}
+
+
+/* ---- es / no es en cards ---- */
+.pr-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.pr .pr-card{border-radius:28px;padding:clamp(28px,3.4vw,44px) clamp(22px,3vw,40px);text-align:center;border:2px solid var(--wine)}
+.pr .pr-card h2{margin-bottom:24px;font-size:clamp(23px,2.5vw,31px)}
+.pr .pr-card{display:flex;flex-direction:column;justify-content:flex-start}
+.pr-card ul{display:flex;flex-direction:column;gap:14px}
+.pr-card li{font-size:16.5px;line-height:1.55}
+.pr-card li::before{display:block;font-size:13px;margin-bottom:4px}
+.pr-card.yes{background:var(--cherry);border-color:var(--cherry);color:var(--cream)}
+.pr-card.yes h2 b{color:var(--yellow)}
+.pr-card.yes li::before{content:"✦";color:var(--yellow)}
+.pr-card.no{background:var(--yellow);color:var(--wine)}
+.pr-card.no li::before{content:"—";color:var(--wine)}
+@media(max-width:820px){.pr-cards{grid-template-columns:1fr}}
+
+
+/* ---- sección con foto de fondo ---- */
+.pr-bgph{position:relative;min-height:960px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;color:var(--cream)}
+.pr-bgph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 24%}
+.pr-bgph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(155,31,58,0) 0%,rgba(155,31,58,.05) 40%,rgba(155,31,58,.82) 58%,rgba(155,31,58,.94) 100%)}
+.pr .pr-bgph-in{position:relative;z-index:2;width:100%;max-width:820px;padding:0 28px 64px;text-align:center}
+.pr-bgph .lbl{background:var(--yellow);color:var(--wine)!important}
+.pr-bgph .lbl::after{border-top-color:var(--yellow);left:50%;margin-left:-4px}
+.pr-bgph h2{font-size:clamp(32px,4.4vw,56px);color:var(--cream);text-shadow:0 2px 18px rgba(155,31,58,.35)}
+.pr-bgph h2 b{color:var(--yellow)}
+.pr .pr-bgph-p{margin:18px auto 0;max-width:560px;font-size:17.5px}
+.pr .pr-qpills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+.pr .pr-qpills li{background:rgba(255,248,252,.94);color:var(--wine);font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(16px,1.5vw,18px);line-height:1.4;padding:11px 24px;border-radius:999px;max-width:100%}
+@media(max-width:820px){.pr-bgph{min-height:1080px}.pr-bgph>img{object-position:50% 0}.pr .pr-bgph-in{padding-bottom:44px}.pr .pr-qpills li{border-radius:22px}}
+
+
+/* ---- banner "De mí para vos" ---- */
+.pr-mine2{background:var(--wine);color:var(--cream);overflow:hidden}
+.pr .pr-mine2 .pr-mine2-in{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:clamp(28px,5vw,72px);align-items:center;padding-top:72px;padding-bottom:72px}
+.pr-arch{position:relative;width:100%;max-width:340px;justify-self:center}
+.pr-arch img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:42% 30%;border-radius:999px 999px 28px 28px;border:3px solid var(--pink)}
+.pr-arch .pr-star{width:84px;left:-30px;bottom:-22px;--r:-10deg}
+.pr-mine2-tx{position:relative;text-align:center;max-width:620px;justify-self:center;padding-right:30px}
+.pr-mine2 .lbl{background:var(--yellow);color:var(--wine)!important}
+.pr-mine2 .lbl::after{border-top-color:var(--yellow);left:50%;margin-left:-4px}
+.pr .pr-mine2 p.it{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(19px,2vw,24px);line-height:1.5;margin:0 0 16px}
+.pr-mine2 .pr-sig{width:min(220px,60%);margin:26px auto 0;color:var(--yellow)}
+.pr-mine2 .pr-sig svg{width:100%;height:auto;display:block;fill:currentColor}
+.pr-mine2-star{width:60px;right:-4px;top:6px;--r:12deg}
+@media(max-width:820px){.pr .pr-mine2 .pr-mine2-in{grid-template-columns:1fr;padding-top:56px;padding-bottom:56px}.pr-arch{max-width:260px}.pr-mine2-tx{padding-right:0}.pr-mine2-star{display:none}}
+
+
+/* ---- pagos en cards ---- */
+.pr .pr-pay-head{max-width:760px;margin:0 auto;text-align:center}
+.pr-pay h2{font-size:clamp(27px,3.4vw,42px)}
+.pr-pay h2 b{color:var(--yellow)}
+.pr .pr-pay .pr-cd{max-width:480px;margin:30px auto 0}
+.pr .pr-plans3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px;margin:44px auto 0;align-items:stretch}
+.pr .pr-pc{display:flex;flex-direction:column;align-items:center;text-align:center;border-radius:28px;padding:34px 24px 30px;color:var(--wine);transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s;will-change:transform}
+.pr-pc:hover{transform:translateY(-10px) rotate(2deg) scale(1.03);box-shadow:0 18px 30px rgba(155,31,58,.28)}
+.pr-pc.a{background:#fbd0e2}
+.pr-pc.b{background:var(--cream);border:3px solid var(--yellow)}
+.pr-pc.c{background:var(--yellow)}
+.pr-pc-n{font-family:'Outfit',sans-serif;font-weight:600;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--wine)}
+.pr-pc-p{font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(40px,4.4vw,54px);line-height:1;color:var(--cherry);margin:22px 0 8px}
+.pr-pc-p small{font-size:.45em;vertical-align:.6em;margin-right:3px}
+.pr-pc-u{font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.pr-pc-s{display:inline-block;background:var(--cherry);color:var(--cream);font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin:18px 0 22px}
+.pr-pc .pr-btn{margin-top:auto;width:100%;text-align:center}
+.pr .pr-pay-note{max-width:640px;margin:40px auto 0;text-align:center;font-size:15.5px;line-height:1.65}
+@media(max-width:820px){.pr .pr-plans3{grid-template-columns:1fr;max-width:420px}}
+
+/* movimiento */
+.pr-mq.rev{background:var(--wine);color:var(--cream);border:0}
+.pr-mq.rev .pr-mq-grp span::after{color:var(--yellow)}
+.pr-mq.rev .pr-mq-track{animation-direction:reverse;animation-duration:44s}
+.pr .pr-btn::after{content:"→";display:inline-block;margin-left:10px;transition:transform .25s}
+.pr-btn:hover::after{transform:translateX(5px)}
+.pr-stripes{animation:pr-str 8s linear infinite}
+@keyframes pr-str{to{background-position-x:60px}}
+@keyframes pr-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pr-rv{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes pr-zoom{from{transform:scale(1.16)}to{transform:scale(1)}}
+@supports (animation-timeline:view()){
+  .pr-narrow>*:not(.pr-seq),.pr-head,.pr-col,.pr-rows li,.pr-pillist li,.pr-faq details,.pr-tx>*:not(.pr-star),.pr-price>*{
+    animation:pr-rv linear both;animation-timeline:view();animation-range:entry 0% entry 42%}
+  .pr-ph img{animation:pr-zoom linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+  .pr-seq span{display:inline-block;animation:pr-rv linear both;animation-timeline:view();animation-range:entry 5% entry 45%}
+  .pr-seq span:nth-child(2){animation-range:entry 18% entry 58%}
+  .pr-seq span:nth-child(3){animation-range:entry 31% entry 71%}
+}
+.pr-hero .pr-tx>*{animation:pr-up 1s cubic-bezier(.2,.7,.2,1) both}
+.pr-hero .pr-tx>*:nth-child(2){animation-delay:.12s}.pr-hero .pr-tx>*:nth-child(3){animation-delay:.24s}
+.pr-hero .pr-tx>*:nth-child(4){animation-delay:.36s}.pr-hero .pr-tx>*:nth-child(5){animation-delay:.48s}
+.pr-frame{animation:pr-up 1.2s .25s cubic-bezier(.2,.7,.2,1) both}
+.pr-frame .pr-star{animation:pr-fl 7s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){
+  .pr *,.pr *::before,.pr *::after{animation:none!important;transition:none!important}
+}
+
+/* responsive */
+@media (max-width:900px){
+  .pr-split,.pr-price{grid-template-columns:1fr}
+  .pr-ph{min-height:420px;order:-1}
+  .pr-hero .pr-ph{order:0}
+  .pr-tx>*,.pr-yn .pr-tx>*,.pr-end .pr-tx>*{max-width:none}
+  .pr-hero{min-height:0}
+  .pr .pr-hero .pr-tx{padding-top:52px;padding-bottom:50px}
+  .pr .pr-logo{margin-bottom:22px}
+  .pr .pr-stripes{padding:52px 28px 58px}
+  .pr-cols{grid-template-columns:1fr;gap:34px}
+  .pr .pr-col,.pr .pr-col:first-child,.pr .pr-col:last-child{border-left:0;padding:0 0 34px;border-bottom:1px solid var(--line)}
+  .pr .pr-col:last-child{border-bottom:0;padding-bottom:0}
+  .pr-price{gap:48px}
+  .pr-box .pr-star{right:-6px}
+}
+@media (max-width:620px){
+  .pr{font-size:16px}
+  .pr .pr-wrap{padding:0 22px}
+  .pr .pr-btn{display:block;text-align:center;padding:17px 20px}
+  .pr-frame .pr-star{width:78px;left:-18px}
+  .pr-end .pr-star{display:none}
+  .pr-ph{min-height:380px}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="pr-l-full" viewBox="0 0 428.27 130.46"> <g> <g> <path d="M49.49,13.51c-1.77-1.32-4.1-2.36-6.99-3.13-2.89-.77-5.64-1.25-8.24-1.45s-5.73-.29-9.4-.29H0v1.74l7.52,1.45v57.25l-7.52,1.44v1.74h29.88v-1.74l-7.52-1.44v-22.27h2.51c2.95,0,5.61-.1,7.96-.29,2.34-.19,5.02-.66,8.05-1.39s5.53-1.75,7.52-3.04c1.99-1.28,3.69-3.17,5.11-5.64,1.41-2.47,2.12-5.41,2.12-8.82s-.57-6.2-1.73-8.58c-1.16-2.38-2.62-4.22-4.39-5.54ZM38.61,36.35c-.87,2.35-2.07,4.07-3.62,5.16-1.54,1.09-3.1,1.83-4.67,2.22-1.57.38-3.39.58-5.45.58h-2.51V11.05h2.51c2.32,0,4.19.14,5.64.43,1.44.29,2.97.93,4.57,1.93,1.61,1,2.81,2.68,3.61,5.06.81,2.38,1.21,5.43,1.21,9.15,0,3.47-.44,6.38-1.3,8.72Z"/> <path d="M90.22,25.41c-3.73,0-6.67,1.34-8.82,4-2.15,2.67-3.65,5.8-4.48,9.4h-.29v-13.01l-.58-.39-18.31,4.63v1.45l5.01-.38v38.26l-4.92,1.45v1.45h26.5v-1.45l-7.42-1.45v-20.53c.7-5.33,1.99-9.9,3.85-13.69,1.86-3.79,4.05-5.69,6.56-5.69,1.8,0,2.7,1.06,2.7,3.18,0,2.25-1.51,3.92-4.53,5.01.19,1.74.83,3.15,1.93,4.24,1.09,1.09,2.53,1.64,4.34,1.64,2.31,0,4.21-.76,5.69-2.26,1.48-1.51,2.22-3.58,2.22-6.22,0-2.82-.84-5.14-2.51-6.94s-3.98-2.7-6.94-2.7Z"/> <path d="M124.43,25.6c-7.46,0-13.37,2.22-17.73,6.65-4.37,4.43-6.56,10.22-6.56,17.35s2.17,12.88,6.51,17.25c4.34,4.37,10.2,6.55,17.59,6.55s13.14-2.17,17.25-6.51c4.11-4.34,6.17-10.17,6.17-17.49s-2.07-13.12-6.22-17.4c-4.14-4.27-9.81-6.41-17.01-6.41ZM124.33,70.81c-6.11,0-9.16-7.58-9.16-22.75,0-13.23,2.76-19.85,8.29-19.85,6.1,0,9.15,7.42,9.15,22.26,0,13.56-2.76,20.34-8.28,20.34Z"/> <path d="M183.37,69.41c3.57-2.8,5.35-6.15,5.35-10.07,0-2.89-.91-5.43-2.74-7.61-1.83-2.18-4.05-3.93-6.65-5.25-2.6-1.32-5.19-2.57-7.76-3.76-2.57-1.19-4.77-2.57-6.6-4.14-1.83-1.57-2.74-3.36-2.74-5.35,0-1.74.76-3.1,2.27-4.1,1.51-.99,3.39-1.49,5.64-1.49s4.18.52,5.59,1.54c1.41,1.03,2.12,2.38,2.12,4.05,0,2.12-1.29,3.76-3.86,4.92.39,1.16,1.24,2.09,2.56,2.8,1.31.71,2.71,1.06,4.19,1.06,2.12,0,3.76-.59,4.92-1.78,1.15-1.19,1.73-2.74,1.73-4.67,0-2.89-1.36-5.3-4.1-7.23-2.73-1.93-6.57-2.89-11.52-2.89-5.97,0-10.65,1.37-14.02,4.1-3.37,2.73-5.06,6.15-5.06,10.26,0,2.57.9,4.9,2.7,6.99,1.8,2.09,3.98,3.84,6.55,5.25,2.57,1.41,5.14,2.75,7.71,4s4.76,2.62,6.55,4.1c1.8,1.48,2.7,3.05,2.7,4.72,0,1.8-.77,3.34-2.31,4.63-1.54,1.29-3.79,1.93-6.74,1.93-3.41,0-5.85-.58-7.32-1.74s-2.22-2.6-2.22-4.34c0-2.18,1.15-3.89,3.47-5.11-.77-3.09-2.66-4.63-5.68-4.63-1.99,0-3.61.72-4.87,2.17-1.25,1.45-1.88,3.23-1.88,5.35,0,2.76,1.43,5.2,4.29,7.32,2.86,2.12,7.05,3.18,12.58,3.18,6.55,0,11.61-1.4,15.18-4.19Z"/> <path d="M197.97,88.64l-4.92,1.44v1.44h24.09v-1.44l-4.92-1.44v-18.99c2.7,2.63,6.46,3.95,11.28,3.95,5.78,0,10.66-2.17,14.65-6.51,3.98-4.34,5.97-11,5.97-20,0-7-1.33-12.37-4-16.09-2.66-3.73-6.47-5.59-11.42-5.59-4.24,0-7.61,1.17-10.12,3.52-2.51,2.35-4.56,5.48-6.17,9.4h-.58v-12.53l-.48-.39-18.4,4.44v1.44l5.01-.38v57.73ZM212.23,44.3c1.99-7.77,5.27-11.66,9.83-11.66,2.38,0,4.14,1.17,5.3,3.52,1.16,2.34,1.73,6.54,1.73,12.58,0,7-.78,12.21-2.36,15.61-1.57,3.41-4.07,5.11-7.47,5.11-2.64,0-4.98-.96-7.03-2.89v-22.27Z"/> <path d="M271.5,73.6c6.23,0,11.09-1.74,14.55-5.2,3.47-3.47,5.2-7.74,5.2-12.82,0-.9-.06-1.54-.19-1.93h-1.44v.29c0,3.6-1.08,6.59-3.23,8.96-2.15,2.38-5.19,3.57-9.11,3.57-9.51,0-14.27-6.17-14.27-18.51v-1.54h27.56c.19-1.41.29-2.79.29-4.14,0-5.4-1.64-9.56-4.92-12.48s-7.61-4.39-13.01-4.39c-7.58,0-13.64,2.15-18.17,6.46-4.53,4.3-6.8,10.34-6.8,18.12,0,7.13,2.07,12.85,6.22,17.15,4.15,4.3,9.91,6.46,17.3,6.46ZM266.2,32.3c1.67-3.12,4.05-4.68,7.13-4.68,1.8,0,3.05.93,3.76,2.8.7,1.86,1.06,4.66,1.06,8.39,0,1.41-.13,3.21-.39,5.4h-14.65c.39-4.82,1.41-8.78,3.09-11.9Z"/> <path d="M335.31,35.05c0-2.82-.84-5.14-2.51-6.94s-3.98-2.7-6.94-2.7c-3.73,0-6.67,1.34-8.82,4-2.15,2.67-3.65,5.8-4.48,9.4h-.29v-13.01l-.58-.39-18.31,4.63v1.45l5.01-.38v38.26l-4.92,1.45v1.45h26.5v-1.45l-7.42-1.45v-20.53c.7-5.33,1.99-9.9,3.85-13.69,1.86-3.79,4.05-5.69,6.56-5.69,1.8,0,2.7,1.06,2.7,3.18,0,2.25-1.51,3.92-4.53,5.01.19,1.74.83,3.15,1.93,4.24,1.09,1.09,2.53,1.64,4.34,1.64,2.31,0,4.21-.76,5.69-2.26,1.48-1.51,2.22-3.58,2.22-6.22Z"/> <path d="M354.68,49.12c-5.59,1.41-9.9,3.15-12.92,5.2-3.02,2.06-4.53,5.05-4.53,8.96,0,3.28,1.11,5.82,3.33,7.61,2.22,1.8,5.09,2.7,8.63,2.7,6.17,0,10.96-2.86,14.36-8.58h.39c.32,2.51,1.38,4.56,3.18,6.17,1.8,1.61,4.27,2.41,7.42,2.41,1.99,0,3.71-.34,5.15-1.01,1.45-.68,2.52-1.46,3.23-2.36.71-.9,1.26-2.04,1.64-3.42.39-1.38.61-2.49.67-3.32.07-.84.1-1.83.1-2.99v-1.83h-1.64v1.64c0,5.34-1.22,8-3.67,8-1.09,0-1.8-.55-2.12-1.64-.32-1.09-.48-2.76-.48-5.01v-19.18c0-11.37-6.27-17.06-18.8-17.06-5.34,0-9.98,1.3-13.93,3.9-3.95,2.6-5.93,5.73-5.93,9.4,0,2.12.56,3.86,1.69,5.2,1.12,1.35,2.65,2.03,4.57,2.03,2.19,0,3.97-.66,5.35-1.98,1.38-1.32,2.07-2.68,2.07-4.09-1.28-.19-2.36-.79-3.23-1.78-.86-.99-1.3-2.26-1.3-3.81,0-1.86.64-3.36,1.93-4.48s3.02-1.69,5.2-1.69c2.89,0,4.97,1,6.22,2.99,1.26,1.99,1.88,5.46,1.88,10.41v2.22c0,2.18-2.83,3.98-8.48,5.4ZM363.16,62.71c-1.61,2.76-3.63,4.14-6.07,4.14-3.41,0-5.11-2.41-5.11-7.23,0-1.99.4-3.68,1.2-5.06.8-1.38,1.6-2.34,2.41-2.89.8-.55,1.97-1.17,3.52-1.88,2.06-.9,3.4-1.64,4.05-2.22v15.13Z"/> <path d="M400.46,60.21c-.77-3.09-2.66-4.63-5.68-4.63-1.99,0-3.61.72-4.87,2.17-1.25,1.45-1.88,3.23-1.88,5.35,0,2.76,1.43,5.2,4.29,7.32,2.86,2.12,7.05,3.18,12.58,3.18,6.55,0,11.61-1.4,15.18-4.19,3.57-2.8,5.35-6.15,5.35-10.07,0-2.89-.91-5.43-2.74-7.61-1.83-2.18-4.05-3.93-6.65-5.25-2.6-1.32-5.19-2.57-7.76-3.76-2.57-1.19-4.77-2.57-6.6-4.14-1.83-1.57-2.74-3.36-2.74-5.35,0-1.74.76-3.1,2.27-4.1,1.51-.99,3.39-1.49,5.64-1.49s4.18.52,5.59,1.54c1.41,1.03,2.12,2.38,2.12,4.05,0,2.12-1.29,3.76-3.86,4.92.39,1.16,1.24,2.09,2.56,2.8,1.31.71,2.71,1.06,4.19,1.06,2.12,0,3.76-.59,4.92-1.78,1.15-1.19,1.73-2.74,1.73-4.67,0-2.89-1.36-5.3-4.1-7.23-2.73-1.93-6.57-2.89-11.52-2.89-5.97,0-10.65,1.37-14.02,4.1-3.37,2.73-5.06,6.15-5.06,10.26,0,2.57.9,4.9,2.7,6.99,1.8,2.09,3.98,3.84,6.55,5.25,2.57,1.41,5.14,2.75,7.71,4s4.76,2.62,6.55,4.1c1.8,1.48,2.7,3.05,2.7,4.72,0,1.8-.77,3.34-2.31,4.63-1.54,1.29-3.79,1.93-6.74,1.93-3.41,0-5.85-.58-7.32-1.74s-2.22-2.6-2.22-4.34c0-2.18,1.15-3.89,3.47-5.11Z"/> <path d="M169.09,97.55c-1.32.04-2.38.63-3.34,1.39-1.38,1.07-1.77.82-1.31-.82,1.2-4.02,3.47-10.69,3.44-11.58-.02-.73-.56-1.27-1.32-1.24-.51.02-.89.24-1.14.68-.77,1.44-1.36,4.15-1.82,5.7-1.79,5.76-3.57,11.55-5.27,17.34-.15.48-.19.82-.56,1.18-.38.31-.62.66-.61,1.12.01.26.11.51.11.81.03.82-.72,1.49-.7,2.17.02.77.69,1.56,1.5,1.54.64-.02,1.02-.42,1.3-.94.24-.44.49-.66.84-.67.13,0,.3.03.47.11,1.13.48,2.05.92,3.5.87,5.77-.18,9.34-7.61,9.18-12.66-.08-2.48-1.49-5.09-4.27-5ZM164.05,112.52c-.98.03-2.46-.53-3.2-1.14.03-.17.03-.3.07-.43.9-2.42,5.09-10.7,8.26-10.8,1.28-.04,1.44,2.01,1.47,2.87.11,3.47-2.61,9.37-6.59,9.5Z"/> <path d="M195.59,103.98c-.17,0-.39.06-.55.24-.46.4-2.91,2.7-4.65,4.39-.5.49-.84.71-1.09.72-.3,0-.36-.46-.18-1.45.48-2.37.96-4.82,1.02-7.1.01-1.02-.58-2.03-1.86-1.99-1.97.06-6.68,13.18-9.74,12.77-2.15-.28-.86-8.28.9-12.19.52-1.09-.65-1.56-1.55-1.53-.47.01-.89.11-1.01.38-2.03,3.53-2.56,8.47-2.24,11.72.19,2,1.22,4.54,3.74,4.46,4.62-.15,6.74-6.21,8.89-10.01-.21,1.42-.9,3.89-1.44,5.91-.46,1.69-1.32,2.99-2.62,3.86-4.99,3.37-11.77,6.59-11.51,13.64.05,1.5,1.84,2.73,3.34,2.68,6.25-.2,9.64-9.39,11.84-14.21.6-1.3,1.55-2.45,3.05-3.74,2.46-2.14,4.61-4.42,6.72-6.85.45-.53-.23-1.71-1.04-1.68ZM182.63,119.04c-1.86,3.57-4.64,9.06-7.68,8.94-.51-.03-.45-.76-.46-1.05-.09-2.82,3.98-6.68,7.17-8.84.46-.32.84-.5,1.05-.51.43-.01.4.5-.08,1.46Z"/> <path d="M267.61,91.49c.03,1.11.48,1.53,1.03,1.51,1.58-.05,4.2-3.77.65-3.66-1.16.04-1.72,1.12-1.69,2.15Z"/> <path d="M276.46,100.46c-.09,0-.17.05-.26.13-2.24,3.42-4.44,8.66-7.56,8.76-1.58.05-1.92-2.5-1.96-3.66-.1-3.17,1.09-6.24,1.98-9.19.15-.47-.46-.92-.94-1.13-2.31.07-3.43,5.98-3.63,8.81-1.04,1.96-2.8,5.53-5.33,5.61-6.11.2,3.77-22.51,5.5-26.12.24-.48-.41-1.1-1.15-1.08-.38.01-.76.19-1.05.63-1.78,2.61-5.69,12.13-7.17,18.6-.15.08-.34.09-.45.22-.16.22-.24.52-.4.74-.73,1.18-3.97,5.73-5.3,5.77-.86.03-1.03-1.5-1.05-2.1-.06-1.84.89-4.23.85-5.64-.02-.73-.69-1.35-1.41-1.33-2.35.08-6.21,9.36-8.84,10.22-.61-.58-.65-1.56-.67-2.33-.15-4.62,3.57-9.97,3.55-10.77-.02-.73-.64-1.22-1.32-1.2-.69.02-1.1.59-1.42,1.11-1.83,2.83-3.27,6.6-3.42,10.07-.06-.01-.1-.05-.16-.06-1.51-.25-2.97-.46-4.43-.67-1.16-.18-1.61-.81-1.35-1.93.94-4.06,3.47-13.3,3.95-14.47.94-.03,6.89-.26,7.48-.49.51-.19.88-.71.86-1.27-.03-1.2-1.24-1.2-2.09-1.18-1.72.05-3.51.16-5.39.22-.98.03-1.05-.69-1.73-.67-.69.02-.88.75-2.38.8-2.01.07-6.38.03-8.24.61-.55.19-.97.63-.94,1.23.02.81.9,1.43,1.67,1.4.81-.03,1.66-.36,2.47-.38.94-.07,2.01-.19,3.03-.22.77-.03,1.54.03,2.27.18-.31,2.23-1.1,4.57-1.66,6.78-.66,2.37-1.26,4.92-1.99,7.3-.35,1.13-1.15,1.66-2.3,1.62-.39-.03-.77-.02-1.16,0-6.29.2-15.25,3.82-15.01,11.39.13,3.89,3.39,6.96,7.28,6.83,6.63-.21,10.11-7.94,12.1-13.66.39-1.17,1.15-1.7,2.27-1.57,1.85.24,3.58.82,5.38.77.07,0,.12-.05.19-.06.35,1.7,1.26,3.44,3.13,3.38,2.19-.07,4.08-2.58,5.35-4.36.36-.53.7-.8.95-.8.39-.01.66.41.94,1.29.43,1.49,1.33,2.74,3.17,2.68,1.41-.04,2.59-.86,3.53-1.82.41-.44,1.22-1.36,2.04-2.4,0,2.97.77,6.01,3.9,5.86,2.11-.1,4.57-1.94,6.35-4.66.53,1.99,1.65,3.72,3.89,3.65,3.6-.11,9.28-7.01,9.18-10.26-.02-.56-.68-1.18-1.1-1.16ZM215.06,120.96c-2.44.08-4.43-1.83-4.5-4.26-.2-6.12,7.82-8.51,12.69-8.67,1.15,0,1.65.63,1.34,1.75-1.27,4.54-4.92,11.03-9.53,11.18Z"/> <path d="M319.23,98.74c-.34.01-.68.2-.89.46-.2.22-.32.48-.44.7-1.65,3.35-5.11,8.82-9.31,8.95-2.31.07-3.28-2.17-3.35-4.18-.02-.51.05-1.07.16-1.63.73.15,1.43.39,2.2.36,3.2-.1,5.48-4.2,5.38-7.11-.06-1.8-1.3-3.08-3.14-3.02-1.66.05-3.26,1.22-4.24,2.53-1.35,1.82-2.28,3.84-2.71,6.01-1.16,2.27-2.79,6.29-4.61,6.35-1.37.04-1.52-3.33-1.55-4.27-.16-4.96,4.24-16.11,6.42-20.2.24-.43.45-.74.43-1.25-.02-.56-.5-1.01-1.06-1-.35.01-.6.15-.81.37-1.45,1.55-3.72,7.99-4.99,11.34-.28.65-.48.96-.99.97-.34.01-.82-.11-1.47-.34-.39-.16-.86-.19-1.33-.17-5.56.18-8.13,9.46-8.01,13.44.06,1.71.65,4.3,3.43,4.21,2.14-.07,3.72-2.77,4.94-5.03.32-.61.61-.96.82-.97.26,0,.49.41.64,1.23.41,1.99,1.24,4.02,3.43,3.95,1.85-.06,3.48-1.77,4.77-3.74.66,2.75,2.47,4.88,5.75,4.77,5.56-.18,9.27-5.99,11.53-10.35.16-.3.36-.78.35-1.13-.02-.73-.6-1.27-1.37-1.24ZM310.06,95.87c.09.17.27.38.27.59.05,1.66-1.23,4.19-3.12,4.25-.38.01-.82-.19-1-.61.66-1.86,1.81-3.65,3.85-4.24ZM288.34,108.94c-.36-.38-.54-.88-.56-1.4-.02-.68-.09-1.4-.03-2.09.23-2.36,2.22-9.53,5.26-9.63.94-.03,1.61.97,1.64,1.79.03,1.15-4.49,10.97-6.31,11.33Z"/> <path d="M344.85,101.78l-1.49.05c-1.24.04-1.73-.54-1.34-1.71,1.32-4.15,4.74-13.86,4.82-13.94.59-.23,6.1-.66,7.09-.69,1.62-.05,3.13.11,4.76.28.22.03.43.07.65.07.68-.02,1.22-.64,1.2-1.32-.05-1.59-3.57-1.65-5.7-1.58-6.67.21-18.56.59-22.61,6.64-.69,1.05-1.04,2.22-1,3.45.13,3.89,3.3,5.5,5.6,7.74.89.83.69,1.48-.59,1.65-.77.11-1.53.18-2.26.37-.68.15-1.14.59-1.11,1.32s.64,1.18,1.32,1.16c.51-.02,1.07-.08,1.58-.14,1.23-.17,1.81.45,1.42,1.62-.31.95-.67,1.86-.94,2.77-.39,1.34-2.22,6.92-2.19,7.99.02.73.6,1.27,1.32,1.24.56-.02,1.01-.51,1.17-1.02,1.21-3.63,1.93-7.72,3.31-11.41.44-1.12,1.27-1.75,2.56-1.83,1.57-.1,3.16-.19,4.7-.24.86-.03,1.71-.14,1.68-1.3-.05-1.54-2.87-1.19-3.94-1.16ZM340.05,97.82c-.27.74-.65,1.09-1.12,1.11-.3,0-.65-.11-1.04-.44-1.89-1.48-4.11-3.86-4.16-5.56-.13-4.06,7.08-6.18,10.2-6.28-1.29,3.73-2.59,7.45-3.88,11.17Z"/> <path d="M364.02,91.66c-2.32.03-4.15,1.46-5.56,2.96-.91.97-1.41,1.5-1.58,1.51-.21,0-.02-.69.49-2.16.12-.35.19-.6.19-.73-.02-.56-1.1-.78-1.65-.76-2.82.09-5.1,13.22-5.01,16.04.02.6.94,1.39,1.72,1.36.3,0,.59-.19.8-.54,1.58-2.92,3.45-15.14,10.54-14.51,2.79.25,3.41-3.23.07-3.17Z"/> <path d="M427.08,96.63c-1.05.89-3.65,2.43-5.02,2.48-.51.01-1.08-.27-1.1-1.04-.11-3.55-1.32-7.66-5.92-7.13-2.06.26-3.58,3.19-4.53,6.14-1.97,2.55-6.56,8.21-9.88,8.32-1.71.05-2.02-1.78-2.07-3.1-.09-2.82,1.41-6.6,3.63-8.51.34-.31,1.17-.94,1.6-.95.52-.02.62.58.63.96.05,1.63-1.07,2.56-1.05,3.29.02.64.6,1.18,1.19,1.16,1.58-.05,2.38-3.29,2.34-4.49-.06-1.84-1.1-3.47-3.11-3.4-1.2.04-2.5.85-3.33,1.69-2.05,2.06-3.33,4.37-3.92,6.98-.44.81-3.82,6.03-5.34,6.08-.3.01-.56-.15-.66-.62-.39-1.35,4.2-11.91-.88-12.52-1.68-.2-3.26,1.17-4.66,2.8-.95,1.1-1.53,1.68-1.79,1.68-.3,0-.11-.76.48-2.41.07-.26.16-.44.2-.48.48-1.04-.49-1.78-1.43-1.75-.51.02-.98.25-1.18.72-.28.61-1.15,3.49-2.06,6.61-.08.18-.16.35-.24.53-.88,1.95-1.73,3.52-3.31,4.9-.25.22-.41.4-.72.41-.51.02-.49-.84-.51-1.22-.04-1.32.7-3.58,1.14-4.79.31-.86,1.28-2.61,1.26-3.34-.02-.82-.64-1.14-1.36-1.12-.21,0-.43.01-.64.02-.98-1.21-1.44-2.05-3.19-1.99-1.24.04-2.42.71-3.29,1.55-3.03,2.84-4.76,6.32-5.15,10.48-.03.22-.03.43-.02.64.05,1.59.75,3.45,2.59,3.39,1.63-.05,3.41-1.78,4.65-3.15.41-.44.7-.7.97-.71.34-.01.65.41,1.11,1.29.41.84,1.16,1.5,2.27,1.47.84-.03,1.58-.32,2.24-.76-.12.39-.23.77-.3,1-.24.74.63,1.05,1.44,1.02.6-.02,1.19-.21,1.35-.6,2.01-5.41,8.61-13.17,9.55-13.19.05,0,.09.04.09.13.11,2.18-1.9,6.36-1.82,8.62.06,2.01,1.29,4.24,3.56,4.17,1.71-.05,3.83-1.92,5.43-3.99.44,2.15,1.88,4.06,4.29,3.98,3.03-.1,6.26-2.9,8.82-5.7-.01.19-.04.43-.03.58.07,2.18,1.52,4.87,4.01,4.79,2.44-.08,4.63-2.59,5.88-4.86.49-.86,1.08-1.1,2.07-.91.31.08.6.07.77.06,1.93-.06,6.17-2.65,6.11-4.31-.02-.81-.38-.93-1.18-.91ZM372.24,98.59c-1.46,2.36-3.55,5.47-5.72,7.2-.26.18-.46.27-.59.28-.26,0-.23-.42-.25-1.11-.1-3.07,1.93-6.78,4.13-8.86.37-.4,1.42-1.12,1.93-1.14.81-.03.93,1.13.95,1.77.02.68-.13,1.29-.46,1.86ZM417.96,97.86c-.32,2.03-2.1,6.65-4.19,6.72-1.41.05-1.59-1.32-1.62-2.42-.06-1.67,1.34-6.43,2.76-7.46.42-.31.85-.5,1.27-.51,1.24-.04,2.19,1.39,1.79,3.67Z"/> <path d="M123.67,14.01c.12,1.76-.62,3.45-.75,5.33-.04.55,1.03.57,1.25.12l1.36-2.77c1.61-3.29,4.93-4.53,8.53-3.38.43.14.87-.2,1-.47.62-1.24-3.41-1.43-4.5-4.3-1.59-4.21,1.35-7.94-.14-8.51-1.29-.49-1.85,4.58-5.23,6.29-3.73,1.9-6.87-1.37-7.51.23-.58,1.45,5.61,1.65,5.99,7.46Z"/> </g> </g> </symbol>
+  <symbol id="pr-l-sig" viewBox="0 0 377.85 60.91"> <g> <g> <path d="M19.86,27.56c-.98,0-1.74.58-2.2,1.68-1.62,3.94-3.01,7.87-4.57,11.81-.23.52-.35,1.04-.64,1.51s-.87.81-1.39.81c-.93,0-1.62-.87-1.62-1.74,0-.69,3.53-9.84,5.27-14.3.58-1.45.12-2.31-1.39-2.84-3.47-1.22-6.31-3.3-6.31-7.82,0-7.64,8.63-12.33,15.4-12.33,5.67,0,12.1,3.13,12.1,9.55,0,4.86-3.36,9.15-7.41,11.58-.58.35-1.22.64-1.8,1.1,3.76,2.66,5.73,6.19,5.73,10.88,0,9.09-8.8,16.1-17.6,16.1-5.38,0-9.73-2.43-12.74-6.89-.35-.58-.69-1.27-.69-2.03,0-1.04.93-2.14,2.03-2.14.87,0,1.39.52,1.51,1.39.64,3.82,6.31,6.31,9.84,6.31,6.83,0,14.24-5.39,14.24-12.74,0-6.83-3.94-8.86-6.77-9.73-.35-.12-.69-.17-.98-.17ZM15.34,21.48c1.1,0,1.97-.7,2.43-1.91,1.04-2.72,2.03-6.2,3.24-7.87.35-.46.87-.75,1.39-.75.93,0,1.56.81,1.56,1.68,0,.93-2.03,5.62-3.18,8.74-.52,1.33,0,2.32,1.1,2.32.17,0,.35-.06.58-.12,4.28-1.1,8.69-4.98,8.69-9.67,0-4.34-4.98-6.14-8.63-6.14-4.86,0-12.1,3.24-12.1,8.92,0,2.84,1.85,4.11,4.11,4.69.29.06.58.12.81.12Z"/> <path d="M50.66,42.21c-3.18,6.43-8.16,18.7-16.62,18.7-2.03,0-4.4-1.74-4.4-3.76-.06-9.55,9.26-13.61,16.15-17.95,1.8-1.1,3.01-2.84,3.71-5.1.81-2.72,1.85-6.02,2.2-7.93-3.07,5.04-6.2,13.14-12.45,13.14-3.42,0-4.69-3.47-4.86-6.19-.29-4.4.64-11.06,3.53-15.75.17-.35.75-.46,1.39-.46,1.22,0,2.78.7,2.03,2.14-2.55,5.21-4.63,15.98-1.74,16.44,4.11.7,11.06-16.85,13.72-16.85,1.74,0,2.49,1.39,2.43,2.78-.17,3.07-.93,6.37-1.68,9.55-.29,1.33-.23,1.97.17,1.97.35,0,.81-.29,1.51-.93,2.43-2.2,5.85-5.21,6.48-5.73.23-.23.52-.29.75-.29,1.1,0,1.97,1.62,1.33,2.32-2.95,3.18-5.96,6.19-9.38,8.97-2.08,1.68-3.42,3.18-4.28,4.92ZM44.99,43.83c-.29,0-.81.23-1.45.64-4.4,2.78-10.07,7.82-10.07,11.64,0,.41-.12,1.39.58,1.45,4.11.29,8.11-7.01,10.77-11.75.69-1.27.75-1.97.17-1.97Z"/> <path d="M104.62,27.04c1.1-3.18,2.03-6.6,3.01-9.78.87-2.95,2.03-6.08,2.55-9.09-.98-.23-2.03-.35-3.07-.35-1.39,0-2.84.12-4.11.17-1.1,0-2.26.41-3.36.41-1.04,0-2.2-.87-2.2-1.97,0-.81.58-1.39,1.33-1.62,2.55-.7,8.45-.46,11.17-.46,2.03,0,2.32-.98,3.24-.98s.98.98,2.32.98c2.55,0,4.98-.06,7.3-.06,1.16,0,2.78.06,2.78,1.68,0,.75-.52,1.45-1.22,1.68-.81.29-8.86.35-10.13.35-.69,1.56-4.52,13.95-5.96,19.4-.41,1.51.17,2.37,1.74,2.66,1.97.35,3.94.7,5.96,1.1.98.23,1.97.75,1.97,1.85,0,1.27-.93,1.68-1.97,1.68-2.43,0-4.75-.87-7.24-1.27-1.51-.23-2.55.46-3.13,2.03-2.95,7.64-7.99,17.95-16.96,17.95-5.27,0-9.55-4.28-9.55-9.55,0-10.25,12.27-14.76,20.79-14.76.52,0,1.04,0,1.56.06,1.56.12,2.66-.58,3.18-2.08ZM100.22,32.65c-6.6,0-17.54,2.89-17.54,11.17,0,3.3,2.61,5.96,5.91,5.96,6.25,0,11.46-8.63,13.37-14.71.46-1.51-.17-2.37-1.74-2.43Z"/> <path d="M129.06,32.6c-.35,0-.81.35-1.33,1.04-1.8,2.37-4.46,5.67-7.41,5.67-3.3,0-4.28-4.05-4.28-6.72,0-5.04,2.37-10.71,5.21-14.82.46-.7,1.04-1.45,1.97-1.45s1.74.69,1.74,1.68c0,1.1-5.27,8.16-5.27,14.42,0,1.04,0,2.37.81,3.18,3.59-1.04,9.21-13.43,12.39-13.43.98,0,1.85.87,1.85,1.85,0,1.91-1.39,5.1-1.39,7.59,0,.81.17,2.89,1.33,2.89,1.8,0,6.37-6.02,7.41-7.58.23-.29.35-.7.58-.98.35-.41.87-.64,1.39-.64.98,0,1.74.7,1.74,1.68,0,1.85-5.04,7.41-6.48,8.86-1.33,1.27-2.95,2.32-4.86,2.32-2.49,0-3.65-1.74-4.17-3.76-.35-1.22-.69-1.8-1.22-1.8Z"/> <path d="M153.78.81c.41-.58.93-.81,1.45-.81.98,0,1.85.87,1.51,1.51-2.49,4.81-16.85,35.09-8.57,35.09,3.99,0,6.77-6.48,8.11-8.45.23-.29.52-.41.87-.41.87,0,1.85.7,1.68,1.16-1.97,6.72-7.41,11.81-11.64,11.87-6.72.12-5.1-10.36-4.17-14.13,2.08-8.69,8.16-22.23,10.77-25.82Z"/> <path d="M161.08,39.83c-4.57,0-5.56-5.39-5.56-9.21,0-2.66,1.8-13.14,5.39-13.14.64.29,1.45.93,1.22,1.56-1.33,3.94-3.07,8.05-3.07,12.33,0,1.56.35,5.04,2.49,5.04,4.23,0,7.41-7.01,10.6-11.52.12-.12.23-.17.35-.17.58,0,1.45.87,1.45,1.62,0,4.4-7.99,13.49-12.85,13.49ZM163.28,9.38c4.81,0,1.1,4.92-1.04,4.92-.75,0-1.33-.58-1.33-2.08,0-1.39.81-2.84,2.37-2.84Z"/> <path d="M198.82,16.96c.7,0,.99-.41,1.39-1.27,1.85-4.46,5.21-13.08,7.24-15.11.29-.29.64-.46,1.1-.46.75,0,1.39.64,1.39,1.39,0,.69-.29,1.1-.64,1.68-3.13,5.44-9.55,20.32-9.55,27.04,0,1.27.06,5.85,1.91,5.85,3.13,0,6.14-8.74,7.7-10.19.23-.23.58-.35.87-.35.87,0,1.51.58,1.51,1.45,0,.23-.17.93-.29,1.16-1.56,3.59-5.44,11-10.02,11-2.95,0-3.99-2.78-4.46-5.5-.17-1.1-.46-1.68-.81-1.68-.29,0-.7.46-1.16,1.27-1.74,3.01-3.99,6.6-6.89,6.6-3.76,0-4.46-3.53-4.46-5.85,0-5.39,3.88-17.83,11.41-17.83.64,0,1.27.06,1.8.29.87.35,1.51.52,1.97.52ZM197.2,21.65c0-1.1-.87-2.49-2.14-2.49-4.11,0-7.12,9.61-7.53,12.79-.12.93-.06,1.91-.06,2.84,0,.69.23,1.39.7,1.91,2.49-.41,9.03-13.49,9.03-15.05Z"/> <path d="M211.21,31.67c0,2.72,1.22,5.79,4.34,5.79,5.68,0,10.6-7.24,12.97-11.7.17-.29.35-.64.64-.93.29-.35.75-.58,1.22-.58,1.04,0,1.8.75,1.8,1.74,0,.46-.29,1.1-.52,1.51-3.24,5.79-8.51,13.49-16.04,13.49-5.5,0-7.93-4.46-7.93-9.44,0-4.46,1.68-8.45,4.4-11.87,1.39-1.74,3.59-3.24,5.85-3.24,2.49,0,4.11,1.8,4.11,4.23,0,3.94-3.24,9.38-7.58,9.38-1.04,0-1.97-.35-2.95-.58-.17.75-.29,1.51-.29,2.2ZM212.72,25.53c.23.58.81.87,1.33.87,2.55,0,4.4-3.36,4.4-5.62,0-.29-.23-.58-.35-.81-2.78.69-4.4,3.07-5.39,5.56Z"/> <path d="M252.44,33.58c-.7.06-1.45.12-2.14.12-.93,0-1.74-.64-1.74-1.62s.64-1.56,1.56-1.74c.98-.23,2.03-.29,3.07-.41,1.74-.17,2.03-1.04.87-2.2-3.01-3.13-7.24-5.44-7.24-10.71,0-1.68.52-3.24,1.51-4.63,5.73-7.99,21.83-7.99,30.86-7.99,2.89,0,7.64.23,7.64,2.37,0,.93-.75,1.74-1.68,1.74-.29,0-.58-.06-.87-.12-2.2-.29-4.23-.58-6.43-.58-1.33,0-8.8.35-9.61.64-.12.12-5.15,13.08-7.12,18.64-.58,1.56.06,2.37,1.74,2.37h2.03c1.45,0,5.27-.35,5.27,1.74,0,1.56-1.16,1.68-2.32,1.68-2.08,0-4.23.06-6.37.12-1.74.06-2.89.87-3.53,2.37-2.03,4.92-3.18,10.42-4.98,15.29-.23.69-.87,1.33-1.62,1.33-.98,0-1.74-.75-1.74-1.74,0-1.45,2.72-8.92,3.3-10.71.41-1.22.93-2.43,1.39-3.71.58-1.56-.17-2.43-1.85-2.26ZM257.01,25.36c.64,0,1.16-.46,1.56-1.45,1.91-4.98,3.82-9.96,5.73-14.94-4.23,0-14.07,2.55-14.07,8.05,0,2.32,2.89,5.62,5.39,7.7.52.46.98.64,1.39.64Z"/> <path d="M281.39,22.35c.23,0,.93-.7,2.2-1.97,1.97-1.97,4.52-3.82,7.64-3.76,4.52.06,3.53,4.75-.23,4.29-9.55-1.16-12.62,15.29-14.88,19.16-.29.46-.7.7-1.1.7-1.04,0-2.26-1.1-2.26-1.91,0-3.82,3.65-21.48,7.47-21.48.75,0,2.2.35,2.2,1.1,0,.17-.12.52-.29.99-.75,1.97-1.04,2.89-.75,2.89Z"/> <path d="M300.67,34.62c-.35,0-.75.35-1.33.93-1.74,1.8-4.23,4.05-6.43,4.05-2.49,0-3.36-2.55-3.36-4.69,0-.29,0-.58.06-.87.69-5.62,3.18-10.25,7.41-13.95,1.22-1.1,2.84-1.97,4.52-1.97,2.37,0,2.95,1.16,4.23,2.84h.87c.98,0,1.8.46,1.8,1.56,0,.98-1.39,3.3-1.85,4.46-.64,1.62-1.74,4.63-1.74,6.43,0,.52-.06,1.68.64,1.68.41,0,.64-.23.98-.52,2.2-1.8,3.42-3.88,4.69-6.48.17-.35.29-.69.52-1.04.35-.52.87-.87,1.45-.87.87,0,1.51.75,1.51,1.62,0,.46-.12.93-.35,1.33-1.8,3.42-4.4,9.38-9.15,9.38-1.51,0-2.49-.93-3.01-2.08-.58-1.22-.98-1.8-1.45-1.8ZM302.06,26.34c.46-.75.69-1.56.69-2.49,0-.87-.12-2.43-1.22-2.43-.7,0-2.14.93-2.66,1.45-3.07,2.72-5.96,7.64-5.96,11.81,0,.93-.06,1.51.29,1.51.17,0,.46-.12.81-.35,3.01-2.26,5.96-6.37,8.05-9.5Z"/> <path d="M317,23.91c.35,0,1.16-.75,2.49-2.2,1.97-2.14,4.17-3.94,6.43-3.59,6.83,1.04.17,15.11.64,16.96.12.64.46.87.87.87,2.14,0,7.35-7.64,7.58-8.16.23-.52.64-.75,1.1-.75.87,0,1.85.93,1.45,2.26-1.1,3.65-6.77,10.42-10.65,10.42-3.07,0-4.63-3.07-4.63-5.79,0-3.07,2.89-8.63,2.84-11.58,0-.12-.06-.17-.12-.17-1.27,0-10.54,10.19-13.49,17.43-.23.52-1.04.75-1.85.75-1.1,0-2.26-.46-1.91-1.45,1.04-3.01,5.96-18.64,6.83-20.38.29-.64.93-.93,1.62-.93,1.27,0,2.55,1.04,1.85,2.43-.06.06-.17.29-.29.64-.87,2.2-1.16,3.24-.75,3.24Z"/> <path d="M345.77,27.27c-.81,0-1.56-.75-1.56-1.62,0-.98,1.56-2.2,1.56-4.4,0-.52-.12-1.33-.81-1.33-.58,0-1.74.81-2.2,1.22-3.07,2.49-5.27,7.53-5.27,11.35,0,1.8.35,4.28,2.66,4.28,4.63,0,11.41-7.99,14.01-11.17.29-.35.58-.75.93-1.04.29-.23.64-.4,1.04-.4.87,0,1.56.75,1.56,1.62,0,.58-.58,1.51-.98,1.97-3.47,4.23-10.54,12.39-16.67,12.39-3.82,0-5.85-3.59-5.85-7.06,0-5.79,2.14-10.42,6.31-14.36,1.16-1.1,2.95-2.14,4.57-2.14,2.72,0,4.05,2.26,4.05,4.75,0,1.62-1.22,5.96-3.36,5.96Z"/> <path d="M365.52,33.93c-1.8,3.01-4.86,6.31-8.16,6.31s-5.21-3.71-5.21-6.66c0-3.3,3.13-15.29,8.11-15.75,6.25-.52,7.7,5.1,7.7,9.9,0,1.04.75,1.45,1.45,1.45,1.85,0,5.44-1.97,6.89-3.13,1.1,0,1.56.17,1.56,1.27,0,2.26-5.85,5.56-8.45,5.56-.23,0-.64,0-1.04-.12-1.33-.29-2.14,0-2.84,1.16ZM355.85,32.89c0,1.51.17,3.36,2.08,3.36,2.84,0,5.44-6.2,5.96-8.92.64-3.07-.58-5.04-2.26-5.04-.58,0-1.16.23-1.74.64-1.97,1.33-4.05,7.7-4.05,9.96Z"/> </g> </g> </symbol>
+</svg>
+
+<div class="pr" id="prosperas">
+
+<div class="pr-wine">
+
+  <div class="pr-top">Grupo fundador · $29.000 ARS por mes · inscripciones hasta el domingo 29 de noviembre</div>
+
+  <!-- HERO -->
+  <header class="pr-split pr-hero">
+    <div class="pr-tx cream">
+      <div class="pr-logo"><svg viewBox="0 0 428.27 130.46" role="img" aria-label="Prósperas by Juli de Franco"><use href="#pr-l-full"/></svg></div>
+      <h1>Crear productos fue el <b>comienzo</b>. Ahora construí un <em>emprendimiento que puedas <b>sostener.</b></em></h1>
+      <p class="lead">Prósperas es una membresía de formación y comunidad para emprendedoras artesanales que quieren aprender a tomar mejores decisiones, hacer crecer sus negocios y dejar de resolver todo solas.</p>
+      <div><a class="pr-btn" href="#unite">Quiero ser parte</a></div>
+    </div>
+    <div class="pr-stripes">
+      <div class="pr-seal" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#f8f0b5"/><circle cx="60" cy="60" r="22" fill="#cf216c"/><text x="60" y="64" text-anchor="middle" style="fill:#fff8fc;font-size:15px;letter-spacing:0">✱</text><defs><path id="pr-sealp" d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#pr-sealp" startOffset="0" textLength="252" lengthAdjust="spacing">Grupo fundador ✦ Cupos limitados ✦</textPath></text></svg></div>
+      <div class="pr-frame">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu66i817mqneq1qnp4p1c9sa2.png" alt="Juli de Franco, creadora de Cherry Glow y de Prósperas" width="1134" height="1532">
+        <i class="pr-star p"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- CINTA -->
+  <div class="pr-mq"><div class="pr-mq-track">
+    <div class="pr-mq-grp"><span>Más dirección</span><span>Más acción</span><span>Más sostén</span><span>Creativas, únicas y prósperas</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Más dirección</span><span>Más acción</span><span>Más sostén</span><span>Creativas, únicas y prósperas</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Más dirección</span><span>Más acción</span><span>Más sostén</span><span>Creativas, únicas y prósperas</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Más dirección</span><span>Más acción</span><span>Más sostén</span><span>Creativas, únicas y prósperas</span></div>
+  </div></div>
+
+  <!-- INTRO -->
+  <section class="pr-sec">
+    <div class="pr-wrap"><div class="pr-narrow">
+      <p class="pr-sub">Vas a conectar con otras artesanas y trabajar sobre los desafíos reales de tu negocio: <em>crear contenido, elegir qué productos vender, definir precios y crecer.</em></p>
+      <p class="pr-quote">Un espacio para poner en práctica, probar, resolver dudas y avanzar acompañada por mujeres que están en la misma que vos.</p>
+    </div></div>
+  </section>
+
+  <!-- APRENDISTE A CREAR (foto de fondo) -->
+  <section class="pr-bgph">
+    <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu8jnll6u1eud7c5t4pnu9b2.png" alt="Juli sonriendo, sentada con su notebook y una taza" loading="lazy" width="1142" height="1526">
+    <div class="pr-bgph-in">
+      <span class="lbl">Y después, ¿qué?</span>
+      <h2>Aprendiste a crear. ¿Pero qué pasa <b>después</b>?</h2>
+      <p class="pr-bgph-p">Aprendés una técnica, hacés tus primeros productos y quizás hasta empezás a venderlos.</p>
+      <p class="pr-bgph-p">Pero después aparecen otras preguntas</p>
+      <ul class="pr-qpills">
+        <li>¿Qué publico para darme a conocer?</li>
+        <li>¿Cómo consigo clientes sin depender de un reel viral?</li>
+        <li>¿Cómo sé si estoy cobrando bien?</li>
+        <li>¿Cómo me organizo para no abandonar cada vez que no veo resultados?</li>
+        <li>¿Cómo sostengo el negocio sin sentir que tengo que resolver todo sola?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section class="pr-sec pr-bg-cherry pr-qe">
+    <div class="pr-wrap"><div class="pr-narrow">
+      <span class="lbl">¿Qué es Prósperas?</span>
+      <h2>Una membresía mensual de <b>formación y comunidad</b></h2>
+      <p class="pr-sub" style="margin-top:22px">para mujeres que tienen —o quieren construir— un emprendimiento artesanal.</p>
+      <p style="margin-top:30px;opacity:.85">No es una biblioteca enorme de clases que vas a acumular.<br>Tampoco es un espacio donde solamente vamos a hablar de motivación.</p>
+      <p class="pr-sub" style="margin-top:30px">Cada mes vamos a trabajar sobre situaciones reales de un negocio creativo para que puedas llevarte decisiones, herramientas y acciones concretas.</p>
+      <p class="pr-quote" style="margin-top:30px">Porque crecer no siempre significa hacer más. A veces significa elegir mejor qué hacer con todo lo que ya tenés.</p>
+    </div></div>
+  </section>
+
+</div><!-- fin bloque bordó -->
+
+  <!-- PRIMEROS TRES MESES -->
+  <section class="pr-split">
+    <div class="pr-tx white">
+      <h2>¿Qué puede cambiar después de tus <b class="pk">primeros tres meses</b>?</h2>
+      <p style="margin-top:24px">Construir un negocio lleva tiempo. No se trata de resolver todo de golpe, sino de incorporar conocimientos, herramientas y nuevas formas de tomar decisiones que puedas aplicar a tu emprendimiento.</p>
+      <p>En tus primeros tres meses en PRÓSPERAS vas a empezar a trabajar en las bases de tu negocio. Y a medida que avances, cada nueva clase, ejercicio y desafío te va a permitir seguir aprendiendo y construyendo sobre lo que ya hiciste.</p>
+    </div>
+    <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu8adet22194r78mqb1dtdai.png" alt="Juli con una taza, sentada en el piso de su estudio" loading="lazy" width="1140" height="1530"></div>
+  </section>
+
+  <section class="pr-sec pr-stripebg pr-pills">
+    <div class="pr-wrap"><div class="pr-narrow">
+      <span class="lbl">Sí quiero que puedas</span>
+      <ul class="pr-pillist">
+        <li><i></i>entender qué necesita hoy tu emprendimiento</li>
+        <li><i></i>dejar de cambiar de dirección todas las semanas</li>
+        <li><i></i>ordenar mejor lo que vendés</li>
+        <li><i></i>comunicar el valor de tus productos</li>
+        <li><i></i>encontrar una forma más sostenible de crear contenido</li>
+        <li><i></i>usar herramientas digitales e inteligencia artificial a tu favor</li>
+        <li><i></i>tomar decisiones con más seguridad</li>
+        <li><i></i>construir un plan de acción para los próximos meses</li>
+        <li><i></i>y dejar de sentir que tenés que aprender y resolver todo sola</li>
+      </ul>
+      <p class="pr-big pr-seq"><span>Más dirección.</span> <span>Más acción.</span> <span>Más sostén.</span></p>
+    </div></div>
+  </section>
+
+  <!-- QUÉ VAS A ENCONTRAR ADENTRO -->
+  <section class="pr-sec">
+    <div class="pr-wrap">
+      <div class="pr-head"><h2>¿Qué vas a encontrar <b>adentro</b>?</h2></div>
+      <div class="pr-cols">
+        <div class="pr-col"><span class="n">01</span>
+          <h3>Un foco concreto cada mes</h3>
+          <p>Cada mes vamos a trabajar sobre una necesidad real de tu emprendimiento artesanal: propuesta, catálogo, comunicación, contenido, organización, visibilidad, precios, ventas o planificación.</p>
+          <p>No para consumir información, sino para aplicarla en tu propio negocio.</p></div>
+        <div class="pr-col"><span class="n">02</span>
+          <h3>Un encuentro en vivo</h3>
+          <p>Un espacio de asesoría grupal donde vas a poder traer tus dudas, hacer preguntas sobre tu emprendimiento y recibir orientación para tomar decisiones.</p>
+          <p>También vas a poder escuchar las consultas de otras artesanas, compartir experiencias y descubrir soluciones que quizás puedas aplicar a tu propio negocio.</p></div>
+        <div class="pr-col"><span class="n">03</span>
+          <h3>Una comunidad de artesanas</h3>
+          <p>Un espacio para mostrar lo que hacés, pedir una opinión, compartir una primera venta, hablar de un problema y conocer a otras mujeres que están atravesando procesos similares.</p>
+          <p>Prósperas también es un lugar para hacer red, recomendarse, intercambiar experiencias y generar colaboraciones.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AULAS (carrusel) -->
+  <section class="pr-sec pr-bg-cherry">
+    <div class="pr-wrap"><div class="pr-head" style="margin-bottom:40px"><span class="lbl">Aulas</span><h2>Explorá las aulas de <b>PRÓSPERAS</b> ✦</h2></div></div>
+    <div class="pr-car">
+      <article class="pr-acard"><span class="n">01</span><h3>De producto a negocio</h3>
+        <p>Para aprender a decidir qué vender, organizar tu catálogo, identificar tus productos protagonistas y construir una propuesta que tenga sentido para tu emprendimiento.</p>
+        <p>Porque no siempre se trata de sumar más productos, sino de elegir mejor cuáles ofrecer.</p></article>
+      <article class="pr-acard"><span class="n">02</span><h3>Construí y comunicá tu marca</h3>
+        <p>Para construir un universo de marca propio y aprender a comunicar qué hacés, qué vendés y por qué deberían elegirte.</p>
+        <p>Vas a trabajar en cómo mostrar el valor de tus productos, crear contenido con intención y diferenciarte sin necesidad de copiar lo que hacen otras emprendedoras.</p></article>
+      <article class="pr-acard"><span class="n">03</span><h3>Mindset Próspero</h3>
+        <p>Para trabajar todo lo que también aparece cuando construís algo propio: perfeccionismo, comparación, miedo a mostrarte, frustración, constancia, límites y ansiedad por los resultados.</p></article>
+      <article class="pr-acard"><span class="n">04</span><h3>Construí un negocio que puedas sostener</h3>
+        <p>Para aprender a organizar pedidos, producción, tiempos y prioridades sin sentir que tenés que estar resolviendo todo a último momento.</p>
+        <p>Vas a incorporar herramientas para planificar mejor y construir una forma de trabajo que puedas sostener en el tiempo.</p></article>
+      <article class="pr-acard"><span class="n">05</span><h3>Desafíos Prósperos</h3>
+        <p>Ejercicios y desafíos mensuales para llevar lo aprendido a la práctica y aplicarlo directamente en tu emprendimiento.</p>
+        <p>Un espacio para implementar, probar, compartir tus avances y seguir construyendo mes a mes.</p></article>
+      <article class="pr-acard"><span class="n">06</span><h3>Editá y elevá tus contenidos</h3>
+        <p>Para aprender técnicas simples de grabación y edición que te ayuden a mostrar mejor tus productos y crear contenido más claro y dinámico.</p>
+        <p>Sin necesidad de tener equipos profesionales ni conocimientos avanzados de edición.</p></article>
+    </div>
+    <p class="pr-hint">Deslizá <span>→</span></p>
+  </section>
+
+  <!-- ES / NO ES PARA VOS (cards) -->
+  <section class="pr-sec pr-bg-cream pr-yn2">
+    <div class="pr-wrap"><div class="pr-cards">
+      <div class="pr-card yes">
+        <h2>Próspera <b>es</b> para vos si…</h2>
+        <ul>
+          <li>Creás productos artesanales y querés convertirlos en un negocio.</li>
+          <li>Ya vendés, pero resolvés todo sobre la marcha.</li>
+          <li>Tenés muchas ideas y no sabés cuál priorizar.</li>
+          <li>Querés un espacio para preguntar, aprender y avanzar acompañada.</li>
+        </ul>
+      </div>
+      <div class="pr-card no">
+        <h2>Próspera <b>no</b> es para vos si…</h2>
+        <ul>
+          <li>Querés una fórmula rápida que garantice ventas.</li>
+          <li>Esperás que otra persona decida por vos.</li>
+          <li>Buscás consumir clases sin llevarlas a la práctica.</li>
+          <li>Esperás resultados garantizados sin construir el proceso.</li>
+        </ul>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- QUIÉN TE ACOMPAÑA -->
+  <section class="pr-split pr-who rev">
+    <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu9bbm1t831vb21kg81gmd1tjkb0.png" alt="Juli de Franco trabajando con su tablet" loading="lazy" width="1144" height="1530"></div>
+    <div class="pr-tx cream">
+      <h2>¿Quién te <b>acompaña</b>?</h2>
+      <p>Soy Juli, creadora de Cherry Glow y de Academia Cherry Glow.</p>
+      <p>Empecé creando y vendiendo productos artesanales mientras sostenía un trabajo en relación de dependencia.</p>
+      <p>Con el tiempo aprendí a producir, poner precios, tomar pedidos, crear contenido, invertir en publicidad, vender cursos y acompañar a cientos de mujeres a aprender nuevas técnicas.</p>
+      <p>No construí Cherry porque tuviera todas las respuestas desde el principio.</p>
+      <p>La construí probando, equivocándome, ajustando y aprendiendo a tomar decisiones incluso cuando no tenía ninguna garantía.</p>
+      <p>Prósperas nace para compartirte esa experiencia y crear el espacio que muchas necesitamos cuando queremos que una habilidad artesanal se transforme en algo más.</p>
+    </div>
+  </section>
+
+  <!-- DE MÍ PARA VOS (banner) -->
+  <section class="pr-mine2">
+    <div class="pr-wrap pr-mine2-in">
+      <div class="pr-arch">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu5q5h1gqp1qtmm4gfmr10oo9g.png" alt="Juli con su tablet, en su espacio de trabajo" loading="lazy" width="1600" height="1196">
+        <i class="pr-star p"></i>
+      </div>
+      <div class="pr-mine2-tx">
+        <span class="lbl">De mí para vos 💗</span>
+        <p class="it">Creé PRÓSPERAS pensando en el espacio que a mí me hubiese gustado encontrar cuando empecé a emprender.</p>
+        <p class="it">Un lugar donde no tengas que aprender todo a prueba y error, donde puedas hacer preguntas sin sentirte perdida y donde encuentres a otras emprendedoras con quienes compartir lo que te pasa.</p>
+        <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+        <i class="pr-star y pr-mine2-star"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS (carrusel) -->
+  <section class="pr-sec pr-bg-yellow">
+    <!-- PENDIENTE DE DEFINIR: título de esta sección. Dejé uno neutro, cambialo por el que prefieras. -->
+    <div class="pr-wrap"><div class="pr-head" style="margin-bottom:40px"><h2>Lo que cuentan <b>ellas</b></h2></div>
+    <div class="pr-tm">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308lfedt341midloi4s51jhr74.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3088gbipeh1sm31meqg6oglb5k.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k308uiugela1nmaah7ttt2v7s.png" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jqrm5hc115pl1rmg1u3grn1ja03q.JPG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuga671be91bce1e741c661pp6ci.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuff2l1rbso0uj50img1csvd2.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf99m5id8991lc4f711tq3cg.PNG" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cuf44gau6ikakfa198m1nacc0.jpg" alt="Testimonio de una alumna de Cherry Glow" loading="lazy">
+    </div></div>
+  </section>
+
+  <!-- CINTA 2 -->
+  <div class="pr-mq rev"><div class="pr-mq-track">
+    <div class="pr-mq-grp"><span>Grupo fundador</span><span>Cupos limitados</span><span>Valor especial de lanzamiento</span><span>Inscripciones hasta el domingo 29 de noviembre</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Grupo fundador</span><span>Cupos limitados</span><span>Valor especial de lanzamiento</span><span>Inscripciones hasta el domingo 29 de noviembre</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Grupo fundador</span><span>Cupos limitados</span><span>Valor especial de lanzamiento</span><span>Inscripciones hasta el domingo 29 de noviembre</span></div>
+    <div class="pr-mq-grp" aria-hidden="true"><span>Grupo fundador</span><span>Cupos limitados</span><span>Valor especial de lanzamiento</span><span>Inscripciones hasta el domingo 29 de noviembre</span></div>
+  </div></div>
+
+  <!-- GRUPO FUNDADOR / PRECIO -->
+  <section class="pr-sec pr-bg-cherry pr-pay" id="unite">
+    <div class="pr-wrap">
+      <div class="pr-pay-head">
+        <h2>Sumate a ser <b>Próspera</b>, a la comunidad de artesanas más unida y educativa que existe.</h2>
+        <div class="pr-cd" id="pr-cd">
+          <p class="pr-cd-t">Solo por estos días podés unirte por $29.000</p>
+          <div class="pr-cd-b" id="pr-cd-b" style="display:none">
+            <div><b id="pr-cd-d">00</b><span>días</span></div>
+            <div><b id="pr-cd-h">00</b><span>horas</span></div>
+            <div><b id="pr-cd-m">00</b><span>min</span></div>
+            <div><b id="pr-cd-s">00</b><span>seg</span></div>
+          </div>
+          <p class="pr-cd-s">Hasta el 29/11 a las 23:59</p>
+        </div>
+      </div>
+      <div class="pr-plans3">
+        <div class="pr-pc a">
+          <span class="pr-pc-n">Plan mensual</span>
+          <div class="pr-pc-p"><small>$</small>29.000</div>
+          <span class="pr-pc-u">ARS cada mes</span>
+          <span class="pr-pc-s">Valor fundador</span>
+          <a class="pr-btn" href="https://mpago.la/2TgGwiw" target="_blank" rel="noopener">Me quiero unir</a>
+        </div>
+        <div class="pr-pc b">
+          <span class="pr-pc-n">Plan 3 meses</span>
+          <div class="pr-pc-p"><small>$</small>84.000</div>
+          <span class="pr-pc-u">ARS pagando los 3 juntos</span>
+          <span class="pr-pc-s">Ahorrás $3.000</span>
+          <a class="pr-btn" href="https://mpago.la/1KEdtxo" target="_blank" rel="noopener">Me quiero unir</a>
+        </div>
+        <!-- PENDIENTE DE DEFINIR: confirmar con Juli que "$162.000" es plan de 6 meses (el cálculo da 6 x $27.000). En sus notas figuraba como "trimestral". -->
+        <div class="pr-pc c">
+          <span class="pr-pc-n">Plan 6 meses</span>
+          <div class="pr-pc-p"><small>$</small>162.000</div>
+          <span class="pr-pc-u">ARS pagando los 6 juntos</span>
+          <span class="pr-pc-s">Ahorrás $12.000</span>
+          <a class="pr-btn" href="https://mpago.la/1TZvm3M" target="_blank" rel="noopener">Me quiero unir</a>
+        </div>
+      </div>
+      <p class="pr-pay-note">El valor futuro de Prósperas será de <strong>$35.000 ARS mensuales DESPUÉS del lanzamiento.</strong> Si ingresás como fundadora y mantenés activa tu membresía, conservás el valor promocional.</p>
+      <!-- LINKS PARA DESPUÉS DEL 29/11 (valor normal), no están activos:
+           Mensual $35.000      https://mpago.la/1Lqvoj1
+           Trimestral $34.000/m https://mpago.la/1ymkEkk
+           Semestral $32.000/m  https://mpago.la/1TZ8MJv  -->
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="pr-sec">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:40px"><h2>Preguntas <b>frecuentes</b></h2></div>
+      <div class="pr-faq">
+        <details><summary>¿Tengo que tener un emprendimiento funcionando?</summary><p>Sí, idealmente. Podés estar dando tus primeros pasos, pero sí necesitás tener una práctica artesanal y la intención de construir un negocio alrededor de ella.</p></details>
+        <details><summary>¿Es solamente para alumnas de Cherry Glow?</summary><p>No. Prósperas está abierta a artesanas que hayan aprendido conmigo, con otras formadoras o por su cuenta.</p></details>
+        <details><summary>¿Voy a aprender a hacer velas o sahumerios?</summary><p>Prósperas no reemplaza los talleres técnicos. El centro de la membresía es ayudarte a construir, comunicar y sostener tu emprendimiento artesanal.</p></details>
+        <details><summary>¿Es una asesoría individual?</summary><p>No. Es una experiencia grupal con encuentros en vivo, comunidad, formación y espacios de asesoría.</p></details>
+        <details><summary>¿Puedo cancelar cuando quiera?</summary><p>Sí. Es una membresía mensual y podés cancelar antes de la siguiente renovación.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="pr-split pr-end rev">
+    <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu805v1g3j1f5n6a5e0r116ea2.png" alt="Juli de Franco con campera roja, sonriendo" loading="lazy" width="1140" height="1528"></div>
+    <div class="pr-tx yellow" style="position:relative">
+      <i class="pr-star b"></i>
+      <h2>Lo que creás puede ser mucho más que un <b>producto</b></h2>
+      <p>Puede convertirse en un negocio propio. En una fuente de ingresos. En una forma de expresarte. En un proyecto que crece con vos.</p>
+      <p>Pero no necesitás construirlo sola ni resolver todo al mismo tiempo. Necesitás un espacio donde puedas preguntar, aprender, decidir y seguir avanzando.</p>
+      <span class="script"><span class="tw tw1">Somos creativas,</span><br><span class="tw tw2">únicas y prósperas.</span></span>
+      <div><a class="pr-btn" href="#unite">Quiero ser parte de Próspera</a></div>
+      <div class="pr-foot"><svg viewBox="0 0 428.27 130.46" role="img" aria-label="Prósperas by Juli de Franco"><use href="#pr-l-full"/></svg></div>
+    </div>
+  </section>
+
+
+<script>
+(function(){
+  var end=new Date('2026-11-29T23:59:59-03:00').getTime();
+  var box=document.getElementById('pr-cd-b'),txt=document.querySelector('#pr-cd .pr-cd-t'),sub=document.querySelector('#pr-cd .pr-cd-s');
+  if(!box)return;
+  function p(n){return (n<10?'0':'')+n}
+  function tick(){
+    var l=end-Date.now();
+    if(l<=0){box.style.display='none';txt.textContent='El valor fundador de $29.000 ya cerró';sub.style.display='none';return}
+    box.style.display='grid';
+    document.getElementById('pr-cd-d').textContent=p(Math.floor(l/864e5));
+    document.getElementById('pr-cd-h').textContent=p(Math.floor(l%864e5/36e5));
+    document.getElementById('pr-cd-m').textContent=p(Math.floor(l%36e5/6e4));
+    document.getElementById('pr-cd-s').textContent=p(Math.floor(l%6e4/1e3));
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+</script>
+</div>
