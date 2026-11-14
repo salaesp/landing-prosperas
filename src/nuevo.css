@@ -226,3 +226,34 @@ html{scroll-behavior:smooth}
 .pr .pr-au-ghost{padding-top:14px;font-size:clamp(18px,1.9vw,24px)}
 .pr .pr-soon-tag{top:57%;font-size:clamp(13px,1.3vw,16px);padding:10px 22px;border-width:2.5px}
 .pr .pr-soon-tag::after{display:none}
+
+/* ---- imágenes de "Lo que recibís" hechas con CSS ---- */
+.pr .pr-gi{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  width:calc(100% + 56px);margin:-30px -28px 22px;border-radius:24px 24px 0 0;aspect-ratio:1280/659;padding:0 8%;
+  font-family:'Noto Serif',serif;line-height:1.05;font-size:clamp(24px,2.6vw,34px);--bg:#fff8fc;--t1:var(--wine);--t2:var(--cherry);--blur:rgba(238,109,166,.38);--pet:#ee6da6;background:var(--bg)}
+.pr-gi.wine{--bg:#9b1f3a;--t1:#fff8fc;--t2:var(--yellow);--blur:rgba(238,109,166,.45);--pet:#ee6da6}
+.pr-gi.pink{--bg:#ee6da6;--t1:#fff8fc;--t2:var(--blue);--blur:rgba(155,31,58,.35);--pet:var(--yellow)}
+.pr-gi.cream.qa{--bg:#fff8fc}
+/* estrellas difusas en las esquinas */
+.pr-gi::before,.pr-gi::after{content:"";position:absolute;width:34%;aspect-ratio:1;background:var(--blur);filter:blur(9px);
+  clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+.pr-gi::before{top:-12%;right:-6%;transform:rotate(14deg)}
+.pr-gi::after{bottom:-16%;left:-7%;transform:rotate(-10deg)}
+.pr-gi>*{position:relative;z-index:1;color:var(--t1)}
+.pr-gi span{display:block;font-weight:400}
+.pr-gi b{display:block;font-weight:700}
+.pr-gi em{font-style:italic;color:var(--t2)}
+.pr-gi.qa strong{display:block;font-size:1.35em;font-weight:700;color:var(--wine);letter-spacing:.04em}
+.pr-gi.qa span{font-size:1.1em;margin-top:2px}
+.pr-gi.qa em{color:var(--wine);font-weight:500}
+.pr-gi.qa u{text-decoration:none;font-family:'Yellowtail',cursive;font-size:1.25em;color:var(--pink)}
+/* ESTRELLITA: reemplazo en CSS. Para usar el PNG de Juli: subirlo (o incrustarlo como data URI) y poner
+   .pr-mascot{background:url(URL) center/contain no-repeat;clip-path:none} y .pr-mascot::before{display:none} */
+.pr-mascot{display:inline-block;width:.62em;aspect-ratio:1;margin-left:.1em;vertical-align:-.04em;background:var(--pet);
+  clip-path:polygon(50% 0,62% 34%,98% 36%,69% 58%,80% 93%,50% 72%,20% 93%,31% 58%,2% 36%,38% 34%);position:relative;transform:rotate(8deg)}
+.pr-mascot::before{content:"";position:absolute;left:33%;top:38%;width:34%;height:15%;
+  background:radial-gradient(circle at 20% 50%,#1b1b1f 0 36%,transparent 40%),radial-gradient(circle at 80% 50%,#1b1b1f 0 36%,transparent 40%)}
+.pr-gi.qa strong .pr-mascot{width:.55em;vertical-align:.45em}
+.pr .pr-gets{margin-bottom:0}
+.pr .pr-gi .pr-mascot{width:.9em;margin-left:.15em;vertical-align:-.1em}
+.pr .pr-gi.qa strong .pr-mascot{width:.7em;vertical-align:.35em}
