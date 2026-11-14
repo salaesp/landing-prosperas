@@ -124,3 +124,4 @@
 .pr .mn-sig svg{width:100%;height:auto;display:block;fill:currentColor}
 
 @media(prefers-reduced-motion:reduce){.pr .mn-hero-ph img{animation:none}}
+.pr .mn-price .ae-pmain .pr-btn{margin-top:24px}
