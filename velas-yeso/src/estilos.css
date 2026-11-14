@@ -68,7 +68,7 @@
 @media(prefers-reduced-motion:reduce){.pr .vy-learn li,.pr .vy-learn .vy-note{animation:none}}
 .pr .vy-mods .ae-area .ae-list{padding:6px 0 0}
 .pr .vy-mods .ae-area .ae-list li{font-size:15.5px}
-.pr .vy-note{margin:16px 0 0;padding:12px 16px;background:var(--cream);border-left:3px solid var(--blue);border-radius:12px;font-size:15px!important}
+.pr .vy-note{margin:16px 0 0;padding:12px 16px;background:var(--cream);border-radius:12px;font-size:15px!important}
 .pr .vy-inc h2 b{color:var(--cherry)}
 .pr .vy-extras{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .pr .vy-extras>div{background:var(--cream);box-shadow:0 12px 26px rgba(155,31,58,.1);border-radius:24px;padding:26px 22px}
