@@ -242,10 +242,10 @@ html{scroll-behavior:smooth}
 ============================================================ */
 #artempresarias{--cherry:#9b1f3a;--yellow:#b5d8f1;--blue-lt:#e3f0fa}
 #artempresarias .ae-stripes{background:repeating-linear-gradient(90deg,#9b1f3a 0 30px,#8a1a33 30px 60px)}
-/* las rayas quietas, como en las otras páginas (el CSS base de Prósperas las anima) */
-#artempresarias .ae-stripes{animation:none}
-#artempresarias .ae-hero{border-bottom:1px solid #8a1a33}
-#artempresarias .ae-logo span{color:var(--yellow)}
+/* hero como el de Prósperas: texto sobre crema y las rayas bordó al lado */
+#artempresarias .ae-logo span{color:var(--wine)}
+#artempresarias .ae-logo .pr-sig{color:var(--wine)}
+#artempresarias .ae-hero h1 em{color:var(--wine)}
 #artempresarias .pr-btn:not(.cream):hover{background:#7a1730;border-color:#7a1730}
 /* los rosas claros pasan a celeste claro */
 #artempresarias .ae-path,#artempresarias .pr-tx.ae-pink,#artempresarias .ae-yv>div,#artempresarias .ae-alt{background:var(--blue-lt)}
