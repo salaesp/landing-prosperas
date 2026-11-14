@@ -56,6 +56,11 @@ import base64
 def inline(m):
     f = root / m.group(1)
     return 'src="data:image/jpeg;base64,' + base64.b64encode(f.read_bytes()).decode() + '"'
-out = re.sub(r'src="(assets/[^"]+\.jpg)"', inline, out)
+def uri(path):
+    f = root / path
+    mime = "image/png" if path.endswith(".png") else "image/jpeg"
+    return "data:" + mime + ";base64," + base64.b64encode(f.read_bytes()).decode()
+out = re.sub(r'src="(assets/[^"]+\.(?:jpg|png))"', lambda m: 'src="' + uri(m.group(1)) + '"', out)
+out = re.sub(r'url\((assets/[^)]+\.(?:jpg|png))\)', lambda m: 'url(' + uri(m.group(1)) + ')', out)
 (root / "index.html").write_text(out, encoding="utf-8")
 print("index.html", len(out), "bytes")
