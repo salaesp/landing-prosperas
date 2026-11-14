@@ -170,3 +170,4 @@ html{scroll-behavior:smooth}
 .pr-pc-d li.m{border:1.5px dashed var(--cherry);color:var(--wine)}
 .pr-pc-d li.m b{color:var(--cherry)}
 .pr-pc-d li.m:only-child,.pr-pc-d li.m:not(:has(b)){justify-content:center}
+.pr .pr-pc-d li.l{justify-content:center}
