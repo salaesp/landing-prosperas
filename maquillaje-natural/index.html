@@ -1322,34 +1322,17 @@ html{scroll-behavior:smooth}
 @media(max-width:520px){.pr .mn-hl{grid-template-columns:1fr}}
 @media(max-width:420px){.pr .mn-t1,.pr .mn-t2{font-size:clamp(40px,12.5vw,52px)}}
 
-/* ---- qué tiene este ebook: tarjetas para deslizar (siempre deslizables: son 6) ---- */
+/* ---- qué tiene este ebook: 6 tarjetas en grilla, todas a la vista ---- */
 .pr .mn-inc h2 b{color:var(--cherry)}
-.pr .mn-inc .ci-track{justify-content:flex-start}
-.pr .mn-inc .ci-scroll{scroll-padding-inline:max(20px,calc((100vw - 1180px)/2))}
-.pr .mn-card{padding:28px 0 30px;min-height:300px;scroll-snap-align:start}
+.pr .mn-cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pr .mn-cgrid .mn-card{padding:28px 0 30px}
 .pr .mn-card h3{margin-top:18px}
 .pr .mn-card p:last-of-type{margin-bottom:0}
 .pr .mn-n{display:inline-block;align-self:flex-start;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:6px 13px;border-radius:999px;background:var(--cherry);color:var(--cream)}
 .pr .ci-card2.wine .mn-n{background:var(--yellow);color:var(--wine)}
 .pr .ci-card2.pink{background:var(--pinkbg)}
-/* se deslizan solas: una tarjeta por vez, con una pausa en cada una (solo CSS).
-   Las 6 están dos veces: al llegar a la copia vuelve al principio sin que se note. Con el mouse encima se frenan. */
-.pr .mn-inc .ci-track{--cw:min(86vw,372px);--step:calc(var(--cw) + 22px);animation:mn-slide 24s ease-in-out infinite}
-.pr .mn-inc .mn-card{flex-basis:var(--cw)}
-.pr .mn-inc .ci-scroll:hover .ci-track,.pr .mn-inc .ci-scroll:focus-within .ci-track{animation-play-state:paused}
-@keyframes mn-slide{
-  0%,13%{transform:translateX(0)}
-  16.67%,29.67%{transform:translateX(calc(var(--step) * -1))}
-  33.33%,46.33%{transform:translateX(calc(var(--step) * -2))}
-  50%,63%{transform:translateX(calc(var(--step) * -3))}
-  66.67%,79.67%{transform:translateX(calc(var(--step) * -4))}
-  83.33%,96.33%{transform:translateX(calc(var(--step) * -5))}
-  100%{transform:translateX(calc(var(--step) * -6))}
-}
-.pr .mn-hint{text-align:center;margin:14px auto 0;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cherry);opacity:.7}
-.pr .mn-inc .ci-swipe{display:none}
-@media(hover:none){.pr .mn-hint{display:none}.pr .mn-inc .ci-swipe{display:flex}}
-@media(prefers-reduced-motion:reduce){.pr .mn-inc .ci-track{animation:none}.pr .mn-hint{display:none}.pr .mn-inc .ci-swipe{display:flex}}
+@media(max-width:960px){.pr .mn-cgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pr .mn-cgrid{grid-template-columns:1fr;gap:16px}}
 
 /* ---- bonus: 4 tarjetas crema sobre bordó ---- */
 .pr .mn-bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -1449,32 +1432,21 @@ html{scroll-behavior:smooth}
     <div class="pr-mq-grp" aria-hidden="true"><span>Maquillaje natural</span><span>Recetas seguras</span><span>Creá tu marca</span><span>Fórmulas paso a paso</span></div>
   </div></div>
 
-  <!-- QUÉ TIENE ESTE EBOOK: 6 tarjetas para deslizar -->
+  <!-- QUÉ TIENE ESTE EBOOK: 6 tarjetas en grilla, todas a la vista -->
   <section class="pr-sec pr-bg-white mn-inc" id="incluye">
     <div class="pr-wrap">
-      <div class="pr-head" style="margin-bottom:10px">
+      <div class="pr-head" style="margin-bottom:44px">
         <span class="lbl">Qué incluye</span>
         <h2>¿Qué tiene <b>este ebook</b>?</h2>
         <p class="pr-lede">Más que recetas sueltas, es una guía para aprender a crear maquillaje natural con más claridad, seguridad y una base ordenada.</p>
       </div>
-    </div>
-    <p class="ci-swipe mn-swipe" aria-hidden="true"><span>←</span> Deslizá <span>→</span></p>
-    <p class="mn-hint" aria-hidden="true">Pasá el mouse por encima para frenarlas</p>
-    <div class="ci-scroll" aria-label="Contenido del ebook">
-      <div class="ci-track">
-        <article class="ci-card2 wine mn-card"><span class="mn-n">01</span><h3>Introducción al maquillaje natural</h3><p>Qué es, cómo se diferencia del maquillaje industrial y por qué cada vez más personas buscan alternativas más conscientes.</p></article>
-        <article class="ci-card2 pink mn-card"><span class="mn-n">02</span><h3>Higiene y seguridad</h3><p>Cómo crear productos de forma más segura, organizada y profesional, cuidando cada paso del proceso.</p></article>
-        <article class="ci-card2 yellow mn-card"><span class="mn-n">03</span><h3>Ingredientes y formulación</h3><p>Aceites vegetales, mantecas, ceras, micas, pigmentos, vitamina E, conservantes y la función de cada ingrediente.</p></article>
-        <article class="ci-card2 wine mn-card"><span class="mn-n">04</span><h3>Aceites esenciales vs. esencias</h3><p>Una de las dudas más comunes cuando empezás. Aprendé cuándo usar cada uno y cuáles son sus diferencias.</p></article>
-        <article class="ci-card2 pink mn-card"><span class="mn-n">05</span><h3>Etiquetado e información</h3><p>Qué es el INCI, qué información debería incluir una etiqueta y cómo presentar tus productos de forma más profesional.</p></article>
-        <article class="ci-card2 yellow mn-card"><span class="mn-n">06</span><h3>Recetas incluidas</h3><p>Lip balm, lip oil, lip gloss, labial, iluminadores, rubor líquido, labio/mejilla, corrector de ojeras y más.</p></article>
-        <!-- copia de las 6 tarjetas para que el deslizamiento automático vuelva al principio sin salto -->
-        <article class="ci-card2 wine mn-card" aria-hidden="true"><span class="mn-n">01</span><h3>Introducción al maquillaje natural</h3><p>Qué es, cómo se diferencia del maquillaje industrial y por qué cada vez más personas buscan alternativas más conscientes.</p></article>
-        <article class="ci-card2 pink mn-card" aria-hidden="true"><span class="mn-n">02</span><h3>Higiene y seguridad</h3><p>Cómo crear productos de forma más segura, organizada y profesional, cuidando cada paso del proceso.</p></article>
-        <article class="ci-card2 yellow mn-card" aria-hidden="true"><span class="mn-n">03</span><h3>Ingredientes y formulación</h3><p>Aceites vegetales, mantecas, ceras, micas, pigmentos, vitamina E, conservantes y la función de cada ingrediente.</p></article>
-        <article class="ci-card2 wine mn-card" aria-hidden="true"><span class="mn-n">04</span><h3>Aceites esenciales vs. esencias</h3><p>Una de las dudas más comunes cuando empezás. Aprendé cuándo usar cada uno y cuáles son sus diferencias.</p></article>
-        <article class="ci-card2 pink mn-card" aria-hidden="true"><span class="mn-n">05</span><h3>Etiquetado e información</h3><p>Qué es el INCI, qué información debería incluir una etiqueta y cómo presentar tus productos de forma más profesional.</p></article>
-        <article class="ci-card2 yellow mn-card" aria-hidden="true"><span class="mn-n">06</span><h3>Recetas incluidas</h3><p>Lip balm, lip oil, lip gloss, labial, iluminadores, rubor líquido, labio/mejilla, corrector de ojeras y más.</p></article>
+      <div class="mn-cgrid">
+          <article class="ci-card2 wine mn-card"><span class="mn-n">01</span><h3>Introducción al maquillaje natural</h3><p>Qué es, cómo se diferencia del maquillaje industrial y por qué cada vez más personas buscan alternativas más conscientes.</p></article>
+          <article class="ci-card2 pink mn-card"><span class="mn-n">02</span><h3>Higiene y seguridad</h3><p>Cómo crear productos de forma más segura, organizada y profesional, cuidando cada paso del proceso.</p></article>
+          <article class="ci-card2 yellow mn-card"><span class="mn-n">03</span><h3>Ingredientes y formulación</h3><p>Aceites vegetales, mantecas, ceras, micas, pigmentos, vitamina E, conservantes y la función de cada ingrediente.</p></article>
+          <article class="ci-card2 pink mn-card"><span class="mn-n">04</span><h3>Aceites esenciales vs. esencias</h3><p>Una de las dudas más comunes cuando empezás. Aprendé cuándo usar cada uno y cuáles son sus diferencias.</p></article>
+          <article class="ci-card2 yellow mn-card"><span class="mn-n">05</span><h3>Etiquetado e información</h3><p>Qué es el INCI, qué información debería incluir una etiqueta y cómo presentar tus productos de forma más profesional.</p></article>
+          <article class="ci-card2 wine mn-card"><span class="mn-n">06</span><h3>Recetas incluidas</h3><p>Lip balm, lip oil, lip gloss, labial, iluminadores, rubor líquido, labio/mejilla, corrector de ojeras y más.</p></article>
       </div>
     </div>
   </section>
