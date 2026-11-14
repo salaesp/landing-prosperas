@@ -13,8 +13,6 @@
   font-size:16.5px;line-height:1.7;color:var(--wine);background:var(--cream);
   width:100vw;position:relative;left:50%;margin-left:-50vw;overflow-x:clip;text-align:left;
 }
-/* Tiendup a veces le pone padding arriba/abajo a la sección que contiene el bloque HTML: lo sacamos */
-.uk-section:has(.pr){padding-top:0!important;padding-bottom:0!important}
 .pr *,.pr *::before,.pr *::after{box-sizing:border-box}
 .pr img{max-width:100%;height:auto;display:block}
 .pr h1,.pr h2,.pr h3,.pr p,.pr ul,.pr li{margin:0;padding:0}
@@ -522,7 +520,7 @@ html{scroll-behavior:smooth}
 .pr-pc-d li.l b{color:var(--yellow)}
 .pr-pc-d li.m{border:1.5px dashed var(--cherry);color:var(--wine)}
 .pr-pc-d li.m b{color:var(--cherry)}
-.pr-pc-d li.m:only-child,.pr-pc-d li.m:not(:has(b)){justify-content:center}
+.pr-pc-d li.m:only-child{justify-content:center}
 .pr .pr-pc-d li.l{justify-content:center}
 
 /* ---- aulas: la imagen ya trae el título ---- */
