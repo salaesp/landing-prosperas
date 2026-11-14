@@ -1,7 +1,8 @@
 """Arma artempresarias/index.html.
 
 Reutiliza de ../prosperas el CSS base, los logos SVG (firma "By Juli de Franco")
-y los componentes compartidos (src/nuevo.css), y suma src/estilos.css y src/cuerpo.html.
+y los componentes compartidos (src/nuevo.css), los nuevos del design system
+(../design-system/src/nuevos.css: .cg-incl) y suma src/estilos.css y src/cuerpo.html.
 No usa JavaScript (Tiendup no lo ejecuta). Uso: python3 artempresarias/src/armar.py
 """
 import base64
@@ -45,6 +46,7 @@ out = "\n".join([
     css,
     shared,
     (root / "src/estilos.css").read_text(encoding="utf-8"),
+    (root.parent / "design-system/src/nuevos.css").read_text(encoding="utf-8"),
     "</style>",
     "",
     "\n".join(lines[svg_open:svg_close + 1]),
