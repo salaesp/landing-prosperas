@@ -207,3 +207,13 @@ html{scroll-behavior:smooth}
 .pr .pr-tx.ae-pink{background:#fbd0e2}
 .pr .ae-endq{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(20px,2.1vw,25px);line-height:1.4;color:var(--cherry);margin:8px 0 26px;padding-left:18px;border-left:3px solid var(--cherry)}
 .pr .ae-endq b{font-weight:700;color:var(--wine)}
+
+/* dolores en tarjetas cortas */
+.pr .ae-pains{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1080px;margin:0 auto}
+.pr .ae-pains>div{background:var(--cream);border-radius:22px;padding:22px 18px 24px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 22px rgba(155,31,58,.1);border-top:5px solid var(--cherry)}
+.pr .ae-pains>div:nth-child(even){border-top-color:var(--pink)}
+.pr .ae-pn{font-weight:600;font-size:12px;letter-spacing:.16em;color:var(--cherry)}
+.pr .ae-pains b{font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(18px,1.6vw,21px);line-height:1.2;color:var(--wine)}
+.pr .ae-pains>div>span:last-child{font-size:14.5px;line-height:1.45;opacity:.9}
+@media(max-width:1000px){.pr .ae-pains{grid-template-columns:repeat(2,1fr)}.pr .ae-pains>div:last-child{grid-column:1/-1}}
+@media(max-width:560px){.pr .ae-pains{grid-template-columns:1fr}.pr .ae-pains>div:last-child{grid-column:auto}}

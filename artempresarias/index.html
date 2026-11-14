@@ -1089,6 +1089,16 @@ html{scroll-behavior:smooth}
 .pr .ae-endq{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(20px,2.1vw,25px);line-height:1.4;color:var(--cherry);margin:8px 0 26px;padding-left:18px;border-left:3px solid var(--cherry)}
 .pr .ae-endq b{font-weight:700;color:var(--wine)}
 
+/* dolores en tarjetas cortas */
+.pr .ae-pains{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1080px;margin:0 auto}
+.pr .ae-pains>div{background:var(--cream);border-radius:22px;padding:22px 18px 24px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 22px rgba(155,31,58,.1);border-top:5px solid var(--cherry)}
+.pr .ae-pains>div:nth-child(even){border-top-color:var(--pink)}
+.pr .ae-pn{font-weight:600;font-size:12px;letter-spacing:.16em;color:var(--cherry)}
+.pr .ae-pains b{font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(18px,1.6vw,21px);line-height:1.2;color:var(--wine)}
+.pr .ae-pains>div>span:last-child{font-size:14.5px;line-height:1.45;opacity:.9}
+@media(max-width:1000px){.pr .ae-pains{grid-template-columns:repeat(2,1fr)}.pr .ae-pains>div:last-child{grid-column:1/-1}}
+@media(max-width:560px){.pr .ae-pains{grid-template-columns:1fr}.pr .ae-pains>div:last-child{grid-column:auto}}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1171,13 +1181,14 @@ html{scroll-behavior:smooth}
         <h2>Ya construiste algo que funciona. Pero sabés que todavía hay <b>mucho más por hacer.</b></h2>
         <p class="pr-lede">Tenés productos, clientas, pedidos y un montón de ideas. Y aunque te encanta lo que hacés, hay momentos en los que sentís que tu emprendimiento necesita algo más que seguir trabajando sin parar.</p>
       </div>
-      <ul class="ae-chats">
-        <li>Tenés tantas cosas por hacer que te cuesta decidir qué es realmente importante.</li>
-        <li>Querés crecer, pero no sabés si sumar productos, participar en ferias, invertir en publicidad o mejorar lo que ya tenés.</li>
-        <li>Aceptás pedidos y compromisos sin detenerte a evaluar cuánto tiempo y trabajo implican.</li>
-        <li>Sentís que tu marca tiene algo especial, pero todavía no encontraste cómo mostrarlo y diferenciarte.</li>
-        <li>Trabajás muchísimo, pero pocas veces te detenés a reconocer todo lo que construiste.</li>
-      </ul>
+      <!-- REVISAR: los títulos cortos de cada tarjeta los escribí yo resumiendo cada frase -->
+      <div class="ae-pains">
+        <div><span class="ae-pn">01</span><b>Todo parece urgente</b><span>Te cuesta decidir qué es realmente importante.</span></div>
+        <div><span class="ae-pn">02</span><b>¿Por dónde crecer?</b><span>¿Más productos, ferias, publicidad o mejorar lo que ya tenés?</span></div>
+        <div><span class="ae-pn">03</span><b>Decís que sí a todo</b><span>Aceptás pedidos sin evaluar cuánto tiempo y trabajo implican.</span></div>
+        <div><span class="ae-pn">04</span><b>Tu marca no se luce</b><span>Tiene algo especial, pero no encontrás cómo mostrarlo y diferenciarte.</span></div>
+        <div><span class="ae-pn">05</span><b>No frenás a mirar lo logrado</b><span>Trabajás muchísimo y pocas veces reconocés lo que construiste.</span></div>
+      </div>
       <p class="ae-close">Quizás llegó el momento de mirar tu negocio desde otra perspectiva y empezar a decidir cómo querés seguir construyéndolo.</p>
     </div>
   </section>
