@@ -992,6 +992,84 @@ html{scroll-behavior:smooth}
 .pr .ae-fit .pr-card li{position:relative;padding-left:22px}
 .pr .ae-fit .pr-card li::before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;margin:0;border-radius:50%;background:var(--yellow)}
 
+/* ============ formatos rápidos de leer ============ */
+.pr .ae-kicker{text-align:center;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cherry);margin:44px 0 18px}
+.pr .ae-kicker2{font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cherry);margin:22px 0 10px}
+.pr-bg-cherry .ae-kicker2,.ae-box.pk .ae-kicker2{color:var(--yellow)}
+
+/* tres puntos */
+.pr .ae-three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:960px;margin:0 auto}
+.pr .ae-three>div{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 10px 24px rgba(155,31,58,.08);display:flex;flex-direction:column;gap:10px}
+.pr .ae-three b{font-family:'Noto Serif',serif;font-weight:500;font-size:clamp(18px,1.7vw,21px);line-height:1.3;color:var(--wine)}
+.pr .ae-ico{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--cherry);color:var(--cream);font-weight:600;font-size:13px;letter-spacing:.06em}
+.pr .ae-three>div:nth-child(2) .ae-ico{background:var(--yellow);color:var(--cherry)}
+@media(max-width:820px){.pr .ae-three{grid-template-columns:1fr}.pr .ae-three>div{flex-direction:row;align-items:center}.pr .ae-ico{flex:none}}
+
+/* etiquetas */
+.pr .ae-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:860px;margin:0 auto;padding:0;list-style:none}
+.pr .ae-chips li{background:var(--yellow);color:var(--wine);font-weight:500;font-size:15.5px;line-height:1.3;padding:10px 18px;border-radius:999px}
+.pr .ae-chips li:nth-child(even){background:var(--cherry);color:var(--cream)}
+.pr .ae-chips.sm{justify-content:flex-start}
+.pr .ae-chips.sm li{font-size:14px;padding:8px 14px}
+.pr .ae-chips.x{justify-content:flex-start}
+.pr .ae-chips.x li{background:none;border:1.5px solid var(--line);color:var(--wine);font-size:14px;padding:7px 14px;text-decoration:line-through;text-decoration-color:var(--cherry);text-decoration-thickness:2px}
+.pr .ae-intro .pr-quote{margin-top:44px}
+
+/* fórmula y recorrido */
+.pr .ae-how h2{margin-bottom:18px}
+.pr .ae-formula{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.pr .ae-formula li{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 16px 12px 46px;font-size:15.5px;line-height:1.35}
+.pr .ae-formula li::before{content:"+";position:absolute;left:14px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--cherry);color:var(--cream);display:grid;place-items:center;font-weight:600;font-size:15px;line-height:1}
+.pr .ae-formula b{font-weight:600;color:var(--cherry)}
+.pr .ae-flow{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;counter-reset:f}
+.pr .ae-flow li{counter-increment:f;position:relative;padding:8px 0 8px 40px;font-size:16px;line-height:1.4}
+.pr .ae-flow li::before{content:counter(f);position:absolute;left:0;top:6px;width:26px;height:26px;border-radius:50%;background:var(--yellow);color:var(--cherry);font-family:'Noto Serif',serif;font-weight:700;font-size:14px;display:grid;place-items:center}
+.pr .ae-flow li:not(:last-child)::after{content:"";position:absolute;left:12px;top:34px;bottom:-6px;width:2px;background:var(--yellow)}
+.pr .ae-team{margin:22px 0 4px;font-size:17px}
+.pr .ae-team span{opacity:.75}
+.pr .ae-team b{color:var(--cherry)}
+.pr .ae-team.center{text-align:center;margin-top:16px}
+
+/* preguntas en burbujas */
+.pr .ae-lead2{font-size:clamp(17px,1.6vw,19px);margin-top:20px}
+.pr .ae-lead2 b{color:var(--cherry)}
+.pr .ae-qs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.pr .ae-qs li{position:relative;align-self:flex-start;background:var(--cherry);color:var(--cream);font-family:'Noto Serif',serif;font-style:italic;font-size:16.5px;line-height:1.3;padding:10px 16px;border-radius:16px}
+.pr .ae-qs li:nth-child(even){align-self:flex-end;background:var(--yellow);color:var(--wine)}
+.pr .ae-qs li::after{content:"";position:absolute;bottom:-6px;left:16px;width:12px;height:12px;background:inherit;transform:rotate(45deg)}
+.pr .ae-qs li:nth-child(even)::after{left:auto;right:16px}
+
+/* entre encuentros */
+.pr .ae-box h3 b{font-weight:700}
+.pr .ae-checks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.pr .ae-checks li{position:relative;padding-left:34px;font-size:16px;line-height:1.45}
+.pr .ae-checks li::before{content:"✓";position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--cherry);color:var(--cream);display:grid;place-items:center;font-size:13px;font-weight:700}
+.pr .ae-box.pk{position:relative}
+.pr .ae-big48{display:block;font-family:'Noto Serif',serif;font-weight:700;font-size:clamp(40px,4.4vw,56px);line-height:1;color:var(--yellow);margin-bottom:8px}
+.pr .ae-msgs span:nth-child(3){align-self:flex-start;background:var(--cream);animation-delay:-1.5s}
+.pr .ae-msgs span:nth-child(3)::after{left:18px;right:auto}
+.pr .ae-small{font-size:14.5px;opacity:.85;margin-top:16px}
+
+/* áreas: detalle desplegable */
+.pr .ae-area details{margin-top:6px;border-top:1px solid var(--line)}
+.pr .ae-area summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0 2px;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--cherry)}
+.pr .ae-area summary::-webkit-details-marker{display:none}
+.pr .ae-area summary::after{content:"+";font-size:22px;font-weight:300;line-height:1}
+.pr .ae-area details[open] summary::after{content:"–"}
+.pr .ae-area details p{margin-top:10px}
+.pr .ae-area .q{font-size:16.5px}
+
+/* para quién */
+.pr .ae-yes{font-family:'Noto Serif',serif;font-style:italic;font-size:19px;line-height:1.35;color:var(--cherry);margin:0}
+.pr .ae-yv{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.pr .ae-yv>div{background:#fbd0e2;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.4}
+.pr .ae-yv>div:nth-child(2){background:var(--yellow)}
+.pr .ae-yv b{font-family:'Noto Serif',serif;font-size:20px;color:var(--cherry)}
+.pr .ae-nos{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:10px}
+.pr .ae-nos li{position:relative;padding-left:28px;font-size:15.5px;line-height:1.4}
+.pr .ae-nos li::before{content:"×";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cherry);color:var(--cherry);display:grid;place-items:center;font-size:14px;line-height:1}
+.pr .ae-alt{background:#fbd0e2;border-radius:14px;padding:12px 16px;font-size:15px}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1001,7 +1079,7 @@ html{scroll-behavior:smooth}
 
 <div class="pr ae" id="artempresarias">
 
-  <div class="pr-top">Programa de acompañamiento 1:1 · 90 días · Para emprendedoras artesanales</div>
+  <div class="pr-top">Programa de acompañamiento 1:1 · 90 días · Para artesanas emprendedoras</div>
 
   <!-- HERO -->
   <header class="pr-split pr-hero ae-hero">
@@ -1032,21 +1110,45 @@ html{scroll-behavior:smooth}
 
   <!-- INTRO -->
   <section class="pr-sec ae-intro">
-    <div class="pr-wrap"><div class="pr-narrow">
-      <p class="pr-sub">Porque una cosa es saber crear y vender tus productos. Y otra es construir un negocio que tenga <em>una identidad propia, una dirección clara y una forma de trabajar que puedas sostener.</em></p>
-      <p>En ARTEMPRESARIAS vamos a mirar tu negocio en profundidad. Vamos a trabajar sobre lo que hoy te está frenando, las oportunidades que quizás todavía no estás viendo y las decisiones que necesitás tomar para seguir creciendo.</p>
-      <p>Puede que necesitemos repensar tu propuesta, encontrar eso que hace diferente a tu marca, mejorar cómo comunicás lo que vendés o cambiar por completo la manera en la que organizás tu trabajo.</p>
-      <p class="pr-quote">No hay un camino igual para todas, porque no todas quieren construir el mismo negocio.</p>
-    </div></div>
+    <div class="pr-wrap">
+      <div class="pr-narrow">
+        <p class="pr-sub">Una cosa es saber crear y vender tus productos. Otra es construir un negocio con <em>identidad propia, dirección clara y una forma de trabajar que puedas sostener.</em></p>
+      </div>
+      <p class="ae-kicker">En ARTEMPRESARIAS vamos a mirar tu negocio en profundidad y trabajar sobre:</p>
+      <div class="ae-three">
+        <div><span class="ae-ico">01</span><b>Lo que hoy te está frenando</b></div>
+        <div><span class="ae-ico">02</span><b>Las oportunidades que todavía no estás viendo</b></div>
+        <div><span class="ae-ico">03</span><b>Las decisiones que necesitás para seguir creciendo</b></div>
+      </div>
+      <p class="ae-kicker">Puede que necesitemos…</p>
+      <ul class="ae-chips">
+        <li>Repensar tu propuesta</li>
+        <li>Encontrar lo que hace diferente a tu marca</li>
+        <li>Mejorar cómo comunicás lo que vendés</li>
+        <li>Cambiar cómo organizás tu trabajo</li>
+      </ul>
+      <div class="pr-narrow"><p class="pr-quote">No hay un camino igual para todas, porque no todas quieren construir el mismo negocio.</p></div>
+    </div>
   </section>
 
   <section class="pr-split ae-how">
     <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu8jnll6u1eud7c5t4pnu9b2.png" alt="Juli sonriendo, sentada con su notebook y una taza" loading="lazy" width="1142" height="1526" style="object-position:50% 22%"></div>
     <div class="pr-tx cream">
       <span class="lbl">Cómo vamos a trabajar</span>
-      <p>Durante el proceso voy a combinar mi experiencia construyendo Cherry Glow, mi mirada estratégica y herramientas de Health Coaching para ayudarte a reconocer todo lo que ya lograste, descubrir qué querés construir de ahora en adelante y transformar esas ideas en acciones concretas.</p>
-      <p>No voy a hacer el trabajo por vos. <strong>Vamos a hacer equipo</strong>, trabajar sobre tu negocio real y tomar decisiones que puedas implementar y sostener.</p>
-      <p class="ae-hl">Quiero que termines este proceso no solamente viendo cuánto creció tu emprendimiento, sino reconociéndote como <b>la empresaria que está detrás de él.</b></p>
+      <h2>Combino tres cosas <b class="pk">para acompañarte</b></h2>
+      <ul class="ae-formula">
+        <li>Mi experiencia construyendo <b>Cherry Glow</b></li>
+        <li>Mi <b>mirada estratégica</b></li>
+        <li>Herramientas de <b>Health Coaching</b></li>
+      </ul>
+      <p class="ae-kicker2">Para ayudarte a:</p>
+      <ol class="ae-flow">
+        <li>Reconocer todo lo que ya lograste</li>
+        <li>Descubrir qué querés construir</li>
+        <li>Transformar las ideas en acciones concretas</li>
+      </ol>
+      <p class="ae-team"><span>No voy a hacer el trabajo por vos.</span> <b>Vamos a hacer equipo</b> sobre tu negocio real.</p>
+      <p class="ae-hl">Quiero que termines este proceso reconociéndote como <b>la empresaria que está detrás de tu emprendimiento.</b></p>
     </div>
   </section>
 
@@ -1079,10 +1181,19 @@ html{scroll-behavior:smooth}
     <div class="pr-tx white">
       <span class="lbl">Una nueva forma de ver tu negocio</span>
       <h2>De emprendedora a <b class="pk">empresaria.</b></h2>
-      <p style="margin-top:22px">Profesionalizar tu emprendimiento tiene mucho más que ver con cómo tomás decisiones que con el tamaño de tu negocio.</p>
-      <p>Es empezar a preguntarte qué querés construir, qué productos tienen sentido para vos, cómo querés diferenciarte y qué necesitás cambiar para trabajar de una manera más organizada.</p>
-      <p>Porque no existe una única forma correcta de emprender. Algunas artesanas quieren participar en ferias, tener stock o abrir su propio local. Otras imaginan un negocio completamente diferente.</p>
-      <p class="ae-hl">Lo importante es que puedas elegir tu camino, en lugar de seguir haciendo lo que ves que hacen las demás.</p>
+      <p class="ae-lead2">Profesionalizarte tiene más que ver con <b>cómo tomás decisiones</b> que con el tamaño de tu negocio.</p>
+      <p class="ae-kicker2">Es empezar a preguntarte:</p>
+      <ul class="ae-qs">
+        <li>¿Qué quiero construir?</li>
+        <li>¿Qué productos tienen sentido para mí?</li>
+        <li>¿Cómo quiero diferenciarme?</li>
+        <li>¿Qué necesito cambiar para organizarme mejor?</li>
+      </ul>
+      <p class="ae-kicker2">No hay una única forma correcta de emprender:</p>
+      <ul class="ae-chips sm">
+        <li>Ferias</li><li>Tener stock</li><li>Local propio</li><li>Algo completamente diferente</li>
+      </ul>
+      <p class="ae-hl">Lo importante es que elijas tu camino, en lugar de hacer lo que ves que hacen las demás.</p>
     </div>
     <div class="pr-ph"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu8adet22194r78mqb1dtdai.png" alt="Juli con una taza, sentada en el piso de su estudio" loading="lazy" width="1140" height="1530"></div>
   </section>
@@ -1107,7 +1218,7 @@ html{scroll-behavior:smooth}
       <div class="pr-head" style="margin-bottom:48px">
         <span class="lbl">Conocé ARTEMPRESARIAS</span>
         <h2>Tu negocio es único. Tu acompañamiento <b>también lo es.</b></h2>
-        <p class="pr-lede">No todas las emprendedoras están en el mismo momento, tienen los mismos objetivos ni necesitan trabajar sobre las mismas cosas. Por eso no vas a encontrar un temario con clases iguales para todas: vamos a trabajar sobre tu negocio real, lo que hoy necesitás resolver y lo que querés construir de ahora en adelante.</p>
+        <p class="pr-lede">No hay un temario con clases iguales para todas. Trabajamos sobre <b>tu negocio real</b>: lo que hoy necesitás resolver y lo que querés construir.</p>
       </div>
       <div class="pr-gets">
         <div class="pr-g"><div class="pr-gi wine" role="img" aria-label="Mirar tu negocio en profundidad"><span>Mirar tu negocio</span><b><em>en profundidad</em><i class="pr-mascot yl" aria-hidden="true"></i></b></div><span class="n">01</span><h3>Vamos a mirar tu negocio en profundidad</h3><p>Qué estás haciendo hoy, qué querés conseguir, qué te está frenando y qué oportunidades quizás todavía no estás viendo.</p></div>
@@ -1139,15 +1250,20 @@ html{scroll-behavior:smooth}
       </ol>
       <div class="ae-between">
         <div class="ae-box">
-          <h3>¿Y qué pasa entre encuentros?</h3>
-          <p><strong>¡Seguimos trabajando!</strong> Vas a implementar las acciones que definimos y tendremos tres check-ins breves para revisar avances, obstáculos y decisiones pendientes.</p>
-          <p>Además, vamos a construir y actualizar tu Plan de Acción a lo largo de todo el proceso, para que no termines cada conversación con un montón de ideas sueltas.</p>
+          <h3>¿Y entre encuentros? <b class="pk">¡Seguimos trabajando!</b></h3>
+          <ul class="ae-checks">
+            <li>Implementás las acciones que definimos.</li>
+            <li>Tres check-ins breves para revisar avances, obstáculos y decisiones pendientes.</li>
+            <li>Tu Plan de Acción se actualiza durante todo el proceso: nada de ideas sueltas.</li>
+          </ul>
         </div>
         <div class="ae-box pk">
-          <h3>Y algo muy importante: cada encuentro empieza antes de que nos veamos.</h3>
-          <p>48 horas antes voy a preguntarte cómo estás llegando, qué necesitás trabajar y qué te gustaría llevarte de esa sesión. Así puedo prepararla pensando en vos y aprovechar mejor nuestro tiempo juntas.</p>
-          <!-- Mensajes ilustrativos, armados a partir del texto de arriba -->
-          <div class="ae-msgs" aria-hidden="true"><span>¿Cómo estás llegando a nuestro encuentro?</span><span>¿Qué te gustaría llevarte de esta sesión?</span></div>
+          <span class="ae-big48">48 h</span>
+          <h3>Cada encuentro empieza antes de que nos veamos.</h3>
+          <p>Antes de cada sesión te pregunto:</p>
+          <!-- Mensajes armados a partir del texto: cómo llegás, qué necesitás trabajar, qué querés llevarte -->
+          <div class="ae-msgs" aria-hidden="true"><span>¿Cómo estás llegando?</span><span>¿Qué necesitás trabajar?</span><span>¿Qué te gustaría llevarte de esta sesión?</span></div>
+          <p class="ae-small">Así preparo el encuentro pensando en vos.</p>
         </div>
       </div>
     </div>
@@ -1159,14 +1275,14 @@ html{scroll-behavior:smooth}
       <div class="pr-head" style="margin-bottom:48px">
         <span class="lbl">Un proceso hecho a tu medida</span>
         <h2>Cada negocio es diferente. Y lo que necesita para crecer, <b>también.</b></h2>
-        <p class="pr-lede">Podemos trabajar sobre distintas áreas de tu emprendimiento. No son módulos que tenés que completar ni una lista de tareas que vamos a sumar a tu semana: vamos a identificar qué necesita hoy tu negocio y profundizar en eso.</p>
+        <p class="pr-lede">No son módulos para completar ni tareas extra para tu semana. <b>Identificamos qué necesita hoy tu negocio y profundizamos en eso.</b></p>
       </div>
       <div class="ae-grid">
-        <article class="ae-area"><span class="ae-num">1</span><h3>Tu universo de marca y comunicación</h3><p class="q">¿Qué hace diferente a tu emprendimiento? ¿Por qué tus clientas te eligen? ¿Estás comunicando lo que realmente querés transmitir?</p><p>Vamos a explorar qué te hace única, qué querés representar y cómo construir una comunicación que tenga sentido para vos, tus productos y las personas a las que querés llegar.</p></article>
-        <article class="ae-area"><span class="ae-num">2</span><h3>Tu oferta y tus productos</h3><p class="q">¿Todo lo que vendés tiene sentido para el negocio que querés construir? ¿Estás ofreciendo productos porque realmente querés o porque viste que a otra emprendedora le funcionan?</p><p>Podemos revisar tu propuesta, reconocer qué disfrutás crear y evaluar qué productos querés desarrollar, mantener o dejar en pausa.</p></article>
-        <article class="ae-area"><span class="ae-num">3</span><h3>Tu organización y forma de trabajar</h3><p class="q">¿Cómo es realmente una semana en tu emprendimiento? ¿Cuánto tiempo dedicás a producir, responder mensajes, preparar pedidos y resolver pendientes?</p><p>Vamos a observar cómo estás trabajando para encontrar formas de organizar tus tareas, mejorar tus procesos y asumir compromisos que puedas cumplir sin vivir corriendo detrás de todo.</p></article>
-        <article class="ae-area"><span class="ae-num">4</span><h3>Tu estrategia y próximas decisiones</h3><p class="q">¿Querés empezar a participar en ferias, lanzar productos, invertir en publicidad o explorar una nueva forma de vender?</p><p>Vamos a evaluar tus opciones teniendo en cuenta tus objetivos, tus recursos y el negocio que querés construir, para que puedas decidir qué priorizar y qué dejar para más adelante.</p></article>
-        <article class="ae-area"><span class="ae-num">5</span><h3>Vos, como la empresaria detrás del negocio</h3><p class="q">¿Reconocés todo lo que construiste? ¿Qué pasa cuando una decisión no sale como esperabas? ¿Qué límites necesitás establecer para seguir disfrutando lo que hacés?</p><p>A través de herramientas de Health Coaching, podemos trabajar sobre tus hábitos, tu confianza para decidir, tus prioridades y la manera en la que estás viviendo tu emprendimiento.</p></article>
+        <article class="ae-area"><span class="ae-num">1</span><h3>Tu universo de marca y comunicación</h3><p class="q">¿Qué hace diferente a tu emprendimiento? ¿Por qué tus clientas te eligen? ¿Estás comunicando lo que realmente querés transmitir?</p><details><summary>Qué vamos a trabajar</summary><p>Vamos a explorar qué te hace única, qué querés representar y cómo construir una comunicación que tenga sentido para vos, tus productos y las personas a las que querés llegar.</p></details></article>
+        <article class="ae-area"><span class="ae-num">2</span><h3>Tu oferta y tus productos</h3><p class="q">¿Todo lo que vendés tiene sentido para el negocio que querés construir? ¿Estás ofreciendo productos porque realmente querés o porque viste que a otra emprendedora le funcionan?</p><details><summary>Qué vamos a trabajar</summary><p>Podemos revisar tu propuesta, reconocer qué disfrutás crear y evaluar qué productos querés desarrollar, mantener o dejar en pausa.</p></details></article>
+        <article class="ae-area"><span class="ae-num">3</span><h3>Tu organización y forma de trabajar</h3><p class="q">¿Cómo es realmente una semana en tu emprendimiento? ¿Cuánto tiempo dedicás a producir, responder mensajes, preparar pedidos y resolver pendientes?</p><details><summary>Qué vamos a trabajar</summary><p>Vamos a observar cómo estás trabajando para encontrar formas de organizar tus tareas, mejorar tus procesos y asumir compromisos que puedas cumplir sin vivir corriendo detrás de todo.</p></details></article>
+        <article class="ae-area"><span class="ae-num">4</span><h3>Tu estrategia y próximas decisiones</h3><p class="q">¿Querés empezar a participar en ferias, lanzar productos, invertir en publicidad o explorar una nueva forma de vender?</p><details><summary>Qué vamos a trabajar</summary><p>Vamos a evaluar tus opciones teniendo en cuenta tus objetivos, tus recursos y el negocio que querés construir, para que puedas decidir qué priorizar y qué dejar para más adelante.</p></details></article>
+        <article class="ae-area"><span class="ae-num">5</span><h3>Vos, como la empresaria detrás del negocio</h3><p class="q">¿Reconocés todo lo que construiste? ¿Qué pasa cuando una decisión no sale como esperabas? ¿Qué límites necesitás establecer para seguir disfrutando lo que hacés?</p><details><summary>Qué vamos a trabajar</summary><p>A través de herramientas de Health Coaching, podemos trabajar sobre tus hábitos, tu confianza para decidir, tus prioridades y la manera en la que estás viviendo tu emprendimiento.</p></details></article>
       </div>
     </div>
   </section>
@@ -1198,16 +1314,27 @@ html{scroll-behavior:smooth}
         <div class="ae-side">
           <div class="ae-box">
             <h3>Hay algo importante que quiero que sepas.</h3>
-            <p>No necesitás tener una marca enorme, miles de seguidores ni un negocio perfecto para trabajar conmigo.</p>
-            <p>Pero sí necesitamos algo: <strong>que tengas ganas de involucrarte en el proceso.</strong></p>
-            <p>Yo voy a escucharte, compartir mi experiencia, ayudarte a encontrar nuevas perspectivas y acompañarte durante el recorrido. Y vos vas a ser quien lleve esas decisiones a la práctica. Vamos a hacer equipo.</p>
+            <p class="ae-kicker2">No necesitás:</p>
+            <ul class="ae-chips x"><li>Una marca enorme</li><li>Miles de seguidores</li><li>Un negocio perfecto</li></ul>
+            <p class="ae-kicker2">Sí necesitamos:</p>
+            <p class="ae-yes">Que tengas ganas de involucrarte en el proceso.</p>
+            <div class="ae-yv">
+              <div><b>Yo</b><span>Te escucho, comparto mi experiencia, te ayudo a ver nuevas perspectivas y te acompaño.</span></div>
+              <div><b>Vos</b><span>Llevás esas decisiones a la práctica.</span></div>
+            </div>
+            <p class="ae-team center"><b>Vamos a hacer equipo.</b></p>
           </div>
           <div class="ae-box no">
-            <h3>¿Y cuándo ARTEMPRESARIAS no sería la mejor opción?</h3>
-            <p>Si recién estás descubriendo qué te gustaría crear, querés aprender una técnica artesanal o todavía no decidiste si querés transformar tu hobby en un negocio, probablemente este no sea el acompañamiento que necesitás hoy.</p>
-            <p>Tampoco sería adecuado si buscás que alguien gestione tu emprendimiento por vos, te prepare toda la estrategia o te garantice un resultado económico.</p>
+            <h3>¿Cuándo ARTEMPRESARIAS no es la mejor opción?</h3>
+            <ul class="ae-nos">
+              <li>Recién estás descubriendo qué te gustaría crear.</li>
+              <li>Querés aprender una técnica artesanal.</li>
+              <li>Todavía no decidiste si transformar tu hobby en un negocio.</li>
+              <li>Buscás que alguien gestione tu emprendimiento o te arme toda la estrategia.</li>
+              <li>Querés un resultado económico garantizado.</li>
+            </ul>
             <!-- PENDIENTE: link a la landing de Prósperas en Tiendup -->
-            <p>En esos casos, quizás te convenga empezar por <strong>PRÓSPERAS</strong>, mi membresía de formación y comunidad para emprendedoras artesanales.</p>
+            <p class="ae-alt">En esos casos, quizás te convenga empezar por <strong>PRÓSPERAS</strong>, mi membresía de formación y comunidad.</p>
           </div>
         </div>
       </div>
