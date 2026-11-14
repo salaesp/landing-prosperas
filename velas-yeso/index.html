@@ -1340,12 +1340,12 @@ html{scroll-behavior:smooth}
 .pr .vy-mods .ae-area .ae-list{padding:12px 0 6px}
 .pr .vy-mods .ae-area .ae-list li{font-size:15.5px}
 .pr .vy-note{margin:4px 0 6px;padding:12px 16px;background:var(--cream);border-left:3px solid var(--blue);border-radius:12px;font-size:15px!important}
-.pr .vy-extra-head{margin:clamp(64px,8vw,96px) auto 40px}
+.pr .vy-inc h2 b{color:var(--cherry)}
 .pr .vy-extras{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.pr .vy-extras>div{background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:26px 22px}
+.pr .vy-extras>div{background:var(--cream);box-shadow:0 12px 26px rgba(155,31,58,.1);border-radius:24px;padding:26px 22px}
 .pr .vy-extras h3{font-size:clamp(19px,1.7vw,22px);margin:0 0 8px}
 .pr .vy-extras p{font-size:15px;line-height:1.55;margin:0}
-.pr .vy-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--blue);color:var(--cherry);margin-bottom:16px}
+.pr .vy-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--cherry);margin-bottom:16px}
 .pr .vy-extras>div:nth-child(even) .vy-ico{background:var(--cherry);color:var(--cream)}
 .pr .vy-ico svg{width:26px;height:26px;display:block}
 @media(max-width:1000px){.pr .vy-extras{grid-template-columns:1fr 1fr}}
@@ -1367,6 +1367,42 @@ html{scroll-behavior:smooth}
 .pr .vy-sig{width:min(170px,50%);margin:40px auto 0;color:var(--cherry)}
 .pr .vy-sig svg{width:100%;height:auto;display:block;fill:currentColor}
 
+/* ---- testimonios en pila: estados generados por armar.py ---- */
+#vy-t0:checked~.pr-tnavs .sk0{display:grid}
+#vy-t0:checked~.pr-tstack .pr-tc:nth-child(4){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t0:checked~.pr-tstack .pr-tc:nth-child(5){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t0:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
+#vy-t0:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t0:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t0:focus-visible~.pr-tstack .pr-tc:nth-child(1){outline:3px solid var(--cherry);outline-offset:4px}
+#vy-t1:checked~.pr-tnavs .sk1{display:grid}
+#vy-t1:checked~.pr-tstack .pr-tc:nth-child(5){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t1:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t1:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
+#vy-t1:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t1:checked~.pr-tstack .pr-tc:nth-child(4){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t1:focus-visible~.pr-tstack .pr-tc:nth-child(2){outline:3px solid var(--cherry);outline-offset:4px}
+#vy-t2:checked~.pr-tnavs .sk2{display:grid}
+#vy-t2:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t2:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t2:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
+#vy-t2:checked~.pr-tstack .pr-tc:nth-child(4){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t2:checked~.pr-tstack .pr-tc:nth-child(5){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t2:focus-visible~.pr-tstack .pr-tc:nth-child(3){outline:3px solid var(--cherry);outline-offset:4px}
+#vy-t3:checked~.pr-tnavs .sk3{display:grid}
+#vy-t3:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t3:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t3:checked~.pr-tstack .pr-tc:nth-child(4){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
+#vy-t3:checked~.pr-tstack .pr-tc:nth-child(5){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t3:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t3:focus-visible~.pr-tstack .pr-tc:nth-child(4){outline:3px solid var(--cherry);outline-offset:4px}
+#vy-t4:checked~.pr-tnavs .sk4{display:grid}
+#vy-t4:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t4:checked~.pr-tstack .pr-tc:nth-child(4){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t4:checked~.pr-tstack .pr-tc:nth-child(5){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
+#vy-t4:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#vy-t4:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#vy-t4:focus-visible~.pr-tstack .pr-tc:nth-child(5){outline:3px solid var(--cherry);outline-offset:4px}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1482,8 +1518,13 @@ html{scroll-behavior:smooth}
           <li>Cómo empezar a mostrarlos y convertir lo que aprendiste en un emprendimiento.</li>
         </ul></details></article>
       </div>
+    </div>
+  </section>
 
-      <div class="pr-head vy-extra-head">
+  <!-- Y ADEMÁS: lo que incluye, sobre celeste -->
+  <section class="pr-sec pr-bg-blue vy-inc">
+    <div class="pr-wrap">
+      <div class="pr-head" style="margin-bottom:44px">
         <h2>Y además, incluye todo lo que necesitás para hacerlo bien <b>desde el inicio</b></h2>
         <p class="pr-lede">No son solo las clases. También tenés recursos y acompañamiento para avanzar con más claridad durante el proceso.</p>
       </div>
@@ -1506,23 +1547,34 @@ html{scroll-behavior:smooth}
     </div></div>
   </section>
 
-  <!-- TESTIMONIOS: capturas en fila para deslizar -->
-  <section class="pr-sec pr-bg-white vy-tm">
+  <!-- TESTIMONIOS (pila sin JavaScript: la arma src/armar.py) -->
+  <section class="pr-sec pr-bg-white pr-tsec vy-tm">
     <div class="pr-wrap">
-      <div class="pr-head" style="margin-bottom:10px">
+      <div class="pr-head" style="margin-bottom:36px">
         <span class="lbl">Lo que pasa después de sumarte</span>
         <h2>Ellas ya empezaron a <em>crear</em></h2>
         <p class="pr-lede">Alumnas que llegaron con ganas de aprender, probar algo nuevo o sumar productos a su emprendimiento.</p>
       </div>
     </div>
-    <p class="ci-swipe" aria-hidden="true"><span>←</span> Deslizá <span>→</span></p>
-    <div class="ci-scroll cg-shots" aria-label="Testimonios de alumnas">
-      <div class="ci-track">
-        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Testimonio de una alumna del curso" loading="lazy"></figure>
-        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Testimonio de una alumna del curso" loading="lazy"></figure>
-        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d63e4t9plco3104eus92807k.jpg" alt="Testimonio de una alumna del curso" loading="lazy"></figure>
-        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d64d705ji1557dv71fvg1kr184.png" alt="Testimonio de una alumna del curso" loading="lazy"></figure>
-        <figure class="cg-shot"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d6eft3pe1lfu1tm6kbivsk7s.JPG" alt="Testimonio de una alumna del curso" loading="lazy"></figure>
+    <div class="pr-tcar-wrap">
+      <input type="radio" name="vy-t" id="vy-t0" class="pr-tr" checked aria-label="Testimonio 1 de 5">
+      <input type="radio" name="vy-t" id="vy-t1" class="pr-tr" aria-label="Testimonio 2 de 5">
+      <input type="radio" name="vy-t" id="vy-t2" class="pr-tr" aria-label="Testimonio 3 de 5">
+      <input type="radio" name="vy-t" id="vy-t3" class="pr-tr" aria-label="Testimonio 4 de 5">
+      <input type="radio" name="vy-t" id="vy-t4" class="pr-tr" aria-label="Testimonio 5 de 5">
+      <div class="pr-tstack">
+        <label for="vy-t0" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d61fdu13b919k51ik81ti7fl6k.jpg" alt="Mensaje de una alumna que hizo el curso de sahumerios y de yeso cerámico" loading="lazy"></label>
+        <label for="vy-t1" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d62gdu1t4h1hhhrek1fc2sdf74.jpg" alt="Mensaje de una alumna agradeciendo el acompañamiento durante el curso" loading="lazy"></label>
+        <label for="vy-t2" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d63e4t9plco3104eus92807k.jpg" alt="Mensaje de una alumna que ya empezó a hacer pruebas de velas" loading="lazy"></label>
+        <label for="vy-t3" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d64d705ji1557dv71fvg1kr184.png" alt="Mensaje de una alumna contando que el curso es muy completo" loading="lazy"></label>
+        <label for="vy-t4" class="pr-tc"><img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k3d6eft3pe1lfu1tm6kbivsk7s.JPG" alt="Velas en recipiente hechas por una alumna" loading="lazy"></label>
+      </div>
+      <div class="pr-tnavs">
+        <label for="vy-t4" class="pr-tnav prev sk0" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="vy-t1" class="pr-tnav next sk0" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="vy-t0" class="pr-tnav prev sk1" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="vy-t2" class="pr-tnav next sk1" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="vy-t1" class="pr-tnav prev sk2" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="vy-t3" class="pr-tnav next sk2" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="vy-t2" class="pr-tnav prev sk3" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="vy-t4" class="pr-tnav next sk3" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+        <label for="vy-t3" class="pr-tnav prev sk4" aria-label="Testimonio anterior"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M18 6 L6 24 L18 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label><label for="vy-t0" class="pr-tnav next sk4" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M6 6 L18 24 L6 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
       </div>
     </div>
   </section>

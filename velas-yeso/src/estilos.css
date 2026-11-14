@@ -61,12 +61,12 @@
 .pr .vy-mods .ae-area .ae-list{padding:12px 0 6px}
 .pr .vy-mods .ae-area .ae-list li{font-size:15.5px}
 .pr .vy-note{margin:4px 0 6px;padding:12px 16px;background:var(--cream);border-left:3px solid var(--blue);border-radius:12px;font-size:15px!important}
-.pr .vy-extra-head{margin:clamp(64px,8vw,96px) auto 40px}
+.pr .vy-inc h2 b{color:var(--cherry)}
 .pr .vy-extras{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.pr .vy-extras>div{background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:26px 22px}
+.pr .vy-extras>div{background:var(--cream);box-shadow:0 12px 26px rgba(155,31,58,.1);border-radius:24px;padding:26px 22px}
 .pr .vy-extras h3{font-size:clamp(19px,1.7vw,22px);margin:0 0 8px}
 .pr .vy-extras p{font-size:15px;line-height:1.55;margin:0}
-.pr .vy-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--blue);color:var(--cherry);margin-bottom:16px}
+.pr .vy-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--cherry);margin-bottom:16px}
 .pr .vy-extras>div:nth-child(even) .vy-ico{background:var(--cherry);color:var(--cream)}
 .pr .vy-ico svg{width:26px;height:26px;display:block}
 @media(max-width:1000px){.pr .vy-extras{grid-template-columns:1fr 1fr}}
