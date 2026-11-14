@@ -3,6 +3,9 @@
    ARTEMPRESARIAS · estilos propios (además de los compartidos de Prósperas)
 ============================================================ */
 .ae .pr-btn{text-transform:uppercase}
+/* Tiendup mete el bloque HTML dentro de una sección de UIkit (.page-section.uk-section) que tiene padding arriba y abajo:
+   lo sacamos sin usar el selector "has" (el editor de Tiendup no lo acepta). Esta página tiene una sola sección, así que no toca nada más. */
+.single-page .page-section.uk-section{padding-top:0!important;padding-bottom:0!important}
 
 /* hero bordó */
 .ae-logo{margin-bottom:28px}
@@ -220,3 +223,34 @@ html{scroll-behavior:smooth}
 .pr .ae-answer{margin-top:26px;font-size:clamp(17px,1.6vw,19px);line-height:1.6}
 .pr .ae-answer b{color:var(--cherry);font-weight:600}
 .pr .ae-intro .pr-quote{margin-top:34px}
+
+/* ============ contenido nuevo (nov 2026) ============ */
+.pr .ae-shift .pr-tx p:not(.ae-hl):not(.ae-lead2){margin-top:16px}
+.pr .ae-hl b{color:var(--cherry)}
+/* precio: dos planes con .pr-plans3 (pensado para tres) */
+.pr .ae-pay .pr-plans3{grid-template-columns:repeat(2,1fr);max-width:720px}
+.pr .ae-pay h2 b{color:var(--yellow)}
+@media(max-width:820px){.pr .ae-pay .pr-plans3{grid-template-columns:1fr;max-width:420px}}
+.pr .ae-hero .lead{margin-bottom:26px}
+.pr .ae-pay .pr-lede{margin-top:14px}
+.pr .ae-pay .pr-plans3{max-width:840px}
+
+/* ============================================================
+   COLOR DE LA PORTADA: bordó dominante + celeste de la letra
+   (solo esta página: las demás también usan la clase .ae)
+   El bordó toma el lugar del cereza y el celeste el del amarillo.
+============================================================ */
+#artempresarias{--cherry:#9b1f3a;--yellow:#b5d8f1;--blue-lt:#e3f0fa}
+#artempresarias .ae-stripes{background:repeating-linear-gradient(90deg,#9b1f3a 0 30px,#8a1a33 30px 60px)}
+/* hero como el de Prósperas: texto sobre crema y las rayas bordó al lado */
+#artempresarias .ae-logo span{color:var(--wine)}
+#artempresarias .ae-logo .pr-sig{color:var(--wine)}
+#artempresarias .ae-hero h1 em{color:var(--wine)}
+#artempresarias .pr-btn:not(.cream):hover{background:#7a1730;border-color:#7a1730}
+/* los rosas claros pasan a celeste claro */
+#artempresarias .ae-path,#artempresarias .pr-tx.ae-pink,#artempresarias .ae-yv>div,#artempresarias .ae-alt{background:var(--blue-lt)}
+#artempresarias .ae-yv>div:nth-child(2){background:var(--yellow)}
+/* cita sobre celeste */
+#artempresarias .ae-quote{color:var(--wine)}
+#artempresarias .ae-quote h2{color:var(--wine)}
+#artempresarias .ae-quote h2 b{color:var(--wine)}
