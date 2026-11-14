@@ -1,47 +1,113 @@
 /* ============================================================
-   INICIO · estilos propios (además de los de Prósperas y ARTEMPRESARIAS)
+   INICIO · estructura propia con los componentes compartidos
 ============================================================ */
 
-/* hero */
-.ci-logo small{display:block;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px}
-.pr .ci-hero .pr-frame img{object-position:50% 50%}
-.pr .ci-hero .pr-frame .pr-chat.c3{left:-18%}
+/* estrellitas de Juli sueltas (PNG) */
+.ci-star{position:absolute;display:block;aspect-ratio:1;width:56px;background:url(../prosperas/assets/estrellitas/estrellita-cereza.png) center/contain no-repeat;pointer-events:none;z-index:3;animation:pr-bob 7s ease-in-out infinite}
+.ci-star.yl{background-image:url(../prosperas/assets/estrellitas/estrellita-amarilla.png)}
 
-/* talleres: tarjetas con botón abajo */
-.pr .ci-talleres .pr-gets{grid-template-columns:repeat(3,1fr);margin-bottom:0}
-.pr .ci-talleres .pr-g{display:flex;flex-direction:column}
-.pr .ci-talleres .pr-g .n{letter-spacing:.14em;text-transform:uppercase;line-height:1.4}
-.pr .ci-talleres .pr-g p{flex:1}
-.pr .ci-act{margin-top:24px}
-.pr .ci-act .pr-btn{width:100%;text-align:center;justify-content:center}
-@media(max-width:900px){.pr .ci-talleres .pr-gets{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
-
-/* capaz estás en este punto */
-.pr .ci-script{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(22px,2.4vw,30px);color:var(--cherry);margin:0 0 10px}
-.pr .ci-point .pr-head h2 b{color:var(--cherry)}
-
-/* camino claro: tres pasos con flecha */
-.ci-path{background:#fbd0e2}
-.pr .ci-path h2 b{color:var(--cherry)}
-.pr .ci-steps{list-style:none;margin:0 auto;padding:0;max-width:1040px;display:grid;grid-template-columns:repeat(3,1fr);gap:46px}
-.pr .ci-steps li{position:relative;background:var(--cream);color:var(--wine);border-radius:26px;padding:clamp(24px,3vw,34px);box-shadow:0 12px 28px rgba(155,31,58,.12)}
-.pr .ci-steps li:nth-child(2){background:var(--yellow)}
-.pr .ci-steps li:nth-child(2) .ae-num{background:var(--cherry);color:var(--cream)}
-.pr .ci-steps h3{margin:0 0 10px;color:var(--wine)}
-.pr .ci-steps p{font-size:16px;margin:0}
-.pr .ci-steps li:not(:last-child)::after{content:"→";position:absolute;right:-36px;top:50%;transform:translateY(-50%);font-size:28px;color:var(--cherry);animation:pr-bob 3s ease-in-out infinite}
+/* ---- hero: tarjeta centrada sobre las rayas ---- */
+.pr .ci-hero{position:relative;overflow:hidden;background:repeating-linear-gradient(90deg,#cf216c 0 30px,#bd1c61 30px 60px);padding:clamp(70px,9vw,120px) 20px clamp(80px,10vw,130px);display:flex;justify-content:center}
+.pr .ci-card{position:relative;width:min(720px,100%);background:var(--cream);color:var(--wine);border-radius:34px;padding:clamp(40px,5vw,64px) clamp(24px,5vw,64px);text-align:center;box-shadow:0 26px 60px rgba(90,14,34,.3)}
+.pr .ci-card h1{margin:18px 0 18px}
+.pr .ci-card h1 em{display:block;color:var(--cherry)}
+.pr .ci-card .lead{max-width:540px;margin:0 auto 30px}
+.pr .ci-card .pr-sig{width:min(170px,50%);margin:26px auto 0;color:var(--cherry)}
+.pr .ci-card .pr-sig svg{width:100%;height:auto;display:block;fill:currentColor}
+.ci-card .pr-chat.c1{top:16%;left:-62px}
+.ci-card .pr-chat.c2{top:46%;right:-74px}
+.ci-card .pr-chat.c3{bottom:12%;left:-44px}
+.ci-card .ci-star.s1{width:70px;top:-28px;right:-22px;transform:rotate(12deg)}
 @media(max-width:820px){
-  .pr .ci-steps{grid-template-columns:1fr;gap:40px;max-width:520px}
-  .pr .ci-steps li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-36px;transform:translateX(-50%)}
+  .ci-card .pr-chat.c1{top:-18px;left:12px}
+  .ci-card .pr-chat.c2{top:auto;bottom:-18px;right:12px}
+  .ci-card .pr-chat.c3{display:none}
+  .ci-card .ci-star.s1{width:52px;top:-20px;right:-6px}
 }
 
-/* quién está detrás */
-.pr .ci-juli .ci-txt{font-size:16.5px;line-height:1.65;opacity:.92;margin:0 0 14px}
-.pr .ci-juli .ci-txt b{color:var(--yellow);font-weight:600}
-.pr .ci-juli p.it{margin-top:22px}
-.pr .ci-juli-end{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:26px}
-.pr .ci-juli-end .pr-sig{margin:0;width:min(190px,50%)}
-@media(max-width:820px){.pr .ci-juli-end{justify-content:center}}
+/* ---- talleres: índice en filas ---- */
+.ci-talleres{background:#fff}
+.pr .ci-thead{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:46px}
+.pr .ci-thead h2{margin:14px 0 0}
+.pr .ci-thead h2 b{color:var(--cherry)}
+.pr .ci-thead p{margin:0;font-size:16.5px}
+.pr .ci-rows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.pr .ci-rows li{display:grid;grid-template-columns:150px 1fr auto;gap:clamp(20px,3vw,40px);align-items:center;border-radius:28px;padding:20px clamp(20px,3vw,36px) 20px 20px;background:var(--cream);border:1.5px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.pr .ci-rows li:hover{transform:translateX(6px);box-shadow:0 16px 30px rgba(155,31,58,.12)}
+.pr .ci-tile{position:relative;display:grid;place-items:center;aspect-ratio:1;border-radius:22px;background:var(--wine);color:var(--yellow);font-family:'Noto Serif',serif;font-size:46px}
+.pr .ci-tile b{font-weight:700}
+.pr .ci-tile .ci-star{width:44px;top:-12px;right:-12px}
+.pr .ci-rows li.yellow .ci-tile{background:var(--yellow);color:var(--cherry)}
+.pr .ci-rows li.pink .ci-tile{background:var(--pink);color:var(--cream)}
+.pr .ci-tag{display:block;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cherry);margin-bottom:8px}
+.pr .ci-rtx h3{margin:0 0 8px}
+.pr .ci-rtx p{margin:0;font-size:15.5px;line-height:1.6}
+.pr .ci-rows .pr-btn{white-space:nowrap}
+@media(max-width:860px){
+  .pr .ci-thead{grid-template-columns:1fr;text-align:center}
+  .pr .ci-rows li{grid-template-columns:84px 1fr;padding:18px}
+  .pr .ci-tile{font-size:30px;border-radius:18px}
+  .pr .ci-tile .ci-star{width:32px}
+  .pr .ci-rows .pr-btn{grid-column:1/-1;text-align:center;justify-content:center}
+}
 
-/* cierre */
-.pr .ci-end h2 b{color:var(--cherry)}
+/* ---- capaz estás en este punto ---- */
+.pr .ci-point-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,80px);align-items:start}
+.pr .ci-point-head{position:sticky;top:30px}
+.pr .ci-script{font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(22px,2.4vw,30px);color:var(--cherry);margin:0 0 10px}
+.pr .ci-point-head h2{margin:0 0 30px}
+.pr .ci-point-head h2 b{color:var(--cherry)}
+.pr .ci-point .ae-chats{margin:0;padding:0;list-style:none}
+@media(max-width:860px){.pr .ci-point-in{grid-template-columns:1fr}.pr .ci-point-head{position:static;text-align:center}}
+
+/* ---- camino claro: escalera ---- */
+.pr .ci-path h2 b{color:var(--cherry)}
+.pr .ci-stairs{list-style:none;margin:0 auto;padding:0;max-width:1040px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end}
+.pr .ci-stairs li{position:relative;background:var(--cream);color:var(--wine);border-radius:26px 26px 0 0;padding:clamp(24px,3vw,32px);box-shadow:0 -6px 24px rgba(155,31,58,.08)}
+.pr .ci-stairs li:nth-child(1){min-height:260px}
+.pr .ci-stairs li:nth-child(2){min-height:330px;background:var(--yellow)}
+.pr .ci-stairs li:nth-child(3){min-height:400px;background:var(--cherry);color:var(--cream)}
+.pr .ci-stairs li:nth-child(3) h3{color:var(--cream)}
+.pr .ci-stairs li:nth-child(3) .ae-num{background:var(--yellow);color:var(--cherry)}
+.pr .ci-stairs li:nth-child(2) .ae-num{background:var(--cherry);color:var(--cream)}
+.pr .ci-stairs h3{margin:0 0 10px}
+.pr .ci-stairs p{margin:0;font-size:16px}
+.pr .ci-stairs .ci-star.s2{width:78px;top:-46px;right:22px}
+@media(max-width:820px){
+  .pr .ci-stairs{grid-template-columns:1fr;max-width:520px}
+  .pr .ci-stairs li{min-height:0!important;border-radius:26px}
+  .pr .ci-stairs li:nth-child(2){margin-left:24px}
+  .pr .ci-stairs li:nth-child(3){margin-left:48px}
+}
+
+/* ---- quién está detrás: foto redonda al centro ---- */
+.ci-juli{background:var(--cream)}
+.pr .ci-face{position:relative;width:min(280px,70%);margin:0 auto 40px}
+.pr .ci-face img{width:100%;aspect-ratio:1;object-fit:cover;object-position:40% 25%;border-radius:50%;border:6px solid #fff;box-shadow:0 18px 40px rgba(155,31,58,.18);display:block}
+.ci-face .pr-chat.c1{top:8%;left:-26%}
+.ci-face .pr-chat.c2{bottom:10%;right:-30%}
+.pr .ci-juli-tx{text-align:center}
+.pr .ci-juli-tx h2 b{color:var(--cherry)}
+.pr .ci-juli-tx p:not(.pr-quote){font-size:16.5px}
+.pr .ci-juli-tx .pr-sig{width:min(190px,55%);margin:26px auto 28px;color:var(--cherry)}
+.pr .ci-juli-tx .pr-sig svg{width:100%;height:auto;display:block;fill:currentColor}
+@media(max-width:620px){.ci-face .pr-chat.c1{left:-8%}.ci-face .pr-chat.c2{right:-8%}}
+
+/* ---- cierre ---- */
+.pr .ci-end{position:relative;overflow:hidden;text-align:center}
+.pr .ci-end h2{max-width:760px;margin:0 auto 18px;color:var(--cream)}
+.pr .ci-end h2 em{display:block;color:var(--yellow)}
+.pr .ci-end p{margin:0 0 30px;opacity:.92}
+.pr .ci-quick{list-style:none;margin:0 auto 30px;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.pr .ci-quick a{display:inline-block;padding:10px 18px;border-radius:999px;border:1.5px solid rgba(255,248,252,.45);color:var(--cream)!important;text-decoration:none!important;font-size:14.5px;transition:background .2s,color .2s}
+.pr .ci-quick a:hover{background:var(--yellow);color:var(--wine)!important;border-color:var(--yellow)}
+.ci-end .ci-star.s3{width:90px;top:40px;left:7%;transform:rotate(-12deg)}
+.ci-end .ci-star.s4{width:64px;bottom:44px;right:8%;animation-delay:-3s}
+@media(max-width:620px){.ci-end .ci-star.s3{width:54px;top:18px;left:4%}.ci-end .ci-star.s4{width:44px;bottom:16px;right:4%}}
+
+/* ajustes */
+@media(min-width:821px){.pr .ci-path{padding-bottom:0}}
+.pr .ci-juli-tx h2{margin-bottom:20px}
+.pr .ci-rows li{align-items:center}
+@media(max-width:860px){.pr .ci-rows li{align-items:start}}
+@media(max-width:820px){.ci-card .ci-star.s1{display:none}}
