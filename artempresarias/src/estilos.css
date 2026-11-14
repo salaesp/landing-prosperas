@@ -3,6 +3,9 @@
    ARTEMPRESARIAS · estilos propios (además de los compartidos de Prósperas)
 ============================================================ */
 .ae .pr-btn{text-transform:uppercase}
+/* Tiendup mete el bloque HTML dentro de una sección de UIkit (.page-section.uk-section) que tiene padding arriba y abajo:
+   lo sacamos sin usar el selector "has" (el editor de Tiendup no lo acepta). Esta página tiene una sola sección, así que no toca nada más. */
+.single-page .page-section.uk-section{padding-top:0!important;padding-bottom:0!important}
 
 /* hero bordó */
 .ae-logo{margin-bottom:28px}
