@@ -1,0 +1,266 @@
+<section class="cg-clear-path-section" aria-labelledby="cg-clear-path-title">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+    .cg-clear-path-section,
+    .cg-clear-path-section * {
+      box-sizing: border-box;
+    }
+
+    .cg-clear-path-section {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #710507;
+      font-family: 'Poppins', sans-serif;
+      color: #fff8f3;
+      padding: 48px 18px 56px;
+      overflow: hidden;
+    }
+
+    .cg-clear-path-section__wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .cg-clear-path-section__head {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .cg-clear-path-section__title {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    .cg-clear-path-section__title strong {
+      font-weight: 800;
+      color: #f9a2c6;
+    }
+
+    .cg-clear-path-section__text {
+      max-width: 720px;
+      margin: 16px auto 0;
+      font-size: clamp(14px, 1.7vw, 16px);
+      line-height: 1.7;
+      font-weight: 500;
+      color: rgba(255, 248, 243, 0.88);
+    }
+
+    .cg-clear-path-section__flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .cg-clear-path-step {
+      position: relative;
+      background: rgba(255, 250, 248, 0.08);
+      border: 1px solid rgba(249, 162, 198, 0.18);
+      border-radius: 28px;
+      padding: 24px 20px 22px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      backdrop-filter: blur(2px);
+    }
+
+    .cg-clear-path-step:nth-child(1) {
+      background: rgba(249, 162, 198, 0.11);
+    }
+
+    .cg-clear-path-step:nth-child(3) {
+      background: rgba(246, 238, 242, 0.09);
+    }
+
+    .cg-clear-path-step__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-width: 50px;
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #f9a2c6;
+      color: #710507;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .cg-clear-path-step__title {
+      margin: 0;
+      font-size: clamp(21px, 2.2vw, 25px);
+      line-height: 1.14;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      max-width: 290px;
+    }
+
+    .cg-clear-path-step__text {
+      margin: 14px 0 0;
+      font-size: 14.5px;
+      line-height: 1.65;
+      font-weight: 500;
+      color: rgba(255, 248, 243, 0.88);
+      max-width: 320px;
+    }
+
+    .cg-clear-path-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      color: #f9a2c6;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 700;
+      animation: cgClearPathArrowDown 1.8s ease-in-out infinite;
+    }
+
+    @keyframes cgClearPathArrowDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(5px);
+      }
+    }
+
+    @keyframes cgClearPathArrowRight {
+      0%, 100% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(6px);
+      }
+    }
+
+    @media (min-width: 860px) {
+      .cg-clear-path-section {
+        padding: 62px 28px 70px;
+      }
+
+      .cg-clear-path-section__head {
+        margin-bottom: 40px;
+      }
+
+      .cg-clear-path-section__flow {
+        grid-template-columns: 1fr 40px 1fr 40px 1fr;
+        gap: 16px;
+      }
+
+      .cg-clear-path-step {
+        min-height: 260px;
+        padding: 26px 24px 24px;
+      }
+
+      .cg-clear-path-arrow {
+        min-height: auto;
+        font-size: 34px;
+        animation: cgClearPathArrowRight 1.8s ease-in-out infinite;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cg-clear-path-section {
+        padding: 40px 14px 46px;
+      }
+
+      .cg-clear-path-section__head {
+        margin-bottom: 26px;
+      }
+
+      .cg-clear-path-section__title {
+        font-size: clamp(26px, 8vw, 34px);
+      }
+
+      .cg-clear-path-section__text {
+        font-size: 14px;
+      }
+
+      .cg-clear-path-step {
+        border-radius: 24px;
+        padding: 22px 18px 20px;
+        min-height: auto;
+      }
+
+      .cg-clear-path-step__title {
+        font-size: 20px;
+      }
+
+      .cg-clear-path-step__text {
+        font-size: 14px;
+      }
+
+      .cg-clear-path-arrow {
+        font-size: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cg-clear-path-arrow {
+        animation: none;
+      }
+    }
+  </style>
+
+  <div class="cg-clear-path-section__wrap">
+    <div class="cg-clear-path-section__head">
+      <h2 class="cg-clear-path-section__title" id="cg-clear-path-title">
+        Muchas veces no te falta más información. <strong>Te falta un camino claro.</strong>
+      </h2>
+
+      <p class="cg-clear-path-section__text">
+        Seguir buscando respuestas puede sentirse como avanzar, pero muchas veces solo posterga empezar.
+      </p>
+    </div>
+
+    <div class="cg-clear-path-section__flow">
+      <article class="cg-clear-path-step">
+        <span class="cg-clear-path-step__number">01</span>
+        <h3 class="cg-clear-path-step__title">No necesitás saber todo para arrancar</h3>
+        <p class="cg-clear-path-step__text">
+          No se trata de seguir acumulando información. Se trata de empezar con claridad.
+        </p>
+      </article>
+
+      <div class="cg-clear-path-arrow" aria-hidden="true">→</div>
+
+      <article class="cg-clear-path-step">
+        <span class="cg-clear-path-step__number">02</span>
+        <h3 class="cg-clear-path-step__title">Necesitás un buen método para accionar</h3>
+        <p class="cg-clear-path-step__text">
+          Un proceso simple para ordenar ideas, crear y pasar a la práctica.
+        </p>
+      </article>
+
+      <div class="cg-clear-path-arrow" aria-hidden="true">→</div>
+
+      <article class="cg-clear-path-step">
+        <span class="cg-clear-path-step__number">03</span>
+        <h3 class="cg-clear-path-step__title">Acá no te llevás más información</h3>
+        <p class="cg-clear-path-step__text">
+          Te llevás un método para crear, aplicar y empezar.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>

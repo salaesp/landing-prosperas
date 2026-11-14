@@ -1,0 +1,411 @@
+<section class="cg-founder-card" aria-labelledby="cg-founder-card-title">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap');
+
+    .cg-founder-card,
+    .cg-founder-card * {
+      box-sizing: border-box;
+    }
+
+    .cg-founder-card {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #f9a2c6;
+      font-family: 'Poppins', sans-serif;
+      color: #2f2525;
+      padding: 52px 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cg-founder-card__wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .cg-founder-card__visual {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      transform: rotate(-1.5deg);
+    }
+
+    .cg-founder-card__paper {
+      position: absolute;
+      inset: 14px -10px -12px 14px;
+      background: rgba(255, 255, 255, 0.48);
+      border: 1px solid rgba(154, 31, 58, 0.10);
+      border-radius: 24px;
+      transform: rotate(3deg);
+      z-index: 1;
+    }
+
+    .cg-founder-card__id {
+      position: relative;
+      z-index: 2;
+      background: #f6eef2;
+      border: 1.5px solid rgba(154, 31, 58, 0.18);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: 0 22px 44px rgba(154, 31, 58, 0.14);
+    }
+
+    .cg-founder-card__image-row {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .cg-founder-card__photo {
+      width: 100%;
+      aspect-ratio: 0.82 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .cg-founder-card__photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .cg-founder-card__label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .cg-founder-card__tiny {
+      margin: 0 0 10px;
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #9a1f3a;
+    }
+
+    .cg-founder-card__big {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 82px);
+      line-height: 0.78;
+      font-weight: 800;
+      letter-spacing: -0.09em;
+      color: #9a1f3a;
+      text-transform: uppercase;
+    }
+
+    .cg-founder-card__script {
+      display: block;
+      margin-top: 6px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(38px, 7vw, 74px);
+      line-height: 0.8;
+      letter-spacing: -0.03em;
+      color: #9a1f3a;
+      text-transform: none;
+    }
+
+    .cg-founder-card__barcode {
+      margin-top: 16px;
+      height: 44px;
+      border-radius: 8px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #9a1f3a 0 3px,
+          transparent 3px 7px,
+          #9a1f3a 7px 9px,
+          transparent 9px 14px
+        ),
+        #ffffff;
+      opacity: 0.82;
+    }
+
+    .cg-founder-card__handle {
+      margin: 12px 0 0;
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #9a1f3a;
+    }
+
+    .cg-founder-card__content {
+      width: 100%;
+      max-width: 610px;
+      margin: 0 auto;
+      background: rgba(255, 250, 248, 0.76);
+      border: 1px solid rgba(154, 31, 58, 0.12);
+      border-radius: 32px;
+      padding: 30px 22px;
+    }
+
+    .cg-founder-card__title {
+      margin: 0 0 18px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      color: #9a1f3a;
+      text-wrap: balance;
+    }
+
+    .cg-founder-card__title strong {
+      font-weight: 800;
+    }
+
+    .cg-founder-card__text {
+      display: grid;
+      gap: 13px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      line-height: 1.68;
+      font-weight: 500;
+      color: #4c3939;
+    }
+
+    .cg-founder-card__text p {
+      margin: 0;
+    }
+
+    .cg-founder-card__highlight {
+      font-weight: 800;
+      color: #9a1f3a;
+    }
+
+    .cg-founder-card__actions {
+      margin-top: 26px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .cg-founder-card__btn,
+    .cg-founder-card__btn:hover,
+    .cg-founder-card__btn:focus,
+    .cg-founder-card__btn:active,
+    .cg-founder-card__btn:visited {
+      text-decoration: none !important;
+      color: #9a1f3a !important;
+    }
+
+    .cg-founder-card__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      width: 100%;
+      max-width: 230px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: #f9a2c6;
+      border: 1px solid #f9a2c6;
+      box-shadow: 0 14px 28px rgba(154, 31, 58, 0.14);
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cg-founder-card__btn::before {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 37%,
+        rgba(255, 255, 255, 0.62) 48%,
+        rgba(255, 255, 255, 0.35) 52%,
+        transparent 64%,
+        transparent 100%
+      );
+      transform: translateX(-85%) rotate(6deg);
+      animation: cgFounderButtonShine 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .cg-founder-card__btn:hover {
+      background: #bfa9cb;
+      border-color: #bfa9cb;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(154, 31, 58, 0.18);
+    }
+
+    .cg-founder-card__btn:focus {
+      outline: 3px solid rgba(154, 31, 58, 0.22);
+      outline-offset: 3px;
+    }
+
+    @keyframes cgFounderButtonShine {
+      0%, 48% {
+        transform: translateX(-85%) rotate(6deg);
+        opacity: 0;
+      }
+
+      58% {
+        opacity: 1;
+      }
+
+      78%, 100% {
+        transform: translateX(85%) rotate(6deg);
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: 860px) {
+      .cg-founder-card {
+        padding: 68px 28px;
+      }
+
+      .cg-founder-card__wrap {
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 56px;
+      }
+
+      .cg-founder-card__visual {
+        margin: 0;
+        max-width: 470px;
+      }
+
+      .cg-founder-card__content {
+        margin: 0;
+        padding: 40px 38px;
+      }
+
+      .cg-founder-card__btn {
+        width: auto;
+        min-width: 210px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .cg-founder-card {
+        padding: 42px 14px;
+      }
+
+      .cg-founder-card__visual {
+        max-width: 100%;
+      }
+
+      .cg-founder-card__id {
+        border-radius: 22px;
+        padding: 14px;
+      }
+
+      .cg-founder-card__image-row {
+        gap: 10px;
+      }
+
+      .cg-founder-card__big {
+        font-size: clamp(36px, 14vw, 56px);
+      }
+
+      .cg-founder-card__script {
+        font-size: clamp(34px, 13vw, 54px);
+      }
+
+      .cg-founder-card__barcode {
+        height: 36px;
+      }
+
+      .cg-founder-card__content {
+        border-radius: 26px;
+        padding: 26px 17px;
+      }
+
+      .cg-founder-card__title {
+        font-size: clamp(27px, 8.2vw, 36px);
+      }
+
+      .cg-founder-card__text {
+        font-size: 14px;
+      }
+
+      .cg-founder-card__btn {
+        max-width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cg-founder-card__btn::before {
+        animation: none;
+      }
+
+      .cg-founder-card__btn {
+        transition: none;
+      }
+    }
+  </style>
+
+  <div class="cg-founder-card__wrap">
+    <div class="cg-founder-card__visual">
+      <div class="cg-founder-card__paper" aria-hidden="true"></div>
+
+      <div class="cg-founder-card__id">
+        <div class="cg-founder-card__image-row">
+          <div class="cg-founder-card__photo">
+            <img
+              src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jnqqadfm1re6gfh1ca2qnm1h0f24.png"
+              alt="Juli, creadora de Cherry Glow"
+            >
+          </div>
+
+          <div class="cg-founder-card__label">
+            <p class="cg-founder-card__tiny">✨</p>
+            <p class="cg-founder-card__big">
+              Juli
+              <span class="cg-founder-card__script">De Franco</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="cg-founder-card__barcode" aria-hidden="true"></div>
+        <p class="cg-founder-card__handle">@cherryglow.ar</p>
+      </div>
+    </div>
+
+    <div class="cg-founder-card__content">
+      <h2 class="cg-founder-card__title" id="cg-founder-card-title">
+        Hola, soy creadora de Cherry Glow y de <strong>esta academia.</strong>
+      </h2>
+
+      <div class="cg-founder-card__text">
+        <p>Después de años creando productos artesanales entendí que muchas personas no necesitan más tutoriales sueltos: necesitan aprender un proceso completo.</p>
+
+        <p>Por eso creé Academia Cherry Glow, una escuela para personas que quieren aprender un oficio y convertirlo en negocio.</p>
+
+        <p>Mi enfoque mezcla técnica, claridad y mirada emprendedora.</p>
+
+        <p class="cg-founder-card__highlight">No enseño solo a hacer productos. Te enseño a crear para vender.</p>
+      </div>
+
+      <div class="cg-founder-card__actions">
+        <a class="cg-founder-card__btn" href="https://academiacherryglow.com/page/sobre-mi">
+          Conocé mi historia
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

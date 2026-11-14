@@ -1,0 +1,303 @@
+<section class="cg-home-hero-v2" aria-labelledby="cg-home-hero-v2-title">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+    .cg-home-hero-v2,
+    .cg-home-hero-v2 * {
+      box-sizing: border-box;
+    }
+
+    .cg-home-hero-v2 {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      min-height: 650px;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f1ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px 90px;
+    }
+
+    .cg-home-hero-v2__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .cg-home-hero-v2__bg img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .cg-home-hero-v2__bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(40, 18, 16, 0.14) 0%, rgba(40, 18, 16, 0.24) 100%);
+    }
+
+    .cg-home-hero-v2__inner {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cg-home-hero-v2__card {
+      width: 100%;
+      max-width: 640px;
+      background: rgba(255, 250, 248, 0.96);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(154, 31, 58, 0.10);
+      border-radius: 32px;
+      padding: 30px 22px 28px;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(77, 23, 37, 0.14);
+      position: relative;
+    }
+
+    .cg-home-hero-v2__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #f9a2c6;
+      color: #9a1f3a;
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cg-home-hero-v2__title {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      font-weight: 500;
+      color: #9a1f3a;
+      text-wrap: balance;
+    }
+
+    .cg-home-hero-v2__title strong {
+      display: block;
+      font-weight: 800;
+    }
+
+    .cg-home-hero-v2__text {
+      max-width: 560px;
+      margin: 18px auto 0;
+      font-size: clamp(14px, 1.7vw, 16px);
+      line-height: 1.7;
+      font-weight: 500;
+      color: #4c3939;
+    }
+
+    .cg-home-hero-v2__actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .cg-home-hero-v2__btn,
+    .cg-home-hero-v2__btn:hover,
+    .cg-home-hero-v2__btn:focus,
+    .cg-home-hero-v2__btn:active,
+    .cg-home-hero-v2__btn:visited {
+      text-decoration: none !important;
+      color: #9a1f3a !important;
+    }
+
+    .cg-home-hero-v2__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      width: 100%;
+      max-width: 220px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: #f9a2c6;
+      border: 1px solid #f9a2c6;
+      box-shadow: 0 14px 28px rgba(154, 31, 58, 0.14);
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    }
+
+    .cg-home-hero-v2__btn::before {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 37%,
+        rgba(255, 255, 255, 0.62) 48%,
+        rgba(255, 255, 255, 0.35) 52%,
+        transparent 64%,
+        transparent 100%
+      );
+      transform: translateX(-85%) rotate(6deg);
+      animation: cgHomeHeroV2ButtonShine 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .cg-home-hero-v2__btn:hover {
+      background: #bfa9cb;
+      border-color: #bfa9cb;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(154, 31, 58, 0.18);
+    }
+
+    .cg-home-hero-v2__btn:focus {
+      outline: 3px solid rgba(154, 31, 58, 0.20);
+      outline-offset: 3px;
+    }
+
+    .cg-home-hero-v2__wave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      z-index: 2;
+      width: 100%;
+      line-height: 0;
+      pointer-events: none;
+    }
+
+    .cg-home-hero-v2__wave svg {
+      display: block;
+      width: 100%;
+      height: 120px;
+    }
+
+    @keyframes cgHomeHeroV2ButtonShine {
+      0%, 48% {
+        transform: translateX(-85%) rotate(6deg);
+        opacity: 0;
+      }
+
+      58% {
+        opacity: 1;
+      }
+
+      78%, 100% {
+        transform: translateX(85%) rotate(6deg);
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: 860px) {
+      .cg-home-hero-v2 {
+        padding: 62px 24px 110px;
+        min-height: 720px;
+      }
+
+      .cg-home-hero-v2__card {
+        padding: 36px 36px 34px;
+        border-radius: 36px;
+      }
+
+      .cg-home-hero-v2__btn {
+        width: auto;
+        min-width: 190px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .cg-home-hero-v2 {
+        min-height: 560px;
+        padding: 34px 12px 72px;
+      }
+
+      .cg-home-hero-v2__card {
+        border-radius: 24px;
+        padding: 24px 16px 22px;
+      }
+
+      .cg-home-hero-v2__title {
+        font-size: clamp(28px, 8.8vw, 40px);
+      }
+
+      .cg-home-hero-v2__text {
+        font-size: 14px;
+      }
+
+      .cg-home-hero-v2__btn {
+        max-width: 100%;
+      }
+
+      .cg-home-hero-v2__wave svg {
+        height: 78px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cg-home-hero-v2__btn::before {
+        animation: none;
+      }
+
+      .cg-home-hero-v2__btn {
+        transition: none;
+      }
+    }
+  </style>
+
+  <div class="cg-home-hero-v2__bg" aria-hidden="true">
+    <img
+      src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1jnb0l19h1ljv1seubvr1fii1esi28.png"
+      alt=""
+    >
+  </div>
+
+  <div class="cg-home-hero-v2__inner">
+    <div class="cg-home-hero-v2__card">
+      <div class="cg-home-hero-v2__eyebrow">Academia Cherry Glow</div>
+
+      <h1 class="cg-home-hero-v2__title" id="cg-home-hero-v2-title">
+        Aprendé un oficio.
+        <strong>Construí tu negocio.</strong>
+      </h1>
+
+      <p class="cg-home-hero-v2__text">
+        Una escuela para emprendedores artesanales donde aprenderás a crear sahumerios, piezas de yeso cerámico y velas aromáticas con un método, fórmulas probadas y enfoque emprendedor para que puedas empezar a vender.
+      </p>
+
+      <div class="cg-home-hero-v2__actions">
+        <a class="cg-home-hero-v2__btn" href="#talleres">
+          Explorar talleres
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cg-home-hero-v2__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f7f1ec" d="M0,64 C190,116 350,12 540,38 C748,66 872,138 1087,114 C1237,98 1326,48 1440,22 L1440,140 L0,140 Z"></path>
+    </svg>
+  </div>
+</section>

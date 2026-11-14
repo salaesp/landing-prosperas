@@ -1,0 +1,500 @@
+<section class="cg-home-talleres" id="talleres" aria-labelledby="cg-home-talleres-title">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+    .cg-home-talleres,
+    .cg-home-talleres * {
+      box-sizing: border-box;
+    }
+
+    .cg-home-talleres {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: #f7f1ec;
+      font-family: 'Poppins', sans-serif;
+      color: #2f2525;
+      padding: 42px 0 58px;
+      overflow: hidden;
+    }
+
+    .cg-home-talleres__head {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 18px 30px;
+      text-align: center;
+    }
+
+    .cg-home-talleres__title {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      color: #9a1f3a;
+    }
+
+    .cg-home-talleres__title strong {
+      font-weight: 800;
+    }
+
+    .cg-home-talleres__text {
+      max-width: 680px;
+      margin: 14px auto 0;
+      font-size: clamp(14px, 1.7vw, 16px);
+      line-height: 1.65;
+      font-weight: 500;
+      color: #4c3939;
+    }
+
+    .cg-home-talleres__swipe-hint {
+      display: none;
+    }
+
+    .cg-home-talleres__viewport {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 0 14px;
+    }
+
+    .cg-home-talleres__viewport::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cg-home-talleres__track {
+      display: flex;
+      align-items: stretch;
+      gap: 18px;
+      width: max-content;
+      min-width: 100%;
+      padding: 0 max(18px, calc((100vw - 1080px) / 2));
+    }
+
+    .cg-home-taller-card {
+      position: relative;
+      flex: 0 0 min(82vw, 340px);
+      min-height: 390px;
+      border-radius: 30px;
+      padding: 26px 24px 24px;
+      scroll-snap-align: start;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(154, 31, 58, 0.12);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .cg-home-taller-card:nth-child(1) {
+      background: #9a1f3a;
+      color: #fff8f3;
+    }
+
+    .cg-home-taller-card:nth-child(2) {
+      background: #f9a2c6;
+      color: #9a1f3a;
+    }
+
+    .cg-home-taller-card:nth-child(3) {
+      background: #f6eef2;
+      color: #9a1f3a;
+    }
+
+    .cg-home-taller-card:hover {
+      transform: translateY(-7px) rotate(-0.5deg);
+      box-shadow: 0 18px 34px rgba(154, 31, 58, 0.13);
+    }
+
+    .cg-home-taller-card::before {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 39%,
+        rgba(255, 255, 255, 0.24) 49%,
+        rgba(255, 255, 255, 0.12) 54%,
+        transparent 66%,
+        transparent 100%
+      );
+      transform: translateX(-90%) rotate(8deg);
+      animation: cgHomeTallerShine 6.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .cg-home-taller-card:nth-child(2)::before {
+      animation-delay: .8s;
+    }
+
+    .cg-home-taller-card:nth-child(3)::before {
+      animation-delay: 1.4s;
+    }
+
+    .cg-home-taller-card__content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cg-home-taller-card__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 34px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 10px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+      margin: 0 0 22px;
+      background: rgba(255, 255, 255, 0.18);
+      color: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+    }
+
+    .cg-home-taller-card:nth-child(2) .cg-home-taller-card__eyebrow,
+    .cg-home-taller-card:nth-child(3) .cg-home-taller-card__eyebrow {
+      background: #9a1f3a;
+      color: #ffffff;
+      border-color: #9a1f3a;
+    }
+
+    .cg-home-taller-card__title {
+      margin: 0;
+      font-size: clamp(22px, 2.6vw, 28px);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: inherit;
+    }
+
+    .cg-home-taller-card__text {
+      margin: 18px 0 0;
+      font-size: 14.5px;
+      line-height: 1.62;
+      font-weight: 500;
+      color: currentColor;
+      opacity: 0.9;
+    }
+
+    .cg-home-taller-card__actions {
+      position: relative;
+      z-index: 2;
+      margin-top: 28px;
+    }
+
+    .cg-home-taller-card__btn,
+    .cg-home-taller-card__btn:hover,
+    .cg-home-taller-card__btn:focus,
+    .cg-home-taller-card__btn:active,
+    .cg-home-taller-card__btn:visited {
+      text-decoration: none !important;
+      color: #9a1f3a !important;
+    }
+
+    .cg-home-taller-card__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      width: 100%;
+      max-width: 190px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: #f9a2c6;
+      border: 1px solid #f9a2c6;
+      box-shadow: 0 14px 28px rgba(154, 31, 58, 0.14);
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cg-home-taller-card:nth-child(1) .cg-home-taller-card__btn {
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .cg-home-taller-card__btn::before {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 37%,
+        rgba(255, 255, 255, 0.62) 48%,
+        rgba(255, 255, 255, 0.35) 52%,
+        transparent 64%,
+        transparent 100%
+      );
+      transform: translateX(-85%) rotate(6deg);
+      animation: cgHomeTallerButtonShine 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .cg-home-taller-card__btn:hover {
+      background: #bfa9cb;
+      border-color: #bfa9cb;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(154, 31, 58, 0.18);
+    }
+
+    .cg-home-taller-card__btn:focus {
+      outline: 3px solid rgba(154, 31, 58, 0.22);
+      outline-offset: 3px;
+    }
+
+    @keyframes cgHomeTallerShine {
+      0%, 54% {
+        transform: translateX(-90%) rotate(8deg);
+        opacity: 0;
+      }
+
+      64% {
+        opacity: 1;
+      }
+
+      82%, 100% {
+        transform: translateX(90%) rotate(8deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cgHomeTallerButtonShine {
+      0%, 48% {
+        transform: translateX(-85%) rotate(6deg);
+        opacity: 0;
+      }
+
+      58% {
+        opacity: 1;
+      }
+
+      78%, 100% {
+        transform: translateX(85%) rotate(6deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cgSwipeArrowLeft {
+      0%, 100% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(-5px);
+      }
+    }
+
+    @keyframes cgSwipeArrowRight {
+      0%, 100% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(5px);
+      }
+    }
+
+    @media (min-width: 760px) {
+      .cg-home-talleres {
+        padding: 54px 0 68px;
+      }
+
+      .cg-home-talleres__head {
+        padding-bottom: 36px;
+      }
+
+      .cg-home-talleres__track {
+        gap: 22px;
+      }
+
+      .cg-home-taller-card {
+        flex-basis: 350px;
+        min-height: 410px;
+        padding: 30px 28px 28px;
+      }
+
+      .cg-home-taller-card__text {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .cg-home-talleres__swipe-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: fit-content;
+        margin: -8px auto 22px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 250, 248, 0.88);
+        border: 1px solid rgba(154, 31, 58, 0.12);
+        color: #9a1f3a;
+        font-size: 11px;
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .cg-home-talleres__swipe-arrow {
+        display: inline-flex;
+        font-size: 17px;
+        line-height: 1;
+        font-weight: 800;
+      }
+
+      .cg-home-talleres__swipe-arrow--left {
+        animation: cgSwipeArrowLeft 1.4s ease-in-out infinite;
+      }
+
+      .cg-home-talleres__swipe-arrow--right {
+        animation: cgSwipeArrowRight 1.4s ease-in-out infinite;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cg-home-talleres {
+        padding: 38px 0 50px;
+      }
+
+      .cg-home-talleres__head {
+        padding-bottom: 24px;
+      }
+
+      .cg-home-talleres__title {
+        font-size: clamp(27px, 8.2vw, 36px);
+      }
+
+      .cg-home-talleres__text {
+        font-size: 14px;
+      }
+
+      .cg-home-taller-card {
+        flex-basis: 84vw;
+        min-height: 380px;
+        border-radius: 26px;
+        padding: 24px 20px 22px;
+      }
+
+      .cg-home-taller-card__text {
+        font-size: 14px;
+      }
+
+      .cg-home-taller-card__btn {
+        max-width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cg-home-taller-card,
+      .cg-home-taller-card::before,
+      .cg-home-taller-card__btn::before,
+      .cg-home-talleres__swipe-arrow {
+        animation: none;
+        transition: none;
+      }
+    }
+  </style>
+
+  <div class="cg-home-talleres__head">
+    <h2 class="cg-home-talleres__title" id="cg-home-talleres-title">
+      Elegí por dónde <strong>empezar</strong>
+    </h2>
+
+    <p class="cg-home-talleres__text">
+      Empezá con el taller que mejor se adapte a tu momento. Aprendé un oficio artesanal con método, fórmulas claras y enfoque emprendedor para crear productos que puedas vender.
+    </p>
+  </div>
+
+  <div class="cg-home-talleres__swipe-hint" aria-hidden="true">
+    <span class="cg-home-talleres__swipe-arrow cg-home-talleres__swipe-arrow--left">←</span>
+    <span>Deslizá</span>
+    <span class="cg-home-talleres__swipe-arrow cg-home-talleres__swipe-arrow--right">→</span>
+  </div>
+
+  <div class="cg-home-talleres__viewport" aria-label="Talleres disponibles">
+    <div class="cg-home-talleres__track">
+
+      <article class="cg-home-taller-card">
+        <div class="cg-home-taller-card__content">
+          <p class="cg-home-taller-card__eyebrow">Sahumerios artesanales de Cherry Glow</p>
+
+          <h3 class="cg-home-taller-card__title">
+            Taller de sahumerios para emprender
+          </h3>
+
+          <p class="cg-home-taller-card__text">
+            Creá sahumerios artesanales que realmente duren, aromaticen el ambiente y tus clientes vuelvan una y otra vez a comprarte.
+          </p>
+        </div>
+
+        <div class="cg-home-taller-card__actions">
+          <a class="cg-home-taller-card__btn" href="https://academiacherryglow.com/page/landing-sahumerios">
+            Ver taller
+          </a>
+        </div>
+      </article>
+
+      <article class="cg-home-taller-card">
+        <div class="cg-home-taller-card__content">
+          <p class="cg-home-taller-card__eyebrow">Velas en recipientes, yeso y souvenirs</p>
+
+          <h3 class="cg-home-taller-card__title">
+            Curso intensivo para crear tu negocio
+          </h3>
+
+          <p class="cg-home-taller-card__text">
+            Todo lo que necesitás para empezar tu emprendimiento: yeso cerámico, velas en recipiente, souvenirs, costos, organización y ventas.
+          </p>
+        </div>
+
+        <div class="cg-home-taller-card__actions">
+          <a class="cg-home-taller-card__btn" href="https://academiacherryglow.com/page/landing-yesos">
+            Ver curso
+          </a>
+        </div>
+      </article>
+
+      <article class="cg-home-taller-card">
+        <div class="cg-home-taller-card__content">
+          <p class="cg-home-taller-card__eyebrow">Maquillaje natural</p>
+
+          <h3 class="cg-home-taller-card__title">
+            Ebook: Creá tu marca de maquillaje natural
+          </h3>
+
+          <p class="cg-home-taller-card__text">
+            Aprendé a formular lip balms, lip oils, iluminadores, rubores y mucho más utilizando ingredientes naturales, sin improvisar recetas y aunque hoy no tengas conocimientos de cosmética.
+          </p>
+        </div>
+
+        <div class="cg-home-taller-card__actions">
+          <a class="cg-home-taller-card__btn" href="https://academiacherryglow.com/page/crea-tu-marca-de-maquillaje-natural">
+            Ver ebook
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
