@@ -204,3 +204,4 @@ html{scroll-behavior:smooth}
 .pr .ae-pinc .ae-kicker2{margin-top:0}
 @media(max-width:820px){.pr .ae-pcard{grid-template-columns:1fr}}
 .pr .ae-price .ae-pinc .ae-kicker2{color:var(--cherry)}
+.pr .pr-tx.ae-pink{background:#fbd0e2}
