@@ -93,3 +93,23 @@
 .pr .ev-sig svg{width:100%;height:auto;display:block;fill:currentColor}
 .pr .ev-btns .pr-btn.line{background:transparent;border-color:var(--cream);color:var(--cream)!important}
 .pr .ev-btns .pr-btn.line:hover{background:var(--cream);color:var(--cherry)!important}
+
+/* ---- el precio a la vista desde antes de llegar a la sección (como en Prósperas) ---- */
+.pr .ev-hero .pr-from{margin:18px 0 0;font-size:15px}
+.pr .ev-hero .pr-from b{color:var(--yellow)}
+.pr .ev-hero .ev-note{margin-top:6px}
+.pr .ev-cta{display:flex;justify-content:center;margin-top:36px}
+.pr .ev-cta-l{margin-top:26px}
+/* botón flotante: se muestra con animaciones atadas al scroll (sin JavaScript, Tiendup no lo ejecuta) */
+.ev{timeline-scope:--ev-hero,--ev-pay,--ev-end}
+.pr .ev-hero{view-timeline-name:--ev-hero}
+.pr .ev-price{view-timeline-name:--ev-pay}
+.pr .ev-end{view-timeline-name:--ev-end}
+.pr .ev-fab{opacity:1;visibility:visible;transform:none;transition:none}
+@supports (animation-timeline:view()) and (timeline-scope:none){
+  .pr .ev-fab{animation:ev-fab-in linear both,ev-fab-pay linear both,ev-fab-end linear both;
+    animation-timeline:--ev-hero,--ev-pay,--ev-end;animation-range:exit 40% exit 100%,cover 0% cover 100%,entry 0% entry 100%}
+}
+@keyframes ev-fab-in{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+@keyframes ev-fab-pay{0%,100%{transform:none}10%,90%{transform:translateY(calc(100% + 60px))}}
+@keyframes ev-fab-end{0%{translate:0 0}40%,100%{translate:0 calc(100% + 60px)}}

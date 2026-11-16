@@ -1407,6 +1407,26 @@ html{scroll-behavior:smooth}
 .pr .ev-btns .pr-btn.line{background:transparent;border-color:var(--cream);color:var(--cream)!important}
 .pr .ev-btns .pr-btn.line:hover{background:var(--cream);color:var(--cherry)!important}
 
+/* ---- el precio a la vista desde antes de llegar a la sección (como en Prósperas) ---- */
+.pr .ev-hero .pr-from{margin:18px 0 0;font-size:15px}
+.pr .ev-hero .pr-from b{color:var(--yellow)}
+.pr .ev-hero .ev-note{margin-top:6px}
+.pr .ev-cta{display:flex;justify-content:center;margin-top:36px}
+.pr .ev-cta-l{margin-top:26px}
+/* botón flotante: se muestra con animaciones atadas al scroll (sin JavaScript, Tiendup no lo ejecuta) */
+.ev{timeline-scope:--ev-hero,--ev-pay,--ev-end}
+.pr .ev-hero{view-timeline-name:--ev-hero}
+.pr .ev-price{view-timeline-name:--ev-pay}
+.pr .ev-end{view-timeline-name:--ev-end}
+.pr .ev-fab{opacity:1;visibility:visible;transform:none;transition:none}
+@supports (animation-timeline:view()) and (timeline-scope:none){
+  .pr .ev-fab{animation:ev-fab-in linear both,ev-fab-pay linear both,ev-fab-end linear both;
+    animation-timeline:--ev-hero,--ev-pay,--ev-end;animation-range:exit 40% exit 100%,cover 0% cover 100%,entry 0% entry 100%}
+}
+@keyframes ev-fab-in{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+@keyframes ev-fab-pay{0%,100%{transform:none}10%,90%{transform:translateY(calc(100% + 60px))}}
+@keyframes ev-fab-end{0%{translate:0 0}40%,100%{translate:0 calc(100% + 60px)}}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1416,7 +1436,7 @@ html{scroll-behavior:smooth}
 
 <div class="pr ae ci ev" id="ebook-velas">
 
-  <div class="pr-top">Pack digital · 2 ebooks y calculadora de precios · Aprendé a tu ritmo</div>
+  <a class="pr-top" href="#comprar">Pack digital · Precio de lanzamiento $24.900 ARS <s>$32.000</s> <span aria-hidden="true">→</span></a>
 
   <!-- HERO: título en letra viva sobre rayas cereza + foto en marco con chatcitos y sello -->
   <header class="ev-hero ev-stripes">
@@ -1428,6 +1448,7 @@ html{scroll-behavior:smooth}
         <p class="lead">En este pack digital vas a encontrar mis recetas, técnicas y explicaciones paso a paso para crear velas en recipiente, de molde, wax melts y velas postre. Y si tu idea es emprender, también vas a tener una guía para organizar tus primeros pasos, calcular tus costos y aprender a ponerles precio a tus productos.</p>
         <p class="lead"><b>2 ebooks + calculadora de precios.</b></p>
         <div class="ev-btns"><a class="pr-btn cream" href="#comprar">Quiero mi pack de velas</a><a class="pr-btn line" href="#incluye">Ver qué incluye</a></div>
+        <p class="pr-from">Precio de lanzamiento <b>$24.900 ARS</b> · después <s>$32.000</s></p>
         <p class="ev-note">Acceso digital · Aprendé a tu ritmo · No necesitás experiencia previa</p>
       </div>
       <div class="ev-hero-ph">
@@ -1527,6 +1548,7 @@ html{scroll-behavior:smooth}
         </ul>
         <p class="cg-incl-foot">La idea no es que memorices una receta. Es que entiendas el proceso para poder repetirlo, probar y ajustar cuando sea necesario.</p>
       </div>
+      <div class="ev-cta"><a class="pr-btn" href="#comprar">Quiero mi pack · $24.900</a></div>
     </div>
   </section>
 
@@ -1547,6 +1569,7 @@ html{scroll-behavior:smooth}
         <li><b>Cómo crear colecciones por temporada</b>Ideas y aromas de referencia para distintas épocas del año.</li>
       </ul>
       <p class="ae-hl">No vas a encontrar promesas de cuánto dinero podés ganar. Vas a encontrar <b>cuentas, ejemplos y herramientas</b> para empezar a construir tu emprendimiento con más claridad.</p>
+      <div class="ev-cta-l"><a class="pr-btn" href="#comprar">Ver el precio del pack</a></div>
     </div>
   </section>
 
@@ -1566,26 +1589,6 @@ html{scroll-behavior:smooth}
           <p>Con la calculadora vas a poder organizar los números de tus productos y utilizar esa información para trabajar tus precios. Porque vender una vela y saber cuánto te cuesta fabricarla no son lo mismo.</p>
           <p class="ae-hl">Menos cuentas a ojo. <b>Más información para decidir.</b></p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUIÉN TE ACOMPAÑA: Juli en arco sobre bordó -->
-  <section class="pr-mine2 pr-who2">
-    <div class="pr-wrap pr-mine2-in">
-      <div class="pr-arch">
-        <!-- PENDIENTE: la foto pensada era cierre-taller.jpg (Juli en su taller). Mientras tanto va la de Juli con su tablet. -->
-        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu9bbm1t831vb21kg81gmd1tjkb0.png" alt="Juli de Franco trabajando con su tablet" loading="lazy" width="1144" height="1530" style="object-position:50% 20%">
-        <span class="pr-chat pk r c1" aria-hidden="true">Hola, soy Juli</span>
-      </div>
-      <div class="pr-mine2-tx">
-        <span class="lbl">Quién te acompaña</span>
-        <h2>Creadora de Cherry Glow y <b>Academia Cherry Glow.</b></h2>
-        <p class="pr-who2-p">Empecé a hacer velas cuando tenía 14 años y, aunque pasaron muchas cosas desde entonces, hoy siguen siendo parte de los productos que fabrico en mi taller.</p>
-        <p class="pr-who2-p">En todos estos años probé materiales, cambié fórmulas, cometí errores y aprendí algo importante: no alcanza con seguir una receta si no entendés qué estás haciendo. Por eso me gusta enseñar no solamente el paso a paso, sino también el motivo detrás de cada decisión.</p>
-        <p class="pr-who2-p">Este pack nace con una idea muy simple: que puedas acceder a mis conocimientos sobre fabricación de velas y, si querés empezar a venderlas, también tengas herramientas para dar ese primer paso. Sin necesidad de invertir desde el comienzo en una formación más grande.</p>
-        <p class="it">Ya son más de 400 alumnas y alumnos en la Academia.</p>
-        <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
       </div>
     </div>
   </section>
@@ -1628,6 +1631,26 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
+  <!-- QUIÉN TE ACOMPAÑA: Juli en arco sobre bordó -->
+  <section class="pr-mine2 pr-who2">
+    <div class="pr-wrap pr-mine2-in">
+      <div class="pr-arch">
+        <!-- PENDIENTE: la foto pensada era cierre-taller.jpg (Juli en su taller). Mientras tanto va la de Juli con su tablet. -->
+        <img src="https://d3ekkp2oigezer.cloudfront.net/business/81221/themes/lite/assets/img/o_1k7cu9bbm1t831vb21kg81gmd1tjkb0.png" alt="Juli de Franco trabajando con su tablet" loading="lazy" width="1144" height="1530" style="object-position:50% 20%">
+        <span class="pr-chat pk r c1" aria-hidden="true">Hola, soy Juli</span>
+      </div>
+      <div class="pr-mine2-tx">
+        <span class="lbl">Quién te acompaña</span>
+        <h2>Creadora de Cherry Glow y <b>Academia Cherry Glow.</b></h2>
+        <p class="pr-who2-p">Empecé a hacer velas cuando tenía 14 años y, aunque pasaron muchas cosas desde entonces, hoy siguen siendo parte de los productos que fabrico en mi taller.</p>
+        <p class="pr-who2-p">En todos estos años probé materiales, cambié fórmulas, cometí errores y aprendí algo importante: no alcanza con seguir una receta si no entendés qué estás haciendo. Por eso me gusta enseñar no solamente el paso a paso, sino también el motivo detrás de cada decisión.</p>
+        <p class="pr-who2-p">Este pack nace con una idea muy simple: que puedas acceder a mis conocimientos sobre fabricación de velas y, si querés empezar a venderlas, también tengas herramientas para dar ese primer paso. Sin necesidad de invertir desde el comienzo en una formación más grande.</p>
+        <p class="it">Ya son más de 400 alumnas y alumnos en la Academia.</p>
+        <div class="pr-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
+      </div>
+    </div>
+  </section>
+
   <!-- PREGUNTAS FRECUENTES -->
   <section class="pr-sec pr-faqsec ev-c">
     <div class="pr-wrap">
@@ -1657,5 +1680,9 @@ html{scroll-behavior:smooth}
       <div class="pr-sig ev-sig"><svg viewBox="0 0 377.85 60.91" role="img" aria-label="By Juli de Franco"><use href="#pr-l-sig"/></svg></div>
     </div>
   </section>
+
+  <!-- BOTÓN FLOTANTE CON EL PRECIO (como el de Prósperas, pero sin JavaScript): aparece al salir del hero
+       y se esconde mientras se ven el precio y el cierre. En navegadores sin animaciones por scroll queda siempre visible. -->
+  <a class="pr-fab ev-fab" href="#comprar" aria-label="Ver el precio del pack de velas"><span class="pr-fab-t">Precio de lanzamiento · <b>$24.900</b></span><span class="pr-fab-b">Ver precio →</span></a>
 
 </div>
