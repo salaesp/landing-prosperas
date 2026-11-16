@@ -39,7 +39,7 @@ python3 ebook-velas/src/armar.py
 - `sahumerios/src/estilos.css`: estilos propios del taller de sahumerios (usa también los de Prósperas, ARTEMPRESARIAS e inicio). Su `armar.py` genera la pila de testimonios.
 - `velas-yeso/src/estilos.css`: estilos propios del curso de velas y yeso (color base: el celeste de la portada). Usa también los de Prósperas, ARTEMPRESARIAS, inicio y `design-system/src/nuevos.css`.
 - `maquillaje-natural/src/estilos.css`: estilos propios del ebook de maquillaje natural (color base: el rosa de la portada, con el amarillo del título). Usa los mismos CSS compartidos que velas y yeso.
-- `ebook-velas/src/estilos.css`: estilos propios del pack de velas (rayas cereza en el hero, celeste de acento). Usa los mismos CSS compartidos que velas y yeso.
+- `ebook-velas/src/estilos.css`: estilos propios del pack de velas (color base: el celeste, en rayas en el hero y el precio, con el cereza de acento). Usa los mismos CSS compartidos que velas y yeso.
 - `sahumerios/original/`: las secciones del taller como estaban en Tiendup (solo de referencia).
 - `inicio/original/`: las secciones del inicio como estaban en Tiendup antes de pasarlo a git (solo de referencia).
 - `prosperas/assets/`: imágenes de las aulas y estrellitas; se incrustan dentro del `index.html`.
