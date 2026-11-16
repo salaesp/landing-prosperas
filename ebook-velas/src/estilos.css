@@ -69,12 +69,11 @@
 .pr .ev-rows li{font-size:15px}
 .pr .ev-rows li b{display:block;font-family:'Noto Serif',serif;font-weight:400;font-size:18px;line-height:1.3;color:var(--wine);margin-bottom:2px}
 
-/* ---- 03 y 04 · dos herramientas, de a dos ---- */
-.pr .ev-tools .ae-grid{grid-template-columns:1fr 1fr;align-items:start}
+/* ---- 03 · calculadora de precios: una sola tarjeta, centrada ---- */
+.pr .ev-tools .ae-grid{grid-template-columns:1fr;max-width:680px;margin:0 auto}
 .pr .ev-tools .ae-area{grid-column:auto}
 .pr .ev-tools .ae-area .q{margin-bottom:14px}
 .pr .ev-tools .ae-hl{font-size:clamp(17px,1.6vw,20px);margin-top:18px}
-@media(max-width:700px){.pr .ev-tools .ae-grid{grid-template-columns:1fr}}
 
 /* ---- para quién es ---- */
 .pr .ev-fit .pr-head .lbl{margin-bottom:0}

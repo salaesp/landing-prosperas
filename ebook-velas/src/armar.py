@@ -1,4 +1,4 @@
-"""Arma ebook-velas/index.html (Pack de velas: 2 ebooks, calculadora de precios y recursos de IA).
+"""Arma ebook-velas/index.html (Pack de velas: 2 ebooks y calculadora de precios).
 
 Reutiliza de ../prosperas el CSS base, los logos SVG (firma "By Juli de Franco")
 y los componentes compartidos (src/nuevo.css), los de ../artempresarias y ../inicio (src/estilos.css),
@@ -36,7 +36,7 @@ shared = (pros / "src/nuevo.css").read_text(encoding="utf-8")
 shared = re.sub(r"url\(assets/[^)]+\)", "none", shared)
 
 header = """<!-- ============================================================
-  PACK DE VELAS · EBOOKS + CALCULADORA + IA · Cherry Glow by Juli de Franco
+  PACK DE VELAS · EBOOKS + CALCULADORA · Cherry Glow by Juli de Franco
   Pegar completo en un bloque HTML de Tiendup. No usa JavaScript.
   Los comentarios REVISAR y PENDIENTE marcan cosas para confirmar o completar.
 ============================================================ -->"""

@@ -10,7 +10,7 @@ Cada landing tiene su carpeta. El archivo para pegar en el bloque HTML de Tiendu
 | `sahumerios/` | Taller de sahumerios para emprender | `sahumerios/index.html` |
 | `velas-yeso/` | Velas, yeso y souvenirs: creá tu negocio (curso online) | `velas-yeso/index.html` |
 | `maquillaje-natural/` | Ebook: creá tu marca de maquillaje natural | `maquillaje-natural/index.html` |
-| `ebook-velas/` | Pack de velas: 2 ebooks, calculadora de precios y recursos de IA | `ebook-velas/index.html` |
+| `ebook-velas/` | Pack de velas: 2 ebooks y calculadora de precios | `ebook-velas/index.html` |
 
 ## Design system
 
