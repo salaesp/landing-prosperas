@@ -1419,6 +1419,15 @@ html{scroll-behavior:smooth}
 .pr .ev-price{view-timeline-name:--ev-pay}
 .pr .ev-end{view-timeline-name:--ev-end}
 .pr .ev-fab{opacity:1;visibility:visible;transform:none;transition:none}
+/* la burbuja de WhatsApp de Tiendup está abajo a la derecha: el botón va abajo a la izquierda y en celular le deja lugar */
+.pr .ev-fab{left:max(22px,env(safe-area-inset-left,0px));right:auto}
+.pr .ev-fab-u{display:none}
+@media(max-width:620px){
+  .pr .ev-fab{left:12px;right:92px;bottom:calc(16px + env(safe-area-inset-bottom,0px));border-radius:999px;gap:10px;padding:8px 8px 8px 18px;font-size:14px}
+  .pr .ev-fab-k{display:none}
+  .pr .ev-fab-u{display:inline}
+  .pr .ev-fab .pr-fab-b{padding:9px 14px;font-size:12px}
+}
 @supports (animation-timeline:view()) and (timeline-scope:none){
   .pr .ev-fab{animation:ev-fab-in linear both,ev-fab-pay linear both,ev-fab-end linear both;
     animation-timeline:--ev-hero,--ev-pay,--ev-end;animation-range:exit 40% exit 100%,cover 0% cover 100%,entry 0% entry 100%}
@@ -1682,7 +1691,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- BOTÓN FLOTANTE CON EL PRECIO (como el de Prósperas, pero sin JavaScript): aparece al salir del hero
-       y se esconde mientras se ven el precio y el cierre. En navegadores sin animaciones por scroll queda siempre visible. -->
-  <a class="pr-fab ev-fab" href="#comprar" aria-label="Ver el precio del pack de velas"><span class="pr-fab-t">Precio de lanzamiento · <b>$24.900</b></span><span class="pr-fab-b">Ver precio →</span></a>
+       y se esconde mientras se ven el precio y el cierre. Va a la izquierda para no pisar la burbuja de WhatsApp de Tiendup. En navegadores sin animaciones por scroll queda siempre visible. -->
+  <a class="pr-fab ev-fab" href="#comprar" aria-label="Ver el precio del pack de velas"><span class="pr-fab-t"><span class="ev-fab-k">Precio de lanzamiento · </span><b>$24.900</b><span class="ev-fab-u"> ARS</span></span><span class="pr-fab-b">Ver precio →</span></a>
 
 </div>
