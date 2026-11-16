@@ -461,15 +461,15 @@ html{scroll-behavior:smooth}
 #pr-t0:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
 #pr-t0:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t0:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
-#pr-t0:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
-#pr-t0:checked~.pr-tstack .pr-tc:nth-child(10){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#pr-t0:checked~.pr-tstack .pr-tc:nth-child(8){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#pr-t0:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t0:focus-visible~.pr-tstack .pr-tc:nth-child(1){outline:3px solid var(--cherry);outline-offset:4px}
 #pr-t1:checked~.pr-tnavs .pk1{display:grid}
 #pr-t1:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t1:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
 #pr-t1:checked~.pr-tstack .pr-tc:nth-child(3){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t1:checked~.pr-tstack .pr-tc:nth-child(4){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
-#pr-t1:checked~.pr-tstack .pr-tc:nth-child(10){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#pr-t1:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t1:focus-visible~.pr-tstack .pr-tc:nth-child(2){outline:3px solid var(--cherry);outline-offset:4px}
 #pr-t2:checked~.pr-tnavs .pk2{display:grid}
 #pr-t2:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
@@ -507,23 +507,16 @@ html{scroll-behavior:smooth}
 #pr-t6:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t6:focus-visible~.pr-tstack .pr-tc:nth-child(7){outline:3px solid var(--cherry);outline-offset:4px}
 #pr-t7:checked~.pr-tnavs .pk7{display:grid}
+#pr-t7:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t7:checked~.pr-tstack .pr-tc:nth-child(6){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t7:checked~.pr-tstack .pr-tc:nth-child(7){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t7:checked~.pr-tstack .pr-tc:nth-child(8){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
 #pr-t7:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
-#pr-t7:checked~.pr-tstack .pr-tc:nth-child(10){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t7:focus-visible~.pr-tstack .pr-tc:nth-child(8){outline:3px solid var(--cherry);outline-offset:4px}
 #pr-t8:checked~.pr-tnavs .pk8{display:grid}
-#pr-t8:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
+#pr-t8:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
+#pr-t8:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t8:checked~.pr-tstack .pr-tc:nth-child(7){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
 #pr-t8:checked~.pr-tstack .pr-tc:nth-child(8){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t8:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
-#pr-t8:checked~.pr-tstack .pr-tc:nth-child(10){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
 #pr-t8:focus-visible~.pr-tstack .pr-tc:nth-child(9){outline:3px solid var(--cherry);outline-offset:4px}
-#pr-t9:checked~.pr-tnavs .pk9{display:grid}
-#pr-t9:checked~.pr-tstack .pr-tc:nth-child(1){transform:translate(-50%,-50%) translateX(calc(var(--g) * 1)) scale(0.84) rotate(3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
-#pr-t9:checked~.pr-tstack .pr-tc:nth-child(2){transform:translate(-50%,-50%) translateX(calc(var(--g) * 2)) scale(0.7) rotate(6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
-#pr-t9:checked~.pr-tstack .pr-tc:nth-child(8){transform:translate(-50%,-50%) translateX(calc(var(--g) * -2)) scale(0.7) rotate(-6deg);z-index:18;filter:blur(5.0px) saturate(.4);opacity:0.5;pointer-events:auto;cursor:pointer}
-#pr-t9:checked~.pr-tstack .pr-tc:nth-child(9){transform:translate(-50%,-50%) translateX(calc(var(--g) * -1)) scale(0.84) rotate(-3deg);z-index:19;filter:blur(2.5px) saturate(.4);opacity:0.85;pointer-events:auto;cursor:pointer}
-#pr-t9:checked~.pr-tstack .pr-tc:nth-child(10){transform:translate(-50%,-50%) translateX(calc(var(--g) * 0)) scale(1) rotate(0deg);z-index:20;filter:none;opacity:1;pointer-events:auto;cursor:default}
-#pr-t9:focus-visible~.pr-tstack .pr-tc:nth-child(10){outline:3px solid var(--cherry);outline-offset:4px}
