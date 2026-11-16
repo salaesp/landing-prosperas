@@ -76,9 +76,6 @@
 .pr .ev-tools .ae-area .q{margin-bottom:14px}
 .pr .ev-tools .ae-hl{font-size:clamp(17px,1.6vw,20px);margin-top:18px}
 
-/* ---- para quién es ---- */
-.pr .ev-fit .pr-head .lbl{margin-bottom:0}
-
 /* ---- precio ---- */
 .pr .ev-price .ae-pcard{grid-template-columns:.95fr 1.05fr}
 .pr .ev-old{display:block;margin-top:20px;font-size:16px;font-weight:600;color:var(--wine);opacity:.55}
