@@ -1390,19 +1390,23 @@ html{scroll-behavior:smooth}
 .pr .ev-tools .ae-hl{font-size:clamp(17px,1.6vw,20px);margin-top:18px}
 
 /* ---- precio ---- */
-.pr .ev-price .ae-pcard{grid-template-columns:.95fr 1.05fr}
+.pr .ev-cur{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto}
+.pr .ev-cc{justify-content:flex-start;border-radius:30px;box-shadow:0 22px 44px rgba(90,14,34,.28);color:var(--wine)}
+.pr .ev-cc.usd .ae-pval{color:var(--wine)}
+.pr .ev-cc.usd .ae-pnote{background:var(--wine)}
+.pr .ev-cc.usd .pr-btn{background:var(--wine);border-color:var(--wine)}
+.pr .ev-cc.usd .pr-btn:hover{background:var(--cherry);border-color:var(--cherry)}
 .pr .ev-old{display:block;margin-top:20px;font-size:16px;font-weight:600;color:var(--wine);opacity:.55}
 .pr .ev-price .ae-pval{margin-top:4px}
+.pr .ev-cc.usd .ae-pval{margin-top:22px}
 .pr .ev-price .ae-pval small{font-size:.42em;letter-spacing:.06em}
-.pr .ev-usd{font-size:17px;font-weight:600;color:var(--wine);margin:0 0 6px}
-.pr .ev-usd b{font-family:'Noto Serif',serif;font-size:1.35em;color:var(--cherry)}
-.pr .ev-usd small{font-size:.75em;letter-spacing:.06em}
-.pr .ev-price .ae-pmain .pr-btn{margin-top:0}
+.pr .ev-price .ae-pmain .pr-btn{margin-top:auto}
+.pr .ev-incbox{max-width:860px;margin:24px auto 0;background:var(--cream);color:var(--wine);border-radius:30px;box-shadow:0 22px 44px rgba(90,14,34,.28)}
 .pr .ev-inc{gap:16px}
 .pr .ev-inc li{font-size:15px;line-height:1.5}
 .pr .ev-inc li b{display:block;font-family:'Noto Serif',serif;font-weight:400;font-size:18px;line-height:1.3;color:var(--wine);margin-bottom:2px}
 .pr .ev-micro{text-align:center;margin:26px auto 0;font-size:14px;opacity:.9}
-@media(max-width:760px){.pr .ev-price .ae-pcard{grid-template-columns:1fr}}
+@media(max-width:700px){.pr .ev-cur{grid-template-columns:1fr;max-width:440px}}
 
 /* ---- cierre: firma en vez del logo de Prósperas ---- */
 .pr .ev-sig{width:min(170px,50%);margin:40px 0 0;color:var(--cherry)}
@@ -1620,24 +1624,31 @@ html{scroll-behavior:smooth}
         <span class="lbl">Todo en un solo pack</span>
         <h2>Todo lo que necesitás para empezar a aprender sobre velas, <b>en un solo pack.</b></h2>
       </div>
-      <div class="ae-pcard">
-        <div class="ae-pmain">
-          <span class="ae-pname">Pack de velas</span>
-          <span class="ae-pdur">2 ebooks + calculadora de precios</span>
+      <!-- Un bloque por moneda (el link es el mismo) -->
+      <div class="ev-cur">
+        <div class="ae-pmain ev-cc">
+          <span class="ae-pname">Pagás en pesos</span>
+          <span class="ae-pdur">Desde Argentina</span>
           <s class="ev-old">Después: $32.000 ARS</s>
           <div class="ae-pval">$24.900 <small>ARS</small></div>
-          <div class="ev-usd">Desde otro país: <b>US$11,90</b> <small>USD</small></div>
           <span class="ae-pnote">Precio de lanzamiento</span>
-          <a class="pr-btn" href="https://academiacherryglow.com/p/ebook-velas-de-soja-desde-cero">Quiero empezar a hacer velas</a>
+          <a class="pr-btn" href="https://academiacherryglow.com/p/ebook-velas-de-soja-desde-cero">Pagar en pesos</a>
         </div>
-        <div class="ae-pinc">
-          <p class="ae-kicker2">Con tu compra recibís</p>
-          <ul class="ae-checks ev-inc">
-            <li><b>Ebook de fabricación de velas</b>Recetas, técnicas, proporciones, explicaciones y recomendaciones para fabricar cinco tipos de productos con cera.</li>
-            <li><b>Ebook para crear tu emprendimiento</b>Una guía práctica para organizar tus primeros pasos, conocer distintos tipos de negocios, calcular costos y pensar tus productos para vender.</li>
-            <li><b>Calculadora de precios</b>Una herramienta para trabajar los números de tus velas.</li>
-          </ul>
+        <div class="ae-pmain ev-cc usd">
+          <span class="ae-pname">Pagás en dólares</span>
+          <span class="ae-pdur">Desde otro país</span>
+          <div class="ae-pval">US$11,90 <small>USD</small></div>
+          <span class="ae-pnote">Precio de lanzamiento</span>
+          <a class="pr-btn" href="https://academiacherryglow.com/p/ebook-velas-de-soja-desde-cero">Pagar en dólares</a>
         </div>
+      </div>
+      <div class="ae-pinc ev-incbox">
+        <p class="ae-kicker2">Con tu compra recibís</p>
+        <ul class="ae-checks ev-inc">
+          <li><b>Ebook de fabricación de velas</b>Recetas, técnicas, proporciones, explicaciones y recomendaciones para fabricar cinco tipos de productos con cera.</li>
+          <li><b>Ebook para crear tu emprendimiento</b>Una guía práctica para organizar tus primeros pasos, conocer distintos tipos de negocios, calcular costos y pensar tus productos para vender.</li>
+          <li><b>Calculadora de precios</b>Una herramienta para trabajar los números de tus velas.</li>
+        </ul>
       </div>
       <p class="ev-micro">Acceso digital · Aprendé a tu ritmo · No necesitás experiencia previa</p>
     </div>

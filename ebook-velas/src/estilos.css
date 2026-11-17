@@ -77,19 +77,23 @@
 .pr .ev-tools .ae-hl{font-size:clamp(17px,1.6vw,20px);margin-top:18px}
 
 /* ---- precio ---- */
-.pr .ev-price .ae-pcard{grid-template-columns:.95fr 1.05fr}
+.pr .ev-cur{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto}
+.pr .ev-cc{justify-content:flex-start;border-radius:30px;box-shadow:0 22px 44px rgba(90,14,34,.28);color:var(--wine)}
+.pr .ev-cc.usd .ae-pval{color:var(--wine)}
+.pr .ev-cc.usd .ae-pnote{background:var(--wine)}
+.pr .ev-cc.usd .pr-btn{background:var(--wine);border-color:var(--wine)}
+.pr .ev-cc.usd .pr-btn:hover{background:var(--cherry);border-color:var(--cherry)}
 .pr .ev-old{display:block;margin-top:20px;font-size:16px;font-weight:600;color:var(--wine);opacity:.55}
 .pr .ev-price .ae-pval{margin-top:4px}
+.pr .ev-cc.usd .ae-pval{margin-top:22px}
 .pr .ev-price .ae-pval small{font-size:.42em;letter-spacing:.06em}
-.pr .ev-usd{font-size:17px;font-weight:600;color:var(--wine);margin:0 0 6px}
-.pr .ev-usd b{font-family:'Noto Serif',serif;font-size:1.35em;color:var(--cherry)}
-.pr .ev-usd small{font-size:.75em;letter-spacing:.06em}
-.pr .ev-price .ae-pmain .pr-btn{margin-top:0}
+.pr .ev-price .ae-pmain .pr-btn{margin-top:auto}
+.pr .ev-incbox{max-width:860px;margin:24px auto 0;background:var(--cream);color:var(--wine);border-radius:30px;box-shadow:0 22px 44px rgba(90,14,34,.28)}
 .pr .ev-inc{gap:16px}
 .pr .ev-inc li{font-size:15px;line-height:1.5}
 .pr .ev-inc li b{display:block;font-family:'Noto Serif',serif;font-weight:400;font-size:18px;line-height:1.3;color:var(--wine);margin-bottom:2px}
 .pr .ev-micro{text-align:center;margin:26px auto 0;font-size:14px;opacity:.9}
-@media(max-width:760px){.pr .ev-price .ae-pcard{grid-template-columns:1fr}}
+@media(max-width:700px){.pr .ev-cur{grid-template-columns:1fr;max-width:440px}}
 
 /* ---- cierre: firma en vez del logo de Prósperas ---- */
 .pr .ev-sig{width:min(170px,50%);margin:40px 0 0;color:var(--cherry)}
