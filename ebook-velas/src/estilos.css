@@ -81,6 +81,9 @@
 .pr .ev-old{display:block;margin-top:20px;font-size:16px;font-weight:600;color:var(--wine);opacity:.55}
 .pr .ev-price .ae-pval{margin-top:4px}
 .pr .ev-price .ae-pval small{font-size:.42em;letter-spacing:.06em}
+.pr .ev-usd{font-size:17px;font-weight:600;color:var(--wine);margin:0 0 6px}
+.pr .ev-usd b{font-family:'Noto Serif',serif;font-size:1.35em;color:var(--cherry)}
+.pr .ev-usd small{font-size:.75em;letter-spacing:.06em}
 .pr .ev-price .ae-pmain .pr-btn{margin-top:0}
 .pr .ev-inc{gap:16px}
 .pr .ev-inc li{font-size:15px;line-height:1.5}
